@@ -2,18 +2,17 @@ import Link from "next/link";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { Button, type ButtonVariant } from "@/components/own/button";
 import { ThemeToggle } from "@/components/shared/theme-toggle";
+import { ButtonAnatomy, ButtonApiReference } from "./api-reference";
 
 interface SectionProps {
   title: string;
-  description: string;
-  propCode?: string;
+  description: React.ReactNode;
   children: React.ReactNode;
 }
 
 function ShowcaseSection({
   title,
   description,
-  propCode,
   children,
 }: SectionProps) {
   return (
@@ -21,12 +20,7 @@ function ShowcaseSection({
       <div>
         <h2 className="h3 text-gray-bold font-heading">{title}</h2>
         <p className="body-sm text-gray-bold/75 mt-1">
-          {description}{" "}
-          {propCode && (
-            <code className="rounded-md bg-gray-base/30 px-1.5 py-0.5 text-xs font-mono text-gray-bold font-medium">
-              {propCode}
-            </code>
-          )}
+          {description}
         </p>
       </div>
 
@@ -139,8 +133,7 @@ function VariantShowcaseBlock({
   return (
     <ShowcaseSection
       title={title}
-      description={description}
-      propCode={`variant="${variant}"`}
+      description={<>{description} <code>variant=&quot;{variant}&quot;</code>.</>}
     >
       <StateRow label="Normal" variant={variant} />
       <div className="h-px bg-gray-base/40" />
@@ -179,14 +172,14 @@ export default function ButtonShowcasePage() {
           </div>
 
           <header className="space-y-2">
-            <div className="flex items-center gap-3">
+            <div className="flex flex-wrap items-center gap-3">
               <h1 className="h1">Button</h1>
               <span className="caption rounded-base bg-primary-soft text-primary-bold font-semibold px-2.5 py-0.5">
                 @base-ui/react/button
               </span>
             </div>
             <p className="subtitle">
-              Componente de acción táctil y teclado. Conecta la accesibilidad y foco de Base UI con las superficies y tríadas cromáticas del proyecto.
+              Acciones con variantes, iconos y estado de carga.
             </p>
           </header>
         </div>
@@ -195,36 +188,50 @@ export default function ButtonShowcasePage() {
         <VariantShowcaseBlock
           variant="primary"
           title="Primary"
-          description="Variante principal de máxima jerarquía para la acción de mayor relevancia."
+          description="Destaca la acción principal con"
         />
 
         {/* 2. Secondary */}
         <VariantShowcaseBlock
           variant="secondary"
           title="Secondary"
-          description="Variante de superficie elevada para acciones secundarias o de soporte."
+          description="Presenta acciones secundarias con"
         />
 
         {/* 3. Outline */}
         <VariantShowcaseBlock
           variant="outline"
           title="Outline"
-          description="Variante con borde neutro y fondo transparente para acciones de menor peso visual."
+          description="Delimita acciones con un borde mediante"
         />
 
         {/* 4. Ghost */}
         <VariantShowcaseBlock
           variant="ghost"
           title="Ghost"
-          description="Variante sin borde ni fondo en reposo, ideal para barras de herramientas o acciones sutiles."
+          description="Reduce el peso visual de la acción con"
         />
 
         {/* 5. Destructive */}
         <VariantShowcaseBlock
           variant="destructive"
           title="Destructive"
-          description="Variante con fondo tenue 'error-soft' y texto 'error-bold', que transiciona a relleno sólido 'error-base' con texto blanco en hover."
+          description="Señala acciones destructivas con"
         />
+        <ShowcaseSection title="Icono inicial" description={<>Añade un icono antes del texto con <code>icon</code>.</>}>
+          <Button icon={<ArrowUpRight aria-hidden="true" />}>Abrir proyecto</Button>
+        </ShowcaseSection>
+        <ShowcaseSection title="Icono final" description={<>Coloca el icono después del texto con <code>iconPosition=&quot;end&quot;</code>.</>}>
+          <Button icon={<ArrowUpRight aria-hidden="true" />} iconPosition="end">Abrir proyecto</Button>
+        </ShowcaseSection>
+        <ShowcaseSection title="Foco estando deshabilitado" description={<>Permite alcanzar el botón con Tab mediante <code>focusableWhenDisabled</code>.</>}>
+          <Button disabled focusableWhenDisabled>Acción no disponible</Button>
+        </ShowcaseSection>
+        <ShowcaseSection title="Composición como enlace" description={<>Renderiza un enlace con <code>render</code> y <code>nativeButton=false</code>.</>}>
+          <Button render={<Link href="/" />} nativeButton={false} role="link">Volver al catálogo</Button>
+        </ShowcaseSection>
+        <ButtonAnatomy />
+        <ButtonApiReference />
       </div>
     </main>
   );

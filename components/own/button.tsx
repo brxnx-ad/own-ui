@@ -3,7 +3,7 @@
 import * as React from "react";
 import { Button as ButtonPrimitive } from "@base-ui/react/button";
 import clsx from "clsx";
-import { Spinner } from "@/components/own/spinner";
+import { Spinner } from "@/components/own/icons";
 
 export type ButtonVariant =
   | "primary"

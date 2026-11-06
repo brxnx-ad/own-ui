@@ -2,7 +2,7 @@
 
 > **Objetivo y alcance del documento:** Establecer el estándar de estructura, redacción y criterios de vigencia que rigen a toda la documentación técnica dentro de `docs/master/`. Se considera desactualizado si existen documentos en `docs/master/` que no respeten este formato o si los lineamientos aquí descritos contradicen las prácticas aplicadas en el repositorio.
 
-[Estructura del proyecto](01-estructura-del-proyecto.md) · [Sistema de estilos](02-estilos.md) · [Objetivos](03-objetivos.md)
+[Estructura del proyecto](01-estructura-del-proyecto.md) · [Sistema de estilos](02-estilos.md) · [Objetivos](03-objetivos.md) · [Pendientes](05-pendientes.md)
 
 ---
 

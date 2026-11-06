@@ -2,7 +2,7 @@
 
 > **Objetivo y alcance del documento:** Definir el propósito rector del repositorio, los estándares técnicos de construcción de sus componentes y el catálogo de herramientas de UI proyectadas. Se considera desactualizado si la anatomía de los componentes del proyecto o las funcionalidades de la aplicación no corresponden con la arquitectura y los objetivos aquí declarados.
 
-[Estructura del proyecto](01-estructura-del-proyecto.md) · [Sistema de estilos](02-estilos.md) · [Mantenimiento](04-mantenimiento.md)
+[Estructura del proyecto](01-estructura-del-proyecto.md) · [Sistema de estilos](02-estilos.md) · [Mantenimiento](04-mantenimiento.md) · [Pendientes](05-pendientes.md)
 
 ---
 

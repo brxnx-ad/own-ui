@@ -2,7 +2,7 @@
 
 > **Objetivo y alcance del documento:** Reflejar fielmente todos los directorios de primer nivel del repositorio, sus responsabilidades y las reglas de ubicación de archivos. Se considera desactualizado si existen carpetas raíz en el proyecto que no figuren en la tabla, si alguna carpeta listada ya no existe o si la ubicación real de los archivos contradice estas directrices.
 
-[Sistema de estilos](02-estilos.md) · [Objetivos](03-objetivos.md) · [Mantenimiento](04-mantenimiento.md)
+[Sistema de estilos](02-estilos.md) · [Objetivos](03-objetivos.md) · [Mantenimiento](04-mantenimiento.md) · [Pendientes](05-pendientes.md)
 
 ---
 
@@ -11,7 +11,7 @@
 | Carpeta | Responsabilidad |
 | :--- | :--- |
 | `app/` | Rutas, layouts y páginas del App Router de Next.js. Utiliza grupos de rutas como `(showcase)` para organizar las páginas de catálogo y aloja **componentes localizados** (exclusivos de una vista que no se reutilizan transversalmente). |
-| `components/own/` | Primitivas y componentes reutilizables propios construidos sobre Base UI. |
+| `components/own/` | Primitivas y componentes reutilizables propios construidos sobre Base UI. Su subcarpeta `icons/` reúne los iconos internos compartidos, independientes de librerías de iconos. |
 | `components/shared/` | Componentes compartidos de soporte e interfaz transversal (como el alternador de temas). |
 | `assets/styles/` | Estilos globales del proyecto. Contiene `globals.css`, donde se importa Tailwind CSS v4, se definen las semillas de color en espacio OKLCH, las escalas, los tokens semánticos de superficies y tríadas cromáticas, y las utilidades tipográficas y de interacción. |
 | `public/` | Recursos estáticos no procesados por el compilador, como logotipos, favicons, vectores e imágenes públicas. |

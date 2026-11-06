@@ -2,7 +2,7 @@
 
 > **Objetivo y alcance del documento:** Explicar el proceso general de creación de paletas a partir de semillas, la asignación de magnitudes y variables de Tailwind en `@theme inline`, y documentar todas las utilidades tipográficas y de sombras disponibles en `assets/styles/globals.css`. Se considera desactualizado si `assets/styles/globals.css` contiene semillas, fórmulas, variables en `@theme inline` o clases utilitarias que no estén reflejadas o difieran de las descritas aquí.
 
-[Estructura del proyecto](01-estructura-del-proyecto.md) · [Objetivos](03-objetivos.md) · [Mantenimiento](04-mantenimiento.md)
+[Estructura del proyecto](01-estructura-del-proyecto.md) · [Objetivos](03-objetivos.md) · [Mantenimiento](04-mantenimiento.md) · [Pendientes](05-pendientes.md)
 
 ---
 

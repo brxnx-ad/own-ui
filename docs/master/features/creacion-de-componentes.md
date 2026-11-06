@@ -2,7 +2,7 @@
 
 > **Objetivo y alcance del documento:** Establecer la guía canónica y los estándares técnicos para la creación de componentes propios en `components/own/`, utilizando `button.tsx` como componente modelo de referencia. Se considera desactualizado si los componentes implementados en `components/own/` emplean patrones de tipado, composición de clases, gestión de estados o jerarquías de interacción divergentes de las directrices aquí descritas.
 
-[Estructura del proyecto](../01-estructura-del-proyecto.md) · [Sistema de estilos](../02-estilos.md) · [Objetivos](../03-objetivos.md) · [Mantenimiento](../04-mantenimiento.md) · [Showcase](showcase.md)
+[Estructura del proyecto](../01-estructura-del-proyecto.md) · [Sistema de estilos](../02-estilos.md) · [Objetivos](../03-objetivos.md) · [Mantenimiento](../04-mantenimiento.md) · [Pendientes](../05-pendientes.md) · [Showcase](showcase.md)
 
 ---
 
@@ -115,7 +115,11 @@ const sizeStyles: Record<ButtonSize, { default: string; iconOnly: string }> = {
 
 ---
 
-## 5. Ranuras de íconos y estados integrados
+## 5. Iconos internos, ranuras y estados integrados
+
+Los iconos predeterminados de los componentes propios residen en `components/own/icons/` y se importan desde `@/components/own/icons`. La carpeta exporta `Chevron`, `Check`, `Minus`, `Plus`, `Close` y `Spinner`. Los componentes de `components/own/` no importan librerías externas de iconos; los consumidores pueden proporcionar sus propios iconos mediante las ranuras disponibles.
+
+Los seis iconos aceptan propiedades SVG nativas, usan `currentColor` y son decorativos por defecto (`aria-hidden`). Los controles que solo contienen un icono deben recibir un nombre accesible. `Spinner` incluye tamaño y animación predeterminados, personalizables mediante `className`.
 
 ### A. Ranura de íconos escalable
 Los íconos no deben tener tamaños rígidos en píxeles que desentonen al cambiar la fuente o el tamaño del botón. Se estandarizan con la regla:
@@ -140,7 +144,7 @@ Esto asegura que cualquier SVG importado (como los de `lucide-react`) escale aut
 import * as React from "react";
 import { Button as ButtonPrimitive } from "@base-ui/react/button";
 import clsx from "clsx";
-import { Spinner } from "@/components/own/spinner";
+import { Spinner } from "@/components/own/icons";
 
 // 1. Tipos
 export type ButtonVariant =

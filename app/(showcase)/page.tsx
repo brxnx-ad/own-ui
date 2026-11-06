@@ -9,6 +9,12 @@ interface ComponentItem {
 
 const components: ComponentItem[] = [
   {
+    name: "Accordion",
+    href: "/accordion",
+    description: "Paneles expandibles accesibles para organizar contenido relacionado.",
+    category: "Contenido",
+  },
+  {
     name: "Button",
     href: "/button",
     description:
