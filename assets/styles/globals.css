@@ -1,5 +1,349 @@
 @import "tailwindcss";
 
+/* Modo oscuro controlado por clase (.dark en elemento ancestro) */
+@custom-variant dark (&:is(.dark *));
+
+/* Registro de variables y tokens en el motor de Tailwind */
 @theme inline {
   --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+
+  /* Superficies (planos de elevación) */
+  --color-surface-soft: var(--surface-soft);
+  --color-surface-base: var(--surface-base);
+  --color-surface-bold: var(--surface-bold);
+
+  /* Tríadas cromáticas y neutra (soft, base, bold) */
+  --color-primary-soft: var(--primary-soft);
+  --color-primary-base: var(--primary-base);
+  --color-primary-bold: var(--primary-bold);
+
+  --color-gray-soft: var(--gray-soft);
+  --color-gray-base: var(--gray-base);
+  --color-gray-bold: var(--gray-bold);
+
+  --color-success-soft: var(--success-soft);
+  --color-success-base: var(--success-base);
+  --color-success-bold: var(--success-bold);
+
+  --color-warning-soft: var(--warning-soft);
+  --color-warning-base: var(--warning-base);
+  --color-warning-bold: var(--warning-bold);
+
+  --color-error-soft: var(--error-soft);
+  --color-error-base: var(--error-base);
+  --color-error-bold: var(--error-bold);
+
+  --color-info-soft: var(--info-soft);
+  --color-info-base: var(--info-base);
+  --color-info-bold: var(--info-bold);
+
+  /* Sombras de profundidad cenital (s, m, l) */
+  --shadow-s: var(--shadow-s);
+  --shadow-m: var(--shadow-m);
+  --shadow-l: var(--shadow-l);
+
+  /* Sombras de relieve hundido (inset-s, inset-m, inset-l) */
+  --shadow-inset-s: var(--shadow-inset-s);
+  --shadow-inset-m: var(--shadow-inset-m);
+  --shadow-inset-l: var(--shadow-inset-l);
+
+  /* Geometría */
+  --radius-base: var(--radius);
+}
+
+@layer base {
+  :root {
+    /* Semillas base (Nivel 500) */
+    --seed-primary: oklch(0.58 0.2 264);
+    --seed-gray: oklch(0.55 0.014 264);
+    --seed-success: oklch(0.55 0.155 152);
+    --seed-warning: oklch(0.6 0.165 65);
+    --seed-error: oklch(0.58 0.22 27);
+    --seed-info: oklch(0.56 0.14 215);
+
+    /* Escala Primario */
+    --primary-50: color-mix(in oklab, var(--seed-primary), white 97%);
+    --primary-100: color-mix(in oklab, var(--seed-primary), white 91%);
+    --primary-200: color-mix(in oklab, var(--seed-primary), white 81%);
+    --primary-300: color-mix(in oklab, var(--seed-primary), white 64%);
+    --primary-400: color-mix(in oklab, var(--seed-primary), white 36%);
+    --primary-500: var(--seed-primary);
+    --primary-600: color-mix(in oklab, var(--seed-primary), black 16%);
+    --primary-700: color-mix(in oklab, var(--seed-primary), black 32%);
+    --primary-800: color-mix(in oklab, var(--seed-primary), black 50%);
+    --primary-900: color-mix(in oklab, var(--seed-primary), black 62%);
+    --primary-950: color-mix(in oklab, var(--seed-primary), black 74%);
+
+    /* Escala Neutros / Grises */
+    --gray-50: color-mix(in oklab, var(--seed-gray), white 97%);
+    --gray-100: color-mix(in oklab, var(--seed-gray), white 91%);
+    --gray-150: color-mix(in oklab, var(--seed-gray), white 86%);
+    --gray-200: color-mix(in oklab, var(--seed-gray), white 81%);
+    --gray-250: color-mix(in oklab, var(--seed-gray), white 73%);
+    --gray-300: color-mix(in oklab, var(--seed-gray), white 64%);
+    --gray-350: color-mix(in oklab, var(--seed-gray), white 50%);
+    --gray-400: color-mix(in oklab, var(--seed-gray), white 36%);
+    --gray-450: color-mix(in oklab, var(--seed-gray), white 18%);
+    --gray-500: var(--seed-gray);
+    --gray-550: color-mix(in oklab, var(--seed-gray), black 8%);
+    --gray-600: color-mix(in oklab, var(--seed-gray), black 16%);
+    --gray-650: color-mix(in oklab, var(--seed-gray), black 24%);
+    --gray-700: color-mix(in oklab, var(--seed-gray), black 32%);
+    --gray-750: color-mix(in oklab, var(--seed-gray), black 41%);
+    --gray-800: color-mix(in oklab, var(--seed-gray), black 50%);
+    --gray-850: color-mix(in oklab, var(--seed-gray), black 56%);
+    --gray-900: color-mix(in oklab, var(--seed-gray), black 62%);
+    --gray-950: color-mix(in oklab, var(--seed-gray), black 74%);
+
+    /* Escala Éxito */
+    --success-50: color-mix(in oklab, var(--seed-success), white 97%);
+    --success-100: color-mix(in oklab, var(--seed-success), white 91%);
+    --success-200: color-mix(in oklab, var(--seed-success), white 81%);
+    --success-300: color-mix(in oklab, var(--seed-success), white 64%);
+    --success-400: color-mix(in oklab, var(--seed-success), white 36%);
+    --success-500: var(--seed-success);
+    --success-600: color-mix(in oklab, var(--seed-success), black 16%);
+    --success-700: color-mix(in oklab, var(--seed-success), black 32%);
+    --success-800: color-mix(in oklab, var(--seed-success), black 50%);
+    --success-900: color-mix(in oklab, var(--seed-success), black 62%);
+    --success-950: color-mix(in oklab, var(--seed-success), black 74%);
+
+    /* Escala Advertencia */
+    --warning-50: color-mix(in oklab, var(--seed-warning), white 97%);
+    --warning-100: color-mix(in oklab, var(--seed-warning), white 91%);
+    --warning-200: color-mix(in oklab, var(--seed-warning), white 81%);
+    --warning-300: color-mix(in oklab, var(--seed-warning), white 64%);
+    --warning-400: color-mix(in oklab, var(--seed-warning), white 36%);
+    --warning-500: var(--seed-warning);
+    --warning-600: color-mix(in oklab, var(--seed-warning), black 16%);
+    --warning-700: color-mix(in oklab, var(--seed-warning), black 32%);
+    --warning-800: color-mix(in oklab, var(--seed-warning), black 50%);
+    --warning-900: color-mix(in oklab, var(--seed-warning), black 62%);
+    --warning-950: color-mix(in oklab, var(--seed-warning), black 74%);
+
+    /* Escala Error / Destructivo */
+    --error-50: color-mix(in oklab, var(--seed-error), white 97%);
+    --error-100: color-mix(in oklab, var(--seed-error), white 91%);
+    --error-200: color-mix(in oklab, var(--seed-error), white 81%);
+    --error-300: color-mix(in oklab, var(--seed-error), white 64%);
+    --error-400: color-mix(in oklab, var(--seed-error), white 36%);
+    --error-500: var(--seed-error);
+    --error-600: color-mix(in oklab, var(--seed-error), black 16%);
+    --error-700: color-mix(in oklab, var(--seed-error), black 32%);
+    --error-800: color-mix(in oklab, var(--seed-error), black 50%);
+    --error-900: color-mix(in oklab, var(--seed-error), black 62%);
+    --error-950: color-mix(in oklab, var(--seed-error), black 74%);
+
+    /* Escala Información */
+    --info-50: color-mix(in oklab, var(--seed-info), white 97%);
+    --info-100: color-mix(in oklab, var(--seed-info), white 91%);
+    --info-200: color-mix(in oklab, var(--seed-info), white 81%);
+    --info-300: color-mix(in oklab, var(--seed-info), white 64%);
+    --info-400: color-mix(in oklab, var(--seed-info), white 36%);
+    --info-500: var(--seed-info);
+    --info-600: color-mix(in oklab, var(--seed-info), black 16%);
+    --info-700: color-mix(in oklab, var(--seed-info), black 32%);
+    --info-800: color-mix(in oklab, var(--seed-info), black 50%);
+    --info-900: color-mix(in oklab, var(--seed-info), black 62%);
+    --info-950: color-mix(in oklab, var(--seed-info), black 74%);
+
+    /* Sombras de profundidad cenital (top highlight, dark shadow, soft shadow) */
+    --shadow-s:
+      inset 0 1px 2px #ffffff30, 0 1px 2px #00000030, 0 2px 4px #00000015;
+    --shadow-m:
+      inset 0 1px 2px #ffffff50, 0 2px 4px #00000030, 0 4px 8px #00000015;
+    --shadow-l:
+      inset 0 1px 2px #ffffff70, 0 4px 6px #00000030, 0 6px 10px #00000015;
+
+    /* Sombras de relieve hundido (sombra interior superior y luz en el borde inferior) */
+    --shadow-inset-s:
+      inset 0 1px 2px #00000030, inset 0 2px 4px #00000015,
+      inset 0 -1px 2px #ffffff30;
+    --shadow-inset-m:
+      inset 0 2px 4px #00000030, inset 0 4px 8px #00000015,
+      inset 0 -1px 2px #ffffff50;
+    --shadow-inset-l:
+      inset 0 4px 6px #00000030, inset 0 6px 10px #00000015,
+      inset 0 -1px 2px #ffffff70;
+
+    /* Radio de curvatura general del proyecto */
+    --radius: 0.75rem;
+  }
+
+  /* Magnitudes por paleta: Modo Claro */
+  :root {
+    color-scheme: light;
+
+    /* Superficies (planos de elevación) */
+    --surface-soft: var(--gray-150);
+    --surface-base: var(--gray-100);
+    --surface-bold: var(--gray-50);
+
+    /* Tríadas cromáticas y neutra (Soft, Base, Bold) */
+    --primary-soft: var(--primary-200);
+    --primary-base: var(--primary-500);
+    --primary-bold: var(--primary-600);
+
+    --gray-soft: var(--gray-100);
+    --gray-base: var(--gray-200);
+    --gray-bold: var(--gray-700);
+
+    --success-soft: var(--success-200);
+    --success-base: var(--success-500);
+    --success-bold: var(--success-600);
+
+    --warning-soft: var(--warning-200);
+    --warning-base: var(--warning-500);
+    --warning-bold: var(--warning-600);
+
+    --error-soft: var(--error-200);
+    --error-base: var(--error-500);
+    --error-bold: var(--error-700);
+
+    --info-soft: var(--info-200);
+    --info-base: var(--info-500);
+    --info-bold: var(--info-600);
+  }
+
+  /* Magnitudes por paleta: Modo Oscuro */
+  .dark {
+    color-scheme: dark;
+
+    /* Superficies (calibradas para contraste OLED) */
+    --surface-soft: var(--gray-950);
+    --surface-base: var(--gray-900);
+    --surface-bold: var(--gray-800);
+
+    /* Tríadas cromáticas y neutra (Soft, Base, Bold) */
+    --primary-soft: var(--primary-900);
+    --primary-base: var(--primary-600);
+    --primary-bold: var(--primary-700);
+
+    --gray-soft: var(--gray-850);
+    --gray-base: var(--gray-700);
+    --gray-bold: var(--gray-100);
+
+    --success-soft: var(--success-900);
+    --success-base: var(--success-600);
+    --success-bold: var(--success-700);
+
+    --warning-soft: var(--warning-900);
+    --warning-base: var(--warning-600);
+    --warning-bold: var(--warning-700);
+
+    --error-soft: var(--error-900);
+    --error-base: var(--error-600);
+    --error-bold: var(--error-300);
+
+    --info-soft: var(--info-900);
+    --info-base: var(--info-600);
+    --info-bold: var(--info-700);
+  }
+
+  /* Encabezados */
+  h1,
+  .h1 {
+    font-size: clamp(1.875rem, 1.6rem + 1.2vw, 2.375rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.035em;
+    text-wrap: balance;
+  }
+
+  h2,
+  .h2 {
+    font-size: clamp(1.5rem, 1.35rem + 0.75vw, 1.75rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+  }
+
+  h3,
+  .h3 {
+    font-size: clamp(1.25rem, 1.15rem + 0.4vw, 1.375rem);
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+
+  h4,
+  .h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+
+  h5,
+  .h5 {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.35;
+    letter-spacing: -0.005em;
+    text-wrap: balance;
+  }
+
+  h6,
+  .h6 {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0.01em;
+    text-wrap: balance;
+  }
+}
+
+@layer utilities {
+  /* Subtítulos */
+  .subtitle {
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 1.45;
+    letter-spacing: -0.01em;
+    text-wrap: pretty;
+  }
+
+  .subtitle-sm {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: 0em;
+    text-wrap: pretty;
+  }
+
+  /* Cuerpo de texto */
+  .body,
+  .body-base {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: -0.012em;
+    text-wrap: pretty;
+  }
+
+  .body-sm {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.45;
+    letter-spacing: -0.005em;
+    text-wrap: pretty;
+  }
+
+  .caption {
+    font-size: 0.8rem;
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: 0.015em;
+  }
+
+  .overline {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
 }
