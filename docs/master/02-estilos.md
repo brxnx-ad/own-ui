@@ -101,5 +101,8 @@ Compuesto por dos familias de 3 magnitudes universales (funcionan en modo claro 
 | Field | Define la separación entre piezas y coordina la altura, la opacidad y el espacio que ocupa `FieldError` al aparecer o desaparecer. |
 | FloatingInput | Posiciona la etiqueta según el foco y el valor del control. La etiqueta tiene menos énfasis que el valor y un fondo transparente. En `outline`, el recorte abre desde el centro y sus extremos redondeados quedan en el tramo recto del borde. |
 | Drawer | Reserva espacio para el tirador según su posición y ajusta la geometría del indicador y del contenido. |
+| Progress | Define el barrido del indicador indeterminado mediante `own-ui-progress-sweep` e `inset-inline-start`. |
 
 La etiqueta de FloatingInput y el recorte de `outline` empiezan a moverse juntos. El bloque centraliza la transición de posición, tamaño de fuente y altura de línea, además de la apertura y el cierre del borde. Con `prefers-reduced-motion: reduce`, los estados cambian de inmediato.
+
+El barrido indeterminado de Progress sigue la dirección del texto y se activa con `prefers-reduced-motion: no-preference`. Con movimiento reducido, el segmento queda centrado y estático.

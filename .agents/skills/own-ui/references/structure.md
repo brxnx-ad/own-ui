@@ -52,6 +52,12 @@ Comprueba la compatibilidad del entorno receptor al usar otras versiones. Consul
 | Menubar | `menubar.tsx`. Incluye Menu y sus archivos de soporte cuando el consumidor elija las piezas de own-ui para componer la barra. |
 | Meter | `meter.tsx`. Sus piezas envuelven Base UI sin requerir iconos ni otras familias propias. |
 | Navigation Menu | `navigation-menu.tsx` y Chevron con su helper SVG en `icons/index.tsx`. Si se copia el módulo completo de iconos, incluye también `icons/spinner.tsx` por su reexportación. |
+| Number Field | `number-field.tsx`, Minus y Plus con su helper SVG en `icons/index.tsx`. Si se copia el módulo completo de iconos, incluye también `icons/spinner.tsx` por su reexportación. |
+| OTP Field | `otp-field.tsx`. Sus piezas envuelven Base UI sin requerir iconos ni otras familias propias. Incluye Field si el consumidor utiliza su etiquetado y validación. |
+| Popover | `popover.tsx`. Sus piezas envuelven Base UI. Incluye Button u otros controles si la composición del consumidor los utiliza. |
+| Preview Card | `preview-card.tsx`. Sus piezas envuelven Base UI. El consumidor aporta los enlaces y el contenido de sus vistas previas. |
+| Progress | `progress.tsx` y el bloque `own-ui-progress-sweep` de `@layer components` en la hoja global, incluido el selector de movimiento. |
+| Radio Group | `radio-group.tsx`. El módulo exporta el grupo, la opción y el indicador. Incluye Field y Form si la composición los utiliza. |
 
 Al preparar una exportación, reúne las familias seleccionadas, sus dependencias transitivas y los bloques de CSS que consumen. Adapta los imports de soporte si distribuyes solo parte del módulo de iconos. Copia la carpeta de la skill con sus referencias y ajusta el índice a las familias entregadas o indica su disponibilidad. Verifica los enlaces relativos desde la carpeta copiada y registra la revisión y las versiones comprobadas.
 
@@ -104,4 +110,4 @@ Para una nueva familia, sigue el tipado de la primitiva instalada y los patrones
 
 Verifica imports, tipado y generación de utilidades con las herramientas del consumidor. Prueba las composiciones relevantes en una vista de su aplicación, incluidos ambos temas, foco, ancho disponible y estados afectados. La demostración define su disposición en sus contenedores.
 
-Para el contrato y los estilos de cada familia, consulta [Button](components/button.md), [Accordion](components/accordion.md), [Alert Dialog](components/alert-dialog.md), [Autocomplete](components/autocomplete.md), [Avatar](components/avatar.md), [Checkbox](components/checkbox.md), [Checkbox Group](components/checkbox-group.md), [Collapsible](components/collapsible.md), [Combobox](components/combobox.md), [Context Menu](components/context-menu.md), [Dialog](components/dialog.md), [Drawer](components/drawer.md), [Field](components/field.md), [Fieldset](components/fieldset.md), [FloatingInput](components/floating-input.md), [Form](components/form.md), [Input](components/input.md), [Menu](components/menu.md), [Menubar](components/menubar.md), [Meter](components/meter.md) o [Navigation Menu](components/navigation-menu.md).
+Para el contrato y los estilos de cada familia, consulta el [índice de referencias por componente](../SKILL.md#componentes).

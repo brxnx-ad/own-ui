@@ -44,6 +44,16 @@ Cada componente registrado cuenta con su propia ruta independiente (por ejemplo,
 | FloatingInput | `/floating-input` | `@/components/own/dependant/floating-input` |
 | Form | `/form` | `@/components/own/independant/form` |
 | Input | `/input` | `@/components/own/independant/input` |
+| Menu | `/menu` | `@/components/own/independant/menu` |
+| Menubar | `/menubar` | `@/components/own/independant/menubar` |
+| Meter | `/meter` | `@/components/own/independant/meter` |
+| Navigation Menu | `/navigation-menu` | `@/components/own/independant/navigation-menu` |
+| Number Field | `/number-field` | `@/components/own/independant/number-field` |
+| OTP Field | `/otp-field` | `@/components/own/independant/otp-field` |
+| Popover | `/popover` | `@/components/own/independant/popover` |
+| Preview Card | `/preview-card` | `@/components/own/independant/preview-card` |
+| Progress | `/progress` | `@/components/own/independant/progress` |
+| Radio Group | `/radio-group` | `@/components/own/independant/radio-group` |
 
 Los ejemplos pueden combinar componentes independientes. Alert Dialog utiliza Button en sus ejemplos mediante `render` o como acción con cierre controlado; esa composición pertenece al showcase y no introduce una dependencia dentro de la definición de Alert Dialog. La clasificación se rige por [Estructura del proyecto](../01-estructura-del-proyecto.md#3-componentes-independientes-y-dependientes).
 
@@ -137,3 +147,18 @@ Los ejemplos con estado local residen en `examples.tsx`; la anatomía y la tabla
 | `/floating-input` | Etiqueta interior (`inset`), etiqueta sobre el borde (`outline`), valor inicial, valor controlado, validación con Field y campo deshabilitado. |
 
 Cada ejemplo se centra en un bloque `mx-auto w-full max-w-md`. Los ejemplos controlados viven en `examples.tsx` y los botones de borrado devuelven el foco al control. Ambas rutas cierran con Anatomía y Referencia de API. Para verificar `outline`, enfoca un campo vacío y observa cómo la etiqueta sube mientras el recorte se abre desde su centro. Escribe un valor y sal del campo para comprobar que la etiqueta queda arriba.
+
+## 7. Cobertura de Number Field a Radio Group
+
+| Ruta | Ejemplos en orden |
+| :--- | :--- |
+| `/number-field` | Cantidad editable, ajuste por pasos, formato localizado, valor controlado, ajuste por arrastre, ajuste con la rueda, validación con Field, solo lectura y entrada deshabilitada. |
+| `/otp-field` | Código de verificación, código agrupado, código alfanumérico, entrada enmascarada, valor controlado, validación con Field, envío al completar, solo lectura y entrada deshabilitada. |
+| `/popover` | Panel informativo, lado y alineación, apertura al pasar el puntero, modo modal, foco contenido, foco inicial y retorno, contenido persistente, activadores separados y apertura controlada. |
+| `/preview-card` | Vista previa de un enlace, demoras de apertura y cierre, lado y alineación, fondo visual, activadores separados y apertura controlada. |
+| `/progress` | Avance determinado, rango y unidades, avance indeterminado, procesamiento por lotes y tarea completada. |
+| `/radio-group` | Selección exclusiva, opción deshabilitada, grupo deshabilitado, solo lectura, valor controlado, validación y envío, y botón nativo. |
+
+Las seis rutas cierran con Anatomía y Referencia de API. Number Field y Progress centran sus ejemplos en bloques de ancho máximo `max-w-xs` y `max-w-md`, respectivamente. OTP Field y Radio Group centran el conjunto en un contenedor flexible. Popover y Preview Card centran los activadores en la demostración y colocan el contenido portaleado respecto al ancla.
+
+Para comprobar el foco en un campo vacío, borra la cantidad en Number Field o enfoca una casilla vacía de OTP Field. El placeholder reaparece al salir si el campo sigue vacío. En Popover y Preview Card, alterna entre los activadores separados para comprobar que el contenido anterior se oculta al cambiar el anclaje. En Progress, comprueba que el segmento indeterminado queda estático con movimiento reducido. Radio Group muestra la selección con un punto centrado.

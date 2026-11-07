@@ -297,6 +297,22 @@
 }
 
 @layer components {
+  @keyframes own-ui-progress-sweep {
+    from {
+      inset-inline-start: -66.6667%;
+    }
+
+    to {
+      inset-inline-start: 66.6667%;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    :where([data-slot="progress-indicator"][data-indeterminate]) {
+      animation: own-ui-progress-sweep 1.4s ease-in-out infinite;
+    }
+  }
+
   /* FieldError expands its content and the gap around it together. */
   :where([data-slot="field"]) {
     --field-gap: calc(var(--spacing) * 2);

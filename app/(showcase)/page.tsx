@@ -138,6 +138,42 @@ const components: ComponentItem[] = [
       "Colección de enlaces y paneles desplegables para la navegación del sitio.",
     category: "Contenido",
   },
+  {
+    name: "Number Field",
+    href: "/number-field",
+    description: "Entrada numérica con botones de ajuste, límites, formato local y arrastre opcional.",
+    category: "Entrada",
+  },
+  {
+    name: "OTP Field",
+    href: "/otp-field",
+    description: "Entrada segmentada para códigos de un solo uso con pegado y avance de foco.",
+    category: "Entrada",
+  },
+  {
+    name: "Popover",
+    href: "/popover",
+    description: "Panel anclado para mostrar información o editar datos en contexto.",
+    category: "Contenido",
+  },
+  {
+    name: "Preview Card",
+    href: "/preview-card",
+    description: "Vista previa visual del destino de un enlace al pasar el puntero o enfocar.",
+    category: "Contenido",
+  },
+  {
+    name: "Progress",
+    href: "/progress",
+    description: "Barra para mostrar el avance determinado o indeterminado de una tarea.",
+    category: "Contenido",
+  },
+  {
+    name: "Radio Group",
+    href: "/radio-group",
+    description: "Grupo de opciones para elegir un único valor con teclado o puntero.",
+    category: "Entrada",
+  },
 ];
 
 function ArrowRightIcon() {

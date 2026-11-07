@@ -38,6 +38,12 @@ Antes de integrar o modificar un componente, lee su referencia. Describe su API 
 | Menubar | [menubar.md](references/components/menubar.md) | Barras de comandos, orientación, recorrido de foco y coordinación entre menús. |
 | Meter | [meter.md](references/components/meter.md) | Medidores escalares en un rango conocido, formato de unidades, texto accesible y umbrales cromáticos. |
 | Navigation Menu | [navigation-menu.md](references/components/navigation-menu.md) | Barras de navegación con paneles desplegables, enlaces activos, submenús en línea y persistencia SSR. |
+| Number Field | [number-field.md](references/components/number-field.md) | Entrada numérica, pasos, formato localizado, validación de rango y ajuste por arrastre o rueda. |
+| OTP Field | [otp-field.md](references/components/otp-field.md) | Códigos de longitud fija, casillas agrupadas, pegado, normalización, máscara y envío al completar. |
+| Popover | [popover.md](references/components/popover.md) | Paneles anclados, colisiones, foco modal, portales y activadores compartidos con contenido contextual. |
+| Preview Card | [preview-card.md](references/components/preview-card.md) | Resúmenes visuales de enlaces, demoras, posicionamiento y cambio de contenido entre activadores. |
+| Progress | [progress.md](references/components/progress.md) | Avance de tareas, rangos y unidades, estado indeterminado, finalización y texto accesible. |
+| Radio Group | [radio-group.md](references/components/radio-group.md) | Selección exclusiva, navegación con flechas, etiquetas, solo lectura y formularios. |
 
 Estas referencias describen las familias implementadas incluidas en este material. Comprueba cuáles se han copiado al proyecto antes de importarlas. Para una familia aún sin referencia, localiza su código y los tipos de la versión de Base UI instalada; consulta su documentación si está disponible. Distingue la API de la primitiva de las extensiones propias. Si faltan los archivos necesarios, identifica qué debe incorporarse y actúa según el alcance autorizado; no supongas que la familia ya está disponible.
 

@@ -10,7 +10,7 @@
 
 El plan incluye 37 familias independientes basadas en primitivas de Base UI. El consumidor decide cómo componerlas mediante `children`, `render` o ranuras. La distribución aplica el [criterio de dependencias internas](01-estructura-del-proyecto.md#3-componentes-independientes-y-dependientes) de own-ui.
 
-En `components/own/independant/` hay 20 componentes implementados y 17 pendientes.
+En `components/own/independant/` hay 26 familias implementadas y 11 pendientes.
 
 - [x] Accordion
 - [x] Alert Dialog
@@ -32,12 +32,12 @@ En `components/own/independant/` hay 20 componentes implementados y 17 pendiente
 - [x] Menubar
 - [x] Meter
 - [x] Navigation Menu
-- [ ] Number Field
-- [ ] OTP Field
-- [ ] Popover
-- [ ] Preview Card
-- [ ] Progress
-- [ ] Radio Group
+- [x] Number Field
+- [x] OTP Field
+- [x] Popover
+- [x] Preview Card
+- [x] Progress
+- [x] Radio Group
 - [ ] Scroll Area
 - [ ] Select
 - [ ] Separator
@@ -56,7 +56,7 @@ En `components/own/independant/` hay 20 componentes implementados y 17 pendiente
 | :--- | :--- |
 | Alert Dialog | El consumidor proporciona Button u otras acciones mediante `render` o como contenido. Su definición conserva los activadores y controles de cierre de su primitiva. |
 | Checkbox Group | Recibe los Checkbox mediante `children`; su definición envuelve la primitiva de agrupación sin importar el Checkbox propio. |
-| Radio Group | Se desarrolla junto con las piezas Radio de Base UI. Las envolturas propias se exportan para que el consumidor las componga, sin renderizarse unas a otras internamente. |
+| Radio Group | Exporta RadioGroup, Radio y RadioIndicator desde el mismo módulo. El consumidor compone las tres piezas. |
 | Toggle Group | Recibe los Toggle mediante `children`; su definición no necesita importar el Toggle propio. |
 | Menubar | Recibe la composición de Menu desde el consumidor, sin construir menús propios internamente. |
 | Field | Expone las piezas de su primitiva, incluido Field.Control, y permite al consumidor elegir o componer el control. |
