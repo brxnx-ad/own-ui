@@ -19,7 +19,15 @@ Los nombres convencionales son `independant` y `dependant`. Si se conserva esta 
 
 ## Compatibilidad y archivos necesarios
 
-Las referencias describen una integración desarrollada y verificada con Next.js 16.4.5, React y React DOM 19.3, Base UI 1.9.0, `clsx` 2.1.1, Tailwind CSS v4 y tipos de React 19. El tema por clase utiliza `next-themes` 0.4.6. Esta es la base descrita; comprueba las versiones del proyecto Next.js consumidor antes de asumir compatibilidad con otras. Los wrappers pasan referencias DOM como props, conforme a React 19.
+Las referencias describen la revisión de origen `f48ed4e49171`. Esta identificación sirve para cotejar los archivos exportados. En el consumidor, usa el código recibido y los tipos instalados para comprobar las diferencias.
+
+| Capa | Base de compatibilidad |
+| :--- | :--- |
+| Aplicación | Next.js 16.4.5 con App Router, React y React DOM 19.3.0. La navegación interna usa `next/link` y la fuente de referencia se carga con `next/font/google`. |
+| Wrappers | `@base-ui/react` 1.9.0 y `clsx` 2.1.1. Los wrappers reciben referencias DOM como props de React 19. |
+| Estilos y tema | Tailwind CSS v4 (4.3.4 en el origen) para generar las utilidades y `next-themes` 0.4.6 para aplicar el tema por clase. |
+
+Comprueba la compatibilidad del entorno receptor al usar otras versiones. Consulta los tipos de la primitiva instalada para las opciones heredadas y distingue las dependencias de cada wrapper de la configuración compartida de la aplicación.
 
 | Familia | Archivos propios y de soporte necesarios |
 | :--- | :--- |
@@ -27,7 +35,7 @@ Las referencias describen una integración desarrollada y verificada con Next.js
 | Accordion | `accordion.tsx` y Chevron con su helper SVG, definidos en `icons/index.tsx`. Si se copia el módulo completo de iconos, incluye también los archivos que reexporta, como Spinner. |
 | Alert Dialog | `alert-dialog.tsx`; su definición no importa otras familias propias ni iconos de soporte. Button solo es necesario si el consumidor lo elige para sus acciones. |
 
-Al copiar una parte del catálogo, incluye sus dependencias transitivas de archivos o adapta los imports a los módulos de soporte recibidos. No presupongas que copiar un único archivo elimina la necesidad de resolver sus importaciones. Mantén la skill y sus referencias juntas; las familias del índice deben corresponder al material distribuido o indicar su disponibilidad.
+Al preparar una exportación, reúne las familias seleccionadas, sus dependencias transitivas y los bloques de CSS que consumen. Adapta los imports de soporte si distribuyes solo parte del módulo de iconos. Copia la carpeta de la skill con sus referencias y ajusta el índice a las familias entregadas o indica su disponibilidad. Verifica los enlaces relativos desde la carpeta copiada y registra la revisión y las versiones comprobadas.
 
 ## Clasificación por familia
 
@@ -70,8 +78,8 @@ Conserva las directivas `"use client"` de los módulos recibidos y coloca el est
 
 ## Extensión y verificación
 
-Para una nueva familia, sigue el tipado de la primitiva instalada y los patrones de las familias recibidas. Los estilos actuales se construyen con `clsx` y tipos o diccionarios de TypeScript, sin un helper `cn` ni dependencias de variantes adicionales. Documenta las props, estados, formas de estilo y límites reales de la implementación que se distribuya.
+Para una nueva familia, sigue el tipado de la primitiva instalada y los patrones de las familias recibidas. Los estilos actuales se construyen con `clsx` y tipos o diccionarios de TypeScript. Documenta las props, estados, formas de estilo y límites reales de la implementación que se distribuya. Actualiza el índice y la referencia afectada al ampliar las familias distribuidas.
 
-Verifica imports y tipado con las herramientas del consumidor. Prueba las composiciones relevantes en una vista de su aplicación, con ambos temas, el ancho disponible y los estados afectados. La disposición de una demostración se implementa en sus contenedores y no se incorpora a la definición reutilizable.
+Verifica imports, tipado y generación de utilidades con las herramientas del consumidor. Prueba las composiciones relevantes en una vista de su aplicación, incluidos ambos temas, foco, ancho disponible y estados afectados. La demostración define su disposición en sus contenedores.
 
 Para el contrato y los estilos de cada familia, consulta [Button](components/button.md), [Accordion](components/accordion.md) o [Alert Dialog](components/alert-dialog.md).

@@ -1,34 +1,26 @@
 # Button
 
-Lee esta referencia para crear, consumir o ajustar acciones, botones con icono y estados de carga de own-ui.
+## 1. Identificación
 
-El módulo convencional es `components/own/independant/button.tsx`. Localiza su archivo y resuelve el alias de los ejemplos en el proyecto consumidor mediante [estructura](../structure.md); comprueba la implementación distribuida antes de asumir cambios de API.
+Button utiliza la primitiva `@base-ui/react/button`, `clsx` y el icono interno Spinner.
 
-## Compatibilidad y archivos necesarios
+## 2. Propósito y casos de uso
 
-Este contrato se comprobó en Next.js 16.4.5 con React y React DOM 19.3, Base UI 1.9.0, `clsx` 2.1.1, Tailwind CSS v4 y tipos de React 19. Son versiones de referencia, no una obligación de fijarlas exactamente en todo proyecto consumidor; valida las versiones compatibles del destino. El wrapper usa refs como props de React 19.
+Button representa acciones como guardar, cancelar o enviar un formulario. La primitiva aporta el comportamiento de botón y la gestión del foco. El consumidor aporta el texto, el icono y el handler de la acción. Para una navegación interna con apariencia de botón, compón la pieza con `next/link`.
 
-La definición requiere `button.tsx`, el Spinner de soporte y los tokens y utilidades descritos en [globals](../globals.md). Resuelve su import de `own/icons` hacia los archivos exportados. Si conservas el barrel `icons/index.tsx`, conserva sus definiciones SVG y el módulo `spinner.tsx` que reexporta; si distribuyes solo Spinner, adapta ese import y las exportaciones al subconjunto disponible.
+## 3. Importación y anatomía
 
-En App Router, conserva `"use client"` en el wrapper y define handlers, hooks y estados del consumidor en un módulo cliente. Las páginas y layouts pueden seguir siendo componentes de servidor y delegar esa interacción a piezas cliente; no conviertas toda la página en cliente por utilizar Button.
-
-## Propósito y composición
-
-Button representa una acción y delega comportamiento de botón y foco a `@base-ui/react/button`. Tiene una sola pieza pública, `Button`, y exporta los tipos `ButtonProps`, `ButtonVariant` y `ButtonSize`.
+El módulo exporta `Button`, que renderiza un `button` por defecto, y los tipos `ButtonProps`, `ButtonVariant` y `ButtonSize`. Cuando hay icono o carga, el wrapper puede insertar un `span` interno para alojar el icono o Spinner.
 
 ```tsx
-"use client";
-
 import { Button } from "@/components/own/independant/button";
 
-<Button onClick={save}>Guardar</Button>
+<Button type="submit">Guardar</Button>
 ```
 
-`save` representa el handler del consumidor. Para enviar un formulario, usa `type="submit"`. Para navegación, compón con un enlace y conserva su semántica. El consumidor decide cuántos botones necesita, sus acciones y cómo separarlos.
+## 4. Variantes y tamaños
 
-Es independiente: el Spinner de `own/icons` es soporte compartido, no otra familia del catálogo. Consultar [estructura](../structure.md) para el criterio completo.
-
-## Variantes y dimensiones
+Los valores predeterminados son `variant="primary"` y `size="md"`.
 
 | `variant` | Uso | Reposo | Hover y active |
 | :--- | :--- | :--- | :--- |
@@ -48,50 +40,36 @@ Todas comparten un borde de 1px para conservar sus medidas al cambiar de variant
 
 La detección de solo icono usa `!children && Boolean(icon || loading)`. Para una acción con texto, proporciona contenido no vacío; para un botón solo icono, omite `children` y define un nombre accesible.
 
-## Props principales
+## 5. Props y callbacks
 
-Las props propias se añaden a `ButtonPrimitive.Props`; atributos HTML, ARIA, eventos y `ref` se propagan al elemento.
+Las filas marcadas como propias amplían `ButtonPrimitive.Props`. El resto corresponde a la primitiva o a los atributos del elemento.
 
-| Prop | Tipo | Predeterminado | Función |
-| :--- | :--- | :--- | :--- |
-| `variant` | `"primary" \| "secondary" \| "outline" \| "ghost" \| "destructive"` | `"primary"` | Jerarquía visual. |
-| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Altura, padding, separación y tipografía. |
-| `loading` | `boolean` | `false` | Añade Spinner, deshabilita y activa `aria-busy`. |
-| `disabled` | `boolean` | `false` | Impide activar la acción. |
-| `icon` | `ReactNode` | — | Icono del consumidor, sustituido por Spinner durante la carga. |
-| `iconPosition` | `"start" \| "end"` | `"start"` | Posición del icono o Spinner cuando hay contenido. |
-| `children` | `ReactNode` | — | Contenido del botón. |
-| `type` | `"button" \| "submit" \| "reset"` | `"button"` | Comportamiento nativo en formularios. |
-| `focusableWhenDisabled` | `boolean` | `false` | Permite alcanzar un botón deshabilitado con teclado; la acción sigue bloqueada. |
-| `render` | `ReactElement \| (props, state) => ReactElement` | `<button>` | Composición o sustitución del elemento. |
-| `nativeButton` | `boolean` | `true` | Indica si el elemento de `render` es un botón nativo. |
-| `className` | Cadena utilizable por el wrapper | — | Añade clases; ver la limitación funcional abajo. |
-| `style` | `CSSProperties \| (state) => CSSProperties` | — | Estilos directos o dependientes del estado de Base UI. |
+| Pieza | Prop o callback | Tipo | Predeterminado | Opcional | Función y condiciones |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| Button | `variant` | `ButtonVariant` | `"primary"` | Sí | Prop propia de jerarquía visual. |
+| Button | `size` | `ButtonSize` | `"md"` | Sí | Prop propia de dimensiones y densidad. |
+| Button | `loading` | `boolean` | `false` | Sí | Prop propia que añade Spinner y activa la deshabilitación efectiva y `aria-busy`. |
+| Button | `icon` | `ReactNode` | — | Sí | Prop propia para el icono del consumidor. Spinner ocupa su ranura durante la carga. |
+| Button | `iconPosition` | `"start" \| "end"` | `"start"` | Sí | Prop propia de posición. El wrapper solo renderiza la ranura final si hay contenido. |
+| Button | `disabled` | `boolean` | `false` | Sí | Impide activar la acción. |
+| Button | `children` | `ReactNode` | — | Sí | Contenido y, habitualmente, nombre accesible. |
+| Button | `type` | `"button" \| "submit" \| "reset"` | `"button"` | Sí | Comportamiento del botón nativo en formularios. |
+| Button | `onClick` | `(event: BaseUIEvent<MouseEvent<HTMLButtonElement>>) => void` | — | Sí | Handler heredado de activación. El evento añade `preventBaseUIHandler()` a la interfaz de React. |
+| Button | `focusableWhenDisabled` | `boolean` | `false` | Sí | Mantiene el acceso con teclado cuando está deshabilitado. La acción sigue bloqueada. |
+| Button | `nativeButton` | `boolean` | `true` | Sí | Indica si `render` conserva un botón nativo. |
+| Button | `render` | `ReactElement \| ((props, state) => ReactElement)` | Elemento nativo | Sí | Compone el comportamiento en un elemento. |
+| Button | `className` | `string \| ((state) => string \| undefined)` | — | Sí | Tipo heredado. El wrapper incorpora únicamente cadenas en ejecución. |
+| Button | `style` | `CSSProperties \| ((state) => CSSProperties \| undefined)` | — | Sí | Estilos directos o derivados del estado de Base UI. |
+| Button | `ref` | `Ref<HTMLButtonElement>` | — | Sí | Referencia al nodo. Verifica que el elemento aportado por `render` admita la ref que necesita tu composición. |
 
-Aunque el tipo heredado permite `className` funcional, el wrapper actual lo entrega a `clsx` y no evalúa esa función. Usa cadenas, atributos de estado o `style` funcional. El estado de Base UI en Button contiene `disabled`; no incluye `variant`, `size` ni `loading` propios.
+## 6. Funcionamiento y estados
 
-## Funcionamiento y accesibilidad
+- El consumidor controla `loading` y `disabled`. La deshabilitación efectiva es `disabled || loading`. Gestiona el ciclo de la operación y sus errores en el consumidor.
+- Durante la carga, Spinner sustituye al icono y el botón recibe `aria-busy`. La ausencia de contenido con icono o carga activa el tamaño cuadrado.
+- El nodo principal tiene `data-slot="button"`, `data-variant`, `data-size` y, según el estado, `data-loading` y `data-disabled`. La ranura usa `data-slot="button-icon"` y el SVG de soporte usa `data-slot="spinner"`.
+- El estado que Base UI pasa a `style` y `render` contiene `disabled`. Usa los atributos del nodo para seleccionar las opciones propias.
 
-- La deshabilitación efectiva es `disabled || loading`.
-- `loading` añade `data-loading`, `aria-busy` y un Spinner decorativo. Mantén un texto útil, como «Guardando…», para describir la operación.
-- El foco visible lleva anillo primario; `destructive` usa el token de error. Conserva un indicador visible al personalizarlo.
-- Tab recorre botones disponibles; Enter y Espacio activan un botón nativo. Los enlaces conservan su interacción de navegación.
-- El botón solo icono necesita `aria-label` o un nombre accesible equivalente; sus SVG decorativos deben tener `aria-hidden`.
-- Los SVG de la ranura sin clase `size-*` reciben `size-[1.15em]` para escalar con el texto. Un SVG con `size-*` controla su tamaño explícitamente.
-- En el wrapper actual, un botón solo icono con `iconPosition="end"` no renderiza la ranura. Para este caso, conserva `iconPosition="start"`.
-
-```tsx
-import { Check } from "@/components/own/icons";
-
-<Button icon={<Check />} aria-label="Confirmar selección" />
-<Button loading={pending} type="submit">
-  {pending ? "Guardando…" : "Guardar"}
-</Button>
-```
-
-`pending` es estado del consumidor. El ejemplo de icono requiere que el destino incluya Check, o que lo sustituya por un icono propio con nombre de import válido. Deshabilitar la interfaz no sustituye la protección del handler contra operaciones duplicadas cuando esa protección sea necesaria.
-
-## Formas de aplicar estilos
+## 7. Estilos admitidos por pieza
 
 Consulta [globals](../globals.md) para los tokens y las utilidades compartidas.
 
@@ -100,26 +78,30 @@ Consulta [globals](../globals.md) para los tokens y las utilidades compartidas.
 | Jerarquía y tamaños estándar | Prioriza `variant` y `size`; conserva el sistema de estados existente. |
 | Ancho y colocación | Usa clases aditivas como `className="w-full"`; centra y separa desde un contenedor con `flex`, `justify-center` y `gap-*`. |
 | Medida específica | Usa `style`, por ejemplo `style={{ minWidth: "10rem" }}`. Si cambias altura o padding, revisa texto, icono y proporción óptica. |
-| Colores | Consume superficies y tríadas semánticas; evita paletas Tailwind numéricas o colores arbitrarios para una variante del catálogo. |
+| Colores y foco | Las superficies y tríadas de la tabla de variantes se resuelven por tema. El anillo usa `primary-base` o `error-base` para la variante destructiva y separación `surface-soft`. |
+| Tipografía y geometría | El nodo usa `font-medium` y `rounded-base`. La ranura es un `span` que aplica `size-[1.15em]` a los SVG descendientes sin clase `size-*`. |
 | Estados | Usa `data-[loading]:*`, `data-[disabled]:*`, `disabled:*`, `focus-visible:*` y los atributos propios `data-variant` y `data-size`, según el elemento y su estado real. |
-| Animación | Transición base de 150ms en color, borde, sombra, transform y opacidad; compresión `scale-[0.98]` solo con `motion-safe` durante active habilitado. |
-| Movimiento reducido | Cualquier animación añadida debe respetarlo. Para eliminar también las transiciones de color cuando se solicite, añade `motion-reduce:transition-none`; el wrapper no la incluye de base. |
+| Animación | Transición de 150 ms en fondo, texto, borde, sombra, `transform` y opacidad. La compresión en `:active` habilitado usa `motion-safe:active:not-disabled:scale-[0.98]`. Tailwind v4 genera la propiedad individual `scale`, que queda fuera de la lista de transición actual. |
+| Movimiento reducido | La compresión ya usa `motion-safe`. El wrapper conserva la transición base y Spinner usa `animate-spin`. Si el ajuste debe desactivar ambos, usa `motion-reduce:transition-none motion-reduce:[&_[data-slot=spinner]]:animate-none` en Button. |
 | Elemento distinto | Usa `render`, propagando las props y `ref` recibidas si eliges la forma de función. |
 
-Las clases se concatenan con `clsx`; no existe fusión mediante `tailwind-merge`. Poner una clase después de otra en `className` no garantiza que sobrescriba una utilidad en conflicto. Para un ajuste puntual determinista, usa `style`; para estados o pseudo-elementos, usa selectores con precedencia comprobada o utilidades importantes de Tailwind v4 cuando sean necesarias. Para una variante reutilizable autorizada, modifica su diccionario tipado en el componente.
+El wrapper pasa `className` a `clsx` sin evaluar funciones y sin fusionar conflictos de Tailwind. Para un ajuste directo usa `style` sobre el nodo principal. Para estados y descendientes usa un selector con precedencia comprobada. El consumidor controla la separación exterior desde su contenedor.
+
+## 8. Ejemplos de composición
+
+Este fragmento recibe `pending` del estado del formulario. El ejemplo de solo icono usa Check, que debe estar incluido en los archivos de soporte del consumidor.
 
 ```tsx
-<div className="flex flex-wrap justify-center gap-3">
-  <Button variant="secondary">Cancelar</Button>
-  <Button className="w-full sm:w-auto" style={{ minWidth: "10rem" }}>
-    Confirmar
+import { Button } from "@/components/own/independant/button";
+import { Check } from "@/components/own/icons";
+
+<div className="flex flex-wrap items-center gap-3">
+  <Button icon={<Check aria-hidden="true" />} aria-label="Confirmar selección" />
+  <Button loading={pending} type="submit" style={{ minWidth: "10rem" }}>
+    {pending ? "Guardando…" : "Guardar"}
   </Button>
 </div>
 ```
-
-La geometría propia usa `rounded-base`. Un componente del catálogo no añade márgenes exteriores para ubicarse; el padre controla esa separación.
-
-## Composición como enlace y con otras primitivas
 
 ```tsx
 import Link from "next/link";
@@ -130,10 +112,16 @@ import { Button } from "@/components/own/independant/button";
 </Button>
 ```
 
-Link conserva la navegación de Next.js y la semántica de enlace; `nativeButton={false}` y `role="link"` evitan tratarlo como botón nativo. Propaga los atributos y eventos del componente al personalizar `render`.
+En una confirmación se puede componer Button con `AlertDialogClose render={<Button variant="secondary" />}`. Consulta el [ejemplo de Alert Dialog](alert-dialog.md#8-ejemplos-de-composición) para la estructura completa.
 
-Componer con `render` permite compartir apariencia sin crear botones anidados. En Alert Dialog, por ejemplo, el consumidor puede usar `AlertDialogClose render={<Button variant="secondary" />}`. Esa combinación en el uso no cambia la independencia de Button ni la de Alert Dialog.
+## 9. Accesibilidad e integración
 
-## Al verificar cambios
+- Tab alcanza los controles habilitados. Enter y Espacio activan un botón nativo. Un `Link` conserva la semántica y la navegación de un enlace.
+- Da un nombre accesible al botón solo icono y marca el SVG decorativo con `aria-hidden`. En carga, un texto como «Guardando…» describe la operación.
+- Conserva un indicador visible de foco. Con `render` funcional, propaga atributos, eventos y ref al mismo nodo DOM.
+- En App Router, conserva `"use client"` en el módulo de Button y coloca los handlers y estados del consumidor en su frontera cliente. Para enviar un formulario, usa `type="submit"` dentro del formulario y gestiona allí la operación.
 
-Comprueba variantes afectadas, medidas con texto y solo icono, carga/deshabilitación, foco y nombres accesibles. Revisa ambos temas y el ancho donde la acción deba ajustarse. No inventes una prop `asChild`: la composición pública es `render`.
+## 10. Límites y verificación
+
+- Para un botón solo icono usa `iconPosition="start"`. Con `"end"` y sin contenido el wrapper omite la ranura.
+- Usa cadenas para `className` y `render` para composición. Comprueba variantes, anchos con texto y con icono, carga, deshabilitación, foco y nombres accesibles en ambos temas.

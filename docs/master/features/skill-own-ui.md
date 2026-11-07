@@ -50,7 +50,7 @@ La carga de referencias es selectiva: para componer una confirmación con Button
 
 Una exportación incluye las familias seleccionadas, sus dependencias propias transitivas, los iconos de soporte utilizados y los bloques de estilos necesarios. La independencia entre familias no elimina las dependencias de archivos: Button necesita Spinner y Accordion necesita Chevron en la implementación actual.
 
-Cada referencia identifica las dependencias de ejecución y las versiones con las que se ha verificado su contrato. La integración actual utiliza Next.js 16.4.5 con App Router, React y React DOM 19.3, Base UI 1.9.0, `clsx` 2.1.1, Tailwind CSS v4 y `next-themes` 0.4.6. Las referencias DOM como props se apoyan en React 19. La compatibilidad con otra versión debe comprobarse, no suponerse a partir de la similitud de la API.
+`references/structure.md` reúne los archivos de soporte y las versiones de compatibilidad. La integración actual utiliza Next.js 16.4.5 con App Router, React y React DOM 19.3, Base UI 1.9.0, `clsx` 2.1.1, Tailwind CSS v4 y `next-themes` 0.4.6. Las referencias DOM como props se apoyan en React 19. Comprueba la compatibilidad del consumidor al usar otras versiones.
 
 La portabilidad se refiere al traslado entre proyectos Next.js. Se mantiene `next/link` para navegación interna, `next/font/google` para la fuente de referencia y `next-themes` para la integración de temas. Las referencias distinguen la configuración de la aplicación de las dependencias internas de cada familia: por ejemplo, usar Link desde el consumidor no cambia la clasificación de Button.
 
@@ -79,7 +79,7 @@ La referencia debe ser suficiente para trabajar en el proyecto consumidor y segu
 
 | Sección | Contenido requerido |
 | :--- | :--- |
-| **1. Identificación y compatibilidad** | Nombre, módulo exportado, versión o revisión de los archivos descritos, dependencias de ejecución y soporte, y compatibilidad comprobada. Indicar si reutiliza internamente otra familia propia. Separar las fuentes del consumidor de la trazabilidad opcional del origen. |
+| **1. Identificación** | Una frase con el nombre del componente y las primitivas, utilidades o piezas de soporte que utiliza directamente. |
 | **2. Propósito y casos de uso** | Problema que resuelve, escenarios adecuados y condiciones que orientan la elección de otra pieza. Explicar el comportamiento que el consumidor puede esperar. |
 | **3. Importación y anatomía** | Import válido, todas las exportaciones públicas, responsabilidad y elemento HTML predeterminado de cada pieza, anidación requerida y composición JSX mínima. Identificar qué contenido aporta el consumidor. |
 | **4. Variantes y tamaños** | Valores aceptados, valores predeterminados, diferencias visuales o de densidad y sus dimensiones relevantes. Distinguir variantes propias de modos de funcionamiento. Si no existen props propias de variante o tamaño, declararlo. |
@@ -102,7 +102,7 @@ La estructura de encabezados reutilizable es:
 ```markdown
 # Nombre del componente
 
-## 1. Identificación y compatibilidad
+## 1. Identificación
 ## 2. Propósito y casos de uso
 ## 3. Importación y anatomía
 ## 4. Variantes y tamaños

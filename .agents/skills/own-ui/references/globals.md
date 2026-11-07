@@ -2,7 +2,7 @@
 
 Lee esta referencia al integrar los estilos de own-ui en un proyecto Next.js con App Router, elegir colores, tipografía, geometría o elevación, cambiar el tema o modificar los tokens compartidos. Para los estados y las dimensiones de un componente concreto, consulta también su referencia.
 
-La ruta convencional del CSS es `assets/styles/globals.css`; resuelve su ubicación y la de los componentes en el entorno consumidor mediante [estructura](structure.md). Las tablas describen la configuración base exportada de own-ui. El consumidor puede cambiar las semillas y adaptar los tokens: comprueba su CSS efectivo antes de editarlo y conserva los contratos semánticos que utilizan sus componentes.
+La ruta convencional del CSS es `assets/styles/globals.css`. Las tablas describen la configuración de la revisión que identifica la [referencia de estructura](structure.md#compatibilidad-y-archivos-necesarios). Localiza la hoja global y comprueba los valores efectivos del consumidor antes de ajustar sus semillas o tokens. Conserva los roles semánticos que usan las familias integradas.
 
 ## 1. Organización física del archivo
 
@@ -21,9 +21,9 @@ Mantén las variables base, su asignación por tema y su exposición a Tailwind 
 
 ### Integración en Next.js App Router con Tailwind CSS v4
 
-Importa el CSS global desde el layout raíz, `app/layout.tsx` o `src/app/layout.tsx`, según la organización del proyecto. Resuelve la ruta real del CSS mediante [estructura](structure.md). Al integrarlo en una hoja existente, combina los bloques `@theme inline`, `@layer base` y `@layer utilities` con los del consumidor; conserva un único import de Tailwind y revisa colisiones de nombres y precedencia.
+Importa la hoja global del consumidor desde el layout raíz, `app/layout.tsx` o `src/app/layout.tsx`. Integra los bloques necesarios según las familias exportadas. Conserva los estilos existentes y un único import de Tailwind. Revisa los alias de `@theme inline`, los valores de `@layer base`, las utilidades compartidas y el alcance del selector `.dark` si el consumidor ya lo configura.
 
-La compilación debe detectar las clases literales de los componentes de own-ui, también si sus archivos están en un paquete compartido. Comprueba el alcance real del escaneo de Tailwind; si esos archivos quedan fuera, registra la fuente necesaria mediante `@source` en el CSS consumidor. Resuelve la ruta según dónde estén instalados los componentes; la ubicación de los componentes no depende de que App Router esté en `app/` o `src/app/`.
+La compilación debe detectar las clases literales de los componentes de own-ui, incluidos los iconos y archivos de soporte. Si Tailwind no escanea esos archivos, registra su ubicación mediante `@source` en la hoja del consumidor. La ruta de esa directiva se resuelve desde la hoja CSS. Comprueba que el CSS generado incluye las utilidades semánticas y los selectores de estado que utiliza la familia.
 
 ## 2. Flujo de color
 
@@ -173,7 +173,7 @@ Para las piezas con portales, separa el apilamiento del contenido de la aplicaci
 
 El destino del portal debe recibir los tokens de tema y la tipografía necesarios. Si no hereda el contexto de la interfaz, proporciona allí la clase o las variables correspondientes. En un ShadowRoot, carga los estilos en el ámbito que renderiza las piezas y verifica también cómo se resuelven la variante `dark`, las fuentes y las variables heredadas.
 
-El CSS base no contiene keyframes o recetas de animación propios. Las transiciones están en las clases de [Button](components/button.md), [Accordion](components/accordion.md) y [Alert Dialog](components/alert-dialog.md); consulta su referencia antes de modificarlas. Conserva sus selectores de estado y su tratamiento de `motion-reduce` o `motion-safe`.
+Las transiciones se definen en las clases de [Button](components/button.md), [Accordion](components/accordion.md) y [Alert Dialog](components/alert-dialog.md). Spinner usa la animación `animate-spin` de Tailwind. Al ajustar una transición, conserva los selectores de entrada y salida de la pieza y comprueba el movimiento reducido en la referencia correspondiente.
 
 ## 7. Elegir el alcance del cambio
 
