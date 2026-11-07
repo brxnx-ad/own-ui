@@ -112,6 +112,18 @@ const components: ComponentItem[] = [
     description: "Control de texto nativo para usar con una etiqueta HTML o dentro de Field.",
     category: "Entrada",
   },
+  {
+    name: "Menu",
+    href: "/menu",
+    description: "Menú de acciones anclado a un botón, con selecciones, submenús y búsqueda opcional.",
+    category: "Acción",
+  },
+  {
+    name: "Menubar",
+    href: "/menubar",
+    description: "Barra de menús con foco coordinado y navegación por teclado.",
+    category: "Acción",
+  },
 ];
 
 function ArrowRightIcon() {

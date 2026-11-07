@@ -10,7 +10,7 @@
 
 El plan incluye 37 familias independientes basadas en primitivas de Base UI. El consumidor decide cómo componerlas mediante `children`, `render` o ranuras. La distribución aplica el [criterio de dependencias internas](01-estructura-del-proyecto.md#3-componentes-independientes-y-dependientes) de own-ui.
 
-En `components/own/independant/` hay 16 componentes implementados y 21 pendientes.
+En `components/own/independant/` hay 18 componentes implementados y 19 pendientes.
 
 - [x] Accordion
 - [x] Alert Dialog
@@ -28,8 +28,8 @@ En `components/own/independant/` hay 16 componentes implementados y 21 pendiente
 - [x] Fieldset
 - [x] Form
 - [x] Input
-- [ ] Menu
-- [ ] Menubar
+- [x] Menu
+- [x] Menubar
 - [ ] Meter
 - [ ] Navigation Menu
 - [ ] Number Field

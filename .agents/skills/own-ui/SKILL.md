@@ -34,6 +34,8 @@ Antes de integrar o modificar un componente, lee su referencia. Describe su API 
 | FloatingInput | [floating-input.md](references/components/floating-input.md) | Etiqueta flotante interior o recorte animado en el borde, estados de valor y validación con Field. |
 | Form | [form.md](references/components/form.md) | Envío, validación coordinada, errores externos y acciones de servidor. |
 | Input | [input.md](references/components/input.md) | Texto en una línea, valor controlado o inicial, restricciones nativas e integración con Field. |
+| Menu | [menu.md](references/components/menu.md) | Acciones ancladas, enlaces, casillas, opciones exclusivas, submenús, activadores compartidos y búsqueda. |
+| Menubar | [menubar.md](references/components/menubar.md) | Barras de comandos, orientación, recorrido de foco y coordinación entre menús. |
 
 Estas referencias describen las familias implementadas incluidas en este material. Comprueba cuáles se han copiado al proyecto antes de importarlas. Para una familia aún sin referencia, localiza su código y los tipos de la versión de Base UI instalada; consulta su documentación si está disponible. Distingue la API de la primitiva de las extensiones propias. Si faltan los archivos necesarios, identifica qué debe incorporarse y actúa según el alcance autorizado; no supongas que la familia ya está disponible.
 
