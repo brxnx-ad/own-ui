@@ -6,7 +6,7 @@ El entorno de referencia es Next.js con App Router. Las rutas siguientes son con
 
 | Ruta convencional | Responsabilidad en el consumidor |
 | :--- | :--- |
-| `components/own/independant/` | Familias propias definidas sin reutilizar internamente componentes propios de otra familia. Las referencias disponibles describen `button.tsx`, `accordion.tsx`, `alert-dialog.tsx` y `autocomplete.tsx`. Verifica cuáles se han exportado al destino. |
+| `components/own/independant/` | Familias propias definidas sin reutilizar internamente componentes propios de otra familia. Verifica cuáles se han exportado al destino en la tabla de archivos necesarios. |
 | `components/own/dependant/` | Familias propias que importan y reutilizan componentes propios de otra familia dentro de su definición. Solo se necesita si se incorporan familias de ese tipo. |
 | `components/own/icons/` | Soporte SVG compartido: Chevron, Check, Minus, Plus, Close y Spinner. |
 | `app/` o `src/app/` | Rutas, páginas y layouts del App Router del proyecto consumidor. Los ejemplos interactivos y componentes exclusivos de una vista se colocan cerca de ella. |
@@ -19,7 +19,7 @@ Los nombres convencionales son `independant` y `dependant`. Si se conserva esta 
 
 ## Compatibilidad y archivos necesarios
 
-Las referencias de Button, Accordion y Alert Dialog parten de la revisión de origen `f48ed4e49171`. La de Autocomplete acompaña al `autocomplete.tsx` de su distribución. En el consumidor, coteja la revisión registrada al exportar, el código recibido y los tipos instalados.
+Las referencias de Button, Accordion y Alert Dialog parten de la revisión de origen `f48ed4e49171`. Las de Autocomplete y Avatar acompañan a `autocomplete.tsx` y `avatar.tsx` en sus respectivas distribuciones. En el consumidor, coteja la revisión registrada al exportar, el código recibido y los tipos instalados.
 
 | Capa | Base de compatibilidad |
 | :--- | :--- |
@@ -35,6 +35,12 @@ Comprueba la compatibilidad del entorno receptor al usar otras versiones. Consul
 | Accordion | `accordion.tsx` y Chevron con su helper SVG, definidos en `icons/index.tsx`. Si se copia el módulo completo de iconos, incluye también los archivos que reexporta, como Spinner. |
 | Alert Dialog | `alert-dialog.tsx`; su definición no importa otras familias propias ni iconos de soporte. Button solo es necesario si el consumidor lo elige para sus acciones. |
 | Autocomplete | `autocomplete.tsx`, Chevron y Close con su helper SVG en `icons/index.tsx`. Si se copia el módulo de iconos completo, incluye también `icons/spinner.tsx` por su reexportación. |
+| Avatar | `avatar.tsx`. El consumidor aporta la imagen y el contenido alternativo. |
+| Checkbox | `checkbox.tsx`, Check y Minus con su helper SVG en `icons/index.tsx`. Si se copia el módulo de iconos completo, incluye también `icons/spinner.tsx` por su reexportación. |
+| Checkbox Group | `checkbox-group.tsx`. Incluye Checkbox y sus iconos cuando el consumidor componga el grupo con las casillas de own-ui. |
+| Collapsible | `collapsible.tsx` y Chevron con su helper SVG en `icons/index.tsx`. Si se copia el módulo completo de iconos, incluye también `icons/spinner.tsx` por su reexportación. |
+| Combobox | `combobox.tsx`, Check, Chevron y Close con su helper SVG en `icons/index.tsx`. Si se copia el módulo completo de iconos, incluye también `icons/spinner.tsx` por su reexportación. |
+| Context Menu | `context-menu.tsx`, Check y Chevron con su helper SVG en `icons/index.tsx`. Si se copia el módulo completo de iconos, incluye también `icons/spinner.tsx` por su reexportación. |
 
 Al preparar una exportación, reúne las familias seleccionadas, sus dependencias transitivas y los bloques de CSS que consumen. Adapta los imports de soporte si distribuyes solo parte del módulo de iconos. Copia la carpeta de la skill con sus referencias y ajusta el índice a las familias entregadas o indica su disponibilidad. Verifica los enlaces relativos desde la carpeta copiada y registra la revisión y las versiones comprobadas.
 
@@ -49,7 +55,7 @@ La unidad de clasificación es la familia propia y sus piezas, no el número de 
 
 Alert Dialog es independiente: Trigger y Close envuelven sus propias primitivas. El consumidor puede componerlos con Button y decidir sus variantes, sin fijar los botones dentro de la definición de Alert Dialog.
 
-La misma distinción se aplica a grupos y formularios: que Checkbox Group reciba Checkbox o Menubar reciba Menu en el uso no demuestra una dependencia interna de sus wrappers. Revisa la definición antes de asignar una carpeta. Esos ejemplos de composición no implican que dichas familias formen parte de los archivos exportados.
+Checkbox Group también es independiente. Su definición envuelve la primitiva de agrupación y recibe las casillas desde el consumidor. El mismo criterio se aplica a grupos y formularios cuando el consumidor aporta las piezas, como Menu dentro de Menubar. Usa la tabla de archivos necesarios para comprobar qué familias se incluyen en una exportación.
 
 ## Imports y composición
 
@@ -83,4 +89,4 @@ Para una nueva familia, sigue el tipado de la primitiva instalada y los patrones
 
 Verifica imports, tipado y generación de utilidades con las herramientas del consumidor. Prueba las composiciones relevantes en una vista de su aplicación, incluidos ambos temas, foco, ancho disponible y estados afectados. La demostración define su disposición en sus contenedores.
 
-Para el contrato y los estilos de cada familia, consulta [Button](components/button.md), [Accordion](components/accordion.md), [Alert Dialog](components/alert-dialog.md) o [Autocomplete](components/autocomplete.md).
+Para el contrato y los estilos de cada familia, consulta [Button](components/button.md), [Accordion](components/accordion.md), [Alert Dialog](components/alert-dialog.md), [Autocomplete](components/autocomplete.md), [Avatar](components/avatar.md), [Checkbox](components/checkbox.md), [Checkbox Group](components/checkbox-group.md), [Collapsible](components/collapsible.md), [Combobox](components/combobox.md) o [Context Menu](components/context-menu.md).

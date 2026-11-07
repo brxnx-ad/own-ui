@@ -28,10 +28,46 @@ const components: ComponentItem[] = [
     category: "Entrada",
   },
   {
+    name: "Avatar",
+    href: "/avatar",
+    description: "Imagen de perfil con iniciales o contenido alternativo.",
+    category: "Identidad",
+  },
+  {
     name: "Button",
     href: "/button",
     description:
       "Botón interactivo base con variantes cromáticas, ranuras de iconos, estado de carga con spinner y compresión física táctil.",
+    category: "Acción",
+  },
+  {
+    name: "Checkbox",
+    href: "/checkbox",
+    description: "Casilla de selección con estados marcado, desmarcado e indeterminado.",
+    category: "Entrada",
+  },
+  {
+    name: "Checkbox Group",
+    href: "/checkbox-group",
+    description: "Grupo de casillas con selección compartida y opción de seleccionar todo.",
+    category: "Entrada",
+  },
+  {
+    name: "Collapsible",
+    href: "/collapsible",
+    description: "Panel individual que se puede mostrar u ocultar mediante un activador.",
+    category: "Contenido",
+  },
+  {
+    name: "Combobox",
+    href: "/combobox",
+    description: "Selección de una o varias opciones con un campo de búsqueda.",
+    category: "Entrada",
+  },
+  {
+    name: "Context Menu",
+    href: "/context-menu",
+    description: "Acciones contextuales que se abren con clic secundario o pulsación prolongada.",
     category: "Acción",
   },
 ];

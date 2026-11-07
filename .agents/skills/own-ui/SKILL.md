@@ -21,6 +21,12 @@ Antes de integrar o modificar un componente, lee su referencia. Describe su API 
 | Accordion | [accordion.md](references/components/accordion.md) | Paneles expandibles, apertura individual o múltiple, estado controlado, persistencia y animación. |
 | Alert Dialog | [alert-dialog.md](references/components/alert-dialog.md) | Confirmaciones modales, acciones destructivas, foco, operaciones asíncronas y activadores compartidos. |
 | Autocomplete | [autocomplete.md](references/components/autocomplete.md) | Texto libre con sugerencias, anclaje y dirección del panel, filtrado, grupos y límites de resultados. |
+| Avatar | [avatar.md](references/components/avatar.md) | Imágenes de perfil, iniciales, tamaños, fallback diferido y carga con `keepMounted`. |
+| Checkbox | [checkbox.md](references/components/checkbox.md) | Casillas controladas y no controladas, selección parcial, etiquetas y envío de formularios. |
+| Checkbox Group | [checkbox-group.md](references/components/checkbox-group.md) | Selección compartida, casilla principal, deshabilitación del grupo y formularios. |
+| Collapsible | [collapsible.md](references/components/collapsible.md) | Panel individual, apertura controlada, persistencia, búsqueda de contenido y animación. |
+| Combobox | [combobox.md](references/components/combobox.md) | Selección filtrada de una o varias opciones, chips, grupos, posicionamiento y valores de formulario. |
+| Context Menu | [context-menu.md](references/components/context-menu.md) | Acciones contextuales, submenús, enlaces, casillas, opciones excluyentes y foco. |
 
 Estas referencias describen las familias implementadas incluidas en este material. Comprueba cuáles se han copiado al proyecto antes de importarlas. Para una familia aún sin referencia, localiza su código y los tipos de la versión de Base UI instalada; consulta su documentación si está disponible. Distingue la API de la primitiva de las extensiones propias. Si faltan los archivos necesarios, identifica qué debe incorporarse y actúa según el alcance autorizado; no supongas que la familia ya está disponible.
 
