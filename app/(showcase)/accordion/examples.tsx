@@ -1,15 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import { Accordion, AccordionHeader, AccordionItem, AccordionPanel, AccordionTrigger } from "@/components/own/accordion";
-import { Button } from "@/components/own/button";
+import { Accordion, AccordionHeader, AccordionItem, AccordionPanel, AccordionTrigger } from "@/components/own/independant/accordion";
+import { Button } from "@/components/own/independant/button";
 
 export function ControlledExample() {
   const [value, setValue] = useState<string[]>([]);
 
   return (
     <div className="space-y-4">
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap justify-center gap-2">
         <Button size="sm" variant="secondary" onClick={() => setValue(["details"])}>Abrir desde fuera</Button>
         <Button size="sm" variant="secondary" onClick={() => setValue([])}>Cerrar desde fuera</Button>
       </div>

@@ -1,6 +1,6 @@
 # own-ui · Creación de componentes
 
-> **Objetivo y alcance del documento:** Establecer la guía canónica y los estándares técnicos para la creación de componentes propios en `components/own/`, utilizando `button.tsx` como componente modelo de referencia. Se considera desactualizado si los componentes implementados en `components/own/` emplean patrones de tipado, composición de clases, gestión de estados o jerarquías de interacción divergentes de las directrices aquí descritas.
+> **Objetivo y alcance del documento:** Establecer la guía canónica y los estándares técnicos para la creación de componentes propios en `components/own/`, utilizando `components/own/independant/button.tsx` como componente modelo de referencia. Se considera desactualizado si la ubicación, la composición, el tipado o los estados de los componentes implementados divergen de las directrices aquí descritas.
 
 [Estructura del proyecto](../01-estructura-del-proyecto.md) · [Sistema de estilos](../02-estilos.md) · [Objetivos](../03-objetivos.md) · [Mantenimiento](../04-mantenimiento.md) · [Pendientes](../05-pendientes.md) · [Showcase](showcase.md)
 
@@ -15,6 +15,28 @@ Todo componente desarrollado en `components/own/` debe cumplir cinco reglas obli
 3. **Consumo de tokens propios:** Empleo exclusivo de los tokens semánticos de superficies (`surface-*`), tríadas cromáticas (`*-soft`, `*-base`, `*-bold`) y variables de geometría (`rounded-base`) definidas en `globals.css`.
 4. **Introspección por atributos `data-*`:** Declaración explícita de `data-slot`, `data-variant`, `data-size` y estados para pruebas automatizadas y estilos condicionales.
 5. **Composición limpia con `clsx`:** Concatenación condicional sin generar strings vacíos o valores booleanos huérfanos.
+
+### 1.1. Ubicación e imports
+
+Aplicar el [criterio de dependencias internas](../01-estructura-del-proyecto.md#3-componentes-independientes-y-dependientes) antes de elegir la ubicación del archivo:
+
+* `components/own/independant/`: la definición no importa y renderiza otros componentes propios del catálogo. Button, Accordion y Alert Dialog pertenecen a esta carpeta.
+* `components/own/dependant/`: la definición reutiliza otros componentes propios del catálogo internamente.
+* `components/own/icons/`: soporte compartido de iconos; su uso no cambia la clasificación.
+
+Los consumidores importan directamente desde la carpeta correspondiente:
+
+```tsx
+import { Button } from "@/components/own/independant/button";
+import { Accordion } from "@/components/own/independant/accordion";
+import { AlertDialog, AlertDialogClose } from "@/components/own/independant/alert-dialog";
+```
+
+### 1.2. Composición decidida por el consumidor
+
+Las piezas de una misma primitiva de Base UI pueden formar un componente independiente. La composición mediante `children`, `render` o ranuras permite que el consumidor elija los controles y las acciones, sin fijar en la definición del componente su cantidad ni sus variantes.
+
+Por ejemplo, `AlertDialogClose` envuelve `Primitive.Close` y permite `render={<Button variant="secondary" />}` en el uso. Esa composición pertenece al consumidor; Alert Dialog mantiene su definición independiente. Si un componente importa y renderiza Button dentro de su propia definición, incluido un `render` predeterminado, entonces sí depende de Button.
 
 ---
 

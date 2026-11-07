@@ -1,6 +1,6 @@
 # own-ui · Showcase de componentes
 
-> **Objetivo y alcance del documento:** Documentar la navegación del catálogo interactivo dentro de `app/(showcase)` y el patrón de presentación de ejemplos, anatomía y referencia de API establecido en Accordion. Se considera desactualizado si las rutas, la organización de Accordion o la presentación específica de Button difieren de lo descrito en este documento.
+> **Objetivo y alcance del documento:** Documentar la navegación del catálogo interactivo dentro de `app/(showcase)`, sus imports, el centrado de las demostraciones y el patrón de presentación de ejemplos, anatomía y referencia de API establecido en Accordion. Se considera desactualizado si las rutas, los imports, la alineación de los ejemplos, la organización de Accordion o la presentación específica de Button difieren de lo descrito en este documento.
 
 [Estructura del proyecto](../01-estructura-del-proyecto.md) · [Sistema de estilos](../02-estilos.md) · [Objetivos](../03-objetivos.md) · [Mantenimiento](../04-mantenimiento.md) · [Pendientes](../05-pendientes.md) · [Creación de componentes](creacion-de-componentes.md)
 
@@ -23,6 +23,16 @@ Cada componente registrado cuenta con su propia ruta independiente (por ejemplo,
 * **Encabezado y contexto:** Incluye un enlace de retorno (`Volver al catálogo`), el alternador de temas claro y oscuro (`ThemeToggle`), el nombre del componente, la referencia a la primitiva headless de Base UI que lo sustenta (`@base-ui/react/*`) y una descripción breve de su función.
 * **Separación de responsabilidades:** La página se dedica por completo a desglosar las posibilidades visuales, dimensiones, ranuras y estados del componente.
 
+### 2.1. Rutas e imports del catálogo actual
+
+| Componente | Ruta | Import del componente propio |
+| :--- | :--- | :--- |
+| Accordion | `/accordion` | `@/components/own/independant/accordion` |
+| Alert Dialog | `/alert-dialog` | `@/components/own/independant/alert-dialog` |
+| Button | `/button` | `@/components/own/independant/button` |
+
+Los ejemplos pueden combinar componentes independientes. Alert Dialog utiliza Button en sus ejemplos mediante `render` o como acción con cierre controlado; esa composición pertenece al showcase y no introduce una dependencia dentro de la definición de Alert Dialog. La clasificación se rige por [Estructura del proyecto](../01-estructura-del-proyecto.md#3-componentes-independientes-y-dependientes).
+
 ---
 
 ## 3. Patrón de presentación basado en Accordion
@@ -36,6 +46,15 @@ Accordion establece el patrón de referencia para nuevos showcases. La página p
 * **Una sola descripción:** Debajo del título hay una frase breve que integra la prop o indicación necesaria con código en línea, por ejemplo: `Permite abrir varios paneles a la vez con multiple.` No se añaden filas independientes de props, etiquetas de opcionalidad ni explicaciones redundantes.
 * **Contenido demostrable:** Se cubren los comportamientos relevantes mediante ejemplos interactivos. Los tipos, valores predeterminados y detalles de callbacks se reservan para la referencia de API; se evitan mensajes auxiliares que solo registren cambios de estado.
 * **Espacio y superficies:** La página usa `max-w-4xl` y separación vertical `space-y-12`. Cada sección usa `space-y-4`; el ejemplo se presenta en un contenedor `rounded-2xl border border-gray-base bg-surface-base p-6 shadow-s sm:p-8`.
+* **Centrado del ejemplo:** Los componentes demostrados se centran horizontalmente dentro de su contenedor. Esta disposición se define en el showcase; los componentes propios conservan su neutralidad de maquetación. Los títulos y las descripciones de las secciones, los bloques de código y las tablas mantienen su alineación de lectura.
+
+#### 3.1.1. Aplicación del centrado por componente
+
+| Componente | Disposición del ejemplo |
+| :--- | :--- |
+| Button | El contenedor usa `flex flex-col items-center gap-6`. Las etiquetas de estado y las filas de tamaños se centran con `justify-center`; las filas usan `flex-wrap` para adaptarse al ancho disponible. Los botones individuales conservan su ancho natural. |
+| Accordion | Cada ejemplo se presenta en un bloque interior `mx-auto w-full max-w-xl`, centrado y adaptable al ancho disponible. Los botones externos del ejemplo controlado usan `flex flex-wrap justify-center gap-2`. El texto de los encabezados y paneles conserva su alineación de lectura. |
+| Alert Dialog | El contenedor usa `flex flex-col items-center`. Los ejemplos con estado o activadores externos usan `flex w-full flex-col items-center gap-4 text-center`, y las filas de activadores, `flex flex-wrap justify-center gap-2`. El popup renderizado en el portal conserva la disposición propia de su contenido y sus acciones. |
 
 ### 3.2. Anatomía después de los ejemplos
 
@@ -68,10 +87,13 @@ En Button, dentro del contenedor de cada variante, cada estado interactivo se ex
 * **Normal:** Estado en reposo con interactividad completa.
 * **Loading:** Señalizado con la etiqueta de estado y la píldora `loading`.
 * **Disabled:** Señalizado con la etiqueta de estado y la píldora `disabled`.
-* **Separadores limpios:** Cada estado se delimita mediante un divisor sutil (`h-px bg-gray-base/40`).
+* **Separadores limpios:** Cada estado se delimita mediante un divisor sutil de ancho completo (`h-px w-full bg-gray-base/40`).
 
 ### 4.3. Criterio de alineación horizontal (lado a lado)
+
 Dentro de la fila de cada estado específico:
+
+* **Centrado y adaptación:** La etiqueta y la píldora de estado se centran como grupo. La fila de tamaños usa `flex flex-wrap items-center justify-center gap-4 sm:gap-6`; cada grupo de botón e icono permanece unido y las filas resultantes se centran también en móvil.
 * **Permitido exclusivamente lado a lado:** Únicamente los distintos tamaños disponibles (`sm`, `md`, `lg`) y sus respectivas versiones con/sin ícono (o solo ícono) se disponen horizontalmente para contrastar su escala óptica y proporción.
 * **Prohibido:** No se deben mezclar variantes distintas en el mismo contenedor ni disponer estados diferentes en una misma fila sin su debida separación.
 

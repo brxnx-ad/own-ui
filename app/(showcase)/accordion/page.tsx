@@ -6,7 +6,7 @@ import {
   AccordionItem,
   AccordionPanel,
   AccordionTrigger,
-} from "@/components/own/accordion";
+} from "@/components/own/independant/accordion";
 import { ThemeToggle } from "@/components/shared/theme-toggle";
 import { ControlledExample, PersistenceExample } from "./examples";
 import { Anatomy, ApiReference } from "./api-reference";
@@ -22,7 +22,9 @@ function Behavior({ title, description, children }: {
         <h2 className="h3">{title}</h2>
         <p className="body-sm text-gray-bold/75">{description}</p>
       </div>
-      <div className="rounded-2xl border border-gray-base bg-surface-base p-6 shadow-s sm:p-8">{children}</div>
+      <div className="rounded-2xl border border-gray-base bg-surface-base p-6 shadow-s sm:p-8">
+        <div className="mx-auto w-full max-w-xl space-y-4">{children}</div>
+      </div>
     </section>
   );
 }
@@ -95,7 +97,9 @@ export default function AccordionShowcasePage() {
             </p>
           </div>
           <div className="rounded-2xl border border-gray-base bg-surface-base p-6 shadow-s sm:p-8">
-            <Example />
+            <div className="mx-auto w-full max-w-xl">
+              <Example />
+            </div>
           </div>
         </section>
             <Behavior title="Apertura múltiple" description={<>Permite abrir varios paneles a la vez con <code>multiple</code>.</>}><Example multiple /></Behavior>

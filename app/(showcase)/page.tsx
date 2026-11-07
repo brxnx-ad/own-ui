@@ -15,6 +15,13 @@ const components: ComponentItem[] = [
     category: "Contenido",
   },
   {
+    name: "Alert Dialog",
+    href: "/alert-dialog",
+    description:
+      "Diálogo modal accesible para confirmar acciones que requieren una decisión explícita.",
+    category: "Confirmación",
+  },
+  {
     name: "Button",
     href: "/button",
     description:

@@ -23,14 +23,14 @@ export default function RootLayout({
       className={plusJakartaSans.variable}
       suppressHydrationWarning
     >
-      <body className="font-sans antialiased">
+      <body className="relative font-sans antialiased">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <div className="isolate">{children}</div>
         </ThemeProvider>
       </body>
     </html>

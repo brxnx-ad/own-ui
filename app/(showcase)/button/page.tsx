@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
-import { Button, type ButtonVariant } from "@/components/own/button";
+import { Button, type ButtonVariant } from "@/components/own/independant/button";
 import { ThemeToggle } from "@/components/shared/theme-toggle";
 import { ButtonAnatomy, ButtonApiReference } from "./api-reference";
 
@@ -24,7 +24,7 @@ function ShowcaseSection({
         </p>
       </div>
 
-      <div className="space-y-6 rounded-2xl border border-gray-base bg-surface-base p-6 sm:p-8 shadow-s">
+      <div className="flex flex-col items-center gap-6 rounded-2xl border border-gray-base bg-surface-base p-6 sm:p-8 shadow-s">
         {children}
       </div>
     </section>
@@ -47,8 +47,8 @@ function StateRow({
   disabled = false,
 }: StateRowProps) {
   return (
-    <div className="space-y-3">
-      <div className="flex items-center gap-2">
+    <div className="w-full space-y-3">
+      <div className="flex items-center justify-center gap-2">
         <span className="caption font-semibold uppercase tracking-wider text-gray-bold/70">
           {label}
         </span>
@@ -59,7 +59,7 @@ function StateRow({
         )}
       </div>
 
-      <div className="flex flex-wrap items-center gap-4 sm:gap-6">
+      <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
         <div className="flex items-center gap-2">
           <Button
             variant={variant}
@@ -136,14 +136,14 @@ function VariantShowcaseBlock({
       description={<>{description} <code>variant=&quot;{variant}&quot;</code>.</>}
     >
       <StateRow label="Normal" variant={variant} />
-      <div className="h-px bg-gray-base/40" />
+      <div className="h-px w-full bg-gray-base/40" />
       <StateRow
         label="Loading"
         propCode="loading"
         variant={variant}
         loading
       />
-      <div className="h-px bg-gray-base/40" />
+      <div className="h-px w-full bg-gray-base/40" />
       <StateRow
         label="Disabled"
         propCode="disabled"
