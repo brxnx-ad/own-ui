@@ -124,6 +124,20 @@ const components: ComponentItem[] = [
     description: "Barra de menús con foco coordinado y navegación por teclado.",
     category: "Acción",
   },
+  {
+    name: "Meter",
+    href: "/meter",
+    description:
+      "Representación gráfica de un valor escalar dentro de un rango conocido.",
+    category: "Contenido",
+  },
+  {
+    name: "Navigation Menu",
+    href: "/navigation-menu",
+    description:
+      "Colección de enlaces y paneles desplegables para la navegación del sitio.",
+    category: "Contenido",
+  },
 ];
 
 function ArrowRightIcon() {
