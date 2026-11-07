@@ -38,6 +38,8 @@ Las piezas de una misma primitiva de Base UI pueden formar un componente indepen
 
 Por ejemplo, `AlertDialogClose` envuelve `Primitive.Close` y permite `render={<Button variant="secondary" />}` en el uso. Esa composición pertenece al consumidor; Alert Dialog mantiene su definición independiente. Si un componente importa y renderiza Button dentro de su propia definición, incluido un `render` predeterminado, entonces sí depende de Button.
 
+FloatingInput compone Input, Field y FieldLabel dentro de su definición y vive en `dependant/`. El consumidor puede aportar `FieldDescription` y `FieldError` como hijos. El bloque de FloatingInput en `@layer components` de `globals.css` coordina la etiqueta y el recorte mediante los estados del control nativo y respeta la preferencia de movimiento reducido.
+
 ---
 
 ## 2. Definición y extensión de tipos (TypeScript)

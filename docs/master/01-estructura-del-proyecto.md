@@ -12,8 +12,8 @@
 | :--- | :--- |
 | `app/` | Rutas, layouts y páginas del App Router de Next.js. Utiliza grupos de rutas como `(showcase)` para organizar las páginas de catálogo y aloja **componentes localizados** (exclusivos de una vista que no se reutilizan transversalmente). |
 | `components/own/` | Componentes reutilizables propios construidos sobre Base UI, organizados por sus dependencias internas. |
-| `components/own/independant/` | Componentes cuya definición no reutiliza otros componentes propios del catálogo. Contiene Accordion, Alert Dialog y Button. |
-| `components/own/dependant/` | Componentes cuya definición importa y renderiza otros componentes propios del catálogo. Actualmente está vacía. |
+| `components/own/independant/` | Componentes cuya definición envuelve primitivas de Base UI sin reutilizar otras familias propias, como Input y Field. |
+| `components/own/dependant/` | Componentes cuya definición importa y renderiza otras familias propias. FloatingInput compone Input y Field. |
 | `components/own/icons/` | Iconos internos compartidos de soporte. Su uso no determina la clasificación de un componente del catálogo. |
 | `components/shared/` | Componentes compartidos de soporte e interfaz transversal (como el alternador de temas). |
 | `assets/styles/` | Estilos globales del proyecto. Contiene `globals.css`, donde se importa Tailwind CSS v4, se definen las semillas de color en espacio OKLCH, las escalas, los tokens semánticos de superficies y tríadas cromáticas, y las utilidades tipográficas y de interacción. |
@@ -41,4 +41,6 @@ El uso de una primitiva de Base UI, un helper, un tipo o un icono de `components
 
 Alert Dialog es independiente: su definición envuelve las piezas de `@base-ui/react/alert-dialog`. El consumidor decide los botones y sus variantes mediante `render`, incluido el uso de Button, sin introducir esa dependencia en la definición de Alert Dialog.
 
-Los imports reflejan la carpeta del componente, por ejemplo `@/components/own/independant/button` y `@/components/own/independant/alert-dialog`. Los nombres de carpeta vigentes son exactamente `independant` y `dependant`.
+Input envuelve `@base-ui/react/input` y admite el contexto de Field de Base UI. FloatingInput importa las implementaciones propias de Input y Field para aportar la etiqueta flotante y asociarla al control.
+
+Los imports reflejan la carpeta del componente. Usa `@/components/own/independant/input` y `@/components/own/dependant/floating-input`. Los nombres de carpeta vigentes son exactamente `independant` y `dependant`.

@@ -95,9 +95,21 @@ const components: ComponentItem[] = [
     category: "Entrada",
   },
   {
+    name: "FloatingInput",
+    href: "/floating-input",
+    description: "Entrada de texto con etiqueta flotante dentro del campo o sobre su borde.",
+    category: "Entrada",
+  },
+  {
     name: "Form",
     href: "/form",
     description: "Formularios con envío, validación coordinada y errores por campo.",
+    category: "Entrada",
+  },
+  {
+    name: "Input",
+    href: "/input",
+    description: "Control de texto nativo para usar con una etiqueta HTML o dentro de Field.",
     category: "Entrada",
   },
 ];

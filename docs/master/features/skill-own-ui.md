@@ -147,8 +147,10 @@ Las referencias evolucionan junto con el código que acompañan. Al documentar u
 
 ## 7. Estado de la skill en este repositorio
 
-La skill actual dispone de referencias para [Button](../../../.agents/skills/own-ui/references/components/button.md), [Accordion](../../../.agents/skills/own-ui/references/components/accordion.md), [Alert Dialog](../../../.agents/skills/own-ui/references/components/alert-dialog.md) y [Autocomplete](../../../.agents/skills/own-ui/references/components/autocomplete.md), además de [estructura](../../../.agents/skills/own-ui/references/structure.md) y [globals](../../../.agents/skills/own-ui/references/globals.md).
+El [índice de la skill](../../../.agents/skills/own-ui/SKILL.md) enlaza las 17 referencias del catálogo, incluidas [Input](../../../.agents/skills/own-ui/references/components/input.md) y [FloatingInput](../../../.agents/skills/own-ui/references/components/floating-input.md). Las referencias de [estructura](../../../.agents/skills/own-ui/references/structure.md) y [globals](../../../.agents/skills/own-ui/references/globals.md) cubren los archivos y estilos compartidos.
 
 La entrada y las referencias están orientadas a proyectos Next.js consumidores y sus enlaces se resuelven dentro de la carpeta de la skill. Las rutas de componentes y de la hoja global se presentan como convenciones adaptables dentro de App Router; se explican las dependencias de soporte, la integración con Link, fuentes, temas y portales sin requerir el showcase ni `docs/master/`.
 
 Esta portabilidad documental requiere que la distribución incluya los componentes y el CSS descritos. Cada consumidor debe verificar las rutas reales, las versiones compatibles y la generación de estilos y comprobar el comportamiento de su integración.
+
+Para exportar FloatingInput, incluye Input, Field y el bloque de FloatingInput en `@layer components` de la hoja global. Si la composición presenta `FieldError`, incorpora también el bloque de Field para conservar sus transiciones.

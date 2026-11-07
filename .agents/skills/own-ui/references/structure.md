@@ -45,7 +45,9 @@ Comprueba la compatibilidad del entorno receptor al usar otras versiones. Consul
 | Drawer | `drawer.tsx`. Sus piezas envuelven Base UI y los controles se eligen en la composición. |
 | Field | `field.tsx`. Los controles adicionales y Base UI Form se incorporan según la composición. |
 | Fieldset | `fieldset.tsx`. Los campos y controles se eligen en la composición. |
+| FloatingInput | `dependant/floating-input.tsx`, `independant/input.tsx`, `independant/field.tsx` y el bloque de FloatingInput en `@layer components` de la hoja global. Para las transiciones de `FieldError`, incluye también el bloque de Field. |
 | Form | `form.tsx`. Los campos, grupos y botones se eligen en la composición. |
+| Input | `input.tsx`. Incluye Field cuando el consumidor utilice sus etiquetas, descripciones o validación coordinada. |
 
 Al preparar una exportación, reúne las familias seleccionadas, sus dependencias transitivas y los bloques de CSS que consumen. Adapta los imports de soporte si distribuyes solo parte del módulo de iconos. Copia la carpeta de la skill con sus referencias y ajusta el índice a las familias entregadas o indica su disponibilidad. Verifica los enlaces relativos desde la carpeta copiada y registra la revisión y las versiones comprobadas.
 
@@ -62,10 +64,14 @@ Alert Dialog es independiente: Trigger y Close envuelven sus propias primitivas.
 
 Checkbox Group también es independiente. Su definición envuelve la primitiva de agrupación y recibe las casillas desde el consumidor. El mismo criterio se aplica a grupos y formularios cuando el consumidor aporta las piezas, como Menu dentro de Menubar. Usa la tabla de archivos necesarios para comprobar qué familias se incluyen en una exportación.
 
+Input envuelve su primitiva de Base UI y puede registrarse en Field. FloatingInput es dependiente porque su definición renderiza Input y Field de own-ui. Su bloque de estilos en `globals.css` forma parte de la exportación.
+
 ## Imports y composición
 
 ~~~tsx
+import { FloatingInput } from "@/components/own/dependant/floating-input";
 import { Button } from "@/components/own/independant/button";
+import { Input } from "@/components/own/independant/input";
 import { Accordion, AccordionItem } from "@/components/own/independant/accordion";
 import {
   AlertDialog,
@@ -94,4 +100,4 @@ Para una nueva familia, sigue el tipado de la primitiva instalada y los patrones
 
 Verifica imports, tipado y generación de utilidades con las herramientas del consumidor. Prueba las composiciones relevantes en una vista de su aplicación, incluidos ambos temas, foco, ancho disponible y estados afectados. La demostración define su disposición en sus contenedores.
 
-Para el contrato y los estilos de cada familia, consulta [Button](components/button.md), [Accordion](components/accordion.md), [Alert Dialog](components/alert-dialog.md), [Autocomplete](components/autocomplete.md), [Avatar](components/avatar.md), [Checkbox](components/checkbox.md), [Checkbox Group](components/checkbox-group.md), [Collapsible](components/collapsible.md), [Combobox](components/combobox.md), [Context Menu](components/context-menu.md), [Dialog](components/dialog.md), [Drawer](components/drawer.md), [Field](components/field.md), [Fieldset](components/fieldset.md) o [Form](components/form.md).
+Para el contrato y los estilos de cada familia, consulta [Button](components/button.md), [Accordion](components/accordion.md), [Alert Dialog](components/alert-dialog.md), [Autocomplete](components/autocomplete.md), [Avatar](components/avatar.md), [Checkbox](components/checkbox.md), [Checkbox Group](components/checkbox-group.md), [Collapsible](components/collapsible.md), [Combobox](components/combobox.md), [Context Menu](components/context-menu.md), [Dialog](components/dialog.md), [Drawer](components/drawer.md), [Field](components/field.md), [Fieldset](components/fieldset.md), [FloatingInput](components/floating-input.md), [Form](components/form.md) o [Input](components/input.md).

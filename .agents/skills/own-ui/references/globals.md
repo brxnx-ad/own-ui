@@ -15,6 +15,7 @@ La ruta convencional del CSS es `assets/styles/globals.css`. Las tablas describe
 | Segundo `:root` de `@layer base` | `color-scheme: light`, superficies y tríadas del modo claro. |
 | `.dark` de `@layer base` | `color-scheme: dark` y reasignación de superficies y tríadas. |
 | Encabezados de `@layer base` | Estilos de `h1` a `h6` y sus clases equivalentes `.h1` a `.h6`. |
+| `@layer components` | Reglas de Field, FloatingInput y Drawer que acompañan a las familias exportadas. |
 | `@layer utilities` | Subtítulos, cuerpo, caption y overline. |
 
 Mantén las variables base, su asignación por tema y su exposición a Tailwind en sus respectivos bloques. Para estilos globales, usa este archivo; la disposición particular de una pantalla pertenece a su consumidor.
@@ -174,6 +175,8 @@ Para las piezas con portales, separa el apilamiento del contenido de la aplicaci
 El destino del portal debe recibir los tokens de tema y la tipografía necesarios. Si no hereda el contexto de la interfaz, proporciona allí la clase o las variables correspondientes. En un ShadowRoot, carga los estilos en el ámbito que renderiza las piezas y verifica también cómo se resuelven la variante `dark`, las fuentes y las variables heredadas.
 
 Las transiciones se definen en las clases de [Button](components/button.md), [Accordion](components/accordion.md), [Alert Dialog](components/alert-dialog.md) y [Autocomplete](components/autocomplete.md). Spinner usa la animación `animate-spin` de Tailwind. Al ajustar una transición, conserva los selectores de entrada y salida de la pieza y comprueba el movimiento reducido en la referencia correspondiente.
+
+El bloque de [FloatingInput](components/floating-input.md) en `@layer components` define la posición y el tamaño de la etiqueta y la apertura centrada del borde en `outline`. Incluye el bloque completo al exportar la familia, ya que las posiciones en reposo y con foco también se definen allí. Sus transiciones se activan con `prefers-reduced-motion: no-preference`.
 
 ## 7. Elegir el alcance del cambio
 

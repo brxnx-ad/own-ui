@@ -1,6 +1,6 @@
 # own-ui · Sistema de estilos
 
-> **Objetivo y alcance del documento:** Explicar el proceso general de creación de paletas a partir de semillas, la asignación de magnitudes y variables de Tailwind en `@theme inline`, y documentar todas las utilidades tipográficas y de sombras disponibles en `assets/styles/globals.css`. Se considera desactualizado si `assets/styles/globals.css` contiene semillas, fórmulas, variables en `@theme inline` o clases utilitarias que no estén reflejadas o difieran de las descritas aquí.
+> **Objetivo y alcance del documento:** Explicar la generación de paletas, los tokens de Tailwind, las utilidades tipográficas y de sombras, y las reglas de componente en `assets/styles/globals.css`. Se considera desactualizado si la configuración, las utilidades o los bloques de componente difieren de lo descrito aquí.
 
 [Estructura del proyecto](01-estructura-del-proyecto.md) · [Objetivos](03-objetivos.md) · [Mantenimiento](04-mantenimiento.md) · [Pendientes](05-pendientes.md)
 
@@ -93,3 +93,13 @@ Compuesto por dos familias de 3 magnitudes universales (funcionan en modo claro 
   Combinan un bisel superior interior iluminado (`inset 0 1px 2px #ffffff*`), una sombra oscura de contacto y una sombra suave de dispersión ambiental.
 * **Sombras de relieve hundido (`shadow-inset-s`, `shadow-inset-m`, `shadow-inset-l`):**  
   Invierten el plano físico aplicando sombra interior en el borde superior y un reflejo especular claro en el borde inferior, simulando cavidades o controles presionados.
+
+## 5. Reglas de componente en `@layer components`
+
+| Bloque | Responsabilidad |
+| :--- | :--- |
+| Field | Define la separación entre piezas y coordina la altura, la opacidad y el espacio que ocupa `FieldError` al aparecer o desaparecer. |
+| FloatingInput | Posiciona la etiqueta según el foco y el valor del control. La etiqueta tiene menos énfasis que el valor y un fondo transparente. En `outline`, el recorte abre desde el centro y sus extremos redondeados quedan en el tramo recto del borde. |
+| Drawer | Reserva espacio para el tirador según su posición y ajusta la geometría del indicador y del contenido. |
+
+La etiqueta de FloatingInput y el recorte de `outline` empiezan a moverse juntos. El bloque centraliza la transición de posición, tamaño de fuente y altura de línea, además de la apertura y el cierre del borde. Con `prefers-reduced-motion: reduce`, los estados cambian de inmediato.

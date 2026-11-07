@@ -1,6 +1,6 @@
 # own-ui · Showcase de componentes
 
-> **Objetivo y alcance del documento:** Documentar la navegación del catálogo interactivo dentro de `app/(showcase)`, sus imports, el centrado de las demostraciones y el patrón de presentación de ejemplos, anatomía y referencia de API establecido en Accordion. Se considera desactualizado si las rutas, los imports, la alineación de los ejemplos, la organización de Accordion o la presentación específica de Button difieren de lo descrito en este documento.
+> **Objetivo y alcance del documento:** Documentar la navegación del catálogo interactivo dentro de `app/(showcase)`, sus imports, el centrado de las demostraciones y el patrón de presentación de ejemplos, anatomía y referencia de API establecido en Accordion. Se considera desactualizado si las rutas, los imports, la alineación de los ejemplos o la cobertura de los showcases descritos difieren de lo documentado.
 
 [Estructura del proyecto](../01-estructura-del-proyecto.md) · [Sistema de estilos](../02-estilos.md) · [Objetivos](../03-objetivos.md) · [Mantenimiento](../04-mantenimiento.md) · [Pendientes](../05-pendientes.md) · [Creación de componentes](creacion-de-componentes.md)
 
@@ -20,7 +20,7 @@ La página de inicio (`/`) funciona exclusivamente como un **directorio o índic
 
 Cada componente registrado cuenta con su propia ruta independiente (por ejemplo, `/button`):
 
-* **Encabezado y contexto:** Incluye un enlace de retorno (`Volver al catálogo`), el alternador de temas claro y oscuro (`ThemeToggle`), el nombre del componente, la referencia a la primitiva headless de Base UI que lo sustenta (`@base-ui/react/*`) y una descripción breve de su función.
+* **Encabezado y contexto:** Incluye el enlace `Volver al catálogo`, el alternador de temas `ThemeToggle`, el nombre del componente, la primitiva de Base UI o las familias propias que lo componen y una descripción breve.
 * **Separación de responsabilidades:** La página se dedica por completo a desglosar las posibilidades visuales, dimensiones, ranuras y estados del componente.
 
 ### 2.1. Rutas e imports del catálogo actual
@@ -29,7 +29,21 @@ Cada componente registrado cuenta con su propia ruta independiente (por ejemplo,
 | :--- | :--- | :--- |
 | Accordion | `/accordion` | `@/components/own/independant/accordion` |
 | Alert Dialog | `/alert-dialog` | `@/components/own/independant/alert-dialog` |
+| Autocomplete | `/autocomplete` | `@/components/own/independant/autocomplete` |
+| Avatar | `/avatar` | `@/components/own/independant/avatar` |
 | Button | `/button` | `@/components/own/independant/button` |
+| Checkbox | `/checkbox` | `@/components/own/independant/checkbox` |
+| Checkbox Group | `/checkbox-group` | `@/components/own/independant/checkbox-group` |
+| Collapsible | `/collapsible` | `@/components/own/independant/collapsible` |
+| Combobox | `/combobox` | `@/components/own/independant/combobox` |
+| Context Menu | `/context-menu` | `@/components/own/independant/context-menu` |
+| Dialog | `/dialog` | `@/components/own/independant/dialog` |
+| Drawer | `/drawer` | `@/components/own/independant/drawer` |
+| Field | `/field` | `@/components/own/independant/field` |
+| Fieldset | `/fieldset` | `@/components/own/independant/fieldset` |
+| FloatingInput | `/floating-input` | `@/components/own/dependant/floating-input` |
+| Form | `/form` | `@/components/own/independant/form` |
+| Input | `/input` | `@/components/own/independant/input` |
 
 Los ejemplos pueden combinar componentes independientes. Alert Dialog utiliza Button en sus ejemplos mediante `render` o como acción con cierre controlado; esa composición pertenece al showcase y no introduce una dependencia dentro de la definición de Alert Dialog. La clasificación se rige por [Estructura del proyecto](../01-estructura-del-proyecto.md#3-componentes-independientes-y-dependientes).
 
@@ -114,3 +128,12 @@ La ruta `/accordion` presenta estos ejemplos independientes, en este orden:
 Después de los ejemplos, Anatomía muestra la composición `Accordion > AccordionItem > AccordionHeader > AccordionTrigger`, con `AccordionPanel` como hermano de `AccordionHeader`. La referencia de API explica las opciones de la raíz, el elemento, el activador y el panel, además de las props compartidas.
 
 Los ejemplos con estado local residen en `examples.tsx`; la anatomía y la tabla de API, en `api-reference.tsx`, dentro de la ruta. El panel anima altura y opacidad, el chevron gira al abrirse y se respeta la preferencia de movimiento reducido.
+
+## 6. Cobertura de Input y FloatingInput
+
+| Ruta | Ejemplos en orden |
+| :--- | :--- |
+| `/input` | Texto editable, valor controlado, validación con Field, solo lectura y entrada deshabilitada. |
+| `/floating-input` | Etiqueta interior (`inset`), etiqueta sobre el borde (`outline`), valor inicial, valor controlado, validación con Field y campo deshabilitado. |
+
+Cada ejemplo se centra en un bloque `mx-auto w-full max-w-md`. Los ejemplos controlados viven en `examples.tsx` y los botones de borrado devuelven el foco al control. Ambas rutas cierran con Anatomía y Referencia de API. Para verificar `outline`, enfoca un campo vacío y observa cómo la etiqueta sube mientras el recorte se abre desde su centro. Escribe un valor y sal del campo para comprobar que la etiqueta queda arriba.
