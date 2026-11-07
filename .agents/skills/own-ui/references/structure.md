@@ -41,6 +41,11 @@ Comprueba la compatibilidad del entorno receptor al usar otras versiones. Consul
 | Collapsible | `collapsible.tsx` y Chevron con su helper SVG en `icons/index.tsx`. Si se copia el módulo completo de iconos, incluye también `icons/spinner.tsx` por su reexportación. |
 | Combobox | `combobox.tsx`, Check, Chevron y Close con su helper SVG en `icons/index.tsx`. Si se copia el módulo completo de iconos, incluye también `icons/spinner.tsx` por su reexportación. |
 | Context Menu | `context-menu.tsx`, Check y Chevron con su helper SVG en `icons/index.tsx`. Si se copia el módulo completo de iconos, incluye también `icons/spinner.tsx` por su reexportación. |
+| Dialog | `dialog.tsx`. Los controles se eligen en la composición del consumidor. |
+| Drawer | `drawer.tsx`. Sus piezas envuelven Base UI y los controles se eligen en la composición. |
+| Field | `field.tsx`. Los controles adicionales y Base UI Form se incorporan según la composición. |
+| Fieldset | `fieldset.tsx`. Los campos y controles se eligen en la composición. |
+| Form | `form.tsx`. Los campos, grupos y botones se eligen en la composición. |
 
 Al preparar una exportación, reúne las familias seleccionadas, sus dependencias transitivas y los bloques de CSS que consumen. Adapta los imports de soporte si distribuyes solo parte del módulo de iconos. Copia la carpeta de la skill con sus referencias y ajusta el índice a las familias entregadas o indica su disponibilidad. Verifica los enlaces relativos desde la carpeta copiada y registra la revisión y las versiones comprobadas.
 
@@ -89,4 +94,4 @@ Para una nueva familia, sigue el tipado de la primitiva instalada y los patrones
 
 Verifica imports, tipado y generación de utilidades con las herramientas del consumidor. Prueba las composiciones relevantes en una vista de su aplicación, incluidos ambos temas, foco, ancho disponible y estados afectados. La demostración define su disposición en sus contenedores.
 
-Para el contrato y los estilos de cada familia, consulta [Button](components/button.md), [Accordion](components/accordion.md), [Alert Dialog](components/alert-dialog.md), [Autocomplete](components/autocomplete.md), [Avatar](components/avatar.md), [Checkbox](components/checkbox.md), [Checkbox Group](components/checkbox-group.md), [Collapsible](components/collapsible.md), [Combobox](components/combobox.md) o [Context Menu](components/context-menu.md).
+Para el contrato y los estilos de cada familia, consulta [Button](components/button.md), [Accordion](components/accordion.md), [Alert Dialog](components/alert-dialog.md), [Autocomplete](components/autocomplete.md), [Avatar](components/avatar.md), [Checkbox](components/checkbox.md), [Checkbox Group](components/checkbox-group.md), [Collapsible](components/collapsible.md), [Combobox](components/combobox.md), [Context Menu](components/context-menu.md), [Dialog](components/dialog.md), [Drawer](components/drawer.md), [Field](components/field.md), [Fieldset](components/fieldset.md) o [Form](components/form.md).

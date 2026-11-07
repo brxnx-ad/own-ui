@@ -27,6 +27,11 @@ Antes de integrar o modificar un componente, lee su referencia. Describe su API 
 | Collapsible | [collapsible.md](references/components/collapsible.md) | Panel individual, apertura controlada, persistencia, búsqueda de contenido y animación. |
 | Combobox | [combobox.md](references/components/combobox.md) | Selección filtrada de una o varias opciones, chips, grupos, posicionamiento y valores de formulario. |
 | Context Menu | [context-menu.md](references/components/context-menu.md) | Acciones contextuales, submenús, enlaces, casillas, opciones excluyentes y foco. |
+| Dialog | [dialog.md](references/components/dialog.md) | Ventanas modales y no modales, edición, persistencia, activadores compartidos y foco. |
+| Drawer | [drawer.md](references/components/drawer.md) | Paneles de borde, gestos de arrastre, alturas de ajuste, apilamiento y teclado virtual. |
+| Field | [field.md](references/components/field.md) | Etiquetas, controles, descripciones, validación y mensajes de formulario. |
+| Fieldset | [fieldset.md](references/components/fieldset.md) | Grupos de controles con un nombre accesible y deshabilitación compartida. |
+| Form | [form.md](references/components/form.md) | Envío, validación coordinada, errores externos y acciones de servidor. |
 
 Estas referencias describen las familias implementadas incluidas en este material. Comprueba cuáles se han copiado al proyecto antes de importarlas. Para una familia aún sin referencia, localiza su código y los tipos de la versión de Base UI instalada; consulta su documentación si está disponible. Distingue la API de la primitiva de las extensiones propias. Si faltan los archivos necesarios, identifica qué debe incorporarse y actúa según el alcance autorizado; no supongas que la familia ya está disponible.
 

@@ -10,23 +10,23 @@
 
 Los 37 componentes del catálogo se planifican como envolturas de las primitivas de Base UI, con la composición de otros componentes propios decidida por el consumidor mediante `children`, `render` o ranuras. Esta distribución aplica el [criterio de dependencias internas](01-estructura-del-proyecto.md#3-componentes-independientes-y-dependientes) a la implementación prevista; no es una clasificación oficial de Base UI.
 
-Ubicación: `components/own/independant/`. Hay 4 componentes implementados y 33 pendientes:
+En `components/own/independant/` hay 15 componentes implementados y 22 pendientes.
 
 - [x] Accordion
 - [x] Alert Dialog
 - [x] Autocomplete
-- [ ] Avatar
+- [x] Avatar
 - [x] Button
-- [ ] Checkbox
-- [ ] Checkbox Group
-- [ ] Collapsible
-- [ ] Combobox
-- [ ] Context Menu
-- [ ] Dialog
-- [ ] Drawer
-- [ ] Field
-- [ ] Fieldset
-- [ ] Form
+- [x] Checkbox
+- [x] Checkbox Group
+- [x] Collapsible
+- [x] Combobox
+- [x] Context Menu
+- [x] Dialog
+- [x] Drawer
+- [x] Field
+- [x] Fieldset
+- [x] Form
 - [ ] Input
 - [ ] Menu
 - [ ] Menubar

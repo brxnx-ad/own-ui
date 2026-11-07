@@ -70,6 +70,36 @@ const components: ComponentItem[] = [
     description: "Acciones contextuales que se abren con clic secundario o pulsación prolongada.",
     category: "Acción",
   },
+  {
+    name: "Dialog",
+    href: "/dialog",
+    description: "Ventanas modales o no modales para editar datos y consultar contenido.",
+    category: "Contenido",
+  },
+  {
+    name: "Drawer",
+    href: "/drawer",
+    description: "Paneles de borde con gestos de arrastre y alturas de ajuste.",
+    category: "Contenido",
+  },
+  {
+    name: "Field",
+    href: "/field",
+    description: "Campos de formulario con etiquetas, descripciones y mensajes de validación asociados.",
+    category: "Entrada",
+  },
+  {
+    name: "Fieldset",
+    href: "/fieldset",
+    description: "Grupos de controles con un nombre accesible y deshabilitación compartida.",
+    category: "Entrada",
+  },
+  {
+    name: "Form",
+    href: "/form",
+    description: "Formularios con envío, validación coordinada y errores por campo.",
+    category: "Entrada",
+  },
 ];
 
 function ArrowRightIcon() {
