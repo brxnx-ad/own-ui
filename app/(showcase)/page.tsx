@@ -22,6 +22,12 @@ const components: ComponentItem[] = [
     category: "Confirmación",
   },
   {
+    name: "Autocomplete",
+    href: "/autocomplete",
+    description: "Campo de texto libre con sugerencias mientras se escribe.",
+    category: "Entrada",
+  },
+  {
     name: "Button",
     href: "/button",
     description:

@@ -30,6 +30,7 @@ La entrada actual es [SKILL.md](../../../.agents/skills/own-ui/SKILL.md). La est
         ├── button.md
         ├── accordion.md
         ├── alert-dialog.md
+        ├── autocomplete.md
         └── <familia>.md
 ```
 
@@ -146,7 +147,7 @@ Las referencias evolucionan junto con el código que acompañan. Al documentar u
 
 ## 7. Estado de la skill en este repositorio
 
-La skill actual dispone de referencias para [Button](../../../.agents/skills/own-ui/references/components/button.md), [Accordion](../../../.agents/skills/own-ui/references/components/accordion.md) y [Alert Dialog](../../../.agents/skills/own-ui/references/components/alert-dialog.md), además de [estructura](../../../.agents/skills/own-ui/references/structure.md) y [globals](../../../.agents/skills/own-ui/references/globals.md).
+La skill actual dispone de referencias para [Button](../../../.agents/skills/own-ui/references/components/button.md), [Accordion](../../../.agents/skills/own-ui/references/components/accordion.md), [Alert Dialog](../../../.agents/skills/own-ui/references/components/alert-dialog.md) y [Autocomplete](../../../.agents/skills/own-ui/references/components/autocomplete.md), además de [estructura](../../../.agents/skills/own-ui/references/structure.md) y [globals](../../../.agents/skills/own-ui/references/globals.md).
 
 La entrada y las referencias están orientadas a proyectos Next.js consumidores y sus enlaces se resuelven dentro de la carpeta de la skill. Las rutas de componentes y de la hoja global se presentan como convenciones adaptables dentro de App Router; se explican las dependencias de soporte, la integración con Link, fuentes, temas y portales sin requerir el showcase ni `docs/master/`.
 
