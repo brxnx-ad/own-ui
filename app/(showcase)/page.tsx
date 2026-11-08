@@ -8,6 +8,7 @@ interface ComponentItem {
 }
 
 const components: ComponentItem[] = [
+  { name: "Alert", href: "/alert", description: "Mensajes contextuales con estados y acciones.", category: "Información" },
   {
     name: "Accordion",
     href: "/accordion",
@@ -27,12 +28,14 @@ const components: ComponentItem[] = [
     description: "Campo de texto libre con sugerencias mientras se escribe.",
     category: "Entrada",
   },
+  { name: "Aspect Ratio", href: "/aspect-ratio", description: "Contenedor con proporción adaptable para contenido multimedia.", category: "Contenido" },
   {
     name: "Avatar",
     href: "/avatar",
     description: "Imagen de perfil con iniciales o contenido alternativo.",
     category: "Identidad",
   },
+  { name: "Badge", href: "/badge", description: "Etiquetas compactas para categorías y estados.", category: "Información" },
   {
     name: "Button",
     href: "/button",
@@ -40,6 +43,7 @@ const components: ComponentItem[] = [
       "Botón interactivo base con variantes cromáticas, ranuras de iconos, estado de carga con spinner y compresión física táctil.",
     category: "Acción",
   },
+  { name: "Card", href: "/card", description: "Superficie para agrupar contenido y acciones.", category: "Contenido" },
   {
     name: "Checkbox",
     href: "/checkbox",
@@ -82,6 +86,7 @@ const components: ComponentItem[] = [
     description: "Paneles de borde con gestos de arrastre y alturas de ajuste.",
     category: "Contenido",
   },
+  { name: "Empty", href: "/empty", description: "Estado vacío con mensaje y acciones opcionales.", category: "Contenido" },
   {
     name: "Field",
     href: "/field",
@@ -192,6 +197,7 @@ const components: ComponentItem[] = [
     description: "División horizontal o vertical entre grupos de contenido.",
     category: "Contenido",
   },
+  { name: "Skeleton", href: "/skeleton", description: "Marcadores visuales durante la carga de contenido.", category: "Información" },
   {
     name: "Slider",
     href: "/slider",
@@ -204,12 +210,14 @@ const components: ComponentItem[] = [
     description: "Interruptor para activar o desactivar una preferencia.",
     category: "Entrada",
   },
+  { name: "Table", href: "/table", description: "Tabla semántica con desplazamiento horizontal.", category: "Contenido" },
   {
     name: "Tabs",
     href: "/tabs",
     description: "Pestañas para alternar entre paneles relacionados en la misma página.",
     category: "Contenido",
   },
+  { name: "Textarea", href: "/textarea", description: "Campo de texto multilínea con validación nativa.", category: "Entrada" },
   {
     name: "Toast",
     href: "/toast",

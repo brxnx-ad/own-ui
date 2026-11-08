@@ -31,10 +31,18 @@ Las referencias de Button, Accordion y Alert Dialog parten de la revisión de or
 
 Comprueba la compatibilidad del entorno receptor al usar otras versiones. Consulta los tipos de la primitiva instalada para las opciones heredadas y distingue las dependencias de cada wrapper de la configuración compartida de la aplicación.
 
-Las 37 familias Base UI de esta referencia se ubican en `components/own/base/`. FloatingInput y su CSS se ubican en `components/own/composed/`. En la tabla, las rutas de sus archivos son relativas a esas carpetas, salvo las rutas de iconos.
+Las 37 familias Base UI de esta referencia se ubican en `components/own/base/`. FloatingInput y su CSS se ubican en `components/own/composed/`. Las ocho familias de HTML nativo se ubican en `components/own/simple/`. En la tabla, las rutas son relativas a la carpeta de cada familia, salvo las rutas de iconos.
 
 | Familia | Archivos propios y de soporte necesarios |
 | :--- | :--- |
+| Alert | `alert.tsx`. El consumidor aporta los iconos y las acciones. |
+| Aspect Ratio | `aspect-ratio.tsx`. El consumidor aporta el contenido del marco. |
+| Badge | `badge.tsx`. El consumidor aporta el texto y los iconos opcionales. |
+| Card | `card.tsx`. El consumidor aporta las acciones y el contenido. |
+| Empty | `empty.tsx`. El consumidor aporta el recurso visual y las acciones opcionales. |
+| Skeleton | `skeleton.tsx` y `skeleton.module.css`. El módulo CSS define la base gris, el brillo por tema y la animación compartida. |
+| Table | `table.tsx`. Incluye el contenedor desplazable y las piezas de la tabla. |
+| Textarea | `textarea.tsx`. Conserva `"use client"` para el contador y su sincronización con el campo nativo. |
 | Button | `button.tsx` y Spinner desde `icons/spinner.tsx`, con el módulo de exportación de iconos al que apunte su import. |
 | Accordion | `accordion.tsx` y Chevron con su helper SVG, definidos en `icons/index.tsx`. Si se copia el módulo completo de iconos, incluye también los archivos que reexporta, como Spinner. |
 | Alert Dialog | `alert-dialog.tsx`; su definición no importa otras familias propias ni iconos de soporte. Button solo es necesario si el consumidor lo elige para sus acciones. |

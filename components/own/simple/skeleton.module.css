@@ -1,0 +1,47 @@
+@property --own-ui-skeleton-wave-x {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 0px;
+}
+
+@layer components {
+  .wave {
+    --own-ui-skeleton-base: color-mix(in oklab, var(--gray-base) 85%, var(--gray-bold));
+    --own-ui-skeleton-light: var(--surface-bold);
+    background-color: var(--own-ui-skeleton-base);
+  }
+
+  :global(.dark) .wave {
+    --own-ui-skeleton-light: var(--gray-bold);
+  }
+
+  @keyframes skeleton-wave {
+    from {
+      --own-ui-skeleton-wave-x: calc(-1 * clamp(5rem, 24vw, 18rem));
+    }
+
+    80%, to {
+      --own-ui-skeleton-wave-x: 100vw;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    /* A single position drives every visible fragment of the viewport gradient. */
+    :global(:root):has(.wave) {
+      animation: skeleton-wave 2.4s linear infinite;
+    }
+
+    .wave {
+      background-image: linear-gradient(
+        90deg,
+        transparent,
+        color-mix(in oklab, var(--own-ui-skeleton-base) 70%, var(--own-ui-skeleton-light)),
+        transparent
+      );
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      background-size: clamp(5rem, 24vw, 18rem) 100%;
+      background-position: var(--own-ui-skeleton-wave-x) 0;
+    }
+  }
+}

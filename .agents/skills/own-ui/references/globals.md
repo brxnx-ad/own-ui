@@ -176,7 +176,7 @@ El destino del portal debe recibir los tokens de tema y la tipografía necesario
 
 Las transiciones se definen en las clases de [Button](components/base/button.md), [Accordion](components/base/accordion.md), [Alert Dialog](components/base/alert-dialog.md) y [Autocomplete](components/base/autocomplete.md). Spinner usa la animación `animate-spin` de Tailwind. Al ajustar una transición, conserva los selectores de entrada y salida de la pieza y comprueba el movimiento reducido en la referencia correspondiente.
 
-Los módulos CSS de [Field](components/base/field.md), [FloatingInput](components/composed/floating-input.md) y [Progress](components/base/progress.md) contienen sus animaciones personalizadas y los estados asociados. Los importa cada componente y sus transiciones y barridos se activan con `prefers-reduced-motion: no-preference`. Si el consumidor usa una regla de Turbopack que transforma `*.css` con `@tailwindcss/turbopack` y `as: "*.css"`, excluye `*.module.css` de esa regla para conservar el ámbito local.
+Los módulos CSS de [Field](components/base/field.md), [FloatingInput](components/composed/floating-input.md), [Progress](components/base/progress.md) y [Skeleton](components/simple/skeleton.md) contienen sus animaciones personalizadas y los estados asociados. Los importa cada componente y sus transiciones y barridos se activan con `prefers-reduced-motion: no-preference`. Si el consumidor usa una regla de Turbopack que transforma `*.css` con `@tailwindcss/turbopack` y `as: "*.css"`, excluye `*.module.css` de esa regla para conservar el ámbito local.
 
 ## 7. Elegir el alcance del cambio
 

@@ -5,7 +5,7 @@ description: "Crear, integrar, usar, modificar, revisar o depurar componentes y 
 
 # own-ui
 
-own-ui es una colección exportable de componentes React para proyectos Next.js con App Router, construida sobre Base UI para el comportamiento accesible y Tailwind CSS v4 para la presentación. Los componentes y la configuración de `globals.css` comparten superficies, tríadas cromáticas, tipografía, sombras y geometría. Esta skill acompaña esos archivos entre proyectos Next.js y explica su uso sin requerir la aplicación donde se desarrollaron.
+own-ui es una colección exportable de componentes React para proyectos Next.js con App Router. Combina HTML nativo y primitivas de Base UI con Tailwind CSS v4. Los componentes y la configuración de `globals.css` comparten superficies, tríadas cromáticas, tipografía, sombras y geometría. Esta skill acompaña esos archivos entre proyectos Next.js y explica su uso sin requerir la aplicación donde se desarrollaron.
 
 ## Referencias según la tarea
 
@@ -17,6 +17,14 @@ Antes de integrar o modificar un componente, lee su referencia. Describe su API 
 
 | Componente | Referencia | Cuándo consultarla |
 | :--- | :--- | :--- |
+| Alert | [alert.md](references/components/simple/alert.md) | Avisos contextuales, variantes, iconos decorativos, acciones y anuncios dinámicos. |
+| Aspect Ratio | [aspect-ratio.md](references/components/simple/aspect-ratio.md) | Marcos proporcionales, dimensiones y ajuste de contenido multimedia. |
+| Badge | [badge.md](references/components/simple/badge.md) | Etiquetas de categoría o estado, variantes e iconos. |
+| Card | [card.md](references/components/simple/card.md) | Superficies de contenido, densidad, encabezados, acciones y pie. |
+| Empty | [empty.md](references/components/simple/empty.md) | Estados vacíos, variantes de media, borde y fondo personalizables. |
+| Skeleton | [skeleton.md](references/components/simple/skeleton.md) | Marcadores de carga, barrido sincronizado y movimiento reducido. |
+| Table | [table.md](references/components/simple/table.md) | Tablas semánticas, encabezados y desplazamiento horizontal con teclado. |
+| Textarea | [textarea.md](references/components/simple/textarea.md) | Texto multilínea, contador, ajuste de tamaño y validación nativa. |
 | Button | [button.md](references/components/base/button.md) | Acciones, variantes, tamaños, iconos, carga, deshabilitación y composición como enlace. |
 | Accordion | [accordion.md](references/components/base/accordion.md) | Paneles expandibles, apertura individual o múltiple, estado controlado, persistencia y animación. |
 | Alert Dialog | [alert-dialog.md](references/components/base/alert-dialog.md) | Confirmaciones modales, acciones destructivas, foco, operaciones asíncronas y activadores compartidos. |
