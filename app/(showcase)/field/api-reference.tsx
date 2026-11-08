@@ -1,3 +1,5 @@
+import { ShowcaseAnatomyContent, ShowcaseApiTable } from "@/components/shared/showcase-reference";
+import { ShowcaseAnatomy, ShowcaseApiReference } from "@/components/shared/showcase";
 const anatomy = `<Field name="email">
   <FieldLabel>Correo de entrega</FieldLabel>
   <FieldControl type="email" required />
@@ -55,66 +57,27 @@ const groups = [
 
 export function Anatomy() {
   return (
-    <section aria-labelledby="anatomy-heading" className="space-y-4">
-      <h2 id="anatomy-heading" className="h3">Anatomía</h2>
-      <pre aria-label="Composición de Field en JSX" className="overflow-x-auto rounded-2xl border border-gray-base bg-surface-base p-6 text-sm">
-        <code>{anatomy}</code>
-      </pre>
-      <div className="overflow-x-auto rounded-2xl border border-gray-base bg-surface-base">
-        <table className="body-sm w-full text-left">
-          <caption className="sr-only">Piezas de Field y sus responsabilidades</caption>
-          <thead className="bg-surface-bold">
-            <tr><th scope="col" className="p-4">Pieza</th><th scope="col" className="p-4">Responsabilidad</th></tr>
-          </thead>
-          <tbody>
-            {parts.map(([name, description]) => (
-              <tr key={name} className="border-t border-gray-base">
-                <th scope="row" className="p-4 font-mono text-xs">{name}</th>
-                <td className="p-4">{description}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </section>
+    <ShowcaseAnatomy>
+      <ShowcaseAnatomyContent name="Field" code={anatomy} parts={parts} />
+    </ShowcaseAnatomy>
   );
 }
 
 export function ApiReference() {
   return (
-    <section aria-labelledby="api-heading" className="space-y-4">
-      <h2 id="api-heading" className="h3">Referencia de API</h2>
-      <div role="region" aria-label="Tabla de referencia de API de Field" tabIndex={0} className="overflow-x-auto rounded-2xl border border-gray-base bg-surface-base focus-visible:outline-2 focus-visible:outline-primary-base">
-        <table className="body-sm w-full min-w-3xl text-left">
-          <caption className="sr-only">Opciones de Field, tipos, valores predeterminados y comportamiento</caption>
-          <thead className="bg-surface-bold">
-            <tr>
-              {["Pieza", "Prop o callback", "Tipo", "Predeterminado", "Opcional", "Función"].map((label) => (
-                <th key={label} scope="col" className="p-4">{label}</th>
-              ))}
-            </tr>
-          </thead>
-          {groups.map(({ name, rows }) => (
-            <tbody key={name}>
-              {rows.map(([prop, type, defaultValue, description], index) => (
-                <tr key={prop} className="border-t border-gray-base align-top">
-                  {index === 0 && <th scope="rowgroup" rowSpan={rows.length} className="p-4 font-medium">{name}</th>}
-                  <th scope="row" className="p-4 font-mono text-xs">{prop}</th>
-                  <td className="min-w-40 p-4 font-mono text-xs">{type}</td>
-                  <td className="p-4">{defaultValue}</td>
-                  <td className="p-4">{name === "FieldValidity" ? "No" : "Sí"}</td>
-                  <td className="min-w-64 p-4">{description}</td>
-                </tr>
-              ))}
-            </tbody>
-          ))}
-        </table>
-      </div>
+    <ShowcaseApiReference>
+      <ShowcaseApiTable
+        name="Field"
+        groups={groups.map(({ name, rows }) => ({
+          piece: name,
+          rows: rows.map(([prop, type, defaultValue, description]) => ({ prop, type, defaultValue, description, optional: name === "FieldValidity" ? "No" : "Sí" })),
+        }))}
+      />
       <ul className="body-sm space-y-2 text-gray-bold/75">
         <li><code>ValidationResult</code> admite <code>string</code>, <code>string[]</code>, <code>null</code> o <code>void</code>. Una promesa pendiente de <code>validate</code> no bloquea el envío.</li>
         <li><code>onValueChange</code> recibe el evento nativo y el motivo <code>none</code>. En modo no controlado, <code>details.cancel()</code> omite la validación de ese cambio.</li>
         <li>Los controles compatibles con el contexto de Field, como Checkbox, pueden sustituir a <code>FieldControl</code>. Las piezas con nodo aceptan los atributos HTML de su primitiva.</li>
       </ul>
-    </section>
+    </ShowcaseApiReference>
   );
 }

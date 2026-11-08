@@ -1,3 +1,5 @@
+import { ShowcaseAnatomyContent, ShowcaseApiTable } from "@/components/shared/showcase-reference";
+import { ShowcaseAnatomy, ShowcaseApiReference } from "@/components/shared/showcase";
 const anatomy = `<label htmlFor="code">Código de verificación</label>
 <OTPField id="code" name="code" length={4} required>
   <OTPFieldInput />
@@ -57,66 +59,27 @@ const groups = [
 
 export function Anatomy() {
   return (
-    <section aria-labelledby="anatomy-heading" className="space-y-4">
-      <h2 id="anatomy-heading" className="h3">Anatomía</h2>
-      <pre aria-label="Composición de OTP Field en JSX" className="overflow-x-auto rounded-2xl border border-gray-base bg-surface-base p-6 text-sm">
-        <code>{anatomy}</code>
-      </pre>
-      <div className="overflow-x-auto rounded-2xl border border-gray-base bg-surface-base">
-        <table className="body-sm w-full text-left">
-          <caption className="sr-only">Piezas de OTP Field y sus responsabilidades</caption>
-          <thead className="bg-surface-bold">
-            <tr><th scope="col" className="p-4">Pieza</th><th scope="col" className="p-4">Responsabilidad</th></tr>
-          </thead>
-          <tbody>
-            {anatomyRows.map(([piece, description]) => (
-              <tr key={piece} className="border-t border-gray-base align-top">
-                <th scope="row" className="p-4 font-mono text-xs">{piece}</th>
-                <td className="p-4">{description}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </section>
+    <ShowcaseAnatomy>
+      <ShowcaseAnatomyContent name="OTP Field" code={anatomy} parts={anatomyRows} />
+    </ShowcaseAnatomy>
   );
 }
 
 export function ApiReference() {
   return (
-    <section aria-labelledby="api-heading" className="space-y-4">
-      <h2 id="api-heading" className="h3">Referencia de API</h2>
-      <div role="region" aria-label="Tabla de referencia de API de OTP Field" tabIndex={0} className="overflow-x-auto rounded-2xl border border-gray-base bg-surface-base focus-visible:outline-2 focus-visible:outline-primary-base">
-        <table className="body-sm w-full min-w-3xl text-left">
-          <caption className="sr-only">Opciones de OTP Field por pieza</caption>
-          <thead className="bg-surface-bold">
-            <tr>
-              {["Pieza", "Prop o callback", "Tipo", "Predeterminado", "Opcional", "Función"].map((label) => (
-                <th key={label} scope="col" className="p-4">{label}</th>
-              ))}
-            </tr>
-          </thead>
-          {groups.map(({ piece, rows }) => (
-            <tbody key={piece}>
-              {rows.map(([prop, type, defaultValue, optional, description], index) => (
-                <tr key={prop} className="border-t border-gray-base align-top">
-                  {index === 0 && <th scope="rowgroup" rowSpan={rows.length} className="p-4 font-medium">{piece}</th>}
-                  <th scope="row" className="p-4 font-mono text-xs">{prop}</th>
-                  <td className="min-w-40 p-4 font-mono text-xs">{type}</td>
-                  <td className="p-4">{defaultValue}</td>
-                  <td className="p-4">{optional}</td>
-                  <td className="min-w-64 p-4">{description}</td>
-                </tr>
-              ))}
-            </tbody>
-          ))}
-        </table>
-      </div>
+    <ShowcaseApiReference>
+      <ShowcaseApiTable
+        name="OTP Field"
+        groups={groups.map(({ piece, rows }) => ({
+          piece: piece,
+          rows: rows.map(([prop, type, defaultValue, optional, description]) => ({ prop, type, defaultValue, description, optional })),
+        }))}
+      />
       <ul className="body-sm space-y-2 text-gray-bold/75">
         <li><code>onValueChange</code> distingue <code>input-change</code>, <code>input-clear</code>, <code>input-paste</code> y <code>keyboard</code>. Los callbacks de texto rechazado y de código completo distinguen escritura y pegado y carecen de cancelación.</li>
         <li>Tab entra al grupo por la casilla activa. Usa las flechas para moverte dentro del grupo y Retroceso para borrar. En un código parcial, el foco puede avanzar hasta la primera casilla vacía.</li>
         <li>El campo envía el código completo como una cadena. Los separadores visuales quedan fuera del valor enviado.</li>
       </ul>
-    </section>
+    </ShowcaseApiReference>
   );
 }

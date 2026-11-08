@@ -44,7 +44,11 @@ export function ReportTools({ undo, redo }: { undo: () => void; redo: () => void
 | `ToolbarLink` | `a`, `toolbar-link` | Integra un enlace navegable con el recorrido. |
 | `ToolbarSeparator` | `div[role="separator"]`, `toolbar-separator` | Separa visual y semánticamente conjuntos de herramientas. |
 
-Coloca las herramientas dentro de Toolbar. Group es opcional. El consumidor aporta el orden, los nombres, el contenido, los destinos y los handlers. Se exportan `ToolbarOrientation` y los tipos `Props` y `State` de cada pieza.
+Coloca las herramientas dentro de Toolbar. Group es opcional. El consumidor aporta el orden, los nombres, el contenido, los destinos y los handlers.
+
+- Raíz y grupo: `ToolbarProps`, `ToolbarState`, `ToolbarOrientation`, `ToolbarGroupProps` y `ToolbarGroupState`.
+- Controles: `ToolbarButtonProps`, `ToolbarButtonState`, `ToolbarInputProps`, `ToolbarInputState`, `ToolbarLinkProps` y `ToolbarLinkState`.
+- Separador: `ToolbarSeparatorProps` y `ToolbarSeparatorState`.
 
 ## 4. Variantes y tamaños
 

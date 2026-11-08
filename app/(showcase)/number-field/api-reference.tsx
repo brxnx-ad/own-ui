@@ -1,3 +1,5 @@
+import { ShowcaseAnatomyContent, ShowcaseApiTable } from "@/components/shared/showcase-reference";
+import { ShowcaseAnatomy, ShowcaseApiReference } from "@/components/shared/showcase";
 const anatomy = `<NumberField id="quantity" name="quantity" defaultValue={3} min={1} max={8}>
   <NumberFieldScrubArea>
     <label htmlFor="quantity">Unidades del pedido</label>
@@ -75,66 +77,27 @@ const groups = [
 
 export function Anatomy() {
   return (
-    <section aria-labelledby="anatomy-heading" className="space-y-4">
-      <h2 id="anatomy-heading" className="h3">Anatomía</h2>
-      <pre aria-label="Composición de Number Field en JSX" className="overflow-x-auto rounded-2xl border border-gray-base bg-surface-base p-6 text-sm">
-        <code>{anatomy}</code>
-      </pre>
-      <div className="overflow-x-auto rounded-2xl border border-gray-base bg-surface-base">
-        <table className="body-sm w-full text-left">
-          <caption className="sr-only">Piezas de Number Field y sus responsabilidades</caption>
-          <thead className="bg-surface-bold">
-            <tr><th scope="col" className="p-4">Pieza</th><th scope="col" className="p-4">Responsabilidad</th></tr>
-          </thead>
-          <tbody>
-            {anatomyRows.map(([piece, description]) => (
-              <tr key={piece} className="border-t border-gray-base align-top">
-                <th scope="row" className="break-all p-4 font-mono text-xs sm:break-normal">{piece}</th>
-                <td className="p-4">{description}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </section>
+    <ShowcaseAnatomy>
+      <ShowcaseAnatomyContent name="Number Field" code={anatomy} parts={anatomyRows} />
+    </ShowcaseAnatomy>
   );
 }
 
 export function ApiReference() {
   return (
-    <section aria-labelledby="api-heading" className="space-y-4">
-      <h2 id="api-heading" className="h3">Referencia de API</h2>
-      <div role="region" aria-label="Tabla de referencia de API de Number Field" tabIndex={0} className="overflow-x-auto rounded-2xl border border-gray-base bg-surface-base focus-visible:outline-2 focus-visible:outline-primary-base">
-        <table className="body-sm w-full min-w-3xl text-left">
-          <caption className="sr-only">Opciones de Number Field por pieza</caption>
-          <thead className="bg-surface-bold">
-            <tr>
-              {["Pieza", "Prop o callback", "Tipo", "Predeterminado", "Opcional", "Función"].map((label) => (
-                <th key={label} scope="col" className="p-4">{label}</th>
-              ))}
-            </tr>
-          </thead>
-          {groups.map(({ piece, rows }) => (
-            <tbody key={piece}>
-              {rows.map(([prop, type, defaultValue, description], index) => (
-                <tr key={prop} className="border-t border-gray-base align-top">
-                  {index === 0 && <th scope="rowgroup" rowSpan={rows.length} className="p-4 font-medium">{piece}</th>}
-                  <th scope="row" className="p-4 font-mono text-xs">{prop}</th>
-                  <td className="min-w-40 p-4 font-mono text-xs">{type}</td>
-                  <td className="p-4">{defaultValue}</td>
-                  <td className="p-4">Sí</td>
-                  <td className="min-w-64 p-4">{description}</td>
-                </tr>
-              ))}
-            </tbody>
-          ))}
-        </table>
-      </div>
+    <ShowcaseApiReference>
+      <ShowcaseApiTable
+        name="Number Field"
+        groups={groups.map(({ piece, rows }) => ({
+          piece: piece,
+          rows: rows.map(([prop, type, defaultValue, description]) => ({ prop, type, defaultValue, description })),
+        }))}
+      />
       <ul className="body-sm space-y-2 text-gray-bold/75">
         <li><code>details.reason</code> distingue escritura, borrado, pegado, desenfoque, teclado, botones, rueda, arrastre y cambios sin motivo específico. El evento de confirmación carece de cancelación.</li>
         <li>Las flechas ajustan el valor desde la entrada. Home y End permiten ir al límite correspondiente cuando está definido. Los botones quedan fuera del orden de Tab.</li>
         <li>El cursor personalizado depende de Pointer Lock y se omite en WebKit, con entrada táctil o si se deniega el bloqueo. Los botones solo transicionan con movimiento permitido.</li>
       </ul>
-    </section>
+    </ShowcaseApiReference>
   );
 }

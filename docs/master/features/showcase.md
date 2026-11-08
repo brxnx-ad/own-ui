@@ -68,6 +68,8 @@ Cada componente registrado cuenta con su propia ruta independiente (por ejemplo,
 
 Los ejemplos pueden combinar familias del catálogo. Alert Dialog permanece en `base/` cuando el showcase aporta Button mediante `render` o como acción con cierre controlado. La clasificación se determina por la definición de cada familia. [Estructura del proyecto](../01-estructura-del-proyecto.md#3-clasificación-de-componentes)
 
+El showcase de Avatar carga una silueta genérica de usuario desde `public/showcase/avatar.svg`. La imagen se sirve en `/showcase/avatar.svg` y deja visible la superficie del avatar a través de su fondo transparente.
+
 ---
 
 ## 3. Patrón de presentación basado en Accordion

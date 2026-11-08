@@ -66,6 +66,10 @@ Antes de integrar o modificar un componente, lee su referencia. Describe su API 
 
 Estas referencias describen las familias implementadas incluidas en este material. Comprueba cuáles se han copiado al proyecto antes de importarlas. Para una familia aún sin referencia, localiza su código y consulta los tipos de las dependencias que use. Cuando la familia envuelva una primitiva, distingue la API de la primitiva de las extensiones propias. Si faltan los archivos necesarios, identifica qué debe incorporarse y actúa según el alcance autorizado.
 
+### Iconos de soporte
+
+Consulta la [referencia de iconos](references/icons.md) para Chevron, Check, Minus, Plus, Close y Spinner. Incluye sus imports, props SVG y el uso decorativo dentro de controles accesibles.
+
 ### Estructura y ubicación
 
 Lee [structure.md](references/structure.md) al integrar la exportación, crear, mover, importar o clasificar componentes, localizar la hoja global o resolver dependencias, temas y portales. Adapta rutas y aliases a la organización existente del consumidor.

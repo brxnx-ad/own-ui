@@ -1,6 +1,4 @@
-import Link from "next/link";
-import type { ReactNode } from "react";
-import { ArrowLeft } from "lucide-react";
+import { ShowcasePage, ShowcaseExample } from "@/components/shared/showcase";
 import {
   Meter,
   MeterIndicator,
@@ -8,62 +6,14 @@ import {
   MeterTrack,
   MeterValue,
 } from "@/components/own/base/meter";
-import { ThemeToggle } from "@/components/shared/theme-toggle";
 import { Anatomy, ApiReference } from "./api-reference";
 import { CustomValueExample, ThresholdMeterExample } from "./examples";
 
-function Behavior({
-  title,
-  description,
-  children,
-}: {
-  title: string;
-  description: ReactNode;
-  children: ReactNode;
-}) {
-  return (
-    <section aria-label={title} className="space-y-4">
-      <div className="space-y-2">
-        <h2 className="h3">{title}</h2>
-        <p className="body-sm text-gray-bold/75">{description}</p>
-      </div>
-      <div className="rounded-2xl border border-gray-base bg-surface-base p-6 shadow-s sm:p-8">
-        <div className="mx-auto w-full max-w-md">{children}</div>
-      </div>
-    </section>
-  );
-}
 
 export default function MeterShowcasePage() {
   return (
-    <main className="min-h-screen bg-surface-soft px-6 py-12 text-gray-bold sm:px-12">
-      <div className="mx-auto max-w-4xl space-y-12">
-        <div className="space-y-4">
-          <div className="flex items-center justify-between">
-            <Link
-              href="/"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-gray-bold/70 transition-colors hover:text-gray-bold"
-            >
-              <ArrowLeft aria-hidden="true" className="size-4" />
-              Volver al catálogo
-            </Link>
-            <ThemeToggle />
-          </div>
-          <header className="space-y-2">
-            <div className="flex flex-wrap items-center gap-3">
-              <h1 className="h1">Meter</h1>
-              <span className="caption rounded-base bg-primary-soft px-2.5 py-0.5 font-semibold text-primary-bold">
-                @base-ui/react/meter
-              </span>
-            </div>
-            <p className="subtitle">
-              Representación gráfica de un valor escalar dentro de un rango
-              conocido.
-            </p>
-          </header>
-        </div>
-
-        <Behavior
+    <ShowcasePage title="Meter" implementation="@base-ui/react/meter" description="Representación gráfica de un valor escalar dentro de un rango conocido.">
+        <ShowcaseExample contentClassName="mx-auto w-full max-w-md"
           title="Porcentaje con etiqueta y valor"
           description={
             <>
@@ -80,9 +30,8 @@ export default function MeterShowcasePage() {
               <MeterIndicator />
             </MeterTrack>
           </Meter>
-        </Behavior>
-
-        <Behavior
+        </ShowcaseExample>
+        <ShowcaseExample contentClassName="mx-auto w-full max-w-md"
           title="Rango y formato de unidades"
           description={
             <>
@@ -109,9 +58,8 @@ export default function MeterShowcasePage() {
               <MeterIndicator />
             </MeterTrack>
           </Meter>
-        </Behavior>
-
-        <Behavior
+        </ShowcaseExample>
+        <ShowcaseExample contentClassName="mx-auto w-full max-w-md"
           title="Texto visible y accesible personalizados"
           description={
             <>
@@ -122,9 +70,8 @@ export default function MeterShowcasePage() {
           }
         >
           <CustomValueExample />
-        </Behavior>
-
-        <Behavior
+        </ShowcaseExample>
+        <ShowcaseExample contentClassName="mx-auto w-full max-w-md"
           title="Umbrales cromáticos dinámicos"
           description={
             <>
@@ -134,9 +81,8 @@ export default function MeterShowcasePage() {
           }
         >
           <ThresholdMeterExample />
-        </Behavior>
-
-        <Behavior
+        </ShowcaseExample>
+        <ShowcaseExample contentClassName="mx-auto w-full max-w-md"
           title="Medidor sin etiqueta visible"
           description={
             <>
@@ -152,11 +98,9 @@ export default function MeterShowcasePage() {
               <MeterIndicator />
             </MeterTrack>
           </Meter>
-        </Behavior>
-
+        </ShowcaseExample>
         <Anatomy />
         <ApiReference />
-      </div>
-    </main>
+    </ShowcasePage>
   );
 }

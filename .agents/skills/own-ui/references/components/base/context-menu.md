@@ -40,16 +40,16 @@ export function TaskActions() {
 }
 ```
 
-| Exportaciones | Nodo predeterminado y función |
-| :--- | :--- |
-| `ContextMenu`, `ContextMenuSubmenu` | Proveedores sin nodo visible. Coordinan la raíz y cada submenú. |
-| `ContextMenuTrigger`, `ContextMenuSubmenuTrigger` | `div` para el área contextual y `div` para la opción que abre un submenú. La segunda pieza incluye un chevron. |
-| `ContextMenuPortal`, `ContextMenuPositioner`, `ContextMenuPopup` | `div` para montar, posicionar y contener el menú. |
-| `ContextMenuBackdrop`, `ContextMenuArrow` | `div` para el fondo opcional y `div` para la flecha. |
-| `ContextMenuItem`, `ContextMenuLinkItem` | `div` para una acción y `a` para un enlace. |
-| `ContextMenuGroup`, `ContextMenuGroupLabel`, `ContextMenuSeparator` | `div` para el grupo, su título y el separador. |
-| `ContextMenuCheckboxItem`, `ContextMenuCheckboxItemIndicator` | `div` para una opción booleana y `span` para su marca. |
-| `ContextMenuRadioGroup`, `ContextMenuRadioItem`, `ContextMenuRadioItemIndicator` | `div` para el grupo y cada opción excluyente y `span` para el indicador circular. |
+| Exportaciones | Nodo predeterminado y función | `data-slot` |
+| :--- | :--- | :--- |
+| `ContextMenu`, `ContextMenuSubmenu` | Proveedores sin nodo visible. Coordinan la raíz y cada submenú. | — |
+| `ContextMenuTrigger`, `ContextMenuSubmenuTrigger` | `div` para el área contextual y `div` para la opción que abre un submenú. La segunda pieza incluye un chevron. | `context-menu-trigger`, `context-menu-submenu-trigger` |
+| `ContextMenuPortal`, `ContextMenuPositioner`, `ContextMenuPopup` | `div` para montar, posicionar y contener el menú. | `context-menu-portal`, `context-menu-positioner`, `context-menu-popup` |
+| `ContextMenuBackdrop`, `ContextMenuArrow` | `div` para el fondo opcional y `div` para la flecha. | `context-menu-backdrop`, `context-menu-arrow` |
+| `ContextMenuItem`, `ContextMenuLinkItem` | `div` para una acción y `a` para un enlace. | `context-menu-item`, `context-menu-link-item` |
+| `ContextMenuGroup`, `ContextMenuGroupLabel`, `ContextMenuSeparator` | `div` para el grupo, su título y el separador. | `context-menu-group`, `context-menu-group-label`, `context-menu-separator` |
+| `ContextMenuCheckboxItem`, `ContextMenuCheckboxItemIndicator` | `div` para una opción booleana y `span` para su marca. | `context-menu-checkbox-item`, `context-menu-checkbox-item-indicator` |
+| `ContextMenuRadioGroup`, `ContextMenuRadioItem`, `ContextMenuRadioItemIndicator` | `div` para el grupo y cada opción excluyente y `span` para el indicador circular. | `context-menu-radio-group`, `context-menu-radio-item`, `context-menu-radio-item-indicator` |
 
 El consumidor aporta los rótulos y las acciones. Coloca las opciones dentro de `Popup`, el fondo opcional junto a `Positioner` dentro de `Portal` y la flecha opcional como hija directa de `Popup`. Cada submenú lleva su propio activador y árbol `Portal > Positioner > Popup` dentro del menú padre.
 

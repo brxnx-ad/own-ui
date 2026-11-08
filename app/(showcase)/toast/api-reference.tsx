@@ -1,3 +1,5 @@
+import { ShowcaseAnatomyContent, ShowcaseApiTable } from "@/components/shared/showcase-reference";
+import { ShowcaseAnatomy, ShowcaseApiReference } from "@/components/shared/showcase";
 const anatomy = `<ToastProvider>
   <Publisher />
   <ToastPortal>
@@ -80,67 +82,28 @@ const groups = [
 
 export function Anatomy() {
   return (
-    <section aria-labelledby="anatomy-heading" className="space-y-4">
-      <h2 id="anatomy-heading" className="h3">Anatomía</h2>
+    <ShowcaseAnatomy>
       <p className="body-sm text-gray-bold/75">Un descendiente del proveedor obtiene <code>toasts</code> con <code>useToastManager</code> y renderiza la lista. Los avisos anclados usan <code>ToastPositioner</code> fuera de <code>ToastStack</code>.</p>
-      <pre aria-label="Composición de Toast en JSX" className="overflow-x-auto rounded-2xl border border-gray-base bg-surface-base p-6 text-sm">
-        <code>{anatomy}</code>
-      </pre>
-      <div className="overflow-x-auto rounded-2xl border border-gray-base bg-surface-base">
-        <table className="body-sm w-full text-left">
-          <caption className="sr-only">Piezas de Toast y sus responsabilidades</caption>
-          <thead className="bg-surface-bold">
-            <tr><th scope="col" className="p-4">Pieza</th><th scope="col" className="p-4">Responsabilidad</th></tr>
-          </thead>
-          <tbody>
-            {parts.map(([name, description]) => (
-              <tr key={name} className="border-t border-gray-base">
-                <th scope="row" className="p-4 font-mono text-xs">{name}</th>
-                <td className="p-4">{description}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </section>
+      <ShowcaseAnatomyContent name="Toast" code={anatomy} parts={parts} />
+    </ShowcaseAnatomy>
   );
 }
 
 export function ApiReference() {
   return (
-    <section aria-labelledby="api-heading" className="space-y-4">
-      <h2 id="api-heading" className="h3">Referencia de API</h2>
-      <div role="region" aria-label="Tabla de referencia de API" tabIndex={0} className="overflow-x-auto rounded-2xl border border-gray-base bg-surface-base focus-visible:outline-2 focus-visible:outline-gray-bold">
-        <table className="body-sm w-full min-w-3xl text-left">
-          <caption className="sr-only">Props, tipos y valores predeterminados de Toast</caption>
-          <thead className="bg-surface-bold">
-            <tr>
-              {["Pieza", "Prop o callback", "Tipo", "Predeterminado", "Opcional", "Función"].map((label) => (
-                <th key={label} scope="col" className="p-4">{label}</th>
-              ))}
-            </tr>
-          </thead>
-          {groups.map(({ piece, rows }) => (
-            <tbody key={piece}>
-              {rows.map(([name, type, defaultValue, description, optional = "Sí"], index) => (
-                <tr key={name} className="border-t border-gray-base align-top">
-                  {index === 0 && <th scope="rowgroup" rowSpan={rows.length} className="p-4 font-medium">{piece}</th>}
-                  <th scope="row" className="p-4 font-mono text-xs">{name}</th>
-                  <td className="min-w-36 p-4 font-mono text-xs">{type}</td>
-                  <td className="p-4">{defaultValue}</td>
-                  <td className="p-4">{optional}</td>
-                  <td className="min-w-60 p-4">{description}</td>
-                </tr>
-              ))}
-            </tbody>
-          ))}
-        </table>
-      </div>
+    <ShowcaseApiReference>
+      <ShowcaseApiTable
+        name="Toast"
+        groups={groups.map(({ piece, rows }) => ({
+          piece: piece,
+          rows: rows.map(([name, type, defaultValue, description, optional = "Sí"]) => ({ prop: name, type, defaultValue, description, optional })),
+        }))}
+      />
       <ul className="body-sm list-disc space-y-2 ps-5 text-gray-bold/75">
         <li>Usa <kbd>F6</kbd> para enfocar la región, <kbd>Tab</kbd> para recorrer los avisos y <kbd>Escape</kbd> para cerrar el que tiene el foco.</li>
         <li>Para anuncios urgentes, incluye el mensaje en <code>title</code> o <code>description</code> del objeto que recibe el gestor.</li>
         <li><code>data-limited</code> oculta los avisos sobre el límite. Base UI conserva esos avisos en la cola hasta que se cierren o vuelvan a estar disponibles.</li>
       </ul>
-    </section>
+    </ShowcaseApiReference>
   );
 }

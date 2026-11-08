@@ -40,7 +40,11 @@ import {
 | `TooltipViewport` | `div` | `tooltip-viewport` | Transiciona el contenido cuando varios activadores comparten el mismo tooltip. |
 | `createTooltipHandle` | Sin nodo | — | Crea un handle tipado para asociar una raíz montada con activadores separados. |
 
-El módulo también exporta `TooltipHandle<Payload>`, `TooltipProviderProps`, `TooltipProviderState`, `TooltipProps<Payload>`, `TooltipState`, `TooltipActions`, `TooltipChangeEventDetails`, `TooltipChangeEventReason`, `TooltipTriggerProps<Payload>`, `TooltipTriggerState` y los pares `Props` y `State` de `Portal`, `Positioner`, `Popup`, `Arrow` y `Viewport`.
+El módulo también exporta estos tipos:
+
+- Raíz, proveedor y activador: `TooltipHandle<Payload>`, `TooltipProviderProps`, `TooltipProviderState`, `TooltipProps<Payload>`, `TooltipState`, `TooltipActions`, `TooltipChangeEventDetails`, `TooltipChangeEventReason`, `TooltipTriggerProps<Payload>` y `TooltipTriggerState`.
+- Portal y posicionador: `TooltipPortalProps`, `TooltipPortalState`, `TooltipPositionerProps` y `TooltipPositionerState`.
+- Panel, flecha y viewport: `TooltipPopupProps`, `TooltipPopupState`, `TooltipArrowProps`, `TooltipArrowState`, `TooltipViewportProps` y `TooltipViewportState`.
 
 Coloca `TooltipPositioner` dentro de `TooltipPortal` y `TooltipPopup` dentro del posicionador. Si incluyes `TooltipArrow` o `TooltipViewport`, colócalos como hijos directos de `TooltipPopup`. `TooltipProvider` puede envolver varios bloques `Tooltip` o una barra de acciones completa. El consumidor aporta el control activador y el texto de la indicación.
 

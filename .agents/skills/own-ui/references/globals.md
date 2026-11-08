@@ -97,7 +97,7 @@ Ejemplos de combinación:
 
 ### Radio y geometría
 
-`--radius` vale `0.75rem`; `--radius-base: var(--radius)` permite `rounded-base`. Este es el radio compartido de los componentes propios. Los anchos, alturas, espaciados y límites adaptables se eligen según la referencia del componente; no se generan a partir de `--radius`.
+`--radius` vale `0.5rem`. El alias `--radius-base: var(--radius)` habilita `rounded-base` como radio compartido. Los anchos, alturas, espaciados y límites adaptables se eligen según la referencia del componente.
 
 La separación exterior, el centrado y el ancho disponible pertenecen al contenedor consumidor. La referencia de [estructura](structure.md) explica la ubicación de estas decisiones.
 
@@ -174,7 +174,7 @@ Para las piezas con portales, separa el apilamiento del contenido de la aplicaci
 
 El destino del portal debe recibir los tokens de tema y la tipografía necesarios. Si no hereda el contexto de la interfaz, proporciona allí la clase o las variables correspondientes. En un ShadowRoot, carga los estilos en el ámbito que renderiza las piezas y verifica también cómo se resuelven la variante `dark`, las fuentes y las variables heredadas.
 
-Las transiciones se definen en las clases de [Button](components/base/button.md), [Accordion](components/base/accordion.md), [Alert Dialog](components/base/alert-dialog.md) y [Autocomplete](components/base/autocomplete.md). Spinner usa la animación `animate-spin` de Tailwind. Al ajustar una transición, conserva los selectores de entrada y salida de la pieza y comprueba el movimiento reducido en la referencia correspondiente.
+Las transiciones se definen en las clases de [Button](components/base/button.md), [Accordion](components/base/accordion.md), [Alert Dialog](components/base/alert-dialog.md) y [Autocomplete](components/base/autocomplete.md). [Spinner](icons.md) usa la animación `animate-spin` de Tailwind. Al ajustar una transición, conserva los selectores de entrada y salida de la pieza y comprueba el movimiento reducido en la referencia correspondiente.
 
 Los módulos CSS de [Field](components/base/field.md), [FloatingInput](components/composed/floating-input.md), [Progress](components/base/progress.md) y [Skeleton](components/simple/skeleton.md) contienen sus animaciones personalizadas y los estados asociados. Los importa cada componente y sus transiciones y barridos se activan con `prefers-reduced-motion: no-preference`. Si el consumidor usa una regla de Turbopack que transforma `*.css` con `@tailwindcss/turbopack` y `as: "*.css"`, excluye `*.module.css` de esa regla para conservar el ámbito local.
 

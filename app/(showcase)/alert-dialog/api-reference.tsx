@@ -1,3 +1,5 @@
+import { ShowcaseAnatomyContent, ShowcaseApiTable } from "@/components/shared/showcase-reference";
+import { ShowcaseAnatomy, ShowcaseApiReference } from "@/components/shared/showcase";
 const anatomy = `<AlertDialog>
   <AlertDialogTrigger render={<Button variant="secondary" />}>
     Restablecer preferencias
@@ -86,50 +88,24 @@ const groups = [
 
 export function Anatomy() {
   return (
-    <section aria-labelledby="anatomy-heading" className="space-y-4">
-      <h2 id="anatomy-heading" className="h3">Anatomía</h2>
+    <ShowcaseAnatomy>
       <p className="body-sm text-gray-bold/75">Nueve piezas con acciones compuestas mediante Button:</p>
-      <pre aria-label="Composición de Alert Dialog en JSX" className="overflow-x-auto rounded-2xl border border-gray-base bg-surface-base p-6 text-sm text-gray-bold"><code>{anatomy}</code></pre>
-      <div role="region" aria-label="Tabla de anatomía" tabIndex={0} className="overflow-x-auto rounded-2xl border border-gray-base bg-surface-base focus-visible:outline-2 focus-visible:outline-primary-base">
-        <table className="w-full text-left body-sm">
-          <caption className="sr-only">Piezas de Alert Dialog y sus responsabilidades</caption>
-          <thead className="bg-surface-bold"><tr><th scope="col" className="p-4">Pieza</th><th scope="col" className="p-4">Responsabilidad</th></tr></thead>
-          <tbody>{parts.map(([name, description]) => (
-            <tr key={name} className="border-t border-gray-base">
-              <th scope="row" className="p-4 font-mono text-xs">{name}</th><td className="p-4">{description}</td>
-            </tr>
-          ))}</tbody>
-        </table>
-      </div>
-    </section>
+      <ShowcaseAnatomyContent name="Alert Dialog" code={anatomy} parts={parts} />
+    </ShowcaseAnatomy>
   );
 }
 
 export function ApiReference() {
   return (
-    <section aria-labelledby="api-heading" className="space-y-4">
-      <h2 id="api-heading" className="h3">Referencia de API</h2>
+    <ShowcaseApiReference>
       <p className="body-sm text-gray-bold/75">Props de cada pieza y utilidades para compartir el diálogo entre activadores.</p>
-      <div role="region" aria-label="Tabla de referencia de API" tabIndex={0} className="overflow-x-auto rounded-2xl border border-gray-base bg-surface-base focus-visible:outline-2 focus-visible:outline-primary-base">
-        <table className="w-full min-w-3xl text-left body-sm">
-          <caption className="sr-only">API de Alert Dialog: tipos, valores predeterminados y condiciones</caption>
-          <thead className="bg-surface-bold"><tr>{["Pieza", "Prop o callback", "Tipo", "Predeterminado", "Opcional", "Función"].map(label => <th key={label} scope="col" className="p-4">{label}</th>)}</tr></thead>
-          {groups.map(group => (
-            <tbody key={group.name}>
-              {group.rows.map(([name, type, defaultValue, optional, description], index) => (
-                <tr key={name} className="border-t border-gray-base align-top">
-                  {index === 0 && <th scope="rowgroup" rowSpan={group.rows.length} className="p-4 font-medium">{group.name}</th>}
-                  <th scope="row" className="p-4 font-mono text-xs">{name}</th>
-                  <td className="p-4 font-mono text-xs">{type}</td>
-                  <td className="p-4">{defaultValue}</td>
-                  <td className="p-4">{optional}</td>
-                  <td className="min-w-64 p-4">{description}</td>
-                </tr>
-              ))}
-            </tbody>
-          ))}
-        </table>
-      </div>
+      <ShowcaseApiTable
+        name="Alert Dialog"
+        groups={groups.map((group) => ({
+          piece: group.name,
+          rows: group.rows.map(([name, type, defaultValue, optional, description]) => ({ prop: name, type, defaultValue, description, optional })),
+        }))}
+      />
       <dl className="space-y-3 body-sm text-gray-bold/75">
         <div><dt className="inline font-medium text-gray-bold">Eventos: </dt><dd className="inline"><code>eventDetails</code> incluye el evento original, <code>reason</code> y <code>cancel()</code>. Los motivos tipados son <code>trigger-press</code>, <code>close-press</code>, <code>escape-key</code>, <code>imperative-action</code>, <code>none</code>, <code>outside-press</code> y <code>focus-out</code>; los dos últimos no cierran un Alert Dialog mediante interacción exterior.</dd></div>
         <div><dt className="inline font-medium text-gray-bold">Accesibilidad: </dt><dd className="inline">Incluye un título, una descripción breve y una acción de cancelación. Tab y Mayús+Tab recorren el diálogo, Enter y Espacio activan sus botones y Escape solicita el cierre. El foco permanece dentro y se devuelve al cerrar; el desplazamiento de la página queda bloqueado.</dd></div>
@@ -137,6 +113,6 @@ export function ApiReference() {
         <div><dt className="inline font-medium text-gray-bold">Atributos y movimiento: </dt><dd className="inline">Las piezas DOM aceptan atributos HTML y exponen <code>data-slot</code>. Base UI añade los estados de cada pieza, como <code>data-open</code>, <code>data-closed</code>, <code>data-starting-style</code> y <code>data-ending-style</code>. Se respeta el movimiento reducido.</dd></div>
         <div><dt className="inline font-medium text-gray-bold">Modalidad: </dt><dd className="inline">El diálogo siempre es modal y pulsar fuera no lo cierra. La raíz no acepta <code>modal</code> ni <code>disablePointerDismissal</code>.</dd></div>
       </dl>
-    </section>
+    </ShowcaseApiReference>
   );
 }

@@ -1,7 +1,4 @@
-import Link from "next/link";
-import type { ReactNode } from "react";
-import { ArrowLeft } from "lucide-react";
-import { ThemeToggle } from "@/components/shared/theme-toggle";
+import { ShowcasePage, ShowcaseExample } from "@/components/shared/showcase";
 import { Anatomy, ApiReference } from "./api-reference";
 import {
   ControlledNavigationExample,
@@ -11,60 +8,11 @@ import {
   VerticalNavigationExample,
 } from "./examples";
 
-function Behavior({
-  title,
-  description,
-  children,
-}: {
-  title: string;
-  description: ReactNode;
-  children: ReactNode;
-}) {
-  return (
-    <section aria-label={title} className="space-y-4">
-      <div className="space-y-2">
-        <h2 className="h3">{title}</h2>
-        <p className="body-sm text-gray-bold/75">{description}</p>
-      </div>
-      <div className="rounded-2xl border border-gray-base bg-surface-base p-6 shadow-s sm:p-8">
-        <div className="mx-auto flex w-full max-w-xl flex-col items-center">
-          {children}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 export default function NavigationMenuShowcasePage() {
   return (
-    <main className="min-h-screen bg-surface-soft px-6 py-12 text-gray-bold sm:px-12">
-      <div className="mx-auto max-w-4xl space-y-12">
-        <div className="space-y-4">
-          <div className="flex items-center justify-between">
-            <Link
-              href="/"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-gray-bold/70 transition-colors hover:text-gray-bold"
-            >
-              <ArrowLeft aria-hidden="true" className="size-4" />
-              Volver al catálogo
-            </Link>
-            <ThemeToggle />
-          </div>
-          <header className="space-y-2">
-            <div className="flex flex-wrap items-center gap-3">
-              <h1 className="h1">Navigation Menu</h1>
-              <span className="caption rounded-base bg-primary-soft px-2.5 py-0.5 font-semibold text-primary-bold">
-                @base-ui/react/navigation-menu
-              </span>
-            </div>
-            <p className="subtitle">
-              Colección de enlaces y paneles desplegables para la navegación de
-              un sitio o aplicación.
-            </p>
-          </header>
-        </div>
-
-        <Behavior
+    <ShowcasePage title="Navigation Menu" implementation="@base-ui/react/navigation-menu" description="Colección de enlaces y paneles desplegables para la navegación de un sitio o aplicación.">
+        <ShowcaseExample contentClassName="mx-auto flex w-full max-w-xl flex-col items-center"
           title="Paneles desplegables y enlace activo"
           description={
             <>
@@ -76,9 +24,8 @@ export default function NavigationMenuShowcasePage() {
           }
         >
           <SiteNavigationExample />
-        </Behavior>
-
-        <Behavior
+        </ShowcaseExample>
+        <ShowcaseExample contentClassName="mx-auto flex w-full max-w-xl flex-col items-center"
           title="Orientación vertical"
           description={
             <>
@@ -90,9 +37,8 @@ export default function NavigationMenuShowcasePage() {
           }
         >
           <VerticalNavigationExample />
-        </Behavior>
-
-        <Behavior
+        </ShowcaseExample>
+        <ShowcaseExample contentClassName="mx-auto flex w-full max-w-xl flex-col items-center"
           title="Apertura controlada y cierre imperativo"
           description={
             <>
@@ -103,9 +49,8 @@ export default function NavigationMenuShowcasePage() {
           }
         >
           <ControlledNavigationExample />
-        </Behavior>
-
-        <Behavior
+        </ShowcaseExample>
+        <ShowcaseExample contentClassName="mx-auto flex w-full max-w-xl flex-col items-center"
           title="Submenú anidado en línea"
           description={
             <>
@@ -117,9 +62,8 @@ export default function NavigationMenuShowcasePage() {
           }
         >
           <NestedNavigationExample />
-        </Behavior>
-
-        <Behavior
+        </ShowcaseExample>
+        <ShowcaseExample contentClassName="mx-auto flex w-full max-w-xl flex-col items-center"
           title="Contenido persistente en el DOM"
           description={
             <>
@@ -130,11 +74,9 @@ export default function NavigationMenuShowcasePage() {
           }
         >
           <KeepMountedNavigationExample />
-        </Behavior>
-
+        </ShowcaseExample>
         <Anatomy />
         <ApiReference />
-      </div>
-    </main>
+    </ShowcasePage>
   );
 }

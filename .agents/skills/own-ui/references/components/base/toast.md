@@ -73,7 +73,12 @@ export function ToastExample() {
 | `useToastManager` | Hook | Lee `toasts` y expone `add`, `update`, `close` y `promise`. |
 | `createToastManager` | Función | Crea un gestor utilizable fuera de componentes React. |
 
-Usa un Viewport bajo el proveedor y renderiza el objeto actual de la cola con `key={toast.id}`. Monta Stack dentro de Viewport. Para avisos anclados, coloca Positioner como hermano de Stack y usa el mismo objeto `toast` en Positioner y en su Toast. Arrow va dentro de esa raíz. Los tipos exportados incluyen `Props` por pieza, `ToastObject`, `ToastManager`, `ToastManagerAddOptions`, `ToastManagerUpdateOptions`, `ToastManagerPromiseOptions`, `ToastManagerPositionerProps` y `UseToastManagerReturnValue`.
+Usa un Viewport bajo el proveedor y renderiza el objeto actual de la cola con `key={toast.id}`. Monta Stack dentro de Viewport. Para avisos anclados, coloca Positioner como hermano de Stack y usa el mismo objeto `toast` en Positioner y en su Toast. Arrow va dentro de esa raíz.
+
+- Entorno y cola: `ToastProviderProps`, `ToastPortalProps`, `ToastViewportProps` y `ToastStackProps`. Este último corresponde a las props nativas de un `div`.
+- Aviso y acciones: `ToastProps`, `ToastContentProps`, `ToastTitleProps`, `ToastDescriptionProps`, `ToastActionProps` y `ToastCloseProps`.
+- Aviso anclado: `ToastPositionerProps` y `ToastArrowProps`.
+- Gestor: `ToastObject`, `ToastManager`, `ToastManagerAddOptions`, `ToastManagerUpdateOptions`, `ToastManagerPromiseOptions`, `ToastManagerPositionerProps` y `UseToastManagerReturnValue`.
 
 ## 4. Variantes y tamaños
 

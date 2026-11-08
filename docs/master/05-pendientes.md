@@ -74,16 +74,16 @@ Las familias que reutilizan otros componentes de own-ui en su definición se ubi
 
 ### 3.1. Familias previstas en `components/own/simple/`
 
-Estas piezas de Takk se implementan sobre HTML nativo o con utilidades de composición, sin necesitar primitivas de Base UI ni librerías externas especializadas. Su ubicación prevista es `components/own/simple/`. Antes de desarrollarlas, queda por definir su encaje con la guía de creación de componentes.
+Estas ocho familias de Takk están implementadas con HTML nativo o utilidades de composición, sin necesitar primitivas de Base UI ni librerías externas especializadas. Se ubican en `components/own/simple/`.
 
-- [ ] Alert
-- [ ] Aspect Ratio
-- [ ] Badge
-- [ ] Card
-- [ ] Empty
-- [ ] Skeleton
-- [ ] Table
-- [ ] Textarea
+- [x] Alert
+- [x] Aspect Ratio
+- [x] Badge
+- [x] Card
+- [x] Empty
+- [x] Skeleton
+- [x] Table
+- [x] Textarea
 
 ### 3.2. Familias previstas en `components/own/composed/`
 
@@ -91,7 +91,7 @@ La composición prevista se basa en componentes de own-ui que cada definición r
 
 - [ ] Attachment · Button.
 - [ ] Button Group · Separator.
-- [ ] Input Group · Button, Input y Textarea. Requiere implementar Textarea primero.
+- [ ] Input Group · Button, Input y Textarea.
 - [ ] Item · Separator.
 - [ ] Pagination · Button.
 

@@ -1,3 +1,5 @@
+import { ShowcaseAnatomyContent, ShowcaseApiTable } from "@/components/shared/showcase-reference";
+import { ShowcaseAnatomy, ShowcaseApiReference } from "@/components/shared/showcase";
 const anatomy = `<Collapsible>
   <CollapsibleTrigger>Detalles de entrega</CollapsibleTrigger>
   <CollapsiblePanel>El envío tarda de tres a cinco días hábiles.</CollapsiblePanel>
@@ -34,66 +36,27 @@ const groups = [
 
 export function Anatomy() {
   return (
-    <section aria-labelledby="anatomy-heading" className="space-y-4">
-      <h2 id="anatomy-heading" className="h3">Anatomía</h2>
-      <pre aria-label="Composición de Collapsible en JSX" className="overflow-x-auto rounded-2xl border border-gray-base bg-surface-base p-6 text-sm text-gray-bold">
-        <code>{anatomy}</code>
-      </pre>
-      <div className="overflow-x-auto rounded-2xl border border-gray-base bg-surface-base">
-        <table className="w-full text-left body-sm">
-          <caption className="sr-only">Piezas de Collapsible y sus responsabilidades</caption>
-          <thead className="bg-surface-bold">
-            <tr><th scope="col" className="p-4">Pieza</th><th scope="col" className="p-4">Responsabilidad</th></tr>
-          </thead>
-          <tbody>
-            {parts.map(([name, description]) => (
-              <tr key={name} className="border-t border-gray-base">
-                <th scope="row" className="p-4 font-mono text-xs">{name}</th>
-                <td className="p-4">{description}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </section>
+    <ShowcaseAnatomy>
+      <ShowcaseAnatomyContent name="Collapsible" code={anatomy} parts={parts} />
+    </ShowcaseAnatomy>
   );
 }
 
 export function ApiReference() {
   return (
-    <section aria-labelledby="api-heading" className="space-y-4">
-      <h2 id="api-heading" className="h3">Referencia de API</h2>
-      <div role="region" aria-label="Tabla de referencia de API" tabIndex={0} className="overflow-x-auto rounded-2xl border border-gray-base bg-surface-base focus-visible:outline-2 focus-visible:outline-primary-base">
-        <table className="w-full min-w-3xl text-left body-sm">
-          <caption className="sr-only">Opciones de Collapsible, tipos, valores predeterminados y comportamiento</caption>
-          <thead className="bg-surface-bold">
-            <tr>
-              {["Pieza", "Prop o callback", "Tipo", "Predeterminado", "Opcional", "Función"].map((label) => (
-                <th key={label} scope="col" className="p-4">{label}</th>
-              ))}
-            </tr>
-          </thead>
-          {groups.map(({ name, rows }) => (
-            <tbody key={name}>
-              {rows.map(([prop, type, defaultValue, description], index) => (
-                <tr key={prop} className="border-t border-gray-base align-top">
-                  {index === 0 && <th scope="rowgroup" rowSpan={rows.length} className="p-4 font-medium">{name}</th>}
-                  <th scope="row" className="p-4 font-mono text-xs">{prop}</th>
-                  <td className="p-4 font-mono text-xs">{type}</td>
-                  <td className="p-4">{defaultValue}</td>
-                  <td className="p-4">Sí</td>
-                  <td className="min-w-64 p-4">{description}</td>
-                </tr>
-              ))}
-            </tbody>
-          ))}
-        </table>
-      </div>
+    <ShowcaseApiReference>
+      <ShowcaseApiTable
+        name="Collapsible"
+        groups={groups.map(({ name, rows }) => ({
+          piece: name,
+          rows: rows.map(([prop, type, defaultValue, description]) => ({ prop, type, defaultValue, description })),
+        }))}
+      />
       <ul className="list-disc space-y-2 pl-5 body-sm text-gray-bold/75">
         <li><code>details.reason</code> es <code>trigger-press</code> para el activador y <code>none</code> para la búsqueda de página. Cambiar <code>open</code> desde fuera no ejecuta el callback.</li>
         <li>Tab enfoca el activador habilitado. Enter y Espacio alternan la apertura.</li>
         <li>El panel usa <code>--collapsible-panel-height</code> para la transición. El panel y el chevron respetan la preferencia de movimiento reducido.</li>
       </ul>
-    </section>
+    </ShowcaseApiReference>
   );
 }

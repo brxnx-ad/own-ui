@@ -1,3 +1,5 @@
+import { ShowcaseAnatomyContent, ShowcaseApiTable } from "@/components/shared/showcase-reference";
+import { ShowcaseAnatomy, ShowcaseApiReference } from "@/components/shared/showcase";
 const anatomy = `<Button icon={<ProjectIcon />} iconPosition="start">
   Abrir proyecto
 </Button>`;
@@ -21,43 +23,26 @@ const options = [
 
 export function ButtonAnatomy() {
   return (
-    <section aria-labelledby="button-anatomy" className="space-y-4">
-      <h2 id="button-anatomy" className="h3">Anatomía</h2>
+    <ShowcaseAnatomy id="button-anatomy">
       <p className="body-sm text-gray-bold/75">Una pieza pública con contenido e icono opcionales.</p>
-      <pre aria-label="Composición de Button en JSX" className="overflow-x-auto rounded-2xl border border-gray-base bg-surface-base p-6 text-sm"><code>{anatomy}</code></pre>
-      <div className="overflow-x-auto rounded-2xl border border-gray-base bg-surface-base">
-        <table className="w-full text-left body-sm">
-          <caption className="sr-only">Partes de Button y sus responsabilidades</caption>
-          <thead className="bg-surface-bold"><tr><th scope="col" className="p-4">Pieza</th><th scope="col" className="p-4">Responsabilidad</th></tr></thead>
-          <tbody>
-            <tr className="border-t border-gray-base"><th scope="row" className="p-4 font-mono text-xs">Button</th><td className="p-4">Gestiona la acción, los estilos y el foco mediante Base UI.</td></tr>
-            <tr className="border-t border-gray-base"><th scope="row" className="p-4 font-mono text-xs">icon</th><td className="p-4">Ranura opcional; no es un subcomponente exportado. ProjectIcon representa un icono del consumidor.</td></tr>
-            <tr className="border-t border-gray-base"><th scope="row" className="p-4 font-mono text-xs">children</th><td className="p-4">Texto o contenido opcional del botón.</td></tr>
-            <tr className="border-t border-gray-base"><th scope="row" className="p-4 font-mono text-xs">Spinner</th><td className="p-4">Indicador interno que sustituye al icono durante loading; no se compone manualmente dentro de Button.</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+      <ShowcaseAnatomyContent name="Button" code={anatomy} parts={[[<>Button</>, <>Gestiona la acción, los estilos y el foco mediante Base UI.</>], [<>icon</>, <>Ranura opcional; no es un subcomponente exportado. ProjectIcon representa un icono del consumidor.</>], [<>children</>, <>Texto o contenido opcional del botón.</>], [<>Spinner</>, <>Indicador interno que sustituye al icono durante loading; no se compone manualmente dentro de Button.</>]]} />
+    </ShowcaseAnatomy>
   );
 }
 
 export function ButtonApiReference() {
   return (
-    <section aria-labelledby="button-api" className="space-y-4">
-      <h2 id="button-api" className="h3">Referencia de API</h2>
+    <ShowcaseApiReference id="button-api">
       <p className="body-sm text-gray-bold/75">Opciones de Button. Todas son opcionales.</p>
-      <div role="region" aria-label="Tabla de API de Button" tabIndex={0} className="overflow-x-auto rounded-2xl border border-gray-base bg-surface-base focus-visible:outline-2 focus-visible:outline-primary-base">
-        <table className="w-full min-w-3xl text-left body-sm">
-          <caption className="sr-only">Props, callbacks y valores predeterminados de Button</caption>
-          <thead className="bg-surface-bold"><tr>{["Pieza", "Prop o callback", "Tipo", "Predeterminado", "Opcional", "Función"].map(label => <th key={label} scope="col" className="p-4">{label}</th>)}</tr></thead>
-          <tbody>{options.map(([name, type, defaultValue, description], index) => <tr key={name} className="border-t border-gray-base align-top">
-            {index === 0 && <th scope="rowgroup" rowSpan={options.length} className="p-4">Button</th>}
-            <th scope="row" className="p-4 font-mono text-xs">{name}</th><td className="p-4 font-mono text-xs">{type}</td><td className="p-4">{defaultValue}</td><td className="p-4">Sí</td><td className="min-w-64 p-4">{description}</td>
-          </tr>)}</tbody>
-        </table>
-      </div>
+      <ShowcaseApiTable
+        name="Button"
+        groups={[{
+          piece: "Button",
+          rows: options.map(([name, type, defaultValue, description]) => ({ prop: name, type, defaultValue, description })),
+        }]}
+      />
       <p className="body-sm text-gray-bold/75">Tab recorre los botones habilitados; Enter y Espacio activan un botón nativo. Los enlaces conservan su navegación nativa. Los botones de solo icono necesitan un nombre accesible y los iconos decorativos deben ocultarse a lectores de pantalla.</p>
       <p className="caption text-gray-bold/75">También se admiten atributos HTML, ARIA, ref y eventos nativos. La prop className se documenta como cadena porque el wrapper actual no evalúa funciones de clases.</p>
-    </section>
+    </ShowcaseApiReference>
   );
 }

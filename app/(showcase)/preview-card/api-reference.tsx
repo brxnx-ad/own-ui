@@ -1,3 +1,5 @@
+import { ShowcaseAnatomyContent, ShowcaseApiTable } from "@/components/shared/showcase-reference";
+import { ShowcaseAnatomy, ShowcaseApiReference } from "@/components/shared/showcase";
 const anatomy = `<PreviewCard>
   <PreviewCardTrigger render={<Link href="/meter" />}>Meter</PreviewCardTrigger>
   <PreviewCardPortal>
@@ -71,66 +73,27 @@ const groups = [
 
 export function Anatomy() {
   return (
-    <section aria-labelledby="anatomy-heading" className="space-y-4">
-      <h2 id="anatomy-heading" className="h3">Anatomía</h2>
-      <pre aria-label="Composición de Preview Card en JSX" className="overflow-x-auto rounded-2xl border border-gray-base bg-surface-base p-6 text-sm">
-        <code>{anatomy}</code>
-      </pre>
-      <div className="overflow-x-auto rounded-2xl border border-gray-base bg-surface-base">
-        <table className="body-sm w-full text-left">
-          <caption className="sr-only">Piezas de Preview Card y sus responsabilidades</caption>
-          <thead className="bg-surface-bold">
-            <tr><th scope="col" className="p-4">Pieza</th><th scope="col" className="p-4">Responsabilidad</th></tr>
-          </thead>
-          <tbody>
-            {anatomyRows.map(([piece, description]) => (
-              <tr key={piece} className="border-t border-gray-base align-top">
-                <th scope="row" className="break-all p-4 font-mono text-xs sm:break-normal">{piece}</th>
-                <td className="p-4">{description}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </section>
+    <ShowcaseAnatomy>
+      <ShowcaseAnatomyContent name="Preview Card" code={anatomy} parts={anatomyRows} />
+    </ShowcaseAnatomy>
   );
 }
 
 export function ApiReference() {
   return (
-    <section aria-labelledby="api-heading" className="space-y-4">
-      <h2 id="api-heading" className="h3">Referencia de API</h2>
-      <div role="region" aria-label="Tabla de referencia de API de Preview Card" tabIndex={0} className="overflow-x-auto rounded-2xl border border-gray-base bg-surface-base focus-visible:outline-2 focus-visible:outline-primary-base">
-        <table className="body-sm w-full min-w-3xl text-left">
-          <caption className="sr-only">Opciones de Preview Card por pieza</caption>
-          <thead className="bg-surface-bold">
-            <tr>
-              {["Pieza", "Prop o callback", "Tipo", "Predeterminado", "Opcional", "Función"].map((label) => (
-                <th key={label} scope="col" className="p-4">{label}</th>
-              ))}
-            </tr>
-          </thead>
-          {groups.map(({ piece, rows }) => (
-            <tbody key={piece}>
-              {rows.map(([prop, type, defaultValue, description], index) => (
-                <tr key={prop} className="border-t border-gray-base align-top">
-                  {index === 0 && <th scope="rowgroup" rowSpan={rows.length} className="p-4 font-medium">{piece}</th>}
-                  <th scope="row" className="p-4 font-mono text-xs">{prop}</th>
-                  <td className="min-w-40 p-4 font-mono text-xs">{type}</td>
-                  <td className="p-4">{defaultValue}</td>
-                  <td className="p-4">Sí</td>
-                  <td className="min-w-64 p-4">{description}</td>
-                </tr>
-              ))}
-            </tbody>
-          ))}
-        </table>
-      </div>
+    <ShowcaseApiReference>
+      <ShowcaseApiTable
+        name="Preview Card"
+        groups={groups.map(({ piece, rows }) => ({
+          piece: piece,
+          rows: rows.map(([prop, type, defaultValue, description]) => ({ prop, type, defaultValue, description })),
+        }))}
+      />
       <ul className="body-sm space-y-2 text-gray-bold/75">
         <li>Usa un destino real en el enlace. Mantén el resumen visual libre de controles y ofrece la información en la página enlazada.</li>
         <li><code>details.reason</code> distingue puntero, foco, pulsación, Escape e interacción exterior o imperativa. <code>createPreviewCardHandle()</code> expone <code>open(id)</code>, <code>close()</code> e <code>isOpen</code> para una raíz montada.</li>
         <li>Al cambiar de activador, <code>PreviewCardViewport</code> oculta el contenido anterior y anima la entrada del nuevo si se permite el movimiento.</li>
       </ul>
-    </section>
+    </ShowcaseApiReference>
   );
 }

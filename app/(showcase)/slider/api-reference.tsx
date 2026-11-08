@@ -1,3 +1,5 @@
+import { ShowcaseAnatomyContent, ShowcaseApiTable } from "@/components/shared/showcase-reference";
+import { ShowcaseAnatomy, ShowcaseApiReference } from "@/components/shared/showcase";
 const anatomy = `<Slider defaultValue={60}>
   <SliderLabel>Volumen</SliderLabel>
   <SliderValue />
@@ -68,67 +70,28 @@ const groups = [
 
 export function Anatomy() {
   return (
-    <section aria-labelledby="anatomy-heading" className="space-y-4">
-      <h2 id="anatomy-heading" className="h3">Anatomía</h2>
-      <pre aria-label="Composición de Slider en JSX" className="overflow-x-auto rounded-2xl border border-gray-base bg-surface-base p-6 text-sm">
-        <code>{anatomy}</code>
-      </pre>
-      <div className="overflow-x-auto rounded-2xl border border-gray-base bg-surface-base">
-        <table className="body-sm w-full text-left">
-          <caption className="sr-only">Piezas de Slider y sus responsabilidades</caption>
-          <thead className="bg-surface-bold">
-            <tr><th scope="col" className="p-4">Pieza</th><th scope="col" className="p-4">Responsabilidad</th></tr>
-          </thead>
-          <tbody>
-            {parts.map(([name, description]) => (
-              <tr key={name} className="border-t border-gray-base">
-                <th scope="row" className="p-4 font-mono text-xs">{name}</th>
-                <td className="p-4">{description}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </section>
+    <ShowcaseAnatomy>
+      <ShowcaseAnatomyContent name="Slider" code={anatomy} parts={parts} />
+    </ShowcaseAnatomy>
   );
 }
 
 export function ApiReference() {
   return (
-    <section aria-labelledby="api-heading" className="space-y-4">
-      <h2 id="api-heading" className="h3">Referencia de API</h2>
-      <div role="region" aria-label="Tabla de referencia de API" tabIndex={0} className="overflow-x-auto rounded-2xl border border-gray-base bg-surface-base focus-visible:outline-2 focus-visible:outline-gray-bold">
-        <table className="body-sm w-full min-w-3xl text-left">
-          <caption className="sr-only">Props, tipos y valores predeterminados de Slider</caption>
-          <thead className="bg-surface-bold">
-            <tr>
-              {["Pieza", "Prop o callback", "Tipo", "Predeterminado", "Opcional", "Función"].map((label) => (
-                <th key={label} scope="col" className="p-4">{label}</th>
-              ))}
-            </tr>
-          </thead>
-          {groups.map(({ piece, rows }) => (
-            <tbody key={piece}>
-              {rows.map(([name, type, defaultValue, description], index) => (
-                <tr key={name} className="border-t border-gray-base align-top">
-                  {index === 0 && <th scope="rowgroup" rowSpan={rows.length} className="p-4 font-medium">{piece}</th>}
-                  <th scope="row" className="p-4 font-mono text-xs">{name}</th>
-                  <td className="min-w-36 p-4 font-mono text-xs">{type}</td>
-                  <td className="p-4">{defaultValue}</td>
-                  <td className="p-4">Sí</td>
-                  <td className="min-w-60 p-4">{description}</td>
-                </tr>
-              ))}
-            </tbody>
-          ))}
-        </table>
-      </div>
+    <ShowcaseApiReference>
+      <ShowcaseApiTable
+        name="Slider"
+        groups={groups.map(({ piece, rows }) => ({
+          piece: piece,
+          rows: rows.map(([name, type, defaultValue, description]) => ({ prop: name, type, defaultValue, description })),
+        }))}
+      />
       <ul className="body-sm list-disc space-y-2 ps-5 text-gray-bold/75">
         <li><code>Value</code> es <code>number</code> o un arreglo de números según el modo. Los callbacks indican el motivo en <code>details.reason</code> y el cambio incluye <code>activeThumbIndex</code>.</li>
         <li>Las flechas ajustan el valor. <kbd>Home</kbd> y <kbd>End</kbd> van a los límites disponibles sin invadir el espacio de un control vecino.</li>
         <li>Usa un nombre accesible distinto para cada control de rango. Los inputs deshabilitados se omiten al enviar el formulario.</li>
         <li><code>edge-client-only</code> espera a la hidratación para posicionar los controles. <code>edge</code> puede prepararlos antes de hidratar.</li>
       </ul>
-    </section>
+    </ShowcaseApiReference>
   );
 }

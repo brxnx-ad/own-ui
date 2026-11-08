@@ -1,3 +1,5 @@
+import { ShowcaseAnatomyContent, ShowcaseApiTable } from "@/components/shared/showcase-reference";
+import { ShowcaseAnatomy, ShowcaseApiReference } from "@/components/shared/showcase";
 const anatomy = `<NavigationMenu aria-label="Navegación principal">
   <NavigationMenuList>
     <NavigationMenuItem value="plataforma">
@@ -267,105 +269,22 @@ const groups = [
 
 export function Anatomy() {
   return (
-    <section aria-labelledby="anatomy-heading" className="space-y-4">
-      <h2 id="anatomy-heading" className="h3">
-        Anatomía
-      </h2>
-      <pre
-        aria-label="Composición de NavigationMenu en JSX"
-        className="overflow-x-auto rounded-2xl border border-gray-base bg-surface-base p-6 text-sm text-gray-bold"
-      >
-        <code>{anatomy}</code>
-      </pre>
-      <div className="overflow-x-auto rounded-2xl border border-gray-base bg-surface-base">
-        <table className="body-sm w-full text-left">
-          <caption className="sr-only">
-            Piezas de NavigationMenu y sus responsabilidades
-          </caption>
-          <thead className="bg-surface-bold">
-            <tr>
-              <th scope="col" className="p-4">
-                Pieza
-              </th>
-              <th scope="col" className="p-4">
-                Responsabilidad
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {parts.map(([name, description]) => (
-              <tr key={name} className="border-t border-gray-base align-top">
-                <th scope="row" className="p-4 font-mono text-xs">
-                  {name}
-                </th>
-                <td className="p-4">{description}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </section>
+    <ShowcaseAnatomy>
+      <ShowcaseAnatomyContent name="NavigationMenu" code={anatomy} parts={parts} />
+    </ShowcaseAnatomy>
   );
 }
 
 export function ApiReference() {
   return (
-    <section aria-labelledby="api-heading" className="space-y-4">
-      <h2 id="api-heading" className="h3">
-        Referencia de API
-      </h2>
-      <div
-        role="region"
-        aria-label="Tabla de referencia de API de NavigationMenu"
-        tabIndex={0}
-        className="overflow-x-auto rounded-2xl border border-gray-base bg-surface-base focus-visible:outline-2 focus-visible:outline-primary-base"
-      >
-        <table className="body-sm w-full min-w-3xl text-left">
-          <caption className="sr-only">
-            Props y callbacks de las piezas de NavigationMenu
-          </caption>
-          <thead className="bg-surface-bold">
-            <tr>
-              {[
-                "Pieza",
-                "Prop o callback",
-                "Tipo",
-                "Predeterminado",
-                "Opcional",
-                "Función",
-              ].map((label) => (
-                <th key={label} scope="col" className="p-4">
-                  {label}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          {groups.map(({ name, rows }) => (
-            <tbody key={name}>
-              {rows.map(([prop, type, defaultValue, description], index) => (
-                <tr key={prop} className="border-t border-gray-base align-top">
-                  {index === 0 && (
-                    <th
-                      scope="rowgroup"
-                      rowSpan={rows.length}
-                      className="p-4 font-medium"
-                    >
-                      {name}
-                    </th>
-                  )}
-                  <th scope="row" className="p-4 font-mono text-xs">
-                    {prop}
-                  </th>
-                  <td className="p-4 font-mono text-xs">{type}</td>
-                  <td className="p-4">{defaultValue}</td>
-                  <td className="p-4">Sí</td>
-                  <td className="min-w-64 p-4">{description}</td>
-                </tr>
-              ))}
-            </tbody>
-          ))}
-        </table>
-      </div>
+    <ShowcaseApiReference>
+      <ShowcaseApiTable
+        name="NavigationMenu"
+        groups={groups.map(({ name, rows }) => ({
+          piece: name,
+          rows: rows.map(([prop, type, defaultValue, description]) => ({ prop, type, defaultValue, description })),
+        }))}
+      />
       <ul className="body-sm list-disc space-y-2 ps-5 text-gray-bold/75">
         <li>
           <code>NavigationMenuChangeEventReason</code> incluye{" "}
@@ -395,6 +314,6 @@ export function ApiReference() {
           <kbd>Escape</kbd> cierra el panel y devuelve el foco al activador.
         </li>
       </ul>
-    </section>
+    </ShowcaseApiReference>
   );
 }

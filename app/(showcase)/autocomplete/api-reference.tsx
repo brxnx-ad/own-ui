@@ -1,3 +1,5 @@
+import { ShowcaseAnatomyContent, ShowcaseApiTable } from "@/components/shared/showcase-reference";
+import { ShowcaseAnatomy, ShowcaseApiReference } from "@/components/shared/showcase";
 const anatomy = `import {
   Autocomplete, AutocompleteClear, AutocompleteEmpty, AutocompleteInput,
   AutocompleteInputGroup, AutocompleteItem, AutocompleteList,
@@ -117,67 +119,28 @@ const groups = [
 
 export function Anatomy() {
   return (
-    <section aria-labelledby="autocomplete-anatomy" className="space-y-4">
-      <h2 id="autocomplete-anatomy" className="h3">Anatomía</h2>
-      <pre aria-label="Composición de Autocomplete en JSX" className="overflow-x-auto rounded-2xl border border-gray-base bg-surface-base p-6 text-sm">
-        <code>{anatomy}</code>
-      </pre>
-      <div className="overflow-x-auto rounded-2xl border border-gray-base bg-surface-base">
-        <table className="w-full text-left body-sm">
-          <caption className="sr-only">Piezas de Autocomplete y sus responsabilidades</caption>
-          <thead className="bg-surface-bold">
-            <tr><th scope="col" className="p-4">Pieza</th><th scope="col" className="p-4">Responsabilidad</th></tr>
-          </thead>
-          <tbody>
-            {parts.map(([part, description]) => (
-              <tr key={part} className="border-t border-gray-base align-top">
-                <th scope="row" className="p-4 font-mono text-xs wrap-anywhere">{part}</th>
-                <td className="p-4">{description}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </section>
+    <ShowcaseAnatomy id="autocomplete-anatomy">
+      <ShowcaseAnatomyContent name="Autocomplete" code={anatomy} parts={parts} />
+    </ShowcaseAnatomy>
   );
 }
 
 export function ApiReference() {
   return (
-    <section aria-labelledby="autocomplete-api" className="space-y-4">
-      <h2 id="autocomplete-api" className="h3">Referencia de API</h2>
-      <div role="region" aria-label="Tabla de referencia de API" tabIndex={0} className="overflow-x-auto rounded-2xl border border-gray-base bg-surface-base focus-visible:outline-2 focus-visible:outline-primary-base">
-        <table className="w-full min-w-3xl text-left body-sm">
-          <caption className="sr-only">Opciones de Autocomplete, tipos, valores predeterminados y comportamiento</caption>
-          <thead className="bg-surface-bold">
-            <tr>
-              {["Pieza", "Prop o callback", "Tipo", "Predeterminado", "Opcional", "Función"].map((label) => (
-                <th key={label} scope="col" className="p-4">{label}</th>
-              ))}
-            </tr>
-          </thead>
-          {groups.map(({ part, rows }) => (
-            <tbody key={part}>
-              {rows.map(([name, type, defaultValue, optional, description], index) => (
-                <tr key={name} className="border-t border-gray-base align-top">
-                  {index === 0 && <th scope="rowgroup" rowSpan={rows.length} className="p-4 font-medium">{part}</th>}
-                  <th scope="row" className="p-4 font-mono text-xs">{name}</th>
-                  <td className="p-4 font-mono text-xs">{type}</td>
-                  <td className="p-4">{defaultValue}</td>
-                  <td className="p-4">{optional}</td>
-                  <td className="min-w-64 p-4">{description}</td>
-                </tr>
-              ))}
-            </tbody>
-          ))}
-        </table>
-      </div>
+    <ShowcaseApiReference id="autocomplete-api">
+      <ShowcaseApiTable
+        name="Autocomplete"
+        groups={groups.map(({ part, rows }) => ({
+          piece: part,
+          rows: rows.map(([name, type, defaultValue, optional, description]) => ({ prop: name, type, defaultValue, description, optional })),
+        }))}
+      />
       <ul className="space-y-2 body-sm text-gray-bold/75">
         <li><code>useAutocompleteFilter</code> ofrece coincidencia parcial, inicial y final. <code>useAutocompleteFilteredItems</code> lee los resultados dentro de <code>Autocomplete</code>.</li>
         <li>Los detalles de cambio indican el motivo mediante <code>reason</code>, por ejemplo <code>input-change</code>, <code>item-press</code>, <code>clear-press</code> o <code>escape-key</code>.</li>
         <li>Asocia una etiqueta visible con el campo. Las flechas recorren las opciones, Enter acepta la opción resaltada y Escape cierra el panel.</li>
         <li>Las piezas que renderizan un elemento aceptan sus atributos HTML. El panel y el fondo respetan la preferencia de movimiento reducido.</li>
       </ul>
-    </section>
+    </ShowcaseApiReference>
   );
 }

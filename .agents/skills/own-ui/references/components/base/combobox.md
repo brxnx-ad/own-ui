@@ -39,19 +39,19 @@ const cities = ["Santiago", "Valdivia", "Valparaíso"];
 </Combobox>;
 ```
 
-| Exportaciones | Nodo predeterminado y función |
-| :--- | :--- |
-| `Combobox` | Proveedor de estado sin contenedor visible propio. Puede generar inputs de formulario. |
-| `ComboboxInputGroup`, `ComboboxInput` | `div` que agrupa el campo y los controles y `input` que recibe la consulta. |
-| `ComboboxLabel`, `ComboboxValue` | `div` que etiqueta el activador del patrón con búsqueda dentro del popup y pieza sin nodo propio que muestra la selección. |
-| `ComboboxTrigger`, `ComboboxIcon`, `ComboboxClear` | `button` que abre el panel, `span` decorativo y `button` que limpia la selección. El activador incluye un icono Chevron por defecto y Clear incluye Close. |
-| `ComboboxChips`, `ComboboxChip`, `ComboboxChipRemove` | `div` para el grupo de chips, `div` para cada valor y `button` que lo quita con un icono Close por defecto. |
-| `ComboboxPortal`, `ComboboxBackdrop`, `ComboboxPositioner`, `ComboboxPopup`, `ComboboxArrow` | Piezas `div` para portal, fondo opcional, posicionamiento, panel y flecha opcional. |
-| `ComboboxStatus`, `ComboboxEmpty` | `div` para anuncios y para el mensaje que aparece cuando se filtran todos los resultados. |
-| `ComboboxList`, `ComboboxCollection`, `ComboboxRow` | `div` para la lista, iterador de resultados sin nodo propio y `div` para una fila del modo grid. |
-| `ComboboxGroup`, `ComboboxGroupLabel`, `ComboboxSeparator` | `div` para agrupar opciones, `div` para el rótulo de cada grupo y separador visual `div`. |
-| `ComboboxItem`, `ComboboxItemIndicator` | Opción `div` e indicador `span` con Check por defecto. |
-| `createComboboxItems`, `useComboboxFilter`, `useComboboxFilteredItems` | Utilidad para derivar IDs y etiquetas y hooks de filtrado de Base UI. |
+| Exportaciones | Nodo predeterminado y función | `data-slot` |
+| :--- | :--- | :--- |
+| `Combobox` | Proveedor de estado sin contenedor visible propio. Puede generar inputs de formulario. | — |
+| `ComboboxInputGroup`, `ComboboxInput` | `div` que agrupa el campo y los controles y `input` que recibe la consulta. | `combobox-input-group`, `combobox-input` |
+| `ComboboxLabel`, `ComboboxValue` | `div` que etiqueta el activador del patrón con búsqueda dentro del popup y pieza sin nodo propio que muestra la selección. | `combobox-label` |
+| `ComboboxTrigger`, `ComboboxIcon`, `ComboboxClear` | `button` que abre el panel, `span` decorativo y `button` que limpia la selección. El activador incluye un icono Chevron por defecto y Clear incluye Close. | `combobox-trigger`, `combobox-icon`, `combobox-clear` |
+| `ComboboxChips`, `ComboboxChip`, `ComboboxChipRemove` | `div` para el grupo de chips, `div` para cada valor y `button` que lo quita con un icono Close por defecto. | `combobox-chips`, `combobox-chip`, `combobox-chip-remove` |
+| `ComboboxPortal`, `ComboboxBackdrop`, `ComboboxPositioner`, `ComboboxPopup`, `ComboboxArrow` | Piezas `div` para portal, fondo opcional, posicionamiento, panel y flecha opcional. | `combobox-portal`, `combobox-backdrop`, `combobox-positioner`, `combobox-popup`, `combobox-arrow` |
+| `ComboboxStatus`, `ComboboxEmpty` | `div` para anuncios y para el mensaje que aparece cuando se filtran todos los resultados. | `combobox-status`, `combobox-empty` |
+| `ComboboxList`, `ComboboxCollection`, `ComboboxRow` | `div` para la lista, iterador de resultados sin nodo propio y `div` para una fila del modo grid. | `combobox-list`, `combobox-row` |
+| `ComboboxGroup`, `ComboboxGroupLabel`, `ComboboxSeparator` | `div` para agrupar opciones, `div` para el rótulo de cada grupo y separador visual `div`. | `combobox-group`, `combobox-group-label`, `combobox-separator` |
+| `ComboboxItem`, `ComboboxItemIndicator` | Opción `div` e indicador `span` con Check por defecto. | `combobox-item`, `combobox-item-indicator` |
+| `createComboboxItems`, `useComboboxFilter`, `useComboboxFilteredItems` | Utilidad para derivar IDs y etiquetas y hooks de filtrado de Base UI. | — |
 
 La raíz recibe los datos y las piezas mediante `children`. En una lista plana, `ComboboxList` puede recibir una función que renderiza cada resultado. En una lista agrupada, cada resultado exterior es un grupo. Coloca `ComboboxGroupLabel` y `ComboboxCollection` dentro de `ComboboxGroup` y pasa sus `items` filtrados. Coloca `ComboboxEmpty` y `ComboboxStatus` junto a la lista en el popup para que sus anuncios se mantengan disponibles.
 

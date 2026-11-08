@@ -10,7 +10,7 @@ El entorno de referencia es Next.js con App Router. Las rutas siguientes son con
 | `components/own/base/` | Familias basadas en una sola familia primitiva de Base UI, sin dependencias de otras familias propias ni motores externos especializados. Verifica cuáles se han exportado al destino en la tabla de archivos necesarios. |
 | `components/own/composed/` | Familias que reutilizan internamente otros componentes definidos en `components/own/`. |
 | `components/own/dependant/` | Familias que requieren una librería externa especializada para su comportamiento principal, aunque también compongan componentes de own-ui. |
-| `components/own/icons/` | Soporte SVG compartido: Chevron, Check, Minus, Plus, Close y Spinner. |
+| `components/own/icons/` | Soporte SVG compartido. Consulta la [referencia de iconos](icons.md) para sus API y archivos. |
 | `app/` o `src/app/` | Rutas, páginas y layouts del App Router del proyecto consumidor. Los ejemplos interactivos y componentes exclusivos de una vista se colocan cerca de ella. |
 | `app/layout.tsx` o `src/app/layout.tsx` | Layout raíz: importa la hoja global e integra la fuente, el proveedor de temas y el apilamiento del contenido y los portales. |
 | `components/shared/` o equivalente | Wrappers cliente compartidos, como un ThemeProvider de `next-themes`, cuando el consumidor necesite mantenerlos en un módulo propio. |
@@ -31,7 +31,7 @@ Las referencias de Button, Accordion y Alert Dialog parten de la revisión de or
 
 Comprueba la compatibilidad del entorno receptor al usar otras versiones. Consulta los tipos de la primitiva instalada para las opciones heredadas y distingue las dependencias de cada wrapper de la configuración compartida de la aplicación.
 
-Las 37 familias Base UI de esta referencia se ubican en `components/own/base/`. FloatingInput y su CSS se ubican en `components/own/composed/`. Las ocho familias de HTML nativo se ubican en `components/own/simple/`. En la tabla, las rutas son relativas a la carpeta de cada familia, salvo las rutas de iconos.
+Las 37 familias Base UI se ubican en `components/own/base/`, FloatingInput en `components/own/composed/` y las ocho familias de HTML nativo en `components/own/simple/`. En la tabla, los nombres de archivo sueltos se resuelven dentro de la carpeta de cada familia. Las rutas que incluyen una carpeta son relativas a `components/own/`.
 
 | Familia | Archivos propios y de soporte necesarios |
 | :--- | :--- |
@@ -43,7 +43,7 @@ Las 37 familias Base UI de esta referencia se ubican en `components/own/base/`. 
 | Skeleton | `skeleton.tsx` y `skeleton.module.css`. El módulo CSS define la base gris, el brillo por tema y la animación compartida. |
 | Table | `table.tsx`. Incluye el contenedor desplazable y las piezas de la tabla. |
 | Textarea | `textarea.tsx`. Conserva `"use client"` para el contador y su sincronización con el campo nativo. |
-| Button | `button.tsx` y Spinner desde `icons/spinner.tsx`, con el módulo de exportación de iconos al que apunte su import. |
+| Button | `button.tsx`. Importa Spinner del [módulo de iconos](#iconos-de-soporte). |
 | Accordion | `accordion.tsx` y Chevron con su helper SVG, definidos en `icons/index.tsx`. Si se copia el módulo completo de iconos, incluye también los archivos que reexporta, como Spinner. |
 | Alert Dialog | `alert-dialog.tsx`; su definición no importa otras familias propias ni iconos de soporte. Button solo es necesario si el consumidor lo elige para sus acciones. |
 | Autocomplete | `autocomplete.tsx`, Chevron y Close con su helper SVG en `icons/index.tsx`. Si se copia el módulo de iconos completo, incluye también `icons/spinner.tsx` por su reexportación. |
@@ -83,6 +83,10 @@ Las 37 familias Base UI de esta referencia se ubican en `components/own/base/`. 
 | Tooltip | `tooltip.tsx`. Sus piezas envuelven Base UI sin requerir iconos ni bloques de CSS propios. Incluye Button si la composición del consumidor lo utiliza. |
 
 Al preparar una exportación, reúne las familias seleccionadas, sus dependencias transitivas, los módulos CSS importados y las reglas globales que consumen. Adapta los imports de soporte si distribuyes solo parte del módulo de iconos. Copia la carpeta de la skill con sus referencias y ajusta el índice a las familias entregadas o indica su disponibilidad. Verifica los enlaces relativos desde la carpeta copiada y registra la revisión y las versiones comprobadas.
+
+### Iconos de soporte
+
+`icons/index.tsx` define Chevron, Check, Minus, Plus y Close, y reexporta Spinner y `SpinnerProps` desde `icons/spinner.tsx`. Los componentes que importan `@/components/own/icons` requieren ambos archivos si conservas el índice original, incluso cuando solo usan un icono estático. Los seis son piezas de soporte compartidas y se documentan en una [referencia común](icons.md).
 
 ## Clasificación por familia
 
@@ -133,7 +137,7 @@ Conserva las directivas `"use client"` de los módulos recibidos y coloca el est
 
 ## Extensión y verificación
 
-Para una nueva familia, sigue el tipado de la primitiva instalada y los patrones de las familias recibidas. Los estilos actuales se construyen con `clsx` y tipos o diccionarios de TypeScript. Documenta las props, estados, formas de estilo y límites reales de la implementación que se distribuya. Actualiza el índice y la referencia afectada al ampliar las familias distribuidas.
+Para una nueva familia, sigue el tipado del elemento nativo o de la primitiva instalada y los patrones de las familias recibidas. Los estilos actuales se construyen con `clsx` y tipos o diccionarios de TypeScript. Documenta las props, estados, formas de estilo y límites reales de la implementación que se distribuya. Al ampliar el catálogo, vincula la referencia desde el índice y registra en esta guía los archivos requeridos. Incluye también la API de las piezas de soporte que se exporten.
 
 Verifica imports, tipado y generación de utilidades con las herramientas del consumidor. Prueba las composiciones relevantes en una vista de su aplicación, incluidos ambos temas, foco, ancho disponible y estados afectados. La demostración define su disposición en sus contenedores.
 

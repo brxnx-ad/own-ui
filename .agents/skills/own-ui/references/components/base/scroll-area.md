@@ -53,7 +53,11 @@ export function ActivityList() {
 | `ScrollAreaThumb` | `div` | `scroll-area-thumb` | Indica la posición y permite cambiarla mediante arrastre. |
 | `ScrollAreaCorner` | `div[aria-hidden="true"]` | `scroll-area-corner` | Ocupa la intersección de dos barras. |
 
-El módulo también exporta los tipos `Props` y `State` de cada pieza, como `ScrollAreaProps`, `ScrollAreaState`, `ScrollAreaViewportProps` y `ScrollAreaViewportState`.
+El módulo exporta estos tipos de Base UI para las piezas correspondientes:
+
+- Raíz y viewport: `ScrollAreaProps`, `ScrollAreaState`, `ScrollAreaViewportProps` y `ScrollAreaViewportState`.
+- Contenido y esquina: `ScrollAreaContentProps`, `ScrollAreaContentState`, `ScrollAreaCornerProps` y `ScrollAreaCornerState`.
+- Barra y tirador: `ScrollAreaScrollbarProps`, `ScrollAreaScrollbarState`, `ScrollAreaThumbProps` y `ScrollAreaThumbState`.
 
 Coloca Content dentro de Viewport y un Thumb dentro de cada Scrollbar. Las barras son hermanas de Viewport dentro de la raíz. Añade Corner como hermano de las barras cuando compongas ambos ejes. El consumidor aporta el contenido, su nombre accesible cuando corresponda y los límites de tamaño.
 

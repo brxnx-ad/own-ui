@@ -87,6 +87,8 @@ Las superficies, el borde y el texto se adaptan al tema desde [globals.md](../..
 
 La [composición habitual](#3-importación-y-anatomía) muestra una imagen con iniciales mientras se carga. Si el perfil solo dispone de un nombre, puedes presentar el fallback junto a ese texto.
 
+Para mostrar una silueta genérica de usuario como imagen principal, pasa el SVG de tu aplicación a `AvatarImage`. Usa `alt=""` si la raíz o un texto adyacente ya identifica a la persona.
+
 ```tsx
 import { Avatar, AvatarFallback } from "@/components/own/base/avatar";
 

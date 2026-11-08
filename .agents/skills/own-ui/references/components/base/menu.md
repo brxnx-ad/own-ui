@@ -159,24 +159,24 @@ La API hereda las props de Base UI y los atributos HTML del nodo que renderiza c
 
 El prefijo de `data-slot` es `menu-`. Menu, Submenu y FilterProvider carecen de nodo.
 
-| Pieza | Sufijo de `data-slot` | Atributos de estado relevantes |
+| Pieza | `data-slot` | Atributos de estado relevantes |
 | :--- | :--- | :--- |
-| Trigger | `trigger` | `data-popup-open`, `data-pressed`, `data-disabled`. |
-| Portal | `portal` | Sin estado propio. |
-| Backdrop | `backdrop` | `data-open`, `data-closed`, `data-starting-style`, `data-ending-style`. |
-| Positioner | `positioner` | `data-open`, `data-closed`, `data-side`, `data-align`, `data-anchor-hidden`; `data-nested` en submenús y `data-instant` según interacción. |
-| Popup | `popup` | `data-open`, `data-closed`, `data-side`, `data-align`, `data-starting-style`, `data-ending-style`, `data-instant` y `data-nested` en submenús. |
-| Arrow | `arrow` | `data-open`, `data-closed`, `data-side`, `data-align`, `data-uncentered`. |
-| Item | `item` | `data-highlighted`, `data-disabled`. |
-| LinkItem | `link-item` | `data-highlighted`. |
-| CheckboxItem, RadioItem | `checkbox-item`, `radio-item` | `data-checked`, `data-unchecked`, `data-highlighted`, `data-disabled`. |
-| Indicadores | `checkbox-item-indicator`, `radio-item-indicator` | Estados de su fila y atributos de transición `data-starting-style`, `data-ending-style`. |
-| RadioGroup | `radio-group` | `data-disabled`. |
-| SubmenuTrigger | `submenu-trigger` | `data-popup-open`, `data-highlighted`, `data-disabled`. |
-| Separator | `separator` | `data-orientation`. |
-| Viewport | `viewport` | `data-activation-direction`, `data-transitioning`, `data-instant`. Los descendientes de transición llevan `data-current` y `data-previous`. |
-| Input, Clear | `input`, `clear` | `data-highlighted` en el input y `data-disabled` en Clear. |
-| Group, GroupLabel, List, Empty | `group`, `group-label`, `list`, `empty` | Sin estado propio. |
+| Trigger | `menu-trigger` | `data-popup-open`, `data-pressed`, `data-disabled`. |
+| Portal | `menu-portal` | Sin estado propio. |
+| Backdrop | `menu-backdrop` | `data-open`, `data-closed`, `data-starting-style`, `data-ending-style`. |
+| Positioner | `menu-positioner` | `data-open`, `data-closed`, `data-side`, `data-align`, `data-anchor-hidden`; `data-nested` en submenús y `data-instant` según interacción. |
+| Popup | `menu-popup` | `data-open`, `data-closed`, `data-side`, `data-align`, `data-starting-style`, `data-ending-style`, `data-instant` y `data-nested` en submenús. |
+| Arrow | `menu-arrow` | `data-open`, `data-closed`, `data-side`, `data-align`, `data-uncentered`. |
+| Item | `menu-item` | `data-highlighted`, `data-disabled`. |
+| LinkItem | `menu-link-item` | `data-highlighted`. |
+| CheckboxItem, RadioItem | `menu-checkbox-item`, `menu-radio-item` | `data-checked`, `data-unchecked`, `data-highlighted`, `data-disabled`. |
+| Indicadores | `menu-checkbox-item-indicator`, `menu-radio-item-indicator` | Estados de su fila y atributos de transición `data-starting-style`, `data-ending-style`. |
+| RadioGroup | `menu-radio-group` | `data-disabled`. |
+| SubmenuTrigger | `menu-submenu-trigger` | `data-popup-open`, `data-highlighted`, `data-disabled`. |
+| Separator | `menu-separator` | `data-orientation`. |
+| Viewport | `menu-viewport` | `data-activation-direction`, `data-transitioning`, `data-instant`. Los descendientes de transición llevan `data-current` y `data-previous`. |
+| Input, Clear | `menu-input`, `menu-clear` | `data-highlighted` en el input y `data-disabled` en Clear. |
+| Group, GroupLabel, List, Empty | `menu-group`, `menu-group-label`, `menu-list`, `menu-empty` | Sin estado propio. |
 
 ## 7. Estilos admitidos por pieza
 
