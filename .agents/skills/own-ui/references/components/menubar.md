@@ -159,8 +159,8 @@ export function WorkspaceCommands() {
 ## 9. Accesibilidad e integración
 
 - Da un nombre a la barra con `aria-label` o `aria-labelledby` y mantén un nombre accesible en cada activador, también si solo muestra un icono.
-- Tab entra en la barra como control compuesto. En horizontal, Izquierda y Derecha recorren los activadores. En vertical, usa Arriba y Abajo. Inicio y Fin llevan el foco a los extremos. La dirección horizontal sigue la configuración LTR o RTL de Base UI.
-- Enter y Espacio abren la rama enfocada. También se puede abrir con la flecha hacia el panel, por ejemplo Abajo en una barra horizontal o Derecha en una barra vertical LTR. Escape cierra la rama y al usar teclado devuelve el foco al activador.
+- Tab entra en la barra como control compuesto. En horizontal, Izquierda y Derecha recorren los activadores. En vertical, usa Arriba y Abajo. Inicio y Fin llevan el foco a los extremos.
+- Enter y Espacio abren la rama enfocada. También se puede abrir con la flecha hacia el panel, por ejemplo Abajo en una barra horizontal o Derecha en una barra vertical. Escape cierra la rama y al usar teclado devuelve el foco al activador.
 - Al sustituir el elemento con `render`, conserva el rol `menubar`, la orientación ARIA, los eventos y la ref. Conserva la relación de cada activador con su panel. Usa la semántica y las opciones de composición de Menu para los enlaces y controles de sus paneles.
 - Con un destino de portal personalizado, comprueba el apilamiento, la herencia de tema y la colocación junto a los bordes. En ancho estrecho, las filas que genere la barra horizontal mantienen el recorrido horizontal por orden de las opciones. Si el diseño requiere un recorrido vertical, ajusta también `orientation`.
 - Mantén el wrapper como componente cliente. Las composiciones con estado, handlers o `render` funcional también deben ejecutarse dentro de una frontera cliente. [Integración en App Router](../structure.md)

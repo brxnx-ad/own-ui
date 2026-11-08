@@ -321,7 +321,7 @@ export function SidebarNavigation() {
 - **Etiquetado de la región `<nav>`:** Proporciona un `aria-label` o `aria-labelledby` descriptivo en el `NavigationMenu` raíz, especialmente cuando la página contenga más de una región de navegación. Un `NavigationMenu` anidado renderiza automáticamente un `<div>` para evitar regiones `<nav>` redundantes.
 - **Teclado y gestión de foco:**
   - `Tab` entra en la barra y recorre los elementos enfocables; cuando un panel está abierto, Base UI inserta guardas de foco para que `Tab` pase del activador al contenido dentro de `NavigationMenuViewport` y luego continúe con el resto de la barra.
-  - En orientación horizontal, `ArrowLeft` y `ArrowRight` mueven el foco entre los elementos de `NavigationMenuList`, y `ArrowDown` abre el panel del activador enfocado. En orientación vertical, `ArrowUp` y `ArrowDown` recorren la lista y `ArrowRight` (o `ArrowLeft` en RTL) abre el panel.
+  - En orientación horizontal, `ArrowLeft` y `ArrowRight` mueven el foco entre los elementos de `NavigationMenuList`, y `ArrowDown` abre el panel del activador enfocado. En orientación vertical, `ArrowUp` y `ArrowDown` recorren la lista y `ArrowRight` abre el panel.
   - Dentro de `NavigationMenuContent`, las flechas navegan entre los `NavigationMenuLink` y activadores anidados.
   - `Escape` cierra el panel abierto y devuelve el foco al `NavigationMenuTrigger` que lo abrió.
 - **Página actual (`aria-current`):** Pasa `active={true}` al `NavigationMenuLink` que coincida con la ruta actual para exponer `aria-current="page"`.

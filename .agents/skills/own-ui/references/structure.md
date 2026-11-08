@@ -60,6 +60,14 @@ Comprueba la compatibilidad del entorno receptor al usar otras versiones. Consul
 | Radio Group | `radio-group.tsx`. El módulo exporta el grupo, la opción y el indicador. Incluye Field y Form si la composición los utiliza. |
 | Scroll Area | `scroll-area.tsx`. Utiliza las utilidades y tokens compartidos de Tailwind, sin un bloque de CSS de componente ni archivos de soporte propios. |
 | Select | `select.tsx`, Check y Chevron con su helper SVG en `icons/index.tsx`. Si se copia el módulo de iconos completo, incluye también `icons/spinner.tsx` por su reexportación. Field y Form se incluyen según la composición. |
+| Separator | `separator.tsx`. Usa Base UI, `clsx` y los tokens y utilidades compartidos de Tailwind. |
+| Slider | `slider.tsx`. Usa las siete piezas de Base UI y las utilidades compartidas de Tailwind. Incluye Field o Form si el consumidor los utiliza para validación coordinada. |
+| Switch | `switch.tsx`. Usa Base UI, `clsx` y los tokens y utilidades compartidos de Tailwind. Field y Form se incluyen según la composición. |
+| Tabs | `tabs.tsx`. Usa Base UI, `clsx` y los tokens y utilidades compartidos de Tailwind. El consumidor aporta el contenido de los paneles. |
+| Toast | `toast.tsx`. Usa Base UI, `clsx` y las utilidades compartidas de Tailwind. El consumidor aporta el proveedor, la región y la composición que renderiza la cola. |
+| Toggle | `toggle.tsx`. Usa Base UI, `clsx` y las utilidades compartidas de Tailwind. Los iconos y la agrupación pertenecen a la composición del consumidor. |
+| Toggle Group | `toggle-group.tsx`. Usa Base UI, `clsx` y utilidades de distribución de Tailwind. Incluye `toggle.tsx` si el consumidor elige los botones de own-ui. |
+| Toolbar | `toolbar.tsx`. Usa Base UI, `clsx` y las utilidades compartidas de Tailwind. Incluye las familias adicionales que el consumidor componga como herramientas. |
 | Tooltip | `tooltip.tsx`. Sus piezas envuelven Base UI sin requerir iconos ni bloques de CSS propios. Incluye Button si la composición del consumidor lo utiliza. |
 
 Al preparar una exportación, reúne las familias seleccionadas, sus dependencias transitivas y los bloques de CSS que consumen. Adapta los imports de soporte si distribuyes solo parte del módulo de iconos. Copia la carpeta de la skill con sus referencias y ajusta el índice a las familias entregadas o indica su disponibilidad. Verifica los enlaces relativos desde la carpeta copiada y registra la revisión y las versiones comprobadas.

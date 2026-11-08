@@ -156,7 +156,7 @@ export function ComboboxArrow({ className, ...props }: Primitive.Arrow.Props) {
   return (
     <Primitive.Arrow
       data-slot="combobox-arrow"
-      className={classes("pointer-events-none size-2 border-t border-l border-gray-base bg-surface-base data-[side=bottom]:-top-1 data-[side=bottom]:rotate-45 data-[side=top]:-bottom-1 data-[side=top]:-rotate-135 data-[side=left]:-right-1 data-[side=left]:rotate-135 data-[side=right]:-left-1 data-[side=right]:-rotate-45 data-[side=inline-start]:-end-1 ltr:data-[side=inline-start]:rotate-135 rtl:data-[side=inline-start]:-rotate-45 data-[side=inline-end]:-start-1 ltr:data-[side=inline-end]:-rotate-45 rtl:data-[side=inline-end]:rotate-135", className)}
+      className={classes("pointer-events-none size-2 border-t border-l border-gray-base bg-surface-base data-[side=bottom]:-top-1 data-[side=bottom]:rotate-45 data-[side=top]:-bottom-1 data-[side=top]:-rotate-135 data-[side=left]:-right-1 data-[side=left]:rotate-135 data-[side=right]:-left-1 data-[side=right]:-rotate-45 data-[side=inline-start]:-end-1 data-[side=inline-start]:rotate-135 data-[side=inline-end]:-start-1 data-[side=inline-end]:-rotate-45", className)}
       {...props}
     />
   );

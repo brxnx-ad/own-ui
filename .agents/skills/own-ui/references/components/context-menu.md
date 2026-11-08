@@ -110,7 +110,7 @@ Las opciones aceptan sus atributos y eventos HTML. Usa `onClick` para ejecutar u
 | `Trigger` | Radio base y contorno neutro de foco. El consumidor define la superficie y el área de interacción. |
 | `Positioner`, `Popup` | `z-50`, límites con `--available-width` y `--available-height`, borde neutro, `surface-base`, radio base y `shadow-m`. El popup desplaza listas altas. Con una flecha como hija directa permite el desbordamiento para que la flecha sobresalga. En ese caso, un contenedor interior puede encargarse del scroll de listas largas. |
 | `Arrow`, `Backdrop` | La flecha usa el lado calculado y la superficie del popup. El fondo ocupa el viewport con `z-40` y un tinte adaptado al tema. |
-| `Item`, `LinkItem`, `CheckboxItem`, `RadioItem`, `SubmenuTrigger` | Filas compactas con `body-sm`, radio base y resaltado `primary-soft`. La deshabilitación reduce la opacidad. El chevron se orienta según la dirección del texto. |
+| `Item`, `LinkItem`, `CheckboxItem`, `RadioItem`, `SubmenuTrigger` | Filas compactas con `body-sm`, radio base y resaltado `primary-soft`. La deshabilitación reduce la opacidad. El chevron del submenú apunta hacia la derecha. |
 | Indicadores, `GroupLabel`, `Separator` | Marcas decorativas neutras, rótulo `caption` y divisor `gray-base`. Sustituye el contenido del indicador mediante `children`. |
 
 El popup anima opacidad y escala durante 150 ms con origen en `--transform-origin`. El fondo anima opacidad. Ambas transiciones se limitan a `motion-safe` y el popup respeta `data-instant`. Los tokens se reasignan por tema. [Referencia de globals](../globals.md).
@@ -139,7 +139,7 @@ Para una casilla persistente, usa `checked` y `onCheckedChange` con un estado ex
 ## 9. Accesibilidad e integración
 
 - Proporciona controles visibles para las mismas acciones. Incluye el área contextual en el recorrido de teclado y explica el gesto cuando sea necesario. En navegadores que lo admiten, Mayús + F10 o la tecla Menú abren el menú desde el área enfocada.
-- Las flechas recorren las opciones, escribir busca por su etiqueta y Enter o Espacio activa la opción. En una interfaz de izquierda a derecha, la flecha derecha abre el submenú y la izquierda vuelve al padre. Escape cierra el nivel correspondiente.
+- Las flechas recorren las opciones, escribir busca por su etiqueta y Enter o Espacio activa la opción. La flecha derecha abre el submenú y la izquierda vuelve al padre. Escape cierra el nivel correspondiente.
 - Da un nombre al popup y conserva sus roles, eventos y referencias al componer las piezas. Usa `finalFocus` si el foco debe regresar a un control concreto.
 - Mantén los handlers y las referencias en un módulo cliente de App Router. Comprueba el apilamiento y la herencia de tema si el portal usa un contenedor personalizado.
 

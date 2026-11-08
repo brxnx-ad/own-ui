@@ -54,6 +54,17 @@ Cada componente registrado cuenta con su propia ruta independiente (por ejemplo,
 | Preview Card | `/preview-card` | `@/components/own/independant/preview-card` |
 | Progress | `/progress` | `@/components/own/independant/progress` |
 | Radio Group | `/radio-group` | `@/components/own/independant/radio-group` |
+| Scroll Area | `/scroll-area` | `@/components/own/independant/scroll-area` |
+| Select | `/select` | `@/components/own/independant/select` |
+| Separator | `/separator` | `@/components/own/independant/separator` |
+| Slider | `/slider` | `@/components/own/independant/slider` |
+| Switch | `/switch` | `@/components/own/independant/switch` |
+| Tabs | `/tabs` | `@/components/own/independant/tabs` |
+| Toast | `/toast` | `@/components/own/independant/toast` |
+| Toggle | `/toggle` | `@/components/own/independant/toggle` |
+| Toggle Group | `/toggle-group` | `@/components/own/independant/toggle-group` |
+| Toolbar | `/toolbar` | `@/components/own/independant/toolbar` |
+| Tooltip | `/tooltip` | `@/components/own/independant/tooltip` |
 
 Los ejemplos pueden combinar componentes independientes. Alert Dialog utiliza Button en sus ejemplos mediante `render` o como acción con cierre controlado; esa composición pertenece al showcase y no introduce una dependencia dentro de la definición de Alert Dialog. La clasificación se rige por [Estructura del proyecto](../01-estructura-del-proyecto.md#3-componentes-independientes-y-dependientes).
 

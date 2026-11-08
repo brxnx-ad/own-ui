@@ -46,6 +46,14 @@ Antes de integrar o modificar un componente, lee su referencia. Describe su API 
 | Radio Group | [radio-group.md](references/components/radio-group.md) | Selección exclusiva, navegación con flechas, etiquetas, solo lectura y formularios. |
 | Scroll Area | [scroll-area.md](references/components/scroll-area.md) | Regiones desplazables, barras por eje, esquina, medición de bordes y foco. |
 | Select | [select.md](references/components/select.md) | Selección de opciones predefinidas, grupos, valores de formulario y posicionamiento del panel. |
+| Separator | [separator.md](references/components/separator.md) | Divisiones horizontales o verticales, semántica accesible, uso decorativo y ajuste del grosor. |
+| Slider | [slider.md](references/components/slider.md) | Ajuste de un valor o intervalo, pasos, orientación, controles múltiples y envío en formularios. |
+| Switch | [switch.md](references/components/switch.md) | Preferencias binarias, estado controlado, solo lectura, etiquetas y envío de ambos estados. |
+| Tabs | [tabs.md](references/components/tabs.md) | Paneles relacionados, activación manual o automática, orientación, indicador medido y contenido persistente. |
+| Toast | [toast.md](references/components/toast.md) | Notificaciones temporales y ancladas, cola, promesas, acciones, anuncios y cierre por gesto. |
+| Toggle | [toggle.md](references/components/toggle.md) | Botones de dos estados, variantes, tamaños, iconos, cancelación y composición con grupos. |
+| Toggle Group | [toggle-group.md](references/components/toggle-group.md) | Selección única o múltiple, estado controlado, orientación y navegación por flechas. |
+| Toolbar | [toolbar.md](references/components/toolbar.md) | Foco entre herramientas, grupos, separadores, enlaces, campos y activadores compuestos. |
 | Tooltip | [tooltip.md](references/components/tooltip.md) | Indicaciones breves ancladas, grupos con `TooltipProvider`, flecha, seguimiento de cursor y activadores compartidos. |
 
 Estas referencias describen las familias implementadas incluidas en este material. Comprueba cuáles se han copiado al proyecto antes de importarlas. Para una familia aún sin referencia, localiza su código y los tipos de la versión de Base UI instalada; consulta su documentación si está disponible. Distingue la API de la primitiva de las extensiones propias. Si faltan los archivos necesarios, identifica qué debe incorporarse y actúa según el alcance autorizado; no supongas que la familia ya está disponible.

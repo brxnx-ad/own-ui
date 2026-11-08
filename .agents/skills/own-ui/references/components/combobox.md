@@ -180,7 +180,7 @@ Para búsqueda dentro del popup, coloca `ComboboxValue` y `ComboboxIcon` dentro 
 ## 9. Accesibilidad e integración
 
 - Si el input está fuera del popup, asócialo a una etiqueta HTML mediante `htmlFor` e `id`. Si el input está dentro, etiqueta el activador con `ComboboxLabel` y da un nombre accesible al input. Nombra los controles de solo icono y cada acción de quitar un chip.
-- Las flechas mueven el resaltado, Enter selecciona y Escape cierra. Para los chips, explica cómo ir a ellos desde el inicio del campo y cómo quitar el chip enfocado con Retroceso o Suprimir. Adapta las indicaciones al idioma y la dirección del texto.
+- Las flechas mueven el resaltado, Enter selecciona y Escape cierra. Para los chips, explica cómo ir a ellos desde el inicio del campo y cómo quitar el chip enfocado con Retroceso o Suprimir.
 - Conserva la región de `ComboboxEmpty` en el DOM mientras el popup esté abierto para anunciar cambios. Al personalizar un portal, verifica el apilamiento, la herencia de tema y el espacio disponible.
 - Define handlers, funciones de renderizado de listas y hooks en un módulo cliente de App Router.
 

@@ -140,7 +140,7 @@ Para enviar al completar, coloca el ejemplo mínimo de la anatomía dentro del f
 ## 9. Accesibilidad e integración
 
 - Asocia un `label` al `id` de la raíz o usa `FieldLabel`. La primera casilla usa ese nombre y las siguientes pueden indicar su posición con `aria-label`. Coloca la ayuda en `FieldDescription` o enlázala desde la raíz con `aria-describedby`.
-- Tab entra o sale del conjunto como un solo control. Las flechas horizontales siguen la dirección de escritura. Home y flecha arriba van al inicio, y End y flecha abajo van al final del código escrito o a la siguiente casilla vacía. Retroceso borra y retrocede, y Supr borra en la posición activa. Solo lectura conserva la navegación.
+- Tab entra o sale del conjunto como un solo control. Las flechas izquierda y derecha recorren las casillas. Home y flecha arriba van al inicio, y End y flecha abajo van al final del código escrito o a la siguiente casilla vacía. Retroceso borra y retrocede, y Supr borra en la posición activa. Solo lectura conserva la navegación.
 - Los modos integrados aplican un patrón de longitud completa al input oculto. Al usar `validationType="none"`, define en la aplicación las reglas de formato y longitud que requiera el formulario. El código final se envía como una única entrada nombrada desde la raíz o Field. Los campos deshabilitados se excluyen del envío.
 - Con `render`, conserva el grupo, sus atributos y la ref. Para una casilla, conserva un input real con sus eventos, ref y atributos de foco, selección y autocompletado. Para una separación puramente decorativa, usa `aria-hidden`.
 

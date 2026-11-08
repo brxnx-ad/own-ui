@@ -153,7 +153,6 @@ Para señalar contenido por debajo del área visible, añade `overflowEdgeThresh
 - Base UI añade el viewport al orden de tabulación cuando hay desbordamiento. Enfócalo con Tab y usa las flechas correspondientes al eje. El navegador gestiona el desplazamiento por teclado y los gestos. Las barras personalizadas son decorativas para tecnologías de asistencia y se operan con el puntero.
 - Si el área merece un punto de referencia, usa `role="region"` junto con `aria-labelledby` o `aria-label` en Viewport. Conserva los roles del contenido, como listas, encabezados y tablas. Mantén visibles el contorno del viewport y el foco de los controles dentro de él.
 - Con `render`, conserva un elemento contenedor compatible con overflow y propaga sus props, estilos, eventos y ref al mismo nodo. Mantén el módulo interactivo como componente cliente. Una página de servidor puede componerlo con contenido estático y props serializables.
-- Para desplazamiento horizontal de derecha a izquierda, configura `dir="rtl"` en el HTML correspondiente y un `DirectionProvider` de Base UI con `direction="rtl"` para que sus cálculos de posición sigan la misma dirección.
 
 ## 10. Límites y verificación
 

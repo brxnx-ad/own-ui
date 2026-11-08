@@ -147,7 +147,7 @@ Las referencias evolucionan junto con el código que acompañan. Al documentar u
 
 ## 7. Estado de la skill en este repositorio
 
-El [índice de la skill](../../../.agents/skills/own-ui/SKILL.md) enlaza las 27 referencias del catálogo. Las referencias de [estructura](../../../.agents/skills/own-ui/references/structure.md) y [globals](../../../.agents/skills/own-ui/references/globals.md) cubren los archivos y estilos compartidos.
+El [índice de la skill](../../../.agents/skills/own-ui/SKILL.md) enlaza las 38 referencias del catálogo. Las referencias de [estructura](../../../.agents/skills/own-ui/references/structure.md) y [globals](../../../.agents/skills/own-ui/references/globals.md) cubren los archivos y estilos compartidos.
 
 La entrada y las referencias están orientadas a proyectos Next.js consumidores y sus enlaces se resuelven dentro de la carpeta de la skill. Las rutas de componentes y de la hoja global se presentan como convenciones adaptables dentro de App Router; se explican las dependencias de soporte, la integración con Link, fuentes, temas y portales sin requerir el showcase ni `docs/master/`.
 

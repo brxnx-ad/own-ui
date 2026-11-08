@@ -105,4 +105,4 @@ Compuesto por dos familias de 3 magnitudes universales (funcionan en modo claro 
 
 La etiqueta de FloatingInput y el recorte de `outline` empiezan a moverse juntos. El bloque centraliza la transición de posición, tamaño de fuente y altura de línea, además de la apertura y el cierre del borde. Con `prefers-reduced-motion: reduce`, los estados cambian de inmediato.
 
-El barrido indeterminado de Progress sigue la dirección del texto y se activa con `prefers-reduced-motion: no-preference`. Con movimiento reducido, el segmento queda centrado y estático.
+El barrido indeterminado de Progress se activa con `prefers-reduced-motion: no-preference`. Con movimiento reducido, el segmento queda centrado y estático.
