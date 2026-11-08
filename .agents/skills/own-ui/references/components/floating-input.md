@@ -89,7 +89,7 @@ FloatingInput añade `label`, `variant`, `fieldProps` y `children`. Reenvía el 
 
 Los colores se adaptan al tema mediante [globals](../globals.md). `className` se combina con `clsx` y `style` se aplica al input. Ambas props aceptan funciones de estado. `inset` fija su reserva superior con `pt-6!`. `outline` fija el borde del input como transparente y desactiva su anillo para que el contorno decorativo dibuje ambos. Para ajustar el color o grosor de todo el contorno, define `--floating-input-border-color` o `--floating-input-border-width` en `[data-slot="floating-input-border"]`. Mantén alineadas la etiqueta y su copia invisible si cambias su tipografía o posición.
 
-El bloque de FloatingInput en `@layer components` de `globals.css` anima la posición durante `180ms` y suaviza el cambio de tamaño y altura de línea. En `outline`, la etiqueta y el borde empiezan a moverse juntos. El hueco se abre de forma simétrica desde su centro en `125ms` y se cierra hacia el centro en `180ms`. Con movimiento reducido, la etiqueta y el hueco cambian de inmediato.
+El módulo `floating-input.module.css` anima la posición durante `180ms` y suaviza el cambio de tamaño y altura de línea. En `outline`, la etiqueta y el borde empiezan a moverse juntos. El hueco se abre de forma simétrica desde su centro en `125ms` y se cierra hacia el centro en `180ms`. Con movimiento reducido, la etiqueta y el hueco cambian de inmediato.
 
 ## 8. Ejemplos de composición
 
@@ -144,4 +144,4 @@ export function ReportTitle() {
 
 ## 10. Límites y verificación
 
-La familia está diseñada para tipos de texto de una sola línea que admiten `:placeholder-shown`. Exporta `floating-input.tsx`, `input.tsx`, `field.tsx`, los tokens de own-ui con Tailwind CSS v4 y el bloque de FloatingInput en `@layer components` de `globals.css`. Ese bloque define las posiciones, el contraste de la etiqueta y las transiciones. Si usas `FieldError`, exporta también su bloque de estilos para conservar la transición de altura y opacidad. Comprueba las dos posiciones con el campo vacío, enfocado y lleno, además del foco visible, la validación, los dos temas, el ancho móvil y el movimiento reducido. Para el comportamiento nativo del recorte, consulta [HTML Standard](https://html.spec.whatwg.org/multipage/rendering.html#the-fieldset-and-legend-elements).
+La familia admite tipos de texto de una sola línea compatibles con `:placeholder-shown`. Exporta `floating-input.tsx`, `floating-input.module.css`, `input.tsx`, `field.tsx`, `field.module.css` y los tokens de own-ui con Tailwind CSS v4. Comprueba las dos posiciones con el campo vacío, enfocado y lleno, además del foco visible, la validación, los dos temas, el ancho móvil y el movimiento reducido. Para el comportamiento nativo del recorte, consulta [HTML Standard](https://html.spec.whatwg.org/multipage/rendering.html#the-fieldset-and-legend-elements).

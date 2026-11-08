@@ -1,0 +1,120 @@
+@layer components {
+  /* Leave a straight run between the rounded corner and each end of the notch. */
+  :where([data-floating-input][data-variant="outline"] > .control) {
+    --floating-input-notch-inset: calc(var(--radius) + var(--spacing));
+    --floating-input-label-inset: calc(var(--floating-input-notch-inset) + var(--spacing));
+    --floating-input-label-shift: -50%;
+    --floating-input-rest-offset: var(--spacing);
+  }
+
+  :where(.control > [data-slot="field-label"]) {
+    --floating-input-label-start: var(--floating-input-label-inset, calc(var(--spacing) * 3 + 1px));
+    inset-block-start: calc(var(--spacing) * 2);
+    inset-inline-start: var(--floating-input-label-start);
+    max-inline-size: calc(100% - var(--floating-input-label-start) * 2);
+    translate: 0 var(--floating-input-label-shift, 0%);
+  }
+
+  :where(.control > [data-slot="field-label"] > span) {
+    font-size: var(--text-xs);
+    line-height: calc(var(--spacing) * 4);
+  }
+
+  :where(.control > [data-slot="field-label"]:not([data-disabled]) > span) {
+    color: color-mix(in oklab, currentColor 75%, transparent);
+  }
+
+  :where(.control > input:placeholder-shown:not(:focus) ~ [data-slot="field-label"]) {
+    inset-block-start: calc(50% + var(--floating-input-rest-offset, 0px));
+    translate: 0 -50%;
+  }
+
+  :where(.control > input:placeholder-shown:not(:focus) ~ [data-slot="field-label"] > span) {
+    font-size: var(--floating-input-rest-font-size, var(--text-base));
+    line-height: calc(var(--spacing) * 5);
+  }
+
+  /* The legend reserves the full opening. Two strokes retract from its center. */
+  :where(.border) {
+    --floating-input-border-width: 1px;
+    --floating-input-border-color: var(--gray-base);
+    border: var(--floating-input-border-width) solid var(--floating-input-border-color);
+    padding-inline: calc(var(--floating-input-notch-inset) - var(--floating-input-border-width));
+  }
+
+  :where(.control > input:focus-visible ~ .border) {
+    --floating-input-border-width: 2px;
+    --floating-input-border-color: var(--primary-base);
+  }
+
+  :where(.control > input[aria-invalid="true"] ~ .border) {
+    --floating-input-border-color: var(--error-base);
+  }
+
+  :where(.border > legend) {
+    max-inline-size: 100%;
+  }
+
+  :where(.border > legend)::before,
+  :where(.border > legend)::after {
+    content: "";
+    position: absolute;
+    inset-block-start: calc(var(--floating-input-border-width) / -2);
+    inline-size: calc(1px + var(--floating-input-border-width) / 2);
+    block-size: var(--floating-input-border-width);
+    background: var(--floating-input-border-color);
+  }
+
+  :where(.border > legend)::before {
+    left: -1px;
+    border-radius: 0 var(--floating-input-border-width) var(--floating-input-border-width) 0;
+  }
+
+  :where(.border > legend)::after {
+    right: -1px;
+    border-radius: var(--floating-input-border-width) 0 0 var(--floating-input-border-width);
+  }
+
+  :where(.control > input:placeholder-shown:not(:focus) ~ .border > legend)::before,
+  :where(.control > input:placeholder-shown:not(:focus) ~ .border > legend)::after {
+    inline-size: calc(50% + 1px);
+    border-radius: 0;
+  }
+
+  @media (forced-colors: active) {
+    :where(.border > legend)::before,
+    :where(.border > legend)::after {
+      background: CanvasText;
+      forced-color-adjust: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    :where(.control > [data-slot="field-label"]) {
+      transition: inset-block-start 180ms ease-in-out, translate 180ms ease-in-out;
+    }
+
+    :where(.control > [data-slot="field-label"] > span) {
+      transition: font-size 150ms ease-in-out, line-height 150ms ease-in-out;
+    }
+
+    :where([data-floating-input][data-variant="outline"] > .control > [data-slot="field-label"] > span) {
+      transition-duration: 105ms;
+    }
+
+    :where([data-floating-input][data-variant="outline"] > .control > input:placeholder-shown:not(:focus) ~ [data-slot="field-label"]) {
+      transition-timing-function: ease-out;
+    }
+
+    :where(.border > legend)::before,
+    :where(.border > legend)::after {
+      transition: inline-size 125ms ease-out, border-radius 125ms ease-out;
+    }
+
+    :where(.control > input:placeholder-shown:not(:focus) ~ .border > legend)::before,
+    :where(.control > input:placeholder-shown:not(:focus) ~ .border > legend)::after {
+      transition-duration: 180ms;
+      transition-timing-function: ease-in;
+    }
+  }
+}

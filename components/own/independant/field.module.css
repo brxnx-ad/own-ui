@@ -1,0 +1,49 @@
+@layer components {
+  /* FieldError expands its content and the gap around it together. */
+  :where(.field) {
+    --field-gap: calc(var(--spacing) * 2);
+    gap: var(--field-gap);
+  }
+
+  :where(.error) {
+    --field-error-offset: 0px;
+    display: grid;
+    grid-template-rows: 1fr;
+  }
+
+  :where(.error > [data-slot="field-error-content"]) {
+    display: block;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  :where(.field > .error:not(:first-child)) {
+    margin-block-start: var(--field-error-offset);
+  }
+
+  :where(.field > .error:first-child:not(:last-child)) {
+    margin-block-end: var(--field-error-offset);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    :where(.error) {
+      transition-property: grid-template-rows, opacity, margin-block-start, margin-block-end;
+      transition-duration: 150ms;
+      transition-timing-function: var(--ease-out);
+    }
+
+    :where(.error:is([data-starting-style], [data-ending-style])) {
+      --field-error-offset: calc(-1 * var(--field-gap, 0px));
+      grid-template-rows: 0fr;
+      opacity: 0;
+    }
+
+    @starting-style {
+      :where(.error) {
+        --field-error-offset: calc(-1 * var(--field-gap, 0px));
+        grid-template-rows: 0fr;
+        opacity: 0;
+      }
+    }
+  }
+}

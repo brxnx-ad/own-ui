@@ -49,7 +49,7 @@ La carga de referencias es selectiva: para componer una confirmación con Button
 
 ### 3.1. Archivos y dependencias exportados
 
-Una exportación incluye las familias seleccionadas, sus dependencias propias transitivas, los iconos de soporte utilizados y los bloques de estilos necesarios. La independencia entre familias no elimina las dependencias de archivos: Button necesita Spinner y Accordion necesita Chevron en la implementación actual.
+Una exportación incluye las familias seleccionadas, sus dependencias propias transitivas, los iconos de soporte, los módulos CSS que importan y la configuración global que utilizan. Por ejemplo, Button necesita Spinner y Accordion necesita Chevron.
 
 `references/structure.md` reúne los archivos de soporte y las versiones de compatibilidad. La integración actual utiliza Next.js 16.4.5 con App Router, React y React DOM 19.3, Base UI 1.9.0, `clsx` 2.1.1, Tailwind CSS v4 y `next-themes` 0.4.6. Las referencias DOM como props se apoyan en React 19. Comprueba la compatibilidad del consumidor al usar otras versiones.
 
@@ -153,6 +153,6 @@ La entrada y las referencias están orientadas a proyectos Next.js consumidores 
 
 Esta portabilidad documental requiere que la distribución incluya los componentes y el CSS descritos. Cada consumidor debe verificar las rutas reales, las versiones compatibles y la generación de estilos y comprobar el comportamiento de su integración.
 
-Para exportar FloatingInput, incluye Input, Field y el bloque de FloatingInput en `@layer components` de la hoja global. Si la composición presenta `FieldError`, incorpora también el bloque de Field para conservar sus transiciones.
+Para exportar FloatingInput, incluye `floating-input.tsx` y `floating-input.module.css` junto con Input, Field y `field.module.css`.
 
-Para exportar Number Field, incluye el módulo que provee Minus y Plus. Para Progress, incluye el bloque `own-ui-progress-sweep` en `@layer components`, con sus fotogramas clave y la regla que activa el barrido según la preferencia de movimiento.
+Para exportar Number Field, incluye el módulo que provee Minus y Plus. Para Progress, incluye `progress.module.css`, que contiene el barrido indeterminado y respeta la preferencia de movimiento.

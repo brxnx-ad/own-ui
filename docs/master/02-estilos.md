@@ -1,6 +1,6 @@
 # own-ui · Sistema de estilos
 
-> **Objetivo y alcance del documento:** Explicar la generación de paletas, los tokens de Tailwind, las utilidades tipográficas y de sombras, y las reglas de componente en `assets/styles/globals.css`. Se considera desactualizado si la configuración, las utilidades o los bloques de componente difieren de lo descrito aquí.
+> **Objetivo y alcance del documento:** Explicar la generación de paletas, los tokens de Tailwind, las utilidades tipográficas y de sombras, y la ubicación de los estilos de componente. Se considera desactualizado si la configuración global, las utilidades o las reglas locales difieren de lo descrito aquí.
 
 [Estructura del proyecto](01-estructura-del-proyecto.md) · [Objetivos](03-objetivos.md) · [Mantenimiento](04-mantenimiento.md) · [Pendientes](05-pendientes.md)
 
@@ -94,15 +94,18 @@ Compuesto por dos familias de 3 magnitudes universales (funcionan en modo claro 
 * **Sombras de relieve hundido (`shadow-inset-s`, `shadow-inset-m`, `shadow-inset-l`):**  
   Invierten el plano físico aplicando sombra interior en el borde superior y un reflejo especular claro en el borde inferior, simulando cavidades o controles presionados.
 
-## 5. Reglas de componente en `@layer components`
+## 5. Animaciones y estilos de componente
 
-| Bloque | Responsabilidad |
+Las animaciones personalizadas y sus estados visuales se definen en módulos CSS junto al componente. Cada módulo conserva `@layer components` para que las utilidades de Tailwind puedan sobrescribir sus estilos.
+
+| Archivo | Responsabilidad |
 | :--- | :--- |
-| Field | Define la separación entre piezas y coordina la altura, la opacidad y el espacio que ocupa `FieldError` al aparecer o desaparecer. |
-| FloatingInput | Posiciona la etiqueta según el foco y el valor del control. La etiqueta tiene menos énfasis que el valor y un fondo transparente. En `outline`, el recorte abre desde el centro y sus extremos redondeados quedan en el tramo recto del borde. |
-| Drawer | Reserva espacio para el tirador según su posición y ajusta la geometría del indicador y del contenido. |
-| Progress | Define el barrido del indicador indeterminado mediante `own-ui-progress-sweep` e `inset-inline-start`. |
+| `field.module.css` | Define la separación entre piezas y coordina la altura, la opacidad y el espacio que ocupa `FieldError` al aparecer o desaparecer. |
+| `floating-input.module.css` | Posiciona la etiqueta según el foco y el valor. En `outline`, el recorte abre desde el centro y sus extremos quedan en el tramo recto del borde. |
+| `progress.module.css` | Define el barrido del indicador indeterminado mediante `own-ui-progress-sweep` e `inset-inline-start`. |
 
 La etiqueta de FloatingInput y el recorte de `outline` empiezan a moverse juntos. El bloque centraliza la transición de posición, tamaño de fuente y altura de línea, además de la apertura y el cierre del borde. Con `prefers-reduced-motion: reduce`, los estados cambian de inmediato.
 
 El barrido indeterminado de Progress se activa con `prefers-reduced-motion: no-preference`. Con movimiento reducido, el segmento queda centrado y estático.
+
+El bloque de Drawer en `globals.css` calcula la geometría del tirador y el espacio que ocupa el contenido según el punto de ajuste. Las transiciones de Drawer se definen mediante utilidades en `drawer.tsx`.

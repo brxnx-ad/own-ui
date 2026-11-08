@@ -10,7 +10,7 @@
 
 Todo componente desarrollado en `components/own/` debe cumplir cinco reglas obligatorias:
 
-1. **Sustentado en Base UI:** Toda la lógica de accesibilidad (ARIA), manejo de foco por teclado y eventos de bajo nivel se delega a una primitiva headless de `@base-ui/react`.
+1. **Sustentado en Base UI:** Las familias de Base UI delegan la accesibilidad, el foco y los eventos de bajo nivel a sus primitivas. Si el comportamiento principal requiere un motor externo especializado, la familia se ubica en `dependant/` y se aprueba cualquier dependencia nueva antes de incorporarla.
 2. **Neutralidad de maquetación:** Tolerancia cero a márgenes exteriores (`m-*`). El componente nunca decide cómo se separa de su entorno; esa responsabilidad pertenece al contenedor padre.
 3. **Consumo de tokens propios:** Empleo exclusivo de los tokens semánticos de superficies (`surface-*`), tríadas cromáticas (`*-soft`, `*-base`, `*-bold`) y variables de geometría (`rounded-base`) definidas en `globals.css`.
 4. **Introspección por atributos `data-*`:** Declaración explícita de `data-slot`, `data-variant`, `data-size` y estados para pruebas automatizadas y estilos condicionales.
@@ -18,10 +18,10 @@ Todo componente desarrollado en `components/own/` debe cumplir cinco reglas obli
 
 ### 1.1. Ubicación e imports
 
-Aplicar el [criterio de dependencias internas](../01-estructura-del-proyecto.md#3-componentes-independientes-y-dependientes) antes de elegir la ubicación del archivo:
+La ubicación del archivo sigue el [criterio de clasificación](../01-estructura-del-proyecto.md#3-componentes-independientes-y-dependientes).
 
-* `components/own/independant/`: la definición no importa y renderiza otros componentes propios del catálogo. Button, Accordion y Alert Dialog pertenecen a esta carpeta.
-* `components/own/dependant/`: la definición reutiliza otros componentes propios del catálogo internamente.
+* `components/own/independant/` reúne familias como Button, Accordion y Alert Dialog, que se definen sin otras familias propias ni motores externos especializados.
+* `components/own/dependant/` reúne familias que reutilizan otras piezas propias o delegan su comportamiento principal a un motor externo especializado.
 * `components/own/icons/`: soporte compartido de iconos; su uso no cambia la clasificación.
 
 Los consumidores importan directamente desde la carpeta correspondiente:
@@ -38,7 +38,7 @@ Las piezas de una misma primitiva de Base UI pueden formar un componente indepen
 
 Por ejemplo, `AlertDialogClose` envuelve `Primitive.Close` y permite `render={<Button variant="secondary" />}` en el uso. Esa composición pertenece al consumidor; Alert Dialog mantiene su definición independiente. Si un componente importa y renderiza Button dentro de su propia definición, incluido un `render` predeterminado, entonces sí depende de Button.
 
-FloatingInput compone Input, Field y FieldLabel dentro de su definición y vive en `dependant/`. El consumidor puede aportar `FieldDescription` y `FieldError` como hijos. El bloque de FloatingInput en `@layer components` de `globals.css` coordina la etiqueta y el recorte mediante los estados del control nativo y respeta la preferencia de movimiento reducido.
+FloatingInput compone Input, Field y FieldLabel dentro de su definición y vive en `dependant/`. El consumidor puede aportar `FieldDescription` y `FieldError` como hijos. Su módulo `floating-input.module.css` coordina la etiqueta y el recorte mediante los estados del control nativo y respeta la preferencia de movimiento reducido.
 
 ---
 

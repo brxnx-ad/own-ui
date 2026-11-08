@@ -5,6 +5,7 @@ import type { HTMLProps } from "@base-ui/react/types";
 import { useRender } from "@base-ui/react/use-render";
 import clsx from "clsx";
 import { cloneElement, type ReactElement, type ReactNode } from "react";
+import styles from "./field.module.css";
 
 export const FieldValidity = Primitive.Validity;
 export type FieldActions = Primitive.Root.Actions;
@@ -24,7 +25,7 @@ export function Field({ className, ...props }: Primitive.Root.Props) {
   return (
     <Primitive.Root
       data-slot="field"
-      className={classes("flex min-w-0 flex-col", className)}
+      className={classes(clsx("flex min-w-0 flex-col", styles.field), className)}
       {...props}
     />
   );
@@ -85,7 +86,7 @@ export function FieldError({ className, render, ...props }: Primitive.Error.Prop
   return (
     <Primitive.Error
       data-slot="field-error"
-      className={classes("body-sm text-error-bold", className)}
+      className={classes(clsx("body-sm text-error-bold", styles.error), className)}
       render={(elementProps, state) => (
         <FieldErrorMessage elementProps={elementProps} render={render} state={state} />
       )}

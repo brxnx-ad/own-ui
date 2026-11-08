@@ -15,7 +15,7 @@ La ruta convencional del CSS es `assets/styles/globals.css`. Las tablas describe
 | Segundo `:root` de `@layer base` | `color-scheme: light`, superficies y tríadas del modo claro. |
 | `.dark` de `@layer base` | `color-scheme: dark` y reasignación de superficies y tríadas. |
 | Encabezados de `@layer base` | Estilos de `h1` a `h6` y sus clases equivalentes `.h1` a `.h6`. |
-| `@layer components` | Reglas de Field, FloatingInput, Drawer y Progress que acompañan a las familias exportadas. |
+| `@layer components` | Geometría del tirador y del contenido de Drawer. |
 | `@layer utilities` | Subtítulos, cuerpo, caption y overline. |
 
 Mantén las variables base, su asignación por tema y su exposición a Tailwind en sus respectivos bloques. Para estilos globales, usa este archivo; la disposición particular de una pantalla pertenece a su consumidor.
@@ -176,9 +176,7 @@ El destino del portal debe recibir los tokens de tema y la tipografía necesario
 
 Las transiciones se definen en las clases de [Button](components/button.md), [Accordion](components/accordion.md), [Alert Dialog](components/alert-dialog.md) y [Autocomplete](components/autocomplete.md). Spinner usa la animación `animate-spin` de Tailwind. Al ajustar una transición, conserva los selectores de entrada y salida de la pieza y comprueba el movimiento reducido en la referencia correspondiente.
 
-El bloque de [FloatingInput](components/floating-input.md) en `@layer components` define la posición y el tamaño de la etiqueta y la apertura centrada del borde en `outline`. Incluye el bloque completo al exportar la familia, ya que las posiciones en reposo y con foco también se definen allí. Sus transiciones se activan con `prefers-reduced-motion: no-preference`.
-
-El bloque de [Progress](components/progress.md) incluye `@keyframes own-ui-progress-sweep` y su selector en `@layer components`. El barrido indeterminado usa `inset-inline-start` y se activa con `prefers-reduced-motion: no-preference`.
+Los módulos CSS de [Field](components/field.md), [FloatingInput](components/floating-input.md) y [Progress](components/progress.md) contienen sus animaciones personalizadas y los estados asociados. Los importa cada componente y sus transiciones y barridos se activan con `prefers-reduced-motion: no-preference`. Si el consumidor usa una regla de Turbopack que transforma `*.css` con `@tailwindcss/turbopack` y `as: "*.css"`, excluye `*.module.css` de esa regla para conservar el ámbito local.
 
 ## 7. Elegir el alcance del cambio
 

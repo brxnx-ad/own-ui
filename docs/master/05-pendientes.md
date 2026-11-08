@@ -1,6 +1,6 @@
 # own-ui · Pendientes
 
-> **Objetivo y alcance del documento:** Registrar el estado de implementación del catálogo de own-ui y su distribución prevista entre componentes independientes y dependientes. Se considera desactualizado si los componentes marcados como implementados difieren del catálogo existente o si la distribución contradice las dependencias internas de sus definiciones y el criterio de clasificación del proyecto.
+> **Objetivo y alcance del documento:** Registrar el estado de implementación del catálogo de own-ui y su distribución prevista entre componentes independientes y dependientes. Se considera desactualizado si los componentes marcados como implementados difieren del catálogo existente o si la distribución contradice las dependencias de sus definiciones y el criterio de clasificación del proyecto.
 
 [Estructura del proyecto](01-estructura-del-proyecto.md) · [Sistema de estilos](02-estilos.md) · [Objetivos](03-objetivos.md) · [Mantenimiento](04-mantenimiento.md)
 
@@ -8,9 +8,7 @@
 
 ## 1. Componentes independientes (`independant/`)
 
-El plan incluye 37 familias independientes basadas en primitivas de Base UI. El consumidor decide cómo componerlas mediante `children`, `render` o ranuras. La distribución aplica el [criterio de dependencias internas](01-estructura-del-proyecto.md#3-componentes-independientes-y-dependientes) de own-ui.
-
-En `components/own/independant/` están implementadas las 37 familias del plan.
+En `components/own/independant/` hay 37 familias implementadas basadas en primitivas de Base UI. El consumidor decide cómo componerlas mediante `children`, `render` o ranuras. La distribución aplica el [criterio de clasificación](01-estructura-del-proyecto.md#3-componentes-independientes-y-dependientes) de own-ui.
 
 - [x] Accordion
 - [x] Alert Dialog
@@ -70,4 +68,37 @@ En `components/own/dependant/` hay 1 componente implementado.
 
 - [x] FloatingInput. Compone Input y Field para renderizar un campo con etiqueta flotante, con las variantes `inset` y `outline`.
 
-Si una implementación incorpora esa reutilización interna, su entrada debe trasladarse a esta sección con sus dependencias explícitas, y esas dependencias deben desarrollarse primero. La revisión se realiza sobre la definición del componente; las combinaciones de sus ejemplos no alteran su clasificación.
+Si una familia reutiliza otra en su definición o incorpora un motor externo especializado, se clasifica como dependiente. Sus dependencias se registran junto a la entrada.
+
+## 3. Ampliación del catálogo a partir de Takk
+
+### 3.1. Familias previstas en `independant/`
+
+Estas piezas de Takk se implementan sobre HTML nativo o con utilidades de composición. Antes de desarrollarlas, queda por definir su encaje con la guía de creación de componentes.
+
+- [ ] Alert
+- [ ] Aspect Ratio
+- [ ] Badge
+- [ ] Card
+- [ ] Empty
+- [ ] Skeleton
+- [ ] Table
+- [ ] Textarea
+
+### 3.2. Familias previstas en `dependant/`
+
+La composición prevista se basa en las familias que cada definición reutiliza en Takk.
+
+- [ ] Attachment · Button.
+- [ ] Button Group · Separator.
+- [ ] Input Group · Button, Input y Textarea. Requiere implementar Textarea primero.
+- [ ] Item · Separator.
+- [ ] Pagination · Button.
+
+### 3.3. Familias con motor externo en `dependant/`
+
+Los motores indicados son los utilizados en Takk. Su incorporación a own-ui requiere aprobación antes de añadir la dependencia.
+
+- [ ] Command · `cmdk`. En Takk también compone Dialog e Input Group.
+- [ ] Carousel · `embla-carousel-react`. En Takk también compone Button.
+- [ ] Chart · `recharts`.

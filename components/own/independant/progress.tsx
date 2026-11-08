@@ -2,6 +2,7 @@
 
 import { Progress as Primitive } from "@base-ui/react/progress";
 import clsx from "clsx";
+import styles from "./progress.module.css";
 
 export type ProgressProps = Primitive.Root.Props;
 export type ProgressState = Primitive.Root.State;
@@ -25,6 +26,7 @@ function classes<State>(
 }
 
 const indicatorStyles = clsx(
+  styles.indicator,
   "block h-full max-h-full rounded-full bg-primary-base data-complete:bg-success-base",
   "data-indeterminate:relative data-indeterminate:mx-auto data-indeterminate:w-1/3",
   "motion-safe:transition-[width,background-color] motion-safe:duration-150 motion-safe:ease-out",

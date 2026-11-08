@@ -4,6 +4,7 @@ import type { ComponentProps, ReactNode } from "react";
 import clsx from "clsx";
 import { Field, FieldLabel } from "@/components/own/independant/field";
 import { Input, type InputProps } from "@/components/own/independant/input";
+import styles from "./floating-input.module.css";
 
 export type FloatingInputVariant = "inset" | "outline";
 export type FloatingInputType = "text" | "search" | "email" | "password" | "tel" | "url";
@@ -40,7 +41,14 @@ export function FloatingInput({
 
   return (
     <Field {...fieldProps} name={name} disabled={disabled} data-floating-input="" data-variant={variant}>
-      <div data-slot="floating-input-control" className={clsx("relative", variant === "outline" && "pt-2")}>
+      <div
+        data-slot="floating-input-control"
+        className={clsx(
+          styles.control,
+          "relative sm:[--floating-input-rest-font-size:var(--text-sm)]",
+          variant === "outline" && "pt-2",
+        )}
+      >
         <Input
           {...props}
           type={type}
@@ -53,7 +61,10 @@ export function FloatingInput({
           <fieldset
             aria-hidden="true"
             data-slot="floating-input-border"
-            className="pointer-events-none absolute inset-x-0 top-2 bottom-0 min-w-0 rounded-base peer-disabled/floating-input:opacity-50"
+            className={clsx(
+              styles.border,
+              "pointer-events-none absolute inset-x-0 top-2 bottom-0 min-w-0 rounded-base peer-disabled/floating-input:opacity-50",
+            )}
           >
             <legend className="relative h-0">
               <span className="invisible block truncate px-1 text-xs leading-4 font-medium">{label}</span>

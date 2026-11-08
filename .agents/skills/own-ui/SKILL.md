@@ -62,7 +62,7 @@ Estas referencias describen las familias implementadas incluidas en este materia
 
 Lee [structure.md](references/structure.md) al integrar la exportación, crear, mover, importar o clasificar componentes, localizar la hoja global o resolver dependencias, temas y portales. Adapta rutas y aliases a la organización existente del consumidor.
 
-La dependencia se determina por la definición: importar y reutilizar un componente propio de otra familia convierte al componente en dependiente. La composición de piezas de su familia, los iconos de soporte y los componentes recibidos desde el consumidor mediante `children` o `render` conservan su independencia.
+La dependencia se determina por la definición. Una familia es dependiente si reutiliza otra familia propia o usa un motor externo especializado para su comportamiento principal. La composición de piezas de su familia, los iconos de soporte y los componentes recibidos desde el consumidor mediante `children` o `render` conservan su independencia.
 
 ### Sistema de estilos
 

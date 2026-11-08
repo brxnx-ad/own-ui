@@ -2,7 +2,7 @@
 
 ## 1. Identificación
 
-Progress envuelve las cinco piezas de `@base-ui/react/progress`, combina clases con `clsx` y usa un bloque de `globals.css` para animar el estado indeterminado. [API de Base UI](https://base-ui.com/react/components/progress)
+Progress envuelve las cinco piezas de `@base-ui/react/progress`, combina clases con `clsx` y usa `progress.module.css` para animar el estado indeterminado. [API de Base UI](https://base-ui.com/react/components/progress)
 
 ## 2. Propósito y casos de uso
 
@@ -84,7 +84,7 @@ Los slots y los estilos son de own-ui. La raíz recibe el valor de la aplicació
 | Track | Ocupa ambas columnas. Usa `h-2.5`, `rounded-base`, borde `gray-base`, fondo `surface-soft`, sombra `shadow-inset-s` y recorte del contenido. |
 | Indicator | Barra redondeada con `primary-base` durante el avance y `success-base` al completar. Base UI aplica el ancho determinado mediante estilo inline. En estado indeterminado, el ancho es un tercio del carril y el segmento parte centrado. En colores forzados, el indicador usa el color de sistema `Highlight`. |
 
-Los tokens siguen los temas de [globals.css](../globals.md). En modo determinado, el ancho y el color transicionan durante 150 ms con `motion-safe`. En modo indeterminado, `own-ui-progress-sweep` desplaza el segmento de un extremo al otro durante ciclos de 1,4 s. El bloque global activa el barrido cuando se permite el movimiento. Con movimiento reducido queda un segmento centrado y estático. Si cambias el ancho del segmento, ajusta también el recorrido de la animación.
+Los tokens siguen los temas de [globals.css](../globals.md). En modo determinado, el ancho y el color transicionan durante 150 ms con `motion-safe`. En modo indeterminado, `own-ui-progress-sweep` desplaza el segmento de un extremo al otro durante ciclos de 1,4 s. El módulo CSS activa el barrido cuando se permite el movimiento. Con movimiento reducido queda un segmento centrado y estático. Si cambias el ancho del segmento, ajusta también el recorrido de la animación.
 
 `className` admite una cadena o una función del estado. Los wrappers combinan las clases con `clsx` sin resolver conflictos entre utilidades. `style` admite un objeto o una función y actúa en el nodo correspondiente. Por ejemplo, `<ProgressTrack style={{ height: "0.875rem" }}>` cambia la altura del carril. Conserva el ancho inline del indicador determinado para mantener la proporción. Usa `render` para sustituir un nodo conservando props, refs, eventos y semántica.
 
@@ -138,6 +138,6 @@ Pasa un `total` positivo. Si la etiqueta ya existe fuera de la barra, puedes usa
 
 ## 10. Límites y verificación
 
-Exporta `progress.tsx` con los tokens y el bloque `own-ui-progress-sweep` en `@layer components` de [globals.css](../globals.md). El bloque incluye el selector que respeta la preferencia de movimiento. El componente es independiente. Coloca el estado y las funciones de formato personalizadas en una frontera cliente de App Router.
+Exporta `progress.tsx` y `progress.module.css` con los tokens de [globals.css](../globals.md). El componente es independiente. Coloca el estado y las funciones de formato personalizadas en una frontera cliente de App Router.
 
 Comprueba el nombre accesible, el valor mínimo, un valor intermedio, el máximo y el paso entre `null` y un número. Verifica que el formato y el ancho correspondan al rango, y prueba ambos temas, colores forzados y movimiento reducido. Comprueba el quiebre de texto a anchos pequeños.

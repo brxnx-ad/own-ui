@@ -15,7 +15,7 @@ Construir un catálogo de primitivas de interfaz reutilizables utilizando **`@ba
 * **Fusión inteligente de clases (`cn`):** Uso combinado de `clsx` (para lógica condicional de estados) y `tailwind-merge` (para garantizar que cualquier clase pasada desde afuera mediante `className` sobreescriba sin conflictos de especificidad).
 * **Sistema de variantes tipadas (`cva`):** Definición declarativa de variantes visuales y de densidad con inferencia estática de tipos en TypeScript (`VariantProps`).
 * **Nomenclatura propia y neutralidad de maquetación:** A diferencia de ShadCN, los componentes consumen exclusivamente el sistema de superficies (`surface-*`) y tríadas (`*-soft`, `*-base`, `*-bold`) del proyecto, prescindiendo de márgenes externos o dimensiones rígidas forzadas.
-* **Organización por dependencias internas:** Los componentes se ubican en `components/own/independant/` o `components/own/dependant/` según reutilicen otros componentes propios dentro de su definición. La composición elegida por el consumidor se mantiene abierta mediante `children`, `render` y ranuras. El criterio completo se define en [Estructura del proyecto](01-estructura-del-proyecto.md#3-componentes-independientes-y-dependientes).
+* **Organización por dependencias:** La definición pertenece a `components/own/dependant/` si reutiliza otras familias propias o usa un motor externo especializado. La composición elegida por el consumidor se mantiene abierta mediante `children`, `render` y ranuras. El criterio completo se define en [Estructura del proyecto](01-estructura-del-proyecto.md#3-componentes-independientes-y-dependientes).
 
 ---
 

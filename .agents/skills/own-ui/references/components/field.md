@@ -110,7 +110,7 @@ Todas las piezas con nodo exponen `data-disabled`, `data-touched`, `data-dirty`,
 | Field | `flex min-w-0 flex-col`. Usa `--field-gap` para ajustar la separación entre piezas y sincronizarla con la transición del error. |
 | FieldControl | `min-h-10 w-full min-w-0`, `px-3 py-2`, borde `gray-base`, superficie `surface-bold`, texto `gray-bold`, `rounded-base`. Usa texto de `1rem` en móvil y `sm:text-sm` a partir del breakpoint. El foco visible usa un anillo `primary-base`, y `aria-invalid` cambia el borde y el anillo a `error-base`. El estado deshabilitado reduce opacidad y cambia el cursor. |
 | FieldLabel y FieldDescription | `body-sm`. La etiqueta usa peso medio y `gray-bold`; la descripción, `gray-bold/75`. Ambas usan `gray-bold/60` si se deshabilitan. |
-| FieldError | `body-sm text-error-bold`. Estiliza las listas automáticas con viñetas y sangría. El bloque de Field en `@layer components` de `globals.css` transiciona la opacidad y la altura durante `150ms` cuando se permite el movimiento. Si es hijo directo de Field, también transiciona la separación que ocupa al aparecer o desaparecer. Incluye ese bloque al exportar la familia. |
+| FieldError | `body-sm text-error-bold`. Estiliza las listas automáticas con viñetas y sangría. El módulo `field.module.css` transiciona la opacidad y la altura durante `150ms` cuando se permite el movimiento. Si es hijo directo de Field, también transiciona la separación que ocupa al aparecer o desaparecer. Incluye el módulo al exportar la familia. |
 | FieldItem | `grid min-w-0 gap-1`. El consumidor decide la disposición de la casilla y su etiqueta. |
 | FieldValidity | El contenido que devuelve la función hija decide su estilo. |
 

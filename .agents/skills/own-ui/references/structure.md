@@ -6,8 +6,8 @@ El entorno de referencia es Next.js con App Router. Las rutas siguientes son con
 
 | Ruta convencional | Responsabilidad en el consumidor |
 | :--- | :--- |
-| `components/own/independant/` | Familias propias definidas sin reutilizar internamente componentes propios de otra familia. Verifica cuáles se han exportado al destino en la tabla de archivos necesarios. |
-| `components/own/dependant/` | Familias propias que importan y reutilizan componentes propios de otra familia dentro de su definición. Solo se necesita si se incorporan familias de ese tipo. |
+| `components/own/independant/` | Familias definidas sin otras familias propias ni motores externos especializados. Verifica cuáles se han exportado al destino en la tabla de archivos necesarios. |
+| `components/own/dependant/` | Familias que reutilizan otra familia propia o usan un motor externo especializado. |
 | `components/own/icons/` | Soporte SVG compartido: Chevron, Check, Minus, Plus, Close y Spinner. |
 | `app/` o `src/app/` | Rutas, páginas y layouts del App Router del proyecto consumidor. Los ejemplos interactivos y componentes exclusivos de una vista se colocan cerca de ella. |
 | `app/layout.tsx` o `src/app/layout.tsx` | Layout raíz: importa la hoja global e integra la fuente, el proveedor de temas y el apilamiento del contenido y los portales. |
@@ -42,10 +42,10 @@ Comprueba la compatibilidad del entorno receptor al usar otras versiones. Consul
 | Combobox | `combobox.tsx`, Check, Chevron y Close con su helper SVG en `icons/index.tsx`. Si se copia el módulo completo de iconos, incluye también `icons/spinner.tsx` por su reexportación. |
 | Context Menu | `context-menu.tsx`, Check y Chevron con su helper SVG en `icons/index.tsx`. Si se copia el módulo completo de iconos, incluye también `icons/spinner.tsx` por su reexportación. |
 | Dialog | `dialog.tsx`. Los controles se eligen en la composición del consumidor. |
-| Drawer | `drawer.tsx`. Sus piezas envuelven Base UI y los controles se eligen en la composición. |
-| Field | `field.tsx`. Los controles adicionales y Base UI Form se incorporan según la composición. |
+| Drawer | `drawer.tsx` y el bloque de geometría de Drawer en `globals.css`. Sus piezas envuelven Base UI y los controles se eligen en la composición. |
+| Field | `field.tsx` y `field.module.css`. Los controles adicionales y Base UI Form se incorporan según la composición. |
 | Fieldset | `fieldset.tsx`. Los campos y controles se eligen en la composición. |
-| FloatingInput | `dependant/floating-input.tsx`, `independant/input.tsx`, `independant/field.tsx` y el bloque de FloatingInput en `@layer components` de la hoja global. Para las transiciones de `FieldError`, incluye también el bloque de Field. |
+| FloatingInput | `dependant/floating-input.tsx`, `dependant/floating-input.module.css`, `independant/input.tsx`, `independant/field.tsx` e `independant/field.module.css`. |
 | Form | `form.tsx`. Los campos, grupos y botones se eligen en la composición. |
 | Input | `input.tsx`. Incluye Field cuando el consumidor utilice sus etiquetas, descripciones o validación coordinada. |
 | Menu | `menu.tsx`, Check y Chevron con su helper SVG en `icons/index.tsx`. Si se copia el módulo completo de iconos, incluye también `icons/spinner.tsx` por su reexportación. |
@@ -56,7 +56,7 @@ Comprueba la compatibilidad del entorno receptor al usar otras versiones. Consul
 | OTP Field | `otp-field.tsx`. Sus piezas envuelven Base UI sin requerir iconos ni otras familias propias. Incluye Field si el consumidor utiliza su etiquetado y validación. |
 | Popover | `popover.tsx`. Sus piezas envuelven Base UI. Incluye Button u otros controles si la composición del consumidor los utiliza. |
 | Preview Card | `preview-card.tsx`. Sus piezas envuelven Base UI. El consumidor aporta los enlaces y el contenido de sus vistas previas. |
-| Progress | `progress.tsx` y el bloque `own-ui-progress-sweep` de `@layer components` en la hoja global, incluido el selector de movimiento. |
+| Progress | `progress.tsx` y `progress.module.css`, que define el barrido indeterminado. |
 | Radio Group | `radio-group.tsx`. El módulo exporta el grupo, la opción y el indicador. Incluye Field y Form si la composición los utiliza. |
 | Scroll Area | `scroll-area.tsx`. Utiliza las utilidades y tokens compartidos de Tailwind, sin un bloque de CSS de componente ni archivos de soporte propios. |
 | Select | `select.tsx`, Check y Chevron con su helper SVG en `icons/index.tsx`. Si se copia el módulo de iconos completo, incluye también `icons/spinner.tsx` por su reexportación. Field y Form se incluyen según la composición. |
@@ -70,14 +70,14 @@ Comprueba la compatibilidad del entorno receptor al usar otras versiones. Consul
 | Toolbar | `toolbar.tsx`. Usa Base UI, `clsx` y las utilidades compartidas de Tailwind. Incluye las familias adicionales que el consumidor componga como herramientas. |
 | Tooltip | `tooltip.tsx`. Sus piezas envuelven Base UI sin requerir iconos ni bloques de CSS propios. Incluye Button si la composición del consumidor lo utiliza. |
 
-Al preparar una exportación, reúne las familias seleccionadas, sus dependencias transitivas y los bloques de CSS que consumen. Adapta los imports de soporte si distribuyes solo parte del módulo de iconos. Copia la carpeta de la skill con sus referencias y ajusta el índice a las familias entregadas o indica su disponibilidad. Verifica los enlaces relativos desde la carpeta copiada y registra la revisión y las versiones comprobadas.
+Al preparar una exportación, reúne las familias seleccionadas, sus dependencias transitivas, los módulos CSS importados y las reglas globales que consumen. Adapta los imports de soporte si distribuyes solo parte del módulo de iconos. Copia la carpeta de la skill con sus referencias y ajusta el índice a las familias entregadas o indica su disponibilidad. Verifica los enlaces relativos desde la carpeta copiada y registra la revisión y las versiones comprobadas.
 
 ## Clasificación por familia
 
 La unidad de clasificación es la familia propia y sus piezas, no el número de elementos HTML ni de partes de Base UI.
 
-- **Independiente:** su definición se construye con las piezas de Base UI de la familia correspondiente, sin importar y reutilizar componentes propios de otra familia.
-- **Dependiente:** su definición importa y reutiliza internamente un componente propio de otra familia. La dependencia existe también si ese uso es un `render` predeterminado que el consumidor puede sustituir.
+- **Independiente.** Se define sin otras familias propias ni motores externos especializados. Puede usar primitivas de Base UI.
+- **Dependiente.** Reutiliza internamente otra familia propia, incluso como `render` predeterminado, o delega su comportamiento principal a un motor externo especializado.
 - Los iconos, tipos y helpers de soporte no constituyen por sí mismos una dependencia entre familias del catálogo.
 - Recibir Button mediante `children` o `render` desde el consumidor no convierte al componente receptor en dependiente.
 
@@ -85,7 +85,7 @@ Alert Dialog es independiente: Trigger y Close envuelven sus propias primitivas.
 
 Checkbox Group también es independiente. Su definición envuelve la primitiva de agrupación y recibe las casillas desde el consumidor. El mismo criterio se aplica a grupos y formularios cuando el consumidor aporta las piezas, como Menu dentro de Menubar. Usa la tabla de archivos necesarios para comprobar qué familias se incluyen en una exportación.
 
-Input envuelve su primitiva de Base UI y puede registrarse en Field. FloatingInput es dependiente porque su definición renderiza Input y Field de own-ui. Su bloque de estilos en `globals.css` forma parte de la exportación.
+Input envuelve su primitiva de Base UI y puede registrarse en Field. FloatingInput es dependiente porque su definición renderiza Input y Field de own-ui. Los módulos CSS se exportan junto a los componentes que los importan.
 
 ## Imports y composición
 
