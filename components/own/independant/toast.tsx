@@ -77,7 +77,7 @@ export function ToastStack({ className, ...props }: ToastStackProps) {
     <div
       data-slot="toast-stack"
       className={clsx(
-        "fixed end-2 bottom-[max(0.5rem,env(safe-area-inset-bottom))] z-50 flex max-h-[calc(100dvh_-_max(0.5rem,env(safe-area-inset-bottom))_-_0.5rem)] w-[min(25rem,calc(100%_-_1rem))] flex-col-reverse gap-2 overflow-x-hidden overflow-y-auto overscroll-contain rounded-base p-2 empty:hidden sm:end-4 sm:w-[min(25rem,calc(100%_-_2rem))]",
+        "fixed inset-e-2 bottom-[max(0.5rem,env(safe-area-inset-bottom))] z-50 flex max-h-[calc(100dvh-max(0.5rem,env(safe-area-inset-bottom))-0.5rem)] w-[min(25rem,calc(100%-1rem))] flex-col-reverse gap-2 overflow-x-hidden overflow-y-auto overscroll-contain rounded-base p-2 empty:hidden sm:inset-e-4 sm:w-[min(25rem,calc(100%-2rem))]",
         "group-focus-visible/toast-viewport:outline-2 group-focus-visible/toast-viewport:-outline-offset-2 group-focus-visible/toast-viewport:outline-gray-bold",
         className,
       )}
