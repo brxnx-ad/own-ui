@@ -44,6 +44,9 @@ Antes de integrar o modificar un componente, lee su referencia. Describe su API 
 | Preview Card | [preview-card.md](references/components/preview-card.md) | Resúmenes visuales de enlaces, demoras, posicionamiento y cambio de contenido entre activadores. |
 | Progress | [progress.md](references/components/progress.md) | Avance de tareas, rangos y unidades, estado indeterminado, finalización y texto accesible. |
 | Radio Group | [radio-group.md](references/components/radio-group.md) | Selección exclusiva, navegación con flechas, etiquetas, solo lectura y formularios. |
+| Scroll Area | [scroll-area.md](references/components/scroll-area.md) | Regiones desplazables, barras por eje, esquina, medición de bordes y foco. |
+| Select | [select.md](references/components/select.md) | Selección de opciones predefinidas, grupos, valores de formulario y posicionamiento del panel. |
+| Tooltip | [tooltip.md](references/components/tooltip.md) | Indicaciones breves ancladas, grupos con `TooltipProvider`, flecha, seguimiento de cursor y activadores compartidos. |
 
 Estas referencias describen las familias implementadas incluidas en este material. Comprueba cuáles se han copiado al proyecto antes de importarlas. Para una familia aún sin referencia, localiza su código y los tipos de la versión de Base UI instalada; consulta su documentación si está disponible. Distingue la API de la primitiva de las extensiones propias. Si faltan los archivos necesarios, identifica qué debe incorporarse y actúa según el alcance autorizado; no supongas que la familia ya está disponible.
 

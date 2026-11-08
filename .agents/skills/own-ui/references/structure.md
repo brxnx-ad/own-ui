@@ -58,6 +58,9 @@ Comprueba la compatibilidad del entorno receptor al usar otras versiones. Consul
 | Preview Card | `preview-card.tsx`. Sus piezas envuelven Base UI. El consumidor aporta los enlaces y el contenido de sus vistas previas. |
 | Progress | `progress.tsx` y el bloque `own-ui-progress-sweep` de `@layer components` en la hoja global, incluido el selector de movimiento. |
 | Radio Group | `radio-group.tsx`. El módulo exporta el grupo, la opción y el indicador. Incluye Field y Form si la composición los utiliza. |
+| Scroll Area | `scroll-area.tsx`. Utiliza las utilidades y tokens compartidos de Tailwind, sin un bloque de CSS de componente ni archivos de soporte propios. |
+| Select | `select.tsx`, Check y Chevron con su helper SVG en `icons/index.tsx`. Si se copia el módulo de iconos completo, incluye también `icons/spinner.tsx` por su reexportación. Field y Form se incluyen según la composición. |
+| Tooltip | `tooltip.tsx`. Sus piezas envuelven Base UI sin requerir iconos ni bloques de CSS propios. Incluye Button si la composición del consumidor lo utiliza. |
 
 Al preparar una exportación, reúne las familias seleccionadas, sus dependencias transitivas y los bloques de CSS que consumen. Adapta los imports de soporte si distribuyes solo parte del módulo de iconos. Copia la carpeta de la skill con sus referencias y ajusta el índice a las familias entregadas o indica su disponibilidad. Verifica los enlaces relativos desde la carpeta copiada y registra la revisión y las versiones comprobadas.
 

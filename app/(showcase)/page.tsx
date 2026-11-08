@@ -174,6 +174,24 @@ const components: ComponentItem[] = [
     description: "Grupo de opciones para elegir un único valor con teclado o puntero.",
     category: "Entrada",
   },
+  {
+    name: "Scroll Area",
+    href: "/scroll-area",
+    description: "Contenedor de desplazamiento nativo con barras personalizadas por eje.",
+    category: "Contenido",
+  },
+  {
+    name: "Select",
+    href: "/select",
+    description: "Selección de una o varias opciones predefinidas desde un panel desplegable.",
+    category: "Entrada",
+  },
+  {
+    name: "Tooltip",
+    href: "/tooltip",
+    description: "Indicación breve anclada a un control al pasar el puntero o enfocarlo.",
+    category: "Contenido",
+  },
 ];
 
 function ArrowRightIcon() {
