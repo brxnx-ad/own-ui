@@ -11,7 +11,7 @@ import {
   PreviewCardTrigger,
   type PreviewCardPositionerProps,
   type PreviewCardTriggerProps,
-} from "@/components/own/independant/preview-card";
+} from "@/components/own/base/preview-card";
 import { Anatomy, ApiReference } from "./api-reference";
 import { ControlledExample, DetachedTriggersExample, PreviewSummary } from "./examples";
 

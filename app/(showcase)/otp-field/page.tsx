@@ -2,8 +2,8 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import type { ReactNode } from "react";
 import { ThemeToggle } from "@/components/shared/theme-toggle";
-import { Field, FieldDescription, FieldError, FieldLabel } from "@/components/own/independant/field";
-import { OTPField, OTPFieldSeparator, type OTPFieldProps } from "@/components/own/independant/otp-field";
+import { Field, FieldDescription, FieldError, FieldLabel } from "@/components/own/base/field";
+import { OTPField, OTPFieldSeparator, type OTPFieldProps } from "@/components/own/base/otp-field";
 import { Anatomy, ApiReference } from "./api-reference";
 import { AutoSubmitExample, ControlledExample, OTPInputs, RecoveryCodeExample } from "./examples";
 

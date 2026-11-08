@@ -2,10 +2,10 @@
 
 import { Bold, Italic, Minus, Plus, Redo2, Undo2 } from "lucide-react";
 import { useState } from "react";
-import { Menu, MenuItem, MenuPopup, MenuPortal, MenuPositioner, MenuTrigger } from "@/components/own/independant/menu";
-import { Toggle } from "@/components/own/independant/toggle";
-import { ToggleGroup } from "@/components/own/independant/toggle-group";
-import { Toolbar, ToolbarButton, ToolbarGroup, ToolbarInput, ToolbarSeparator } from "@/components/own/independant/toolbar";
+import { Menu, MenuItem, MenuPopup, MenuPortal, MenuPositioner, MenuTrigger } from "@/components/own/base/menu";
+import { Toggle } from "@/components/own/base/toggle";
+import { ToggleGroup } from "@/components/own/base/toggle-group";
+import { Toolbar, ToolbarButton, ToolbarGroup, ToolbarInput, ToolbarSeparator } from "@/components/own/base/toolbar";
 
 const history = ["Informe", "Informe mensual", "Informe mensual de diseño"];
 

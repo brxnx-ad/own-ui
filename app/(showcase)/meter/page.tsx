@@ -7,7 +7,7 @@ import {
   MeterLabel,
   MeterTrack,
   MeterValue,
-} from "@/components/own/independant/meter";
+} from "@/components/own/base/meter";
 import { ThemeToggle } from "@/components/shared/theme-toggle";
 import { Anatomy, ApiReference } from "./api-reference";
 import { CustomValueExample, ThresholdMeterExample } from "./examples";

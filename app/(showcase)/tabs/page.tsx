@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import type { ReactNode } from "react";
-import { Input } from "@/components/own/independant/input";
-import { Tabs, TabsIndicator, TabsList, TabsPanel, TabsTab } from "@/components/own/independant/tabs";
+import { Input } from "@/components/own/base/input";
+import { Tabs, TabsIndicator, TabsList, TabsPanel, TabsTab } from "@/components/own/base/tabs";
 import { ThemeToggle } from "@/components/shared/theme-toggle";
 import { Anatomy, ApiReference } from "./api-reference";
 import { ControlledExample, RemovedTabExample } from "./examples";

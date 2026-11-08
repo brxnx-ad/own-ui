@@ -1,9 +1,9 @@
 "use client";
 
 import { useId, useState, type ComponentProps, type FormEvent } from "react";
-import { Button } from "@/components/own/independant/button";
-import { Checkbox, CheckboxIndicator } from "@/components/own/independant/checkbox";
-import { CheckboxGroup } from "@/components/own/independant/checkbox-group";
+import { Button } from "@/components/own/base/button";
+import { Checkbox, CheckboxIndicator } from "@/components/own/base/checkbox";
+import { CheckboxGroup } from "@/components/own/base/checkbox-group";
 
 type OptionProps = Pick<ComponentProps<typeof Checkbox>, "value" | "name" | "parent"> & {
   label: string;

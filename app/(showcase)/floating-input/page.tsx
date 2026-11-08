@@ -2,8 +2,8 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import type { ReactNode } from "react";
 import { ThemeToggle } from "@/components/shared/theme-toggle";
-import { FloatingInput } from "@/components/own/dependant/floating-input";
-import { FieldDescription, FieldError } from "@/components/own/independant/field";
+import { FloatingInput } from "@/components/own/composed/floating-input";
+import { FieldDescription, FieldError } from "@/components/own/base/field";
 import { Anatomy, ApiReference } from "./api-reference";
 import { ControlledExample } from "./examples";
 

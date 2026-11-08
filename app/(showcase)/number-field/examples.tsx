@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { Button } from "@/components/own/independant/button";
+import { Button } from "@/components/own/base/button";
 import {
   NumberField,
   NumberFieldDecrement,
@@ -9,7 +9,7 @@ import {
   NumberFieldIncrement,
   NumberFieldInput,
   type NumberFieldInputProps,
-} from "@/components/own/independant/number-field";
+} from "@/components/own/base/number-field";
 
 export function NumberControl(props: NumberFieldInputProps) {
   return (

@@ -1,14 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "@/components/own/independant/button";
+import { Button } from "@/components/own/base/button";
 import {
   Progress,
   ProgressIndicator,
   ProgressLabel,
   ProgressTrack,
   ProgressValue,
-} from "@/components/own/independant/progress";
+} from "@/components/own/base/progress";
 
 export function IndeterminateExample() {
   const [hasEstimate, setHasEstimate] = useState(false);

@@ -1,7 +1,7 @@
 "use client";
 
 import { useId, useState } from "react";
-import { Button } from "@/components/own/independant/button";
+import { Button } from "@/components/own/base/button";
 import {
   createTooltipHandle,
   Tooltip,
@@ -11,7 +11,7 @@ import {
   TooltipTrigger,
   TooltipViewport,
   type TooltipChangeEventDetails,
-} from "@/components/own/independant/tooltip";
+} from "@/components/own/base/tooltip";
 
 const shortcuts = [
   { label: "Buscar", hint: "Abre el buscador rápido (Ctrl + K)" },

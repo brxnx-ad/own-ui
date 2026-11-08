@@ -1,9 +1,9 @@
 "use client";
 
 import { useState, type FormEvent, type ReactNode } from "react";
-import { Button } from "@/components/own/independant/button";
-import { Field, FieldDescription, FieldError } from "@/components/own/independant/field";
-import { Form } from "@/components/own/independant/form";
+import { Button } from "@/components/own/base/button";
+import { Field, FieldDescription, FieldError } from "@/components/own/base/field";
+import { Form } from "@/components/own/base/form";
 import {
   Select,
   SelectArrow,
@@ -23,7 +23,7 @@ import {
   SelectSeparator,
   SelectTrigger,
   SelectValue,
-} from "@/components/own/independant/select";
+} from "@/components/own/base/select";
 
 const exportOptions = [
   { value: "pdf", label: "Documento PDF" },

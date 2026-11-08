@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import type { ReactNode } from "react";
-import { Separator } from "@/components/own/independant/separator";
+import { Separator } from "@/components/own/base/separator";
 import { ThemeToggle } from "@/components/shared/theme-toggle";
 import { Anatomy, ApiReference } from "./api-reference";
 

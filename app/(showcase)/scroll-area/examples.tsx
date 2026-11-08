@@ -1,14 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "@/components/own/independant/button";
+import { Button } from "@/components/own/base/button";
 import {
   ScrollArea,
   ScrollAreaContent,
   ScrollAreaScrollbar,
   ScrollAreaThumb,
   ScrollAreaViewport,
-} from "@/components/own/independant/scroll-area";
+} from "@/components/own/base/scroll-area";
 
 const previousActivity = [
   "Se generó la vista previa",

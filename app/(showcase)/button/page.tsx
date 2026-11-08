@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
-import { Button, type ButtonVariant } from "@/components/own/independant/button";
+import { Button, type ButtonVariant } from "@/components/own/base/button";
 import { ThemeToggle } from "@/components/shared/theme-toggle";
 import { ButtonAnatomy, ButtonApiReference } from "./api-reference";
 

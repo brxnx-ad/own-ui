@@ -3,7 +3,7 @@ const anatomy = `import {
   AutocompleteInputGroup, AutocompleteItem, AutocompleteList,
   AutocompletePopup, AutocompletePortal, AutocompletePositioner,
   AutocompleteTrigger,
-} from "@/components/own/independant/autocomplete";
+} from "@/components/own/base/autocomplete";
 
 <Autocomplete items={["Santiago", "Valdivia"]}>
   <label htmlFor="city">Ciudad</label>

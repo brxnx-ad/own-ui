@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "@/components/own/independant/button";
+import { Button } from "@/components/own/base/button";
 import {
   Slider,
   SliderControl,
@@ -10,7 +10,7 @@ import {
   SliderThumb,
   SliderTrack,
   SliderValue,
-} from "@/components/own/independant/slider";
+} from "@/components/own/base/slider";
 
 export function ControlledExample() {
   const [zoom, setZoom] = useState(125);

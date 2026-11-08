@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import type { ReactNode } from "react";
 import { ThemeToggle } from "@/components/shared/theme-toggle";
-import { Radio, RadioGroup, RadioIndicator } from "@/components/own/independant/radio-group";
+import { Radio, RadioGroup, RadioIndicator } from "@/components/own/base/radio-group";
 import { Anatomy, ApiReference } from "./api-reference";
 import { ControlledExample, FormExample, RadioOption } from "./examples";
 

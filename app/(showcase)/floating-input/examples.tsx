@@ -1,8 +1,8 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { FloatingInput } from "@/components/own/dependant/floating-input";
-import { Button } from "@/components/own/independant/button";
+import { FloatingInput } from "@/components/own/composed/floating-input";
+import { Button } from "@/components/own/base/button";
 
 export function ControlledExample() {
   const [query, setQuery] = useState("");

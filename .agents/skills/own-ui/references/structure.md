@@ -6,8 +6,10 @@ El entorno de referencia es Next.js con App Router. Las rutas siguientes son con
 
 | Ruta convencional | Responsabilidad en el consumidor |
 | :--- | :--- |
-| `components/own/independant/` | Familias definidas sin otras familias propias ni motores externos especializados. Verifica cuáles se han exportado al destino en la tabla de archivos necesarios. |
-| `components/own/dependant/` | Familias que reutilizan otra familia propia o usan un motor externo especializado. |
+| `components/own/simple/` | Componentes que no necesitan primitivas de Base UI ni librerías externas especializadas. Si su definición reutiliza otra familia propia, se clasifican como compuestos. |
+| `components/own/base/` | Familias basadas en una sola familia primitiva de Base UI, sin dependencias de otras familias propias ni motores externos especializados. Verifica cuáles se han exportado al destino en la tabla de archivos necesarios. |
+| `components/own/composed/` | Familias que reutilizan internamente otros componentes definidos en `components/own/`. |
+| `components/own/dependant/` | Familias que requieren una librería externa especializada para su comportamiento principal, aunque también compongan componentes de own-ui. |
 | `components/own/icons/` | Soporte SVG compartido: Chevron, Check, Minus, Plus, Close y Spinner. |
 | `app/` o `src/app/` | Rutas, páginas y layouts del App Router del proyecto consumidor. Los ejemplos interactivos y componentes exclusivos de una vista se colocan cerca de ella. |
 | `app/layout.tsx` o `src/app/layout.tsx` | Layout raíz: importa la hoja global e integra la fuente, el proveedor de temas y el apilamiento del contenido y los portales. |
@@ -15,7 +17,7 @@ El entorno de referencia es Next.js con App Router. Las rutas siguientes son con
 | `assets/styles/globals.css` | Fuente única de tokens, configuración de Tailwind, temas y utilidades visuales compartidas. |
 | `.agents/skills/own-ui/` | Entrada `SKILL.md` y referencias de componentes, estructura y estilos de esta skill. |
 
-Los nombres convencionales son `independant` y `dependant`. Si se conserva esta organización, conserva su escritura exacta en los imports. La ubicación real de los archivos determina cómo resolverlos en el consumidor.
+Los nombres de las carpetas de componentes son `simple`, `base`, `composed` y `dependant`. Resuelve los imports según la ubicación real de los archivos exportados y los aliases del consumidor.
 
 ## Compatibilidad y archivos necesarios
 
@@ -28,6 +30,8 @@ Las referencias de Button, Accordion y Alert Dialog parten de la revisión de or
 | Estilos y tema | Tailwind CSS v4 (4.3.4 en el origen) para generar las utilidades y `next-themes` 0.4.6 para aplicar el tema por clase. |
 
 Comprueba la compatibilidad del entorno receptor al usar otras versiones. Consulta los tipos de la primitiva instalada para las opciones heredadas y distingue las dependencias de cada wrapper de la configuración compartida de la aplicación.
+
+Las 37 familias Base UI de esta referencia se ubican en `components/own/base/`. FloatingInput y su CSS se ubican en `components/own/composed/`. En la tabla, las rutas de sus archivos son relativas a esas carpetas, salvo las rutas de iconos.
 
 | Familia | Archivos propios y de soporte necesarios |
 | :--- | :--- |
@@ -45,7 +49,7 @@ Comprueba la compatibilidad del entorno receptor al usar otras versiones. Consul
 | Drawer | `drawer.tsx` y el bloque de geometría de Drawer en `globals.css`. Sus piezas envuelven Base UI y los controles se eligen en la composición. |
 | Field | `field.tsx` y `field.module.css`. Los controles adicionales y Base UI Form se incorporan según la composición. |
 | Fieldset | `fieldset.tsx`. Los campos y controles se eligen en la composición. |
-| FloatingInput | `dependant/floating-input.tsx`, `dependant/floating-input.module.css`, `independant/input.tsx`, `independant/field.tsx` e `independant/field.module.css`. |
+| FloatingInput | `composed/floating-input.tsx`, `composed/floating-input.module.css`, `base/input.tsx`, `base/field.tsx` e `base/field.module.css`. |
 | Form | `form.tsx`. Los campos, grupos y botones se eligen en la composición. |
 | Input | `input.tsx`. Incluye Field cuando el consumidor utilice sus etiquetas, descripciones o validación coordinada. |
 | Menu | `menu.tsx`, Check y Chevron con su helper SVG en `icons/index.tsx`. Si se copia el módulo completo de iconos, incluye también `icons/spinner.tsx` por su reexportación. |
@@ -74,30 +78,34 @@ Al preparar una exportación, reúne las familias seleccionadas, sus dependencia
 
 ## Clasificación por familia
 
-La unidad de clasificación es la familia propia y sus piezas, no el número de elementos HTML ni de partes de Base UI.
+La unidad de clasificación es la familia propia y sus piezas, no el número de elementos HTML ni de partes de Base UI. La carpeta se determina por las dependencias de la definición, con este orden:
 
-- **Independiente.** Se define sin otras familias propias ni motores externos especializados. Puede usar primitivas de Base UI.
-- **Dependiente.** Reutiliza internamente otra familia propia, incluso como `render` predeterminado, o delega su comportamiento principal a un motor externo especializado.
+- **`dependant/`.** Requiere una librería externa especializada para su comportamiento principal. Esta categoría prevalece aunque la definición también use componentes de own-ui.
+- **`composed/`.** Reutiliza internamente otra familia propia, incluso mediante un `render` predeterminado.
+- **`base/`.** Envuelve una sola familia primitiva de Base UI y no depende de otras familias propias ni de un motor externo especializado.
+- **`simple/`.** No requiere primitivas de Base UI ni librerías externas especializadas.
 - Los iconos, tipos y helpers de soporte no constituyen por sí mismos una dependencia entre familias del catálogo.
-- Recibir Button mediante `children` o `render` desde el consumidor no convierte al componente receptor en dependiente.
+- Recibir Button mediante `children` o `render` desde el consumidor no convierte al componente receptor en compuesto.
 
-Alert Dialog es independiente: Trigger y Close envuelven sus propias primitivas. El consumidor puede componerlos con Button y decidir sus variantes, sin fijar los botones dentro de la definición de Alert Dialog.
+Radio Group se mantiene como una sola familia del catálogo en `base/`, aunque Base UI distribuya `RadioGroup` y `Radio` en módulos distintos.
 
-Checkbox Group también es independiente. Su definición envuelve la primitiva de agrupación y recibe las casillas desde el consumidor. El mismo criterio se aplica a grupos y formularios cuando el consumidor aporta las piezas, como Menu dentro de Menubar. Usa la tabla de archivos necesarios para comprobar qué familias se incluyen en una exportación.
+Alert Dialog pertenece a `base/`: Trigger y Close envuelven las primitivas de su familia. El consumidor puede componerlos con Button y decidir sus variantes, sin fijar los botones dentro de la definición de Alert Dialog.
 
-Input envuelve su primitiva de Base UI y puede registrarse en Field. FloatingInput es dependiente porque su definición renderiza Input y Field de own-ui. Los módulos CSS se exportan junto a los componentes que los importan.
+Checkbox Group también pertenece a `base/`. Su definición envuelve la primitiva de agrupación y recibe las casillas desde el consumidor. El mismo criterio se aplica a grupos y formularios cuando el consumidor aporta las piezas, como Menu dentro de Menubar. Usa la tabla de archivos necesarios para comprobar qué familias se incluyen en una exportación.
+
+Input envuelve su primitiva de Base UI y puede registrarse en Field. FloatingInput pertenece a `composed/` porque su definición renderiza Input y Field de own-ui. Los módulos CSS se exportan junto a los componentes que los importan.
 
 ## Imports y composición
 
 ~~~tsx
-import { FloatingInput } from "@/components/own/dependant/floating-input";
-import { Button } from "@/components/own/independant/button";
-import { Input } from "@/components/own/independant/input";
-import { Accordion, AccordionItem } from "@/components/own/independant/accordion";
+import { FloatingInput } from "@/components/own/composed/floating-input";
+import { Button } from "@/components/own/base/button";
+import { Input } from "@/components/own/base/input";
+import { Accordion, AccordionItem } from "@/components/own/base/accordion";
 import {
   AlertDialog,
   AlertDialogClose,
-} from "@/components/own/independant/alert-dialog";
+} from "@/components/own/base/alert-dialog";
 import { Chevron, Spinner } from "@/components/own/icons";
 ~~~
 

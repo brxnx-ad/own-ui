@@ -2,13 +2,13 @@ import Link from "next/link";
 import { ArrowLeft, MoveHorizontal } from "lucide-react";
 import type { ReactNode } from "react";
 import { ThemeToggle } from "@/components/shared/theme-toggle";
-import { Field, FieldDescription, FieldError, FieldLabel } from "@/components/own/independant/field";
+import { Field, FieldDescription, FieldError, FieldLabel } from "@/components/own/base/field";
 import {
   NumberField,
   NumberFieldScrubArea,
   NumberFieldScrubAreaCursor,
   type NumberFieldProps,
-} from "@/components/own/independant/number-field";
+} from "@/components/own/base/number-field";
 import { Anatomy, ApiReference } from "./api-reference";
 import { ControlledExample, NumberControl } from "./examples";
 

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
-import { Checkbox, CheckboxIndicator } from "@/components/own/independant/checkbox";
+import { Checkbox, CheckboxIndicator } from "@/components/own/base/checkbox";
 import { ThemeToggle } from "@/components/shared/theme-toggle";
 import { Anatomy, ApiReference } from "./api-reference";
 import { ControlledExample, FormExample, IndeterminateExample } from "./examples";

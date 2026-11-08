@@ -1,8 +1,8 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { Button } from "@/components/own/independant/button";
-import { Input } from "@/components/own/independant/input";
+import { Button } from "@/components/own/base/button";
+import { Input } from "@/components/own/base/input";
 
 export function ControlledExample() {
   const [search, setSearch] = useState("");

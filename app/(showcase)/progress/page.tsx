@@ -8,7 +8,7 @@ import {
   ProgressLabel,
   ProgressTrack,
   ProgressValue,
-} from "@/components/own/independant/progress";
+} from "@/components/own/base/progress";
 import { Anatomy, ApiReference } from "./api-reference";
 import { BatchExample, IndeterminateExample } from "./examples";
 

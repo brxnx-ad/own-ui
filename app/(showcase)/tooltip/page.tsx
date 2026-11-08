@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import type { ReactNode } from "react";
 import { ThemeToggle } from "@/components/shared/theme-toggle";
-import { Button } from "@/components/own/independant/button";
+import { Button } from "@/components/own/base/button";
 import {
   Tooltip,
   TooltipArrow,
@@ -14,7 +14,7 @@ import {
   type TooltipPositionerProps,
   type TooltipProps,
   type TooltipTriggerProps,
-} from "@/components/own/independant/tooltip";
+} from "@/components/own/base/tooltip";
 import { Anatomy, ApiReference } from "./api-reference";
 import { ControlledExample, DetachedTriggersExample } from "./examples";
 

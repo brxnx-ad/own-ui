@@ -12,8 +12,8 @@ import {
   AlertDialogTrigger,
   AlertDialogViewport,
   createAlertDialogHandle,
-} from "@/components/own/independant/alert-dialog";
-import { Button } from "@/components/own/independant/button";
+} from "@/components/own/base/alert-dialog";
+import { Button } from "@/components/own/base/button";
 
 function Surface(props: ComponentProps<typeof AlertDialogPopup>) {
   return (

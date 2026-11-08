@@ -8,7 +8,7 @@ import {
   ScrollAreaScrollbar,
   ScrollAreaThumb,
   ScrollAreaViewport,
-} from "@/components/own/independant/scroll-area";
+} from "@/components/own/base/scroll-area";
 import { ThemeToggle } from "@/components/shared/theme-toggle";
 import { Anatomy, ApiReference } from "./api-reference";
 import { KeepMountedExample } from "./examples";

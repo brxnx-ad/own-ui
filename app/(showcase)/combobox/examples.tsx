@@ -1,7 +1,7 @@
 "use client";
 
 import { useId, useState, type ComponentProps, type FormEvent } from "react";
-import { Button } from "@/components/own/independant/button";
+import { Button } from "@/components/own/base/button";
 import {
   Combobox,
   ComboboxChip,
@@ -25,7 +25,7 @@ import {
   ComboboxTrigger,
   ComboboxValue,
   createComboboxItems,
-} from "@/components/own/independant/combobox";
+} from "@/components/own/base/combobox";
 
 const cities = ["Antofagasta", "Concepción", "La Serena", "Santiago", "Valdivia", "Valparaíso"];
 const languages = ["Go", "JavaScript", "Python", "Rust", "TypeScript"];

@@ -8,14 +8,14 @@
 
 ## Los 3 objetivos principales
 
-### 1. Desarrollar una colección de componentes propios sobre Base UI
-Construir un catálogo de primitivas de interfaz reutilizables utilizando **`@base-ui/react`** como motor headless de accesibilidad, gestión de foco y comportamiento interactivo, adoptando la arquitectura mecánica de **ShadCN** pero eliminando sus limitaciones:
+### 1. Desarrollar una colección de componentes propios
+Construir un catálogo de componentes reutilizables. Las familias de `base/` delegan la accesibilidad, la gestión del foco y el comportamiento interactivo a `@base-ui/react`. El catálogo admite también componentes nativos, compuestos y basados en librerías especializadas.
 
-* **Propagación y tipado de props:** Cada componente extiende las props nativas de la primitiva de Base UI, expone el atributo `data-slot` y propaga limpiamente eventos y atributos HTML (`...props`).
-* **Fusión inteligente de clases (`cn`):** Uso combinado de `clsx` (para lógica condicional de estados) y `tailwind-merge` (para garantizar que cualquier clase pasada desde afuera mediante `className` sobreescriba sin conflictos de especificidad).
-* **Sistema de variantes tipadas (`cva`):** Definición declarativa de variantes visuales y de densidad con inferencia estática de tipos en TypeScript (`VariantProps`).
-* **Nomenclatura propia y neutralidad de maquetación:** A diferencia de ShadCN, los componentes consumen exclusivamente el sistema de superficies (`surface-*`) y tríadas (`*-soft`, `*-base`, `*-bold`) del proyecto, prescindiendo de márgenes externos o dimensiones rígidas forzadas.
-* **Organización por dependencias:** La definición pertenece a `components/own/dependant/` si reutiliza otras familias propias o usa un motor externo especializado. La composición elegida por el consumidor se mantiene abierta mediante `children`, `render` y ranuras. El criterio completo se define en [Estructura del proyecto](01-estructura-del-proyecto.md#3-componentes-independientes-y-dependientes).
+* **Props y semántica.** El tipado parte de la primitiva o del elemento HTML correspondiente. Las piezas exponen `data-slot` y propagan los eventos y atributos que admite su API.
+* **Composición de clases.** `clsx` combina las clases propias con `className`. Si dos utilidades entran en conflicto, el resultado depende de la cascada de CSS.
+* **Variantes tipadas.** Las familias que exponen variantes o tamaños definen sus valores con tipos de TypeScript y usan diccionarios de clases cuando corresponde.
+* **Neutralidad de maquetación.** Los componentes usan las superficies y tríadas semánticas del proyecto. El consumidor controla la separación exterior.
+* **Organización por dependencias.** La definición determina la categoría `simple/`, `base/`, `composed/` o `dependant/`. El criterio completo se detalla en [Estructura del proyecto](01-estructura-del-proyecto.md#3-clasificación-de-componentes).
 
 ---
 

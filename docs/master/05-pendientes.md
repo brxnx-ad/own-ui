@@ -1,14 +1,14 @@
 # own-ui · Pendientes
 
-> **Objetivo y alcance del documento:** Registrar el estado de implementación del catálogo de own-ui y su distribución prevista entre componentes independientes y dependientes. Se considera desactualizado si los componentes marcados como implementados difieren del catálogo existente o si la distribución contradice las dependencias de sus definiciones y el criterio de clasificación del proyecto.
+> **Objetivo y alcance del documento:** Registrar el estado de implementación del catálogo de own-ui y su distribución prevista entre componentes base, simples, compuestos y dependientes. Se considera desactualizado si los componentes marcados como implementados difieren del catálogo existente o si la distribución contradice las dependencias de sus definiciones y la estructura vigente del proyecto.
 
 [Estructura del proyecto](01-estructura-del-proyecto.md) · [Sistema de estilos](02-estilos.md) · [Objetivos](03-objetivos.md) · [Mantenimiento](04-mantenimiento.md)
 
 ---
 
-## 1. Componentes independientes (`independant/`)
+## 1. Componentes base (`components/own/base/`)
 
-En `components/own/independant/` hay 37 familias implementadas basadas en primitivas de Base UI. El consumidor decide cómo componerlas mediante `children`, `render` o ranuras. La distribución aplica el [criterio de clasificación](01-estructura-del-proyecto.md#3-componentes-independientes-y-dependientes) de own-ui.
+En `components/own/base/` hay 37 familias implementadas, cada una basada en una familia primitiva de Base UI. El consumidor decide cómo componer sus piezas mediante `children`, `render` o ranuras.
 
 - [x] Accordion
 - [x] Alert Dialog
@@ -48,7 +48,7 @@ En `components/own/independant/` hay 37 familias implementadas basadas en primit
 - [x] Toolbar
 - [X] Tooltip
 
-### 1.1. Casos de composición que conservan la independencia
+### 1.1. Composición decidida por el consumidor
 
 | Componente | Composición prevista en el uso |
 | :--- | :--- |
@@ -62,19 +62,19 @@ En `components/own/independant/` hay 37 familias implementadas basadas en primit
 | Form | Envuelve su primitiva y recibe los campos y botones desde el consumidor. |
 | Input | El consumidor aporta una etiqueta HTML o coloca el control dentro de Field para asociar ayuda y errores. |
 
-## 2. Componentes dependientes (`dependant/`)
+## 2. Componentes compuestos (`components/own/composed/`)
 
-En `components/own/dependant/` hay 1 componente implementado.
+En `components/own/composed/` hay 1 componente implementado.
 
 - [x] FloatingInput. Compone Input y Field para renderizar un campo con etiqueta flotante, con las variantes `inset` y `outline`.
 
-Si una familia reutiliza otra en su definición o incorpora un motor externo especializado, se clasifica como dependiente. Sus dependencias se registran junto a la entrada.
+Las familias que reutilizan otros componentes de own-ui en su definición se ubican en `composed/`.
 
 ## 3. Ampliación del catálogo a partir de Takk
 
-### 3.1. Familias previstas en `independant/`
+### 3.1. Familias previstas en `components/own/simple/`
 
-Estas piezas de Takk se implementan sobre HTML nativo o con utilidades de composición. Antes de desarrollarlas, queda por definir su encaje con la guía de creación de componentes.
+Estas piezas de Takk se implementan sobre HTML nativo o con utilidades de composición, sin necesitar primitivas de Base UI ni librerías externas especializadas. Su ubicación prevista es `components/own/simple/`. Antes de desarrollarlas, queda por definir su encaje con la guía de creación de componentes.
 
 - [ ] Alert
 - [ ] Aspect Ratio
@@ -85,9 +85,9 @@ Estas piezas de Takk se implementan sobre HTML nativo o con utilidades de compos
 - [ ] Table
 - [ ] Textarea
 
-### 3.2. Familias previstas en `dependant/`
+### 3.2. Familias previstas en `components/own/composed/`
 
-La composición prevista se basa en las familias que cada definición reutiliza en Takk.
+La composición prevista se basa en componentes de own-ui que cada definición reutiliza en Takk.
 
 - [ ] Attachment · Button.
 - [ ] Button Group · Separator.
@@ -95,9 +95,9 @@ La composición prevista se basa en las familias que cada definición reutiliza 
 - [ ] Item · Separator.
 - [ ] Pagination · Button.
 
-### 3.3. Familias con motor externo en `dependant/`
+### 3.3. Familias con motor externo en `components/own/dependant/`
 
-Los motores indicados son los utilizados en Takk. Su incorporación a own-ui requiere aprobación antes de añadir la dependencia.
+Los motores indicados son los utilizados en Takk. Estas familias se ubican en `dependant/`, incluso cuando también componen componentes de own-ui. Su incorporación requiere aprobación antes de añadir la dependencia.
 
 - [ ] Command · `cmdk`. En Takk también compone Dialog e Input Group.
 - [ ] Carousel · `embla-carousel-react`. En Takk también compone Button.

@@ -9,7 +9,7 @@ import {
   SliderThumb,
   SliderTrack,
   SliderValue,
-} from "@/components/own/independant/slider";
+} from "@/components/own/base/slider";
 import { ThemeToggle } from "@/components/shared/theme-toggle";
 import { Anatomy, ApiReference } from "./api-reference";
 import { ControlledExample, FormExample } from "./examples";

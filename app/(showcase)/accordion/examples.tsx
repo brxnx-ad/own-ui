@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Accordion, AccordionHeader, AccordionItem, AccordionPanel, AccordionTrigger } from "@/components/own/independant/accordion";
-import { Button } from "@/components/own/independant/button";
+import { Accordion, AccordionHeader, AccordionItem, AccordionPanel, AccordionTrigger } from "@/components/own/base/accordion";
+import { Button } from "@/components/own/base/button";
 
 export function ControlledExample() {
   const [value, setValue] = useState<string[]>([]);

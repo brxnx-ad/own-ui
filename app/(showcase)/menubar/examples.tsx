@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import type { ReactNode } from "react";
-import { Button } from "@/components/own/independant/button";
-import { Checkbox, CheckboxIndicator } from "@/components/own/independant/checkbox";
-import { Menubar } from "@/components/own/independant/menubar";
+import { Button } from "@/components/own/base/button";
+import { Checkbox, CheckboxIndicator } from "@/components/own/base/checkbox";
+import { Menubar } from "@/components/own/base/menubar";
 import {
   Menu,
   MenuCheckboxItem,
@@ -17,7 +17,7 @@ import {
   MenuRadioItem,
   MenuRadioItemIndicator,
   MenuTrigger,
-} from "@/components/own/independant/menu";
+} from "@/components/own/base/menu";
 
 function CommandMenu({ label, children }: { label: string; children: ReactNode }) {
   return (

@@ -4,7 +4,7 @@ import {
   Collapsible,
   CollapsiblePanel,
   CollapsibleTrigger,
-} from "@/components/own/independant/collapsible";
+} from "@/components/own/base/collapsible";
 import { ThemeToggle } from "@/components/shared/theme-toggle";
 import { Anatomy, ApiReference } from "./api-reference";
 import { ControlledExample, PersistenceExample } from "./examples";

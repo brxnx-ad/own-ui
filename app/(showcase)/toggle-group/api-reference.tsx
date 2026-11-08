@@ -1,5 +1,5 @@
-const anatomy = `import { Toggle } from "@/components/own/independant/toggle";
-import { ToggleGroup } from "@/components/own/independant/toggle-group";
+const anatomy = `import { Toggle } from "@/components/own/base/toggle";
+import { ToggleGroup } from "@/components/own/base/toggle-group";
 
 <ToggleGroup aria-label="Vista de archivos" defaultValue={["list"]}>
   <Toggle value="list">Lista</Toggle>

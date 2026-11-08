@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { Button } from "@/components/own/independant/button";
+import { Button } from "@/components/own/base/button";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -15,7 +15,7 @@ import {
   NavigationMenuTrigger,
   NavigationMenuViewport,
   type NavigationMenuActions,
-} from "@/components/own/independant/navigation-menu";
+} from "@/components/own/base/navigation-menu";
 
 const platformLinks = [
   {

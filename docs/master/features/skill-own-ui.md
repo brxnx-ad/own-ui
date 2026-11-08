@@ -18,7 +18,7 @@ La documentación de `docs/master/` establece las directrices para desarrollar y
 
 ## 2. Organización y responsabilidades
 
-La entrada actual es [SKILL.md](../../../.agents/skills/own-ui/SKILL.md). La estructura del material distribuible es:
+El material distribuible tiene esta estructura. [SKILL.md](../../../.agents/skills/own-ui/SKILL.md)
 
 ```text
 .agents/skills/own-ui/
@@ -27,21 +27,22 @@ La entrada actual es [SKILL.md](../../../.agents/skills/own-ui/SKILL.md). La est
     ├── structure.md
     ├── globals.md
     └── components/
-        ├── button.md
-        ├── accordion.md
-        ├── alert-dialog.md
-        ├── autocomplete.md
-        └── <familia>.md
+        ├── base/
+        │   ├── accordion.md
+        │   ├── button.md
+        │   └── …
+        └── composed/
+            └── floating-input.md
 ```
 
-`<familia>.md` representa una nueva referencia; no es un archivo adicional que deba crearse vacío.
+Las referencias siguen la categoría de cada familia en `components/own/`. Las carpetas `simple/` y `dependant/` se incorporan a `references/components/` cuando haya familias de esas categorías para distribuir.
 
 | Archivo | Responsabilidad |
 | :--- | :--- |
 | `SKILL.md` | Explicar brevemente own-ui, definir cuándo utilizar la skill y dirigir a las referencias pertinentes. Mantener aquí los criterios compartidos, sin duplicar las API completas. |
-| `references/structure.md` | Describir la ubicación de componentes, iconos, dependencias y estilos en el consumidor, la resolución de imports y el criterio de independencia por familia. Distinguir rutas convencionales de requisitos reales. |
+| `references/structure.md` | Describir la ubicación de componentes, iconos, dependencias y estilos en el consumidor, la resolución de imports y la clasificación por familia. Distinguir rutas convencionales de requisitos reales. |
 | `references/globals.md` | Explicar los bloques de la configuración exportada, los tokens y sus relaciones, los temas, la exposición a Tailwind y el alcance de cada forma de personalización. |
-| `references/components/<familia>.md` | Describir el contrato de una familia exportada: uso, anatomía, variantes, props, comportamiento, composición y personalización visual por pieza. |
+| `references/components/<categoría>/<familia>.md` | Describir el uso, la anatomía, las variantes, las props, el comportamiento, la composición y la personalización visual de una familia exportada. |
 
 La carga de referencias es selectiva: para componer una confirmación con Button se consultan Alert Dialog y Button; para cambiar una semilla cromática se consulta `globals.md`. Las referencias de estructura y estilos se añaden cuando la tarea lo requiere.
 
@@ -74,7 +75,7 @@ Los componentes aportan su geometría base; el consumidor aplica los ajustes de 
 
 ## 4. Estructura de cada nueva referencia de componente
 
-Crear un archivo en `references/components/<familia>.md`, usando el nombre de la familia en minúsculas y con guiones. Una referencia agrupa todas las piezas públicas de esa familia. No se requiere un archivo por cada `Root`, `Trigger` o `Popup`.
+Crea un archivo en `references/components/<categoría>/<familia>.md`. Usa la categoría del componente en `components/own/` y escribe el nombre de la familia en minúsculas y con guiones. La referencia agrupa todas las piezas públicas de la familia, incluidos sus `Root`, `Trigger` o `Popup` cuando corresponda.
 
 La referencia debe ser suficiente para trabajar en el proyecto consumidor y seguir este orden:
 
@@ -147,7 +148,7 @@ Las referencias evolucionan junto con el código que acompañan. Al documentar u
 
 ## 7. Estado de la skill en este repositorio
 
-El [índice de la skill](../../../.agents/skills/own-ui/SKILL.md) enlaza las 38 referencias del catálogo. Las referencias de [estructura](../../../.agents/skills/own-ui/references/structure.md) y [globals](../../../.agents/skills/own-ui/references/globals.md) cubren los archivos y estilos compartidos.
+El índice de la skill enlaza las 38 referencias del catálogo, 37 en `base/` y la de FloatingInput en `composed/`. Las referencias generales cubren los archivos y estilos compartidos. [Índice](../../../.agents/skills/own-ui/SKILL.md) · [Estructura](../../../.agents/skills/own-ui/references/structure.md) · [Globals](../../../.agents/skills/own-ui/references/globals.md)
 
 La entrada y las referencias están orientadas a proyectos Next.js consumidores y sus enlaces se resuelven dentro de la carpeta de la skill. Las rutas de componentes y de la hoja global se presentan como convenciones adaptables dentro de App Router; se explican las dependencias de soporte, la integración con Link, fuentes, temas y portales sin requerir el showcase ni `docs/master/`.
 

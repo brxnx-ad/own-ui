@@ -1,4 +1,4 @@
-const anatomy = `import { Toggle } from "@/components/own/independant/toggle";
+const anatomy = `import { Toggle } from "@/components/own/base/toggle";
 
 <Toggle defaultPressed>Fijar vista</Toggle>`;
 

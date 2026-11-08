@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { Button } from "@/components/own/independant/button";
-import { Checkbox, CheckboxIndicator } from "@/components/own/independant/checkbox";
+import { Button } from "@/components/own/base/button";
+import { Checkbox, CheckboxIndicator } from "@/components/own/base/checkbox";
 
 export function ControlledExample() {
   const [checked, setChecked] = useState(false);

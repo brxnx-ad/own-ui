@@ -1,10 +1,10 @@
 "use client";
 
 import { useId, useState, type FormEvent } from "react";
-import { Button } from "@/components/own/independant/button";
-import { Field, FieldDescription, FieldError, FieldItem, FieldLabel } from "@/components/own/independant/field";
-import { Form } from "@/components/own/independant/form";
-import { Radio, RadioGroup, RadioIndicator } from "@/components/own/independant/radio-group";
+import { Button } from "@/components/own/base/button";
+import { Field, FieldDescription, FieldError, FieldItem, FieldLabel } from "@/components/own/base/field";
+import { Form } from "@/components/own/base/form";
+import { Radio, RadioGroup, RadioIndicator } from "@/components/own/base/radio-group";
 
 export function RadioOption<Value>({ value, label, disabled }: {
   value: Value;

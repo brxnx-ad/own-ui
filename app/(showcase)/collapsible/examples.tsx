@@ -1,12 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "@/components/own/independant/button";
+import { Button } from "@/components/own/base/button";
 import {
   Collapsible,
   CollapsiblePanel,
   CollapsibleTrigger,
-} from "@/components/own/independant/collapsible";
+} from "@/components/own/base/collapsible";
 
 export function ControlledExample() {
   const [open, setOpen] = useState(false);

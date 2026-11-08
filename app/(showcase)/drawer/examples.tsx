@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type ComponentProps, type ReactNode } from "react";
-import { Button } from "@/components/own/independant/button";
+import { Button } from "@/components/own/base/button";
 import {
   Drawer,
   DrawerBackdrop,
@@ -20,7 +20,7 @@ import {
   DrawerVirtualKeyboardProvider,
   type DrawerSnapPoint,
   type DrawerSwipeDirection,
-} from "@/components/own/independant/drawer";
+} from "@/components/own/base/drawer";
 
 function Surface({ backdrop = true, ...props }: ComponentProps<typeof DrawerPopup> & { backdrop?: boolean }) {
   return (

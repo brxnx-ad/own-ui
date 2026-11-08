@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "@/components/own/independant/button";
-import { Toggle } from "@/components/own/independant/toggle";
-import { ToggleGroup } from "@/components/own/independant/toggle-group";
+import { Button } from "@/components/own/base/button";
+import { Toggle } from "@/components/own/base/toggle";
+import { ToggleGroup } from "@/components/own/base/toggle-group";
 
 type Status = "pending" | "completed";
 

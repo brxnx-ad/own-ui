@@ -2,8 +2,8 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import type { ReactNode } from "react";
 import { ThemeToggle } from "@/components/shared/theme-toggle";
-import { Button } from "@/components/own/independant/button";
-import { Input } from "@/components/own/independant/input";
+import { Button } from "@/components/own/base/button";
+import { Input } from "@/components/own/base/input";
 import {
   Popover,
   PopoverBackdrop,
@@ -17,7 +17,7 @@ import {
   type PopoverPositionerProps,
   type PopoverProps,
   type PopoverTriggerProps,
-} from "@/components/own/independant/popover";
+} from "@/components/own/base/popover";
 import { Anatomy, ApiReference } from "./api-reference";
 import { ControlledExample, DetachedTriggersExample, FocusExample } from "./examples";
 

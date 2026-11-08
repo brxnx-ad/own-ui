@@ -6,7 +6,7 @@ import {
   AccordionItem,
   AccordionPanel,
   AccordionTrigger,
-} from "@/components/own/independant/accordion";
+} from "@/components/own/base/accordion";
 import { ThemeToggle } from "@/components/shared/theme-toggle";
 import { ControlledExample, PersistenceExample } from "./examples";
 import { Anatomy, ApiReference } from "./api-reference";

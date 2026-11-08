@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState, type ComponentProps } from "react";
-import { Button } from "@/components/own/independant/button";
+import { Button } from "@/components/own/base/button";
 import {
   Dialog,
   DialogBackdrop,
@@ -13,7 +13,7 @@ import {
   DialogTrigger,
   DialogViewport,
   createDialogHandle,
-} from "@/components/own/independant/dialog";
+} from "@/components/own/base/dialog";
 
 const inputClass = "body-sm w-full rounded-base border border-gray-base bg-surface-bold px-3 py-2 text-gray-bold focus-visible:outline-2 focus-visible:outline-primary-base";
 

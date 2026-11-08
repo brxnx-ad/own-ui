@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import type { ReactNode } from "react";
-import { Switch, SwitchThumb } from "@/components/own/independant/switch";
+import { Switch, SwitchThumb } from "@/components/own/base/switch";
 import { ThemeToggle } from "@/components/shared/theme-toggle";
 import { Anatomy, ApiReference } from "./api-reference";
 import { ControlledExample, FormExample, RequiredExample } from "./examples";

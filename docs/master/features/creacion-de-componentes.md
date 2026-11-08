@@ -1,6 +1,6 @@
 # own-ui · Creación de componentes
 
-> **Objetivo y alcance del documento:** Establecer la guía canónica y los estándares técnicos para la creación de componentes propios en `components/own/`, utilizando `components/own/independant/button.tsx` como componente modelo de referencia. Se considera desactualizado si la ubicación, la composición, el tipado o los estados de los componentes implementados divergen de las directrices aquí descritas.
+> **Objetivo y alcance del documento:** Establecer la guía canónica y los estándares técnicos para la creación de componentes propios en `components/own/`, utilizando `components/own/base/button.tsx` como componente modelo de referencia. Se considera desactualizado si la ubicación, la composición, el tipado o los estados de los componentes implementados divergen de las directrices aquí descritas.
 
 [Estructura del proyecto](../01-estructura-del-proyecto.md) · [Sistema de estilos](../02-estilos.md) · [Objetivos](../03-objetivos.md) · [Mantenimiento](../04-mantenimiento.md) · [Pendientes](../05-pendientes.md) · [Showcase](showcase.md)
 
@@ -10,7 +10,7 @@
 
 Todo componente desarrollado en `components/own/` debe cumplir cinco reglas obligatorias:
 
-1. **Sustentado en Base UI:** Las familias de Base UI delegan la accesibilidad, el foco y los eventos de bajo nivel a sus primitivas. Si el comportamiento principal requiere un motor externo especializado, la familia se ubica en `dependant/` y se aprueba cualquier dependencia nueva antes de incorporarla.
+1. **Semántica y comportamiento.** Usa HTML nativo para las familias de `simple/` y delega la accesibilidad, el foco y los eventos a las primitivas cuando la familia se apoye en Base UI. Si el comportamiento principal requiere una librería externa especializada, la familia se ubica en `dependant/` y se aprueba cualquier dependencia nueva antes de incorporarla.
 2. **Neutralidad de maquetación:** Tolerancia cero a márgenes exteriores (`m-*`). El componente nunca decide cómo se separa de su entorno; esa responsabilidad pertenece al contenedor padre.
 3. **Consumo de tokens propios:** Empleo exclusivo de los tokens semánticos de superficies (`surface-*`), tríadas cromáticas (`*-soft`, `*-base`, `*-bold`) y variables de geometría (`rounded-base`) definidas en `globals.css`.
 4. **Introspección por atributos `data-*`:** Declaración explícita de `data-slot`, `data-variant`, `data-size` y estados para pruebas automatizadas y estilos condicionales.
@@ -18,33 +18,35 @@ Todo componente desarrollado en `components/own/` debe cumplir cinco reglas obli
 
 ### 1.1. Ubicación e imports
 
-La ubicación del archivo sigue el [criterio de clasificación](../01-estructura-del-proyecto.md#3-componentes-independientes-y-dependientes).
+La ubicación del archivo sigue el [criterio de clasificación](../01-estructura-del-proyecto.md#3-clasificación-de-componentes).
 
-* `components/own/independant/` reúne familias como Button, Accordion y Alert Dialog, que se definen sin otras familias propias ni motores externos especializados.
-* `components/own/dependant/` reúne familias que reutilizan otras piezas propias o delegan su comportamiento principal a un motor externo especializado.
-* `components/own/icons/`: soporte compartido de iconos; su uso no cambia la clasificación.
+* `components/own/simple/` reúne familias definidas con HTML nativo y utilidades compartidas.
+* `components/own/base/` reúne familias que envuelven primitivas de Base UI, como Button, Accordion y Alert Dialog.
+* `components/own/composed/` reúne familias que reutilizan otros componentes propios, como FloatingInput.
+* `components/own/dependant/` reúne familias cuyo comportamiento principal requiere una librería externa especializada.
+* `components/own/icons/` contiene los iconos compartidos de soporte.
 
 Los consumidores importan directamente desde la carpeta correspondiente:
 
 ```tsx
-import { Button } from "@/components/own/independant/button";
-import { Accordion } from "@/components/own/independant/accordion";
-import { AlertDialog, AlertDialogClose } from "@/components/own/independant/alert-dialog";
+import { Button } from "@/components/own/base/button";
+import { Accordion } from "@/components/own/base/accordion";
+import { AlertDialog, AlertDialogClose } from "@/components/own/base/alert-dialog";
 ```
 
 ### 1.2. Composición decidida por el consumidor
 
-Las piezas de una misma primitiva de Base UI pueden formar un componente independiente. La composición mediante `children`, `render` o ranuras permite que el consumidor elija los controles y las acciones, sin fijar en la definición del componente su cantidad ni sus variantes.
+Mediante `children`, `render` o ranuras, el consumidor elige los controles, las acciones y sus variantes.
 
-Por ejemplo, `AlertDialogClose` envuelve `Primitive.Close` y permite `render={<Button variant="secondary" />}` en el uso. Esa composición pertenece al consumidor; Alert Dialog mantiene su definición independiente. Si un componente importa y renderiza Button dentro de su propia definición, incluido un `render` predeterminado, entonces sí depende de Button.
+Alert Dialog permanece en `base/` cuando el consumidor aporta un Button a `AlertDialogClose` mediante `render`. Si la propia definición importa y renderiza Button, esa dependencia cuenta para la clasificación.
 
-FloatingInput compone Input, Field y FieldLabel dentro de su definición y vive en `dependant/`. El consumidor puede aportar `FieldDescription` y `FieldError` como hijos. Su módulo `floating-input.module.css` coordina la etiqueta y el recorte mediante los estados del control nativo y respeta la preferencia de movimiento reducido.
+FloatingInput compone Input, Field y FieldLabel dentro de su definición y vive en `composed/`. El consumidor puede aportar `FieldDescription` y `FieldError` como hijos. Su módulo `floating-input.module.css` coordina la etiqueta y el recorte mediante los estados del control nativo y respeta la preferencia de movimiento reducido.
 
 ---
 
 ## 2. Definición y extensión de tipos (TypeScript)
 
-El tipado del componente debe partir de la primitiva de Base UI y enriquecerse con las opciones del sistema de diseño:
+Parte de las props de la primitiva o del elemento HTML que implementa el componente. Añade las opciones del sistema de diseño con tipos explícitos. En Button, el tipo parte de la primitiva de Base UI.
 
 ```tsx
 import * as React from "react";
@@ -156,7 +158,7 @@ Esto asegura que cualquier SVG importado (como los de `lucide-react`) escale aut
 * Deshabilita la interacción de forma automática (`const isDisabled = Boolean(disabled || loading)`).
 * Inyecta el atributo de accesibilidad `aria-busy={loading || undefined}` y `data-loading`.
 * Reemplaza de inmediato el ícono o se antepone al contenido utilizando el componente común `<Spinner className="size-[1.15em]" />`.
-* Aplica `disabled:pointer-events-none disabled:opacity-50` y `data-[loading]:cursor-wait`.
+* Aplica `disabled:pointer-events-none disabled:opacity-50` y `data-loading:cursor-wait`.
 
 ---
 
@@ -229,7 +231,7 @@ export function Button({
         "transition-[background-color,color,border-color,box-shadow,transform,opacity] duration-150 ease-out",
         "motion-safe:active:not-disabled:scale-[0.98]",
         "focus-visible:ring-2 focus-visible:ring-primary-base data-[variant=destructive]:focus-visible:ring-error-base focus-visible:ring-offset-2 focus-visible:ring-offset-surface-soft",
-        "disabled:pointer-events-none disabled:opacity-50 data-[loading]:cursor-wait",
+        "disabled:pointer-events-none disabled:opacity-50 data-loading:cursor-wait",
         variantStyles[variant],
         isIconOnly ? sizeStyles[size].iconOnly : sizeStyles[size].default,
         className

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import type { ComponentProps, ReactNode } from "react";
-import { Button } from "@/components/own/independant/button";
+import { Button } from "@/components/own/base/button";
 import {
   createMenuHandle,
   Menu,
@@ -29,7 +29,7 @@ import {
   MenuSubmenu,
   MenuSubmenuTrigger,
   MenuTrigger,
-} from "@/components/own/independant/menu";
+} from "@/components/own/base/menu";
 
 function Popup({
   children,

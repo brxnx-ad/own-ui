@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "@/components/own/independant/button";
-import { Field, FieldDescription, FieldError, FieldLabel } from "@/components/own/independant/field";
-import { Form } from "@/components/own/independant/form";
-import { Switch, SwitchThumb } from "@/components/own/independant/switch";
+import { Button } from "@/components/own/base/button";
+import { Field, FieldDescription, FieldError, FieldLabel } from "@/components/own/base/field";
+import { Form } from "@/components/own/base/form";
+import { Switch, SwitchThumb } from "@/components/own/base/switch";
 
 export function ControlledExample() {
   const [showDetails, setShowDetails] = useState(false);

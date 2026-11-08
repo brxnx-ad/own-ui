@@ -20,53 +20,53 @@ La página de inicio (`/`) funciona exclusivamente como un **directorio o índic
 
 Cada componente registrado cuenta con su propia ruta independiente (por ejemplo, `/button`):
 
-* **Encabezado y contexto:** Incluye el enlace `Volver al catálogo`, el alternador de temas `ThemeToggle`, el nombre del componente, la primitiva de Base UI o las familias propias que lo componen y una descripción breve.
+* **Encabezado y contexto.** Incluye el enlace `Volver al catálogo`, el alternador de temas `ThemeToggle`, el nombre del componente, su base de implementación y una descripción breve.
 * **Separación de responsabilidades:** La página se dedica por completo a desglosar las posibilidades visuales, dimensiones, ranuras y estados del componente.
 
 ### 2.1. Rutas e imports del catálogo actual
 
 | Componente | Ruta | Import del componente propio |
 | :--- | :--- | :--- |
-| Accordion | `/accordion` | `@/components/own/independant/accordion` |
-| Alert Dialog | `/alert-dialog` | `@/components/own/independant/alert-dialog` |
-| Autocomplete | `/autocomplete` | `@/components/own/independant/autocomplete` |
-| Avatar | `/avatar` | `@/components/own/independant/avatar` |
-| Button | `/button` | `@/components/own/independant/button` |
-| Checkbox | `/checkbox` | `@/components/own/independant/checkbox` |
-| Checkbox Group | `/checkbox-group` | `@/components/own/independant/checkbox-group` |
-| Collapsible | `/collapsible` | `@/components/own/independant/collapsible` |
-| Combobox | `/combobox` | `@/components/own/independant/combobox` |
-| Context Menu | `/context-menu` | `@/components/own/independant/context-menu` |
-| Dialog | `/dialog` | `@/components/own/independant/dialog` |
-| Drawer | `/drawer` | `@/components/own/independant/drawer` |
-| Field | `/field` | `@/components/own/independant/field` |
-| Fieldset | `/fieldset` | `@/components/own/independant/fieldset` |
-| FloatingInput | `/floating-input` | `@/components/own/dependant/floating-input` |
-| Form | `/form` | `@/components/own/independant/form` |
-| Input | `/input` | `@/components/own/independant/input` |
-| Menu | `/menu` | `@/components/own/independant/menu` |
-| Menubar | `/menubar` | `@/components/own/independant/menubar` |
-| Meter | `/meter` | `@/components/own/independant/meter` |
-| Navigation Menu | `/navigation-menu` | `@/components/own/independant/navigation-menu` |
-| Number Field | `/number-field` | `@/components/own/independant/number-field` |
-| OTP Field | `/otp-field` | `@/components/own/independant/otp-field` |
-| Popover | `/popover` | `@/components/own/independant/popover` |
-| Preview Card | `/preview-card` | `@/components/own/independant/preview-card` |
-| Progress | `/progress` | `@/components/own/independant/progress` |
-| Radio Group | `/radio-group` | `@/components/own/independant/radio-group` |
-| Scroll Area | `/scroll-area` | `@/components/own/independant/scroll-area` |
-| Select | `/select` | `@/components/own/independant/select` |
-| Separator | `/separator` | `@/components/own/independant/separator` |
-| Slider | `/slider` | `@/components/own/independant/slider` |
-| Switch | `/switch` | `@/components/own/independant/switch` |
-| Tabs | `/tabs` | `@/components/own/independant/tabs` |
-| Toast | `/toast` | `@/components/own/independant/toast` |
-| Toggle | `/toggle` | `@/components/own/independant/toggle` |
-| Toggle Group | `/toggle-group` | `@/components/own/independant/toggle-group` |
-| Toolbar | `/toolbar` | `@/components/own/independant/toolbar` |
-| Tooltip | `/tooltip` | `@/components/own/independant/tooltip` |
+| Accordion | `/accordion` | `@/components/own/base/accordion` |
+| Alert Dialog | `/alert-dialog` | `@/components/own/base/alert-dialog` |
+| Autocomplete | `/autocomplete` | `@/components/own/base/autocomplete` |
+| Avatar | `/avatar` | `@/components/own/base/avatar` |
+| Button | `/button` | `@/components/own/base/button` |
+| Checkbox | `/checkbox` | `@/components/own/base/checkbox` |
+| Checkbox Group | `/checkbox-group` | `@/components/own/base/checkbox-group` |
+| Collapsible | `/collapsible` | `@/components/own/base/collapsible` |
+| Combobox | `/combobox` | `@/components/own/base/combobox` |
+| Context Menu | `/context-menu` | `@/components/own/base/context-menu` |
+| Dialog | `/dialog` | `@/components/own/base/dialog` |
+| Drawer | `/drawer` | `@/components/own/base/drawer` |
+| Field | `/field` | `@/components/own/base/field` |
+| Fieldset | `/fieldset` | `@/components/own/base/fieldset` |
+| FloatingInput | `/floating-input` | `@/components/own/composed/floating-input` |
+| Form | `/form` | `@/components/own/base/form` |
+| Input | `/input` | `@/components/own/base/input` |
+| Menu | `/menu` | `@/components/own/base/menu` |
+| Menubar | `/menubar` | `@/components/own/base/menubar` |
+| Meter | `/meter` | `@/components/own/base/meter` |
+| Navigation Menu | `/navigation-menu` | `@/components/own/base/navigation-menu` |
+| Number Field | `/number-field` | `@/components/own/base/number-field` |
+| OTP Field | `/otp-field` | `@/components/own/base/otp-field` |
+| Popover | `/popover` | `@/components/own/base/popover` |
+| Preview Card | `/preview-card` | `@/components/own/base/preview-card` |
+| Progress | `/progress` | `@/components/own/base/progress` |
+| Radio Group | `/radio-group` | `@/components/own/base/radio-group` |
+| Scroll Area | `/scroll-area` | `@/components/own/base/scroll-area` |
+| Select | `/select` | `@/components/own/base/select` |
+| Separator | `/separator` | `@/components/own/base/separator` |
+| Slider | `/slider` | `@/components/own/base/slider` |
+| Switch | `/switch` | `@/components/own/base/switch` |
+| Tabs | `/tabs` | `@/components/own/base/tabs` |
+| Toast | `/toast` | `@/components/own/base/toast` |
+| Toggle | `/toggle` | `@/components/own/base/toggle` |
+| Toggle Group | `/toggle-group` | `@/components/own/base/toggle-group` |
+| Toolbar | `/toolbar` | `@/components/own/base/toolbar` |
+| Tooltip | `/tooltip` | `@/components/own/base/tooltip` |
 
-Los ejemplos pueden combinar componentes independientes. Alert Dialog utiliza Button en sus ejemplos mediante `render` o como acción con cierre controlado; esa composición pertenece al showcase y no introduce una dependencia dentro de la definición de Alert Dialog. La clasificación se rige por [Estructura del proyecto](../01-estructura-del-proyecto.md#3-componentes-independientes-y-dependientes).
+Los ejemplos pueden combinar familias del catálogo. Alert Dialog permanece en `base/` cuando el showcase aporta Button mediante `render` o como acción con cierre controlado. La clasificación se determina por la definición de cada familia. [Estructura del proyecto](../01-estructura-del-proyecto.md#3-clasificación-de-componentes)
 
 ---
 

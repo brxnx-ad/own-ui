@@ -1,8 +1,8 @@
 import { ArrowLeft, Bold, Italic, Underline } from "lucide-react";
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { Toggle } from "@/components/own/independant/toggle";
-import { ToggleGroup } from "@/components/own/independant/toggle-group";
+import { Toggle } from "@/components/own/base/toggle";
+import { ToggleGroup } from "@/components/own/base/toggle-group";
 import { ThemeToggle } from "@/components/shared/theme-toggle";
 import { Anatomy, ApiReference } from "./api-reference";
 import { ControlledExample, RequiredSelectionExample } from "./examples";

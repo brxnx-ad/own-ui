@@ -2,7 +2,7 @@
 
 import { useId, useState } from "react";
 import Link from "next/link";
-import { Button } from "@/components/own/independant/button";
+import { Button } from "@/components/own/base/button";
 import {
   createPreviewCardHandle,
   PreviewCard,
@@ -12,7 +12,7 @@ import {
   PreviewCardTrigger,
   PreviewCardViewport,
   type PreviewCardChangeEventDetails,
-} from "@/components/own/independant/preview-card";
+} from "@/components/own/base/preview-card";
 
 type Preview = {
   category: string;

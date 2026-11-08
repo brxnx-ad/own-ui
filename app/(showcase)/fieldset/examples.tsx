@@ -1,11 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "@/components/own/independant/button";
-import { Checkbox, CheckboxIndicator } from "@/components/own/independant/checkbox";
-import { CheckboxGroup } from "@/components/own/independant/checkbox-group";
-import { Field, FieldControl, FieldItem, FieldLabel } from "@/components/own/independant/field";
-import { Fieldset, FieldsetLegend } from "@/components/own/independant/fieldset";
+import { Button } from "@/components/own/base/button";
+import { Checkbox, CheckboxIndicator } from "@/components/own/base/checkbox";
+import { CheckboxGroup } from "@/components/own/base/checkbox-group";
+import { Field, FieldControl, FieldItem, FieldLabel } from "@/components/own/base/field";
+import { Fieldset, FieldsetLegend } from "@/components/own/base/fieldset";
 
 export function BasicExample() {
   return (

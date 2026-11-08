@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "@/components/own/independant/button";
-import { Tabs, TabsIndicator, TabsList, TabsPanel, TabsTab } from "@/components/own/independant/tabs";
+import { Button } from "@/components/own/base/button";
+import { Tabs, TabsIndicator, TabsList, TabsPanel, TabsTab } from "@/components/own/base/tabs";
 
 export function ControlledExample() {
   const [value, setValue] = useState("details");

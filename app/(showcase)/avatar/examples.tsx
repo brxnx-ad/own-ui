@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/own/independant/avatar";
-import { Button } from "@/components/own/independant/button";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/own/base/avatar";
+import { Button } from "@/components/own/base/button";
 
 const invalidImage = "data:image/png;base64,AAAA";
 

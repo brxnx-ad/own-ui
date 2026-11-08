@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "@/components/own/independant/button";
-import { Toggle } from "@/components/own/independant/toggle";
+import { Button } from "@/components/own/base/button";
+import { Toggle } from "@/components/own/base/toggle";
 
 export function ControlledExample() {
   const [compact, setCompact] = useState(false);

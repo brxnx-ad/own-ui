@@ -16,8 +16,8 @@ import {
   AutocompletePortal,
   AutocompletePositioner,
   AutocompleteTrigger,
-} from "@/components/own/independant/autocomplete";
-import { Button } from "@/components/own/independant/button";
+} from "@/components/own/base/autocomplete";
+import { Button } from "@/components/own/base/button";
 
 const cities = ["Antofagasta", "Concepción", "La Serena", "Puerto Montt", "Santiago", "Valdivia", "Valparaíso"];
 

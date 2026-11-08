@@ -2,7 +2,7 @@ import { ToggleGroup as BaseToggleGroup } from "@base-ui/react/toggle-group";
 import { ArrowLeft, Bold, Italic, Star, Underline } from "lucide-react";
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { Toggle } from "@/components/own/independant/toggle";
+import { Toggle } from "@/components/own/base/toggle";
 import { ThemeToggle } from "@/components/shared/theme-toggle";
 import { Anatomy, ApiReference } from "./api-reference";
 import { CanceledExample, ControlledExample } from "./examples";

@@ -5,7 +5,7 @@ import {
   AvatarFallback,
   AvatarImage,
   type AvatarSize,
-} from "@/components/own/independant/avatar";
+} from "@/components/own/base/avatar";
 import { ThemeToggle } from "@/components/shared/theme-toggle";
 import { Anatomy, ApiReference } from "./api-reference";
 import { DelayedFallbackExample, ImageErrorExample } from "./examples";

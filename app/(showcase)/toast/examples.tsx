@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type ReactNode } from "react";
-import { Button } from "@/components/own/independant/button";
+import { Button } from "@/components/own/base/button";
 import {
   createToastManager,
   Toast,
@@ -18,7 +18,7 @@ import {
   ToastViewport,
   useToastManager,
   type ToastObject,
-} from "@/components/own/independant/toast";
+} from "@/components/own/base/toast";
 import { Close } from "@/components/own/icons";
 
 const showcaseManager = createToastManager();

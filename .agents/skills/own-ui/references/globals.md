@@ -174,9 +174,9 @@ Para las piezas con portales, separa el apilamiento del contenido de la aplicaci
 
 El destino del portal debe recibir los tokens de tema y la tipografía necesarios. Si no hereda el contexto de la interfaz, proporciona allí la clase o las variables correspondientes. En un ShadowRoot, carga los estilos en el ámbito que renderiza las piezas y verifica también cómo se resuelven la variante `dark`, las fuentes y las variables heredadas.
 
-Las transiciones se definen en las clases de [Button](components/button.md), [Accordion](components/accordion.md), [Alert Dialog](components/alert-dialog.md) y [Autocomplete](components/autocomplete.md). Spinner usa la animación `animate-spin` de Tailwind. Al ajustar una transición, conserva los selectores de entrada y salida de la pieza y comprueba el movimiento reducido en la referencia correspondiente.
+Las transiciones se definen en las clases de [Button](components/base/button.md), [Accordion](components/base/accordion.md), [Alert Dialog](components/base/alert-dialog.md) y [Autocomplete](components/base/autocomplete.md). Spinner usa la animación `animate-spin` de Tailwind. Al ajustar una transición, conserva los selectores de entrada y salida de la pieza y comprueba el movimiento reducido en la referencia correspondiente.
 
-Los módulos CSS de [Field](components/field.md), [FloatingInput](components/floating-input.md) y [Progress](components/progress.md) contienen sus animaciones personalizadas y los estados asociados. Los importa cada componente y sus transiciones y barridos se activan con `prefers-reduced-motion: no-preference`. Si el consumidor usa una regla de Turbopack que transforma `*.css` con `@tailwindcss/turbopack` y `as: "*.css"`, excluye `*.module.css` de esa regla para conservar el ámbito local.
+Los módulos CSS de [Field](components/base/field.md), [FloatingInput](components/composed/floating-input.md) y [Progress](components/base/progress.md) contienen sus animaciones personalizadas y los estados asociados. Los importa cada componente y sus transiciones y barridos se activan con `prefers-reduced-motion: no-preference`. Si el consumidor usa una regla de Turbopack que transforma `*.css` con `@tailwindcss/turbopack` y `as: "*.css"`, excluye `*.module.css` de esa regla para conservar el ámbito local.
 
 ## 7. Elegir el alcance del cambio
 

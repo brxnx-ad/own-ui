@@ -1,6 +1,6 @@
 "use server";
 
-import type { FormProps } from "@/components/own/independant/form";
+import type { FormProps } from "@/components/own/base/form";
 
 export interface RegistrationState {
   errors?: FormProps["errors"];

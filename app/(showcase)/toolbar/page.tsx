@@ -1,7 +1,7 @@
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { Toolbar, ToolbarButton, ToolbarInput, ToolbarLink, ToolbarSeparator } from "@/components/own/independant/toolbar";
+import { Toolbar, ToolbarButton, ToolbarInput, ToolbarLink, ToolbarSeparator } from "@/components/own/base/toolbar";
 import { ThemeToggle } from "@/components/shared/theme-toggle";
 import { Anatomy, ApiReference } from "./api-reference";
 import { DisabledItemsExample, FormattingExample, HistoryExample, MenuExample, SearchExample, VerticalExample } from "./examples";

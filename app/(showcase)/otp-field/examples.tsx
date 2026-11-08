@@ -1,8 +1,8 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { Button } from "@/components/own/independant/button";
-import { OTPField, OTPFieldInput } from "@/components/own/independant/otp-field";
+import { Button } from "@/components/own/base/button";
+import { OTPField, OTPFieldInput } from "@/components/own/base/otp-field";
 
 export function OTPInputs({ length, count = length, start = 0, placeholder }: {
   length: number;

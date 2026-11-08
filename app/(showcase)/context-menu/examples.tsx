@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRef, useState, type ComponentProps, type ReactNode } from "react";
-import { Button } from "@/components/own/independant/button";
+import { Button } from "@/components/own/base/button";
 import {
   ContextMenu,
   ContextMenuCheckboxItem,
@@ -21,7 +21,7 @@ import {
   ContextMenuSubmenu,
   ContextMenuSubmenuTrigger,
   ContextMenuTrigger,
-} from "@/components/own/independant/context-menu";
+} from "@/components/own/base/context-menu";
 
 function ContextArea({ children }: { children: ReactNode }) {
   return (

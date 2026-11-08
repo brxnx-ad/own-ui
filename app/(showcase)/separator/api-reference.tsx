@@ -1,4 +1,4 @@
-const anatomy = `import { Separator } from "@/components/own/independant/separator";
+const anatomy = `import { Separator } from "@/components/own/base/separator";
 
 <Separator />`;
 

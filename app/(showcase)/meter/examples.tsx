@@ -2,14 +2,14 @@
 
 import clsx from "clsx";
 import { useState } from "react";
-import { Button } from "@/components/own/independant/button";
+import { Button } from "@/components/own/base/button";
 import {
   Meter,
   MeterIndicator,
   MeterLabel,
   MeterTrack,
   MeterValue,
-} from "@/components/own/independant/meter";
+} from "@/components/own/base/meter";
 
 const quotaSteps = [450, 1420, 1950] as const;
 const loadPresets = [

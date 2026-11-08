@@ -1,10 +1,10 @@
 "use client";
 
 import { useActionState, useRef, useState } from "react";
-import { Button } from "@/components/own/independant/button";
-import { Field, FieldControl, FieldDescription, FieldError, FieldLabel } from "@/components/own/independant/field";
-import { Fieldset, FieldsetLegend } from "@/components/own/independant/fieldset";
-import { Form, type FormActions } from "@/components/own/independant/form";
+import { Button } from "@/components/own/base/button";
+import { Field, FieldControl, FieldDescription, FieldError, FieldLabel } from "@/components/own/base/field";
+import { Fieldset, FieldsetLegend } from "@/components/own/base/fieldset";
+import { Form, type FormActions } from "@/components/own/base/form";
 import { checkTeamCode, type RegistrationState } from "./actions";
 
 interface ContactValues {
