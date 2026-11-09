@@ -42,7 +42,12 @@ El material distribuible tiene esta estructura. [SKILL.md](../../../.agents/skil
         │   ├── table.md
         │   └── textarea.md
         └── composed/
-            └── floating-input.md
+            ├── attachment.md
+            ├── button-group.md
+            ├── floating-input.md
+            ├── input-group.md
+            ├── item.md
+            └── pagination.md
 ```
 
 Las referencias siguen la categoría de cada familia en `components/own/`. `simple/` incluye las familias de HTML nativo; `dependant/` se incorporará cuando haya familias de esa categoría para distribuir.
@@ -159,7 +164,9 @@ Las referencias evolucionan junto con el código que acompañan. Al documentar u
 
 ## 7. Estado de la skill en este repositorio
 
-El índice de la skill enlaza las 46 referencias del catálogo, que cubren 37 familias en `base/`, ocho en `simple/` y FloatingInput en `composed/`. Una referencia compartida cubre los seis iconos de soporte. [Índice](../../../.agents/skills/own-ui/SKILL.md) · [Estructura](../../../.agents/skills/own-ui/references/structure.md) · [Globals](../../../.agents/skills/own-ui/references/globals.md) · [Iconos](../../../.agents/skills/own-ui/references/icons.md)
+El índice de la skill enlaza 51 referencias del catálogo, que cubren 37 familias en `base/`, ocho en `simple/` y seis en `composed/`. Una referencia compartida cubre los seis iconos de soporte. [Índice](../../../.agents/skills/own-ui/SKILL.md) · [Estructura](../../../.agents/skills/own-ui/references/structure.md) · [Globals](../../../.agents/skills/own-ui/references/globals.md) · [Iconos](../../../.agents/skills/own-ui/references/icons.md)
+
+Las nuevas referencias compuestas cubren anatomía, props, estilos y accesibilidad. Para exportarlas, reúne sus dependencias transitivas según la guía de estructura e incluye los módulos CSS de Button Group e Input Group. [Attachment](../../../.agents/skills/own-ui/references/components/composed/attachment.md) · [Button Group](../../../.agents/skills/own-ui/references/components/composed/button-group.md) · [Input Group](../../../.agents/skills/own-ui/references/components/composed/input-group.md) · [Item](../../../.agents/skills/own-ui/references/components/composed/item.md) · [Pagination](../../../.agents/skills/own-ui/references/components/composed/pagination.md)
 
 La entrada y las referencias están orientadas a proyectos Next.js consumidores y sus enlaces se resuelven dentro de la carpeta de la skill. Las rutas de componentes y de la hoja global se presentan como convenciones adaptables dentro de App Router; se explican las dependencias de soporte, la integración con Link, fuentes, temas y portales sin requerir el showcase ni `docs/master/`.
 

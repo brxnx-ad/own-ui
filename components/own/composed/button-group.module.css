@@ -1,0 +1,38 @@
+@layer components {
+  .group:not(:has(> [data-slot="button-group"]:not([hidden]))) {
+    /* Joined edges take precedence over the controls' own borders and radii. */
+    &[data-orientation="horizontal"] {
+      > :not(:where([hidden], input[type="hidden"], select[aria-hidden="true"])):has(~ :not(:where([hidden], input[type="hidden"], select[aria-hidden="true"]))) {
+        border-start-end-radius: 0 !important;
+        border-end-end-radius: 0 !important;
+      }
+
+      > :not(:where([hidden], input[type="hidden"], select[aria-hidden="true"])) ~ :not(:where([hidden], input[type="hidden"], select[aria-hidden="true"])) {
+        border-start-start-radius: 0 !important;
+        border-end-start-radius: 0 !important;
+        border-inline-start-width: 0 !important;
+      }
+
+      > :has(+ [data-slot="button-group-separator"]:not([hidden])) {
+        border-inline-end-width: 0 !important;
+      }
+    }
+
+    &[data-orientation="vertical"] {
+      > :not(:where([hidden], input[type="hidden"], select[aria-hidden="true"])):has(~ :not(:where([hidden], input[type="hidden"], select[aria-hidden="true"]))) {
+        border-end-start-radius: 0 !important;
+        border-end-end-radius: 0 !important;
+      }
+
+      > :not(:where([hidden], input[type="hidden"], select[aria-hidden="true"])) ~ :not(:where([hidden], input[type="hidden"], select[aria-hidden="true"])) {
+        border-start-start-radius: 0 !important;
+        border-start-end-radius: 0 !important;
+        border-block-start-width: 0 !important;
+      }
+
+      > :has(+ [data-slot="button-group-separator"]:not([hidden])) {
+        border-block-end-width: 0 !important;
+      }
+    }
+  }
+}

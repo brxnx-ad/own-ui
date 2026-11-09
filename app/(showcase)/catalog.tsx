@@ -79,7 +79,7 @@ export function Catalog({ components }: { components: ComponentItem[] }) {
                       setSelectedTypes((current) => checked ? [...current, type] : current.filter((value) => value !== type));
                     }}>
                       <MenuCheckboxItemIndicator keepMounted />
-                      {type}
+                      {type.charAt(0).toUpperCase() + type.slice(1)}
                     </MenuCheckboxItem>
                   ))}
                 </MenuGroup>

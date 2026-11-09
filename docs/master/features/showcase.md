@@ -29,9 +29,11 @@ Cada componente registrado cuenta con su propia ruta independiente (por ejemplo,
 | :--- | :--- | :--- |
 | Accordion | `/accordion` | `@/components/own/base/accordion` |
 | Alert Dialog | `/alert-dialog` | `@/components/own/base/alert-dialog` |
+| Attachment | `/attachment` | `@/components/own/composed/attachment` |
 | Autocomplete | `/autocomplete` | `@/components/own/base/autocomplete` |
 | Avatar | `/avatar` | `@/components/own/base/avatar` |
 | Button | `/button` | `@/components/own/base/button` |
+| Button Group | `/button-group` | `@/components/own/composed/button-group` |
 | Checkbox | `/checkbox` | `@/components/own/base/checkbox` |
 | Checkbox Group | `/checkbox-group` | `@/components/own/base/checkbox-group` |
 | Collapsible | `/collapsible` | `@/components/own/base/collapsible` |
@@ -44,12 +46,15 @@ Cada componente registrado cuenta con su propia ruta independiente (por ejemplo,
 | FloatingInput | `/floating-input` | `@/components/own/composed/floating-input` |
 | Form | `/form` | `@/components/own/base/form` |
 | Input | `/input` | `@/components/own/base/input` |
+| Input Group | `/input-group` | `@/components/own/composed/input-group` |
+| Item | `/item` | `@/components/own/composed/item` |
 | Menu | `/menu` | `@/components/own/base/menu` |
 | Menubar | `/menubar` | `@/components/own/base/menubar` |
 | Meter | `/meter` | `@/components/own/base/meter` |
 | Navigation Menu | `/navigation-menu` | `@/components/own/base/navigation-menu` |
 | Number Field | `/number-field` | `@/components/own/base/number-field` |
 | OTP Field | `/otp-field` | `@/components/own/base/otp-field` |
+| Pagination | `/pagination` | `@/components/own/composed/pagination` |
 | Popover | `/popover` | `@/components/own/base/popover` |
 | Preview Card | `/preview-card` | `@/components/own/base/preview-card` |
 | Progress | `/progress` | `@/components/own/base/progress` |
@@ -175,3 +180,17 @@ Cada ejemplo se centra en un bloque `mx-auto w-full max-w-md`. Los ejemplos cont
 Las seis rutas cierran con Anatomía y Referencia de API. Number Field y Progress centran sus ejemplos en bloques de ancho máximo `max-w-xs` y `max-w-md`, respectivamente. OTP Field y Radio Group centran el conjunto en un contenedor flexible. Popover y Preview Card centran los activadores en la demostración y colocan el contenido portaleado respecto al ancla.
 
 Para comprobar el foco en un campo vacío, borra la cantidad en Number Field o enfoca una casilla vacía de OTP Field. El placeholder reaparece al salir si el campo sigue vacío. En Popover y Preview Card, alterna entre los activadores separados para comprobar que el contenido anterior se oculta al cambiar el anclaje. En Progress, comprueba que el segmento indeterminado queda estático con movimiento reducido. Radio Group muestra la selección con un punto centrado.
+
+## 8. Cobertura de los componentes compuestos de Takk
+
+| Ruta | Ejemplos en orden |
+| :--- | :--- |
+| `/attachment` | Archivo adjunto, estados de carga, tamaños, orientación vertical, vista previa como enlace, quitar y restaurar un archivo, y grupo desplazable. |
+| `/button-group` | Acciones en fila, orientación vertical, contador con texto y acciones, y separador con orientación inferida. |
+| `/input-group` | Campo con prefijo, búsqueda con borrado, complementos en bloque y contador, validación de correo y campo deshabilitado. |
+| `/item` | Elemento con acción, variantes, tamaños, lista con separador, encabezado y pie, y elemento completo como enlace. |
+| `/pagination` | Navegación entre páginas, intervalos omitidos y tamaños de enlaces. |
+
+Las cinco rutas cierran con Anatomía y Referencia de API mediante `ComposedReference`. Attachment, Button Group e Input Group tienen ejemplos con estado local en sus respectivos `examples.tsx`. Al quitar o restaurar un adjunto, el foco pasa a la acción disponible. Al borrar una búsqueda, el foco vuelve al campo. En la validación de correo, el borde y el mensaje de error desaparecen cuando el valor es válido.
+
+Pagination lee `?pagina=` dentro de un límite de `Suspense` que cubre solo la demostración de navegación. El ejemplo usa la página 1 cuando falta el parámetro, es inválido o está repetido. En los extremos se omite el enlace anterior o siguiente según corresponda.

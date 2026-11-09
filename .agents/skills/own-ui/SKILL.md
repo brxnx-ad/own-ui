@@ -19,6 +19,7 @@ Antes de integrar o modificar un componente, lee su referencia. Describe su API 
 | :--- | :--- | :--- |
 | Alert | [alert.md](references/components/simple/alert.md) | Avisos contextuales, variantes, iconos decorativos, acciones y anuncios dinámicos. |
 | Aspect Ratio | [aspect-ratio.md](references/components/simple/aspect-ratio.md) | Marcos proporcionales, dimensiones y ajuste de contenido multimedia. |
+| Attachment | [attachment.md](references/components/composed/attachment.md) | Archivos adjuntos, vista previa, estados, acciones y listas desplazables. |
 | Badge | [badge.md](references/components/simple/badge.md) | Etiquetas de categoría o estado, variantes e iconos. |
 | Card | [card.md](references/components/simple/card.md) | Superficies de contenido, densidad, encabezados, acciones y pie. |
 | Empty | [empty.md](references/components/simple/empty.md) | Estados vacíos, variantes de media, borde y fondo personalizables. |
@@ -26,6 +27,7 @@ Antes de integrar o modificar un componente, lee su referencia. Describe su API 
 | Table | [table.md](references/components/simple/table.md) | Tablas semánticas, encabezados y desplazamiento horizontal con teclado. |
 | Textarea | [textarea.md](references/components/simple/textarea.md) | Texto multilínea, contador, ajuste de tamaño y validación nativa. |
 | Button | [button.md](references/components/base/button.md) | Acciones, variantes, tamaños, iconos, carga, deshabilitación y composición como enlace. |
+| Button Group | [button-group.md](references/components/composed/button-group.md) | Botones agrupados, orientación, texto y separadores con foco accesible. |
 | Accordion | [accordion.md](references/components/base/accordion.md) | Paneles expandibles, apertura individual o múltiple, estado controlado, persistencia y animación. |
 | Alert Dialog | [alert-dialog.md](references/components/base/alert-dialog.md) | Confirmaciones modales, acciones destructivas, foco, operaciones asíncronas y activadores compartidos. |
 | Autocomplete | [autocomplete.md](references/components/base/autocomplete.md) | Texto libre con sugerencias, anclaje y dirección del panel, filtrado, grupos y límites de resultados. |
@@ -42,6 +44,8 @@ Antes de integrar o modificar un componente, lee su referencia. Describe su API 
 | FloatingInput | [floating-input.md](references/components/composed/floating-input.md) | Etiqueta flotante interior o recorte animado en el borde, estados de valor y validación con Field. |
 | Form | [form.md](references/components/base/form.md) | Envío, validación coordinada, errores externos y acciones de servidor. |
 | Input | [input.md](references/components/base/input.md) | Texto en una línea, valor controlado o inicial, restricciones nativas e integración con Field. |
+| Input Group | [input-group.md](references/components/composed/input-group.md) | Campos con complementos en línea o en bloque, validación y acciones compactas. |
+| Item | [item.md](references/components/composed/item.md) | Filas de contenido con medios, jerarquía, acciones y semántica de lista. |
 | Menu | [menu.md](references/components/base/menu.md) | Acciones ancladas, enlaces, casillas, opciones exclusivas, submenús, activadores compartidos y búsqueda. |
 | Menubar | [menubar.md](references/components/base/menubar.md) | Barras de comandos, orientación, recorrido de foco y coordinación entre menús. |
 | Meter | [meter.md](references/components/base/meter.md) | Medidores escalares en un rango conocido, formato de unidades, texto accesible y umbrales cromáticos. |
@@ -50,6 +54,7 @@ Antes de integrar o modificar un componente, lee su referencia. Describe su API 
 | OTP Field | [otp-field.md](references/components/base/otp-field.md) | Códigos de longitud fija, casillas agrupadas, pegado, normalización, máscara y envío al completar. |
 | Popover | [popover.md](references/components/base/popover.md) | Paneles anclados, colisiones, foco modal, portales y activadores compartidos con contenido contextual. |
 | Preview Card | [preview-card.md](references/components/base/preview-card.md) | Resúmenes visuales de enlaces, demoras, posicionamiento y cambio de contenido entre activadores. |
+| Pagination | [pagination.md](references/components/composed/pagination.md) | Enlaces accesibles para navegar entre páginas y presentar intervalos omitidos. |
 | Progress | [progress.md](references/components/base/progress.md) | Avance de tareas, rangos y unidades, estado indeterminado, finalización y texto accesible. |
 | Radio Group | [radio-group.md](references/components/base/radio-group.md) | Selección exclusiva, navegación con flechas, etiquetas, solo lectura y formularios. |
 | Scroll Area | [scroll-area.md](references/components/base/scroll-area.md) | Regiones desplazables, barras por eje, esquina, medición de bordes y foco. |

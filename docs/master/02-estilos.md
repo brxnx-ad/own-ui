@@ -103,10 +103,12 @@ El import local permite que Next.js agrupe el CSS según las dependencias de cad
 | Archivo | Responsabilidad |
 | :--- | :--- |
 | `accordion.module.css` | Controla la altura y la opacidad del panel durante la apertura y el cierre. |
+| `button-group.module.css` | Une los bordes y radios interiores de controles adyacentes según la orientación del grupo. |
 | `collapsible.module.css` | Controla la altura y la opacidad del panel durante la apertura y el cierre. |
 | `drawer.module.css` | Coordina la opacidad del fondo y la traslación del panel al abrir, arrastrar y cerrar. Define la geometría del agarre y la reserva de espacio en los puntos de ajuste. |
 | `field.module.css` | Define la separación entre piezas y coordina la altura, la opacidad y el espacio que ocupa `FieldError` al aparecer o desaparecer. |
 | `floating-input.module.css` | Posiciona la etiqueta según el foco y el valor. En `outline`, el recorte abre desde el centro y sus extremos quedan en el tramo recto del borde. |
+| `input-group.module.css` | Unifica el marco del campo y sus complementos, incluido el contador de Textarea, y dibuja el foco visible y el estado inválido en el contenedor. |
 | `navigation-menu.module.css` | Coordina la posición, las dimensiones y la entrada direccional del contenido. |
 | `popover.module.css` | Coordina el tamaño del popup y el contenido al cambiar de activador. |
 | `preview-card.module.css` | Coordina el tamaño del popup y el contenido al cambiar de activador. |

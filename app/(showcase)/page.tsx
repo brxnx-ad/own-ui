@@ -2,6 +2,11 @@ import { Catalog, type ComponentItem } from "./catalog";
 
 
 const components: ComponentItem[] = [
+  { name: "Attachment", href: "/attachment", description: "Archivos adjuntos con vista previa, estados y acciones.", category: "Contenido", type: "composed" },
+  { name: "Button Group", href: "/button-group", description: "Controles relacionados agrupados horizontal o verticalmente.", category: "Acción", type: "composed" },
+  { name: "Input Group", href: "/input-group", description: "Campos con complementos de texto y acciones.", category: "Entrada", type: "composed" },
+  { name: "Item", href: "/item", description: "Elementos de contenido con medios y acciones.", category: "Contenido", type: "composed" },
+  { name: "Pagination", href: "/pagination", description: "Navegación entre páginas de resultados.", category: "Contenido", type: "composed" },
   { name: "Alert", href: "/alert", description: "Mensajes contextuales con estados y acciones.", category: "Información", type: "simple" },
   {
     name: "Accordion",

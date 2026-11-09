@@ -64,7 +64,7 @@ En `components/own/base/` hay 37 familias implementadas, cada una basada en una 
 
 ## 2. Componentes compuestos (`components/own/composed/`)
 
-En `components/own/composed/` hay 1 componente implementado.
+En `components/own/composed/` hay seis familias implementadas. FloatingInput se detalla aquí y las cinco familias incorporadas a partir de Takk se registran en [la sección 3.2](#32-familias-compuestas-implementadas).
 
 - [x] FloatingInput. Compone Input y Field para renderizar un campo con etiqueta flotante, con las variantes `inset` y `outline`.
 
@@ -85,15 +85,15 @@ Estas ocho familias de Takk están implementadas con HTML nativo o utilidades de
 - [x] Table
 - [x] Textarea
 
-### 3.2. Familias previstas en `components/own/composed/`
+### 3.2. Familias compuestas implementadas
 
-La composición prevista se basa en componentes de own-ui que cada definición reutiliza en Takk.
+Cada familia reutiliza las piezas de own-ui indicadas y cuenta con una [página de showcase](features/showcase.md#8-cobertura-de-los-componentes-compuestos-de-takk) y una [referencia en la skill](features/skill-own-ui.md#7-estado-de-la-skill-en-este-repositorio).
 
-- [ ] Attachment · Button.
-- [ ] Button Group · Separator.
-- [ ] Input Group · Button, Input y Textarea.
-- [ ] Item · Separator.
-- [ ] Pagination · Button.
+- [x] Attachment · Button.
+- [x] Button Group · Separator.
+- [x] Input Group · Button, Input y Textarea.
+- [x] Item · Separator.
+- [x] Pagination · Button.
 
 ### 3.3. Familias con motor externo en `components/own/dependant/`
 

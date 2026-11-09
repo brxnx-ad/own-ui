@@ -31,7 +31,7 @@ Las referencias de Button, Accordion y Alert Dialog parten de la revisión de or
 
 Comprueba la compatibilidad del entorno receptor al usar otras versiones. Consulta los tipos de la primitiva instalada para las opciones heredadas y distingue las dependencias de cada wrapper de la configuración compartida de la aplicación.
 
-Las 37 familias Base UI se ubican en `components/own/base/`, FloatingInput en `components/own/composed/` y las ocho familias de HTML nativo en `components/own/simple/`. En la tabla, los nombres de archivo sueltos se resuelven dentro de la carpeta de cada familia. Las rutas que incluyen una carpeta son relativas a `components/own/`.
+Las 37 familias Base UI se ubican en `components/own/base/`, seis familias compuestas en `components/own/composed/` y las ocho familias de HTML nativo en `components/own/simple/`. En la tabla, los nombres de archivo sueltos se resuelven dentro de la carpeta de cada familia. Las rutas que incluyen una carpeta son relativas a `components/own/`.
 
 | Familia | Archivos propios y de soporte necesarios |
 | :--- | :--- |
@@ -58,6 +58,11 @@ Las 37 familias Base UI se ubican en `components/own/base/`, FloatingInput en `c
 | Field | `field.tsx` y `field.module.css`. Los controles adicionales y Base UI Form se incorporan según la composición. |
 | Fieldset | `fieldset.tsx`. Los campos y controles se eligen en la composición. |
 | FloatingInput | `composed/floating-input.tsx`, `composed/floating-input.module.css`, `base/input.tsx`, `base/field.tsx` e `base/field.module.css`. |
+| Attachment | `composed/attachment.tsx` y `base/button.tsx`. Button requiere `icons/index.tsx` y `icons/spinner.tsx`. |
+| Button Group | `composed/button-group.tsx`, `composed/button-group.module.css` y `base/separator.tsx`. |
+| Input Group | `composed/input-group.tsx`, `composed/input-group.module.css`, `base/button.tsx`, `base/input.tsx`, `simple/textarea.tsx` y los iconos de Button. |
+| Item | `composed/item.tsx` y `base/separator.tsx`. |
+| Pagination | `composed/pagination.tsx`, `base/button.tsx`, `icons/index.tsx`, `icons/spinner.tsx` por el reexport de Spinner y `next/link` de Next.js. |
 | Form | `form.tsx`. Los campos, grupos y botones se eligen en la composición. |
 | Input | `input.tsx`. Incluye Field cuando el consumidor utilice sus etiquetas, descripciones o validación coordinada. |
 | Menu | `menu.tsx`, Check y Chevron con su helper SVG en `icons/index.tsx`. Si se copia el módulo completo de iconos, incluye también `icons/spinner.tsx` por su reexportación. |

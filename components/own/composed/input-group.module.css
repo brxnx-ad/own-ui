@@ -1,0 +1,38 @@
+@layer components {
+  .group {
+    > :is(input:not([type="hidden"]), textarea, [data-slot="textarea-frame"]) {
+      /* A nonzero basis keeps the counted textarea off the full-width addon row. */
+      flex: 1 1 1px;
+      min-width: 0;
+    }
+
+    /* The group owns the border and field focus indicator, including with a counter. */
+    > :is([data-slot="input-group-control"], [data-slot="textarea-frame"]),
+    > [data-slot="textarea-frame"] > [data-slot="input-group-control"] {
+      background-color: transparent !important;
+      border: 0 !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+      outline: none !important;
+    }
+
+    > input[data-slot="input-group-control"] {
+      min-height: calc(var(--spacing) * 10 - 2px) !important;
+    }
+
+    &:has(
+      > :is(input:not([type="hidden"]), textarea):focus-visible,
+      > [data-slot="textarea-frame"] > textarea:focus-visible
+    ) {
+      outline: 2px solid var(--primary-base);
+    }
+
+    &:has(
+      > :is(input:not([type="hidden"]), textarea):is([aria-invalid="true"], [data-length-overflow], :user-invalid),
+      > [data-slot="textarea-frame"] > textarea:is([aria-invalid="true"], [data-length-overflow], :user-invalid)
+    ) {
+      border-color: var(--error-bold) !important;
+      outline-color: var(--error-bold);
+    }
+  }
+}
