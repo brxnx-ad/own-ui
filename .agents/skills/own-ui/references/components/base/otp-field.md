@@ -33,13 +33,24 @@ Se exportan `OTPFieldProps`, `OTPFieldState`, `OTPFieldValidationType`, `OTPFiel
 El consumidor aporta la etiqueta y monta exactamente `length` casillas dentro de la raíz. Puede agruparlas con contenedores propios o separarlas con `OTPFieldSeparator`. El separador no ocupa una posición del código.
 
 ```tsx
-<label htmlFor="access-code">Código de verificación</label>
-<OTPField id="access-code" name="code" length={4}>
-  <OTPFieldInput />
-  <OTPFieldInput aria-label="Carácter 2 de 4" />
-  <OTPFieldInput aria-label="Carácter 3 de 4" />
-  <OTPFieldInput aria-label="Carácter 4 de 4" />
-</OTPField>
+import { useId } from "react";
+import { OTPField, OTPFieldInput } from "@/components/own/base/otp-field";
+
+export function VerificationCode() {
+  const id = useId();
+
+  return (
+    <>
+      <label htmlFor={id}>Código de verificación</label>
+      <OTPField id={id} name="code" length={4}>
+        <OTPFieldInput />
+        <OTPFieldInput aria-label="Carácter 2 de 4" />
+        <OTPFieldInput aria-label="Carácter 3 de 4" />
+        <OTPFieldInput aria-label="Carácter 4 de 4" />
+      </OTPField>
+    </>
+  );
+}
 ```
 
 ## 4. Variantes y tamaños

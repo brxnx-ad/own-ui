@@ -36,7 +36,7 @@ export function Catalog({ components }: { components: ComponentItem[] }) {
     const matchesCategory = selectedCategories.length === 0 || selectedCategories.includes(item.category);
     const matchesType = selectedTypes.length === 0 || selectedTypes.includes(item.type);
     return matchesSearch && matchesCategory && matchesType;
-  });
+  }).sort((a, b) => a.name.localeCompare(b.name, "es"));
 
   function clearFilters() {
     setQuery("");

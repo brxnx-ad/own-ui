@@ -84,6 +84,9 @@ Al exportar incluye `input-group.module.css`. Sus selectores internos combinan c
 "use client";
 
 import { useRef, useState } from "react";
+import {
+  InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput,
+} from "@/components/own/composed/input-group";
 
 export function SearchField() {
   const [value, setValue] = useState("");
@@ -91,7 +94,7 @@ export function SearchField() {
 
   return (
     <InputGroup>
-      <InputGroupInput ref={inputRef} value={value} onChange={(event) => setValue(event.target.value)} />
+      <InputGroupInput aria-label="Buscar" ref={inputRef} value={value} onChange={(event) => setValue(event.target.value)} />
       <InputGroupAddon align="inline-end">
         <InputGroupButton disabled={!value} onClick={() => {
           setValue("");
@@ -103,7 +106,7 @@ export function SearchField() {
 }
 ```
 
-Añade una etiqueta externa vinculada con `id`/`htmlFor`, o compón con Field para descripciones y mensajes de validación.
+Si prefieres una etiqueta visible, vincúlala con `id` y `htmlFor`. Compón con Field para añadir descripciones y mensajes de validación.
 
 ## 9. Accesibilidad e integración
 

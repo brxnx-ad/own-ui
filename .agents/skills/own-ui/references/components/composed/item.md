@@ -30,17 +30,25 @@ import {
 | `ItemSeparator` | `div[role=separator]` de Separator | Separador horizontal decorativo. |
 
 ```tsx
-<ItemGroup aria-label="Documentos">
-  <Item variant="outline">
-    <ItemMedia variant="icon"><FileText aria-hidden="true" /></ItemMedia>
-    <ItemContent>
-      <ItemTitle>Informe</ItemTitle>
-      <ItemDescription>Actualizado hoy</ItemDescription>
-    </ItemContent>
-    <ItemActions><Button>Abrir</Button></ItemActions>
-  </Item>
-  <ItemSeparator />
-</ItemGroup>
+import Link, { type LinkProps } from "next/link";
+import {
+  Item, ItemActions, ItemContent, ItemDescription, ItemGroup, ItemMedia, ItemTitle,
+} from "@/components/own/composed/item";
+
+export function DocumentList({ href }: { href: LinkProps["href"] }) {
+  return (
+    <ItemGroup aria-label="Documentos">
+      <Item variant="outline">
+        <ItemMedia><span className="caption">PDF</span></ItemMedia>
+        <ItemContent>
+          <ItemTitle>Informe</ItemTitle>
+          <ItemDescription>Actualizado hoy</ItemDescription>
+        </ItemContent>
+        <ItemActions><Link href={href}>Abrir informe</Link></ItemActions>
+      </Item>
+    </ItemGroup>
+  );
+}
 ```
 
 El módulo exporta `ItemVariant`, `ItemSize`, `ItemMediaVariant`, `ItemProps` y `ItemMediaProps`.
@@ -92,16 +100,26 @@ Todos los ajustes locales actúan con `className` o `style` sobre la pieza concr
 ## 8. Ejemplos de composición
 
 ```tsx
-<Item variant="outline" render={<Link href="/documents/42" />}>
-  <ItemMedia variant="image"><Image src={src} alt="" width={40} height={40} /></ItemMedia>
-  <ItemContent>
-    <ItemTitle>Guía del proyecto</ItemTitle>
-    <ItemDescription>Actualizada hoy</ItemDescription>
-  </ItemContent>
-</Item>
+import Image, { type ImageProps } from "next/image";
+import Link, { type LinkProps } from "next/link";
+import {
+  Item, ItemContent, ItemDescription, ItemMedia, ItemTitle,
+} from "@/components/own/composed/item";
+
+export function DocumentItem({ href, src }: { href: LinkProps["href"]; src: ImageProps["src"] }) {
+  return (
+    <Item variant="outline" render={<Link href={href} />}>
+      <ItemMedia variant="image"><Image src={src} alt="" width={40} height={40} /></ItemMedia>
+      <ItemContent>
+        <ItemTitle>Guía del proyecto</ItemTitle>
+        <ItemDescription>Actualizada hoy</ItemDescription>
+      </ItemContent>
+    </Item>
+  );
+}
 ```
 
-Usa Image con dimensiones o `fill` de Next.js y proporciona un `alt` acorde a si la imagen aporta información. Los atributos y el ref para el enlace los combina Base UI en `render`.
+El consumidor aporta el destino `href` y la imagen `src`. Usa Image con dimensiones o `fill` de Next.js y ajusta el texto alternativo según la información que aporte la imagen. Base UI combina los atributos y la ref del enlace mediante `render`.
 
 ## 9. Accesibilidad e integración
 

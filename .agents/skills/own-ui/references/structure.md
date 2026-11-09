@@ -28,10 +28,12 @@ Las referencias de Button, Accordion y Alert Dialog parten de la revisión de or
 | Aplicación | Next.js 16.4.5 con App Router, React y React DOM 19.3.0. La navegación interna usa `next/link` y la fuente de referencia se carga con `next/font/google`. |
 | Wrappers | `@base-ui/react` 1.9.0 y `clsx` 2.1.1. Los wrappers reciben referencias DOM como props de React 19. |
 | Estilos y tema | Tailwind CSS v4 (4.3.4 en el origen) para generar las utilidades y `next-themes` 0.4.6 para aplicar el tema por clase. |
+| Motor de Carousel | `embla-carousel-react` 8.6.0, requerido al exportar Carousel. |
+| Motor de Chart | `@tanstack/charts` 1.5.0 con el adaptador SVG de React, requerido al exportar Chart. |
 
 Comprueba la compatibilidad del entorno receptor al usar otras versiones. Consulta los tipos de la primitiva instalada para las opciones heredadas y distingue las dependencias de cada wrapper de la configuración compartida de la aplicación.
 
-Las 37 familias Base UI se ubican en `components/own/base/`, seis familias compuestas en `components/own/composed/` y las ocho familias de HTML nativo en `components/own/simple/`. En la tabla, los nombres de archivo sueltos se resuelven dentro de la carpeta de cada familia. Las rutas que incluyen una carpeta son relativas a `components/own/`.
+Las 37 familias Base UI se ubican en `components/own/base/`, siete familias compuestas en `components/own/composed/` y las ocho familias de HTML nativo en `components/own/simple/`. Carousel y Chart se ubican en `components/own/dependant/`. En la tabla, los nombres de archivo sueltos se resuelven dentro de la carpeta de cada familia. Las rutas que incluyen una carpeta son relativas a `components/own/`.
 
 | Familia | Archivos propios y de soporte necesarios |
 | :--- | :--- |
@@ -39,6 +41,8 @@ Las 37 familias Base UI se ubican en `components/own/base/`, seis familias compu
 | Aspect Ratio | `aspect-ratio.tsx`. El consumidor aporta el contenido del marco. |
 | Badge | `badge.tsx`. El consumidor aporta el texto y los iconos opcionales. |
 | Card | `card.tsx`. El consumidor aporta las acciones y el contenido. |
+| Carousel | `dependant/carousel.tsx`, `base/button.tsx`, `icons/index.tsx`, `icons/spinner.tsx` y la dependencia `embla-carousel-react` 8.6.0. |
+| Chart | `dependant/chart.tsx`, `dependant/chart.module.css` y la dependencia `@tanstack/charts` 1.5.0. El consumidor aporta la definición del gráfico. |
 | Empty | `empty.tsx`. El consumidor aporta el recurso visual y las acciones opcionales. |
 | Skeleton | `skeleton.tsx` y `skeleton.module.css`. El módulo CSS define la base gris, el brillo por tema y la animación compartida. |
 | Table | `table.tsx`. Incluye el contenedor desplazable y las piezas de la tabla. |
@@ -60,6 +64,7 @@ Las 37 familias Base UI se ubican en `components/own/base/`, seis familias compu
 | FloatingInput | `composed/floating-input.tsx`, `composed/floating-input.module.css`, `base/input.tsx`, `base/field.tsx` e `base/field.module.css`. |
 | Attachment | `composed/attachment.tsx` y `base/button.tsx`. Button requiere `icons/index.tsx` y `icons/spinner.tsx`. |
 | Button Group | `composed/button-group.tsx`, `composed/button-group.module.css` y `base/separator.tsx`. |
+| Command | `composed/command.tsx`, `base/autocomplete.tsx`, `base/dialog.tsx`, `icons/index.tsx` e `icons/spinner.tsx` por la reexportación de Spinner. |
 | Input Group | `composed/input-group.tsx`, `composed/input-group.module.css`, `base/button.tsx`, `base/input.tsx`, `simple/textarea.tsx` y los iconos de Button. |
 | Item | `composed/item.tsx` y `base/separator.tsx`. |
 | Pagination | `composed/pagination.tsx`, `base/button.tsx`, `icons/index.tsx`, `icons/spinner.tsx` por el reexport de Spinner y `next/link` de Next.js. |

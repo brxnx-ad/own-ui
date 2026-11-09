@@ -2,7 +2,7 @@
 
 Lee esta referencia al integrar los estilos de own-ui en un proyecto Next.js con App Router, elegir colores, tipografía, geometría o elevación, cambiar el tema o modificar los tokens compartidos. Para los estados y las dimensiones de un componente concreto, consulta también su referencia.
 
-La ruta convencional del CSS es `assets/styles/globals.css`. Las tablas describen la configuración de la revisión que identifica la [referencia de estructura](structure.md#compatibilidad-y-archivos-necesarios). Localiza la hoja global y comprueba los valores efectivos del consumidor antes de ajustar sus semillas o tokens. Conserva los roles semánticos que usan las familias integradas.
+La ruta convencional del CSS es `assets/styles/globals.css`. Las tablas reflejan la configuración actual de own-ui. Localiza la hoja global y comprueba los valores efectivos del consumidor antes de ajustar sus semillas o tokens. Conserva los roles semánticos que usan las familias integradas.
 
 ## 1. Organización física del archivo
 
@@ -80,16 +80,21 @@ La asignación semántica evita duplicar los colores con `dark:*` en cada compon
 
 `@theme inline` vincula `--color-surface-*` y `--color-{familia}-{magnitud}` a sus variables semánticas. Esto permite usarlas con `bg-*`, `text-*`, `border-*`, `ring-*`, `fill-*` y `stroke-*`.
 
-Ejemplos de combinación:
+Combina una superficie neutra y un aviso de error con utilidades semánticas.
 
 ```tsx
-<div className="rounded-base border border-gray-base bg-surface-base p-4 text-gray-bold shadow-s">
-  <p className="body-sm text-gray-bold/75">Contenido secundario</p>
-</div>
-
-<p className="rounded-base border border-error-base bg-error-soft p-3 text-error-bold">
-  No se pudo completar la operación.
-</p>
+export function SemanticSurfaces() {
+  return (
+    <>
+      <div className="rounded-base border border-gray-base bg-surface-base p-4 text-gray-bold shadow-s">
+        <p className="body-sm text-gray-bold/75">Contenido secundario</p>
+      </div>
+      <p className="rounded-base border border-error-base bg-error-soft p-3 text-error-bold">
+        No se pudo completar la operación.
+      </p>
+    </>
+  );
+}
 ```
 
 `ring-primary-base` es una utilidad de color válida; no existe un token semántico adicional llamado `ring` en este archivo. Tampoco hay tokens de sidebar o una geometría por componente.

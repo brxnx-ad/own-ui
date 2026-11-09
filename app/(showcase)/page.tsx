@@ -4,6 +4,7 @@ import { Catalog, type ComponentItem } from "./catalog";
 const components: ComponentItem[] = [
   { name: "Attachment", href: "/attachment", description: "Archivos adjuntos con vista previa, estados y acciones.", category: "Contenido", type: "composed" },
   { name: "Button Group", href: "/button-group", description: "Controles relacionados agrupados horizontal o verticalmente.", category: "Acción", type: "composed" },
+  { name: "Command", href: "/command", description: "Paleta modal para buscar y ejecutar acciones con el teclado o el puntero.", category: "Acción", type: "composed" },
   { name: "Input Group", href: "/input-group", description: "Campos con complementos de texto y acciones.", category: "Entrada", type: "composed" },
   { name: "Item", href: "/item", description: "Elementos de contenido con medios y acciones.", category: "Contenido", type: "composed" },
   { name: "Pagination", href: "/pagination", description: "Navegación entre páginas de resultados.", category: "Contenido", type: "composed" },
@@ -48,6 +49,8 @@ const components: ComponentItem[] = [
     type: "base",
   },
   { name: "Card", href: "/card", description: "Superficie para agrupar contenido y acciones.", category: "Contenido", type: "simple" },
+  { name: "Carousel", href: "/carousel", description: "Diapositivas desplazables con arrastre, flechas y paginación.", category: "Contenido", type: "dependant" },
+  { name: "Chart", href: "/chart", description: "Gráficos SVG adaptables con marcas tipadas, ejes e interacción.", category: "Información", type: "dependant" },
   {
     name: "Checkbox",
     href: "/checkbox",

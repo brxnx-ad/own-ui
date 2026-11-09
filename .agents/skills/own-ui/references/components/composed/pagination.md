@@ -14,8 +14,11 @@ Presenta una navegación para páginas dentro de una colección. El consumidor d
 import {
   Pagination, PaginationContent, PaginationEllipsis, PaginationItem,
   PaginationLink, PaginationNext, PaginationPrevious,
+  type PaginationLinkProps, type PaginationDirectionProps,
 } from "@/components/own/composed/pagination";
 ```
+
+`PaginationLinkProps` amplía las props de Next Link con `isActive?: boolean` y `size?: ButtonSize`. `PaginationDirectionProps` se usa en `PaginationPrevious` y `PaginationNext`. Hereda las props del enlace excepto `children` y añade `text?: string`.
 
 | Pieza | Elemento predeterminado | Responsabilidad |
 | :--- | :--- | :--- |

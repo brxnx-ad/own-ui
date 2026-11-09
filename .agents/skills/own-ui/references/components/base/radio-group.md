@@ -29,17 +29,28 @@ También se exportan `RadioGroupProps<Value>`, `RadioGroupState`, `RadioGroupCha
 Coloca las opciones dentro de `RadioGroup` y monta un `RadioIndicator` dentro de cada `Radio` para mostrar su selección. El consumidor aporta las etiquetas y compone las opciones mediante `children`.
 
 ```tsx
-<p id="notification-channel">Canal de notificación</p>
-<RadioGroup name="channel" aria-labelledby="notification-channel" defaultValue="correo">
-  <label className="body-sm flex items-center gap-2.5">
-    <Radio value="correo"><RadioIndicator /></Radio>
-    Correo electrónico
-  </label>
-  <label className="body-sm flex items-center gap-2.5">
-    <Radio value="sms"><RadioIndicator /></Radio>
-    SMS
-  </label>
-</RadioGroup>
+import { useId } from "react";
+import { Radio, RadioGroup, RadioIndicator } from "@/components/own/base/radio-group";
+
+export function NotificationChannel() {
+  const labelId = useId();
+
+  return (
+    <>
+      <p id={labelId}>Canal de notificación</p>
+      <RadioGroup name="channel" aria-labelledby={labelId} defaultValue="correo">
+        <label className="body-sm flex items-center gap-2.5">
+          <Radio value="correo"><RadioIndicator /></Radio>
+          Correo electrónico
+        </label>
+        <label className="body-sm flex items-center gap-2.5">
+          <Radio value="sms"><RadioIndicator /></Radio>
+          SMS
+        </label>
+      </RadioGroup>
+    </>
+  );
+}
 ```
 
 ## 4. Variantes y tamaños

@@ -104,6 +104,7 @@ El import local permite que Next.js agrupe el CSS según las dependencias de cad
 | :--- | :--- |
 | `accordion.module.css` | Controla la altura y la opacidad del panel durante la apertura y el cierre. |
 | `button-group.module.css` | Une los bordes y radios interiores de controles adyacentes según la orientación del grupo. |
+| `chart.module.css` | Mapea la paleta y el tooltip de TanStack Charts a los tokens de own-ui. Ajusta el contraste en modo oscuro y dibuja el foco visible del SVG. |
 | `collapsible.module.css` | Controla la altura y la opacidad del panel durante la apertura y el cierre. |
 | `drawer.module.css` | Coordina la opacidad del fondo y la traslación del panel al abrir, arrastrar y cerrar. Define la geometría del agarre y la reserva de espacio en los puntos de ajuste. |
 | `field.module.css` | Define la separación entre piezas y coordina la altura, la opacidad y el espacio que ocupa `FieldError` al aparecer o desaparecer. |

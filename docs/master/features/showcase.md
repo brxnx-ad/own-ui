@@ -11,6 +11,7 @@
 La página de inicio (`/`) funciona exclusivamente como un **directorio o índice navegable** de componentes:
 
 * **Listado limpio:** Muestra una colección estructurada de tarjetas que resumen cada componente disponible (nombre, categoría semántica y descripción técnica concisa).
+* **Orden alfabético.** Las tarjetas se ordenan por nombre de A a Z, tanto en el listado completo como en los resultados de búsqueda y filtrado.
 * **Navegación directa:** Cada elemento del listado es un enlace interactivo hacia la página dedicada del componente correspondiente.
 * **Sin sobrecarga visual:** No embebe variantes completas ni controles interactivos en la portada, preservando la ligereza y escalabilidad del índice a medida que el catálogo crezca.
 
@@ -38,10 +39,13 @@ Cada componente registrado cuenta con su propia ruta independiente (por ejemplo,
 | Button | `/button` | `@/components/own/base/button` |
 | Button Group | `/button-group` | `@/components/own/composed/button-group` |
 | Card | `/card` | `@/components/own/simple/card` |
+| Carousel | `/carousel` | `@/components/own/dependant/carousel` |
+| Chart | `/chart` | `@/components/own/dependant/chart` |
 | Checkbox | `/checkbox` | `@/components/own/base/checkbox` |
 | Checkbox Group | `/checkbox-group` | `@/components/own/base/checkbox-group` |
 | Collapsible | `/collapsible` | `@/components/own/base/collapsible` |
 | Combobox | `/combobox` | `@/components/own/base/combobox` |
+| Command | `/command` | `@/components/own/composed/command` |
 | Context Menu | `/context-menu` | `@/components/own/base/context-menu` |
 | Dialog | `/dialog` | `@/components/own/base/dialog` |
 | Drawer | `/drawer` | `@/components/own/base/drawer` |
@@ -221,3 +225,33 @@ En el índice, el filtro `Simple` reúne estas ocho rutas. Cada página presenta
 Los ejemplos con estado local de Alert, Skeleton y Textarea viven en `examples.tsx` dentro de su ruta. En Alert, `Mostrar resultado` actualiza una región `role="status"` y el foco permanece en el botón. En Skeleton, `Mostrar perfil` sustituye los marcadores por el contenido y cambia `aria-busy` a `false`. Con movimiento reducido, los marcadores se muestran estáticos.
 
 Para comprobar el desplazamiento de Table, enfoca la región `Resumen trimestral` con Tab y usa las flechas. En Textarea, el formulario bloquea el envío vacío o con menos de cinco caracteres. Un comentario válido muestra `Comentario válido` en la misma página y `Limpiar` restablece el campo y el contador.
+
+## 10. Cobertura de Command
+
+La ruta `/command` presenta tres ejemplos en este orden.
+
+1. **Buscar y ejecutar una acción.** Busca «capitalizar» mediante `keywords` y pulsa Enter para convertir el título a mayúsculas.
+2. **Comandos agrupados.** Cambia el tema del showcase desde los grupos Apariencia y Sistema. La opción `Sincronizar preferencias` se muestra deshabilitada.
+3. **Apertura controlada.** Un botón externo abre la paleta mediante `open`. Al cerrarla, `finalFocus` devuelve el foco a ese botón.
+
+Los ejemplos interactivos viven en `app/(showcase)/command/examples.tsx`. La página termina con Anatomía y Referencia de API mediante `ComposedReference`. Para comprobar el estado vacío, escribe una consulta sin coincidencias. Pulsa Escape para cerrar la paleta y volver al activador.
+
+## 11. Cobertura de Carousel
+
+La ruta `/carousel` presenta tres ejemplos en este orden.
+
+1. **Navegación por posiciones.** Recorre los destinos con arrastre, flechas o indicadores. Al llegar a un extremo, el botón correspondiente se deshabilita y conserva el foco.
+2. **Tarjetas con ancho adaptable.** Muestra una tarjeta en móvil y dos desde `sm`. Embla recalcula la paginación al cambiar el ancho con `slidesToScroll: "auto"`.
+3. **Desplazamiento vertical en bucle.** Recorre las etapas con las flechas verticales y vuelve al inicio con `loop`.
+
+La página termina con Anatomía y Referencia de API. Para comprobar el teclado, enfoca la raíz y pulsa las flechas del eje. Para verificar el movimiento reducido, actívalo en el entorno y navega con los controles. El cambio de posición programático es inmediato.
+
+## 12. Cobertura de Chart
+
+La ruta `/chart` presenta tres ejemplos en este orden.
+
+1. **Tendencia mensual.** Un gráfico de línea adaptable muestra la producción de enero a junio. El tooltip se actualiza con el puntero y las flechas del teclado.
+2. **Comparación por área.** Un gráfico de barras compara órdenes procesadas. La tabla desplegable permite consultar los valores exactos.
+3. **Series por período.** Los botones de semestre actualizan los datos y mantienen la escala vertical de 0 a 120. La leyenda identifica Real y Plan, que también se distinguen por el patrón de línea. Selecciona un punto con Enter o con el puntero para mostrar su valor.
+
+Las definiciones viven en el componente cliente `app/(showcase)/chart/examples.tsx`. El adaptador renderiza el SVG inicial y lo ajusta al ancho disponible. La página termina con Anatomía y Referencia de API.

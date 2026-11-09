@@ -37,7 +37,7 @@
 
 Clasifica cada familia según las dependencias de su definición. Aplica la primera categoría que corresponda.
 
-1. **`dependant/`** requiere una librería externa especializada para su comportamiento principal, como Embla para un carrusel o Recharts para gráficos. Esta categoría también cubre las familias que combinan esa librería con componentes propios.
+1. **`dependant/`** requiere una librería externa especializada para su comportamiento principal. Carousel usa Embla para desplazar las diapositivas y compone Button para sus controles. Chart usa el adaptador SVG de TanStack Charts.
 2. **`composed/`** reutiliza otras familias propias en su definición, incluido un `render` predeterminado.
 3. **`base/`** envuelve una familia primitiva de Base UI. Radio Group reúne las primitivas `RadioGroup` y `Radio` en una sola familia del catálogo.
 4. **`simple/`** se define con HTML nativo y utilidades compartidas, sin necesitar primitivas de Base UI, otras familias propias ni librerías externas especializadas.

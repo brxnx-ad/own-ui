@@ -1,0 +1,32 @@
+@layer components {
+  .chart {
+    color: var(--gray-bold);
+    --ts-chart-1: var(--primary-base);
+    --ts-chart-2: var(--info-base);
+    --ts-chart-3: var(--success-base);
+    --ts-chart-4: var(--warning-base);
+    --ts-chart-5: var(--error-base);
+    --ts-chart-6: var(--gray-bold);
+    --ts-chart-focus-fill: var(--surface-bold);
+    --ts-chart-tooltip-background: var(--surface-bold);
+    --ts-chart-tooltip-color: var(--gray-bold);
+    --ts-chart-tooltip-border: 1px solid var(--gray-base);
+    --ts-chart-tooltip-border-radius: var(--radius);
+    --ts-chart-tooltip-shadow: var(--shadow-m);
+    --ts-chart-tooltip-font: 500 0.75rem / 1.4 var(--font-sans, system-ui);
+  }
+
+  :global(.dark) .chart {
+    --ts-chart-1: color-mix(in oklab, var(--primary-base), var(--gray-bold) 32%);
+    --ts-chart-2: color-mix(in oklab, var(--info-base), var(--gray-bold) 32%);
+    --ts-chart-3: color-mix(in oklab, var(--success-base), var(--gray-bold) 32%);
+    --ts-chart-4: color-mix(in oklab, var(--warning-base), var(--gray-bold) 32%);
+    --ts-chart-5: color-mix(in oklab, var(--error-base), var(--gray-bold) 32%);
+  }
+
+  .chart :global(.ts-chart:focus-visible) {
+    border-radius: var(--radius);
+    outline: 2px solid currentColor;
+    outline-offset: -2px;
+  }
+}
