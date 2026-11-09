@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Empty, EmptyContent, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTitle } from "@/components/own/simple/empty";
 import { Button } from "@/components/own/base/button";
 import { Search } from "lucide-react";
@@ -20,8 +21,28 @@ export default function Page() {
       ["EmptyMedia", "variant", '"default" | "icon"', '"default"', "Sí", "Aplica la presentación para iconos."],
       ["EmptyTitle", "as", '"h2" | "h3" | "h4" | "h5" | "h6"', '"h2"', "Sí", "Define la jerarquía del título."],
     ]}>
-    <Example title="Sin resultados" description={<>Usa <code>EmptyMedia</code> para acompañar el mensaje con un icono.</>}><Empty><EmptyHeader><EmptyMedia variant="icon"><Search aria-hidden="true" /></EmptyMedia><EmptyTitle as="h3">Sin resultados</EmptyTitle><EmptyDescription>Prueba con otros términos de búsqueda.</EmptyDescription></EmptyHeader><EmptyContent><Button size="sm" variant="secondary">Limpiar filtros</Button></EmptyContent></Empty></Example>
+    <Example title="Sin resultados" description={<>Acompaña el mensaje con un icono en <code>EmptyMedia</code> y una acción en <code>EmptyContent</code>.</>}>
+      <Empty>
+        <EmptyHeader>
+          <EmptyMedia variant="icon"><Search aria-hidden="true" /></EmptyMedia>
+          <EmptyTitle as="h3">Sin resultados</EmptyTitle>
+          <EmptyDescription>Vuelve al listado para probar otra búsqueda.</EmptyDescription>
+        </EmptyHeader>
+        <EmptyContent>
+          <Button size="sm" variant="secondary" nativeButton={false} role="link" render={<Link href="/" />}>Explorar catálogo</Button>
+        </EmptyContent>
+      </Empty>
+    </Example>
     <Example title="Estado vacío sencillo" description="Presenta el mensaje sin contenido visual ni acciones."><Empty><EmptyHeader><EmptyTitle as="h3">Aún no hay notas</EmptyTitle><EmptyDescription>Las notas aparecerán aquí cuando se agreguen.</EmptyDescription></EmptyHeader></Empty></Example>
+    <Example title="Recurso visual libre" description={<>Usa <code>EmptyMedia</code> con su variante predeterminada para conservar la geometría del contenido.</>}>
+      <Empty background="soft">
+        <EmptyHeader>
+          <EmptyMedia aria-hidden="true"><Search className="size-8 text-gray-bold/70" /></EmptyMedia>
+          <EmptyTitle as="h3">Aún no hay búsquedas guardadas</EmptyTitle>
+          <EmptyDescription>Las búsquedas guardadas aparecerán aquí.</EmptyDescription>
+        </EmptyHeader>
+      </Empty>
+    </Example>
     <Example
       title="Borde y superficie"
       description={<>Selecciona un borde continuo con <code>border=&quot;solid&quot;</code> y una superficie elevada con <code>background=&quot;bold&quot;</code>.</>}

@@ -28,12 +28,16 @@ Cada componente registrado cuenta con su propia ruta independiente (por ejemplo,
 | Componente | Ruta | Import del componente propio |
 | :--- | :--- | :--- |
 | Accordion | `/accordion` | `@/components/own/base/accordion` |
+| Alert | `/alert` | `@/components/own/simple/alert` |
 | Alert Dialog | `/alert-dialog` | `@/components/own/base/alert-dialog` |
+| Aspect Ratio | `/aspect-ratio` | `@/components/own/simple/aspect-ratio` |
 | Attachment | `/attachment` | `@/components/own/composed/attachment` |
 | Autocomplete | `/autocomplete` | `@/components/own/base/autocomplete` |
 | Avatar | `/avatar` | `@/components/own/base/avatar` |
+| Badge | `/badge` | `@/components/own/simple/badge` |
 | Button | `/button` | `@/components/own/base/button` |
 | Button Group | `/button-group` | `@/components/own/composed/button-group` |
+| Card | `/card` | `@/components/own/simple/card` |
 | Checkbox | `/checkbox` | `@/components/own/base/checkbox` |
 | Checkbox Group | `/checkbox-group` | `@/components/own/base/checkbox-group` |
 | Collapsible | `/collapsible` | `@/components/own/base/collapsible` |
@@ -41,6 +45,7 @@ Cada componente registrado cuenta con su propia ruta independiente (por ejemplo,
 | Context Menu | `/context-menu` | `@/components/own/base/context-menu` |
 | Dialog | `/dialog` | `@/components/own/base/dialog` |
 | Drawer | `/drawer` | `@/components/own/base/drawer` |
+| Empty | `/empty` | `@/components/own/simple/empty` |
 | Field | `/field` | `@/components/own/base/field` |
 | Fieldset | `/fieldset` | `@/components/own/base/fieldset` |
 | FloatingInput | `/floating-input` | `@/components/own/composed/floating-input` |
@@ -62,9 +67,12 @@ Cada componente registrado cuenta con su propia ruta independiente (por ejemplo,
 | Scroll Area | `/scroll-area` | `@/components/own/base/scroll-area` |
 | Select | `/select` | `@/components/own/base/select` |
 | Separator | `/separator` | `@/components/own/base/separator` |
+| Skeleton | `/skeleton` | `@/components/own/simple/skeleton` |
 | Slider | `/slider` | `@/components/own/base/slider` |
 | Switch | `/switch` | `@/components/own/base/switch` |
+| Table | `/table` | `@/components/own/simple/table` |
 | Tabs | `/tabs` | `@/components/own/base/tabs` |
+| Textarea | `/textarea` | `@/components/own/simple/textarea` |
 | Toast | `/toast` | `@/components/own/base/toast` |
 | Toggle | `/toggle` | `@/components/own/base/toggle` |
 | Toggle Group | `/toggle-group` | `@/components/own/base/toggle-group` |
@@ -194,3 +202,22 @@ Para comprobar el foco en un campo vacío, borra la cantidad en Number Field o e
 Las cinco rutas cierran con Anatomía y Referencia de API mediante `ComposedReference`. Attachment, Button Group e Input Group tienen ejemplos con estado local en sus respectivos `examples.tsx`. Al quitar o restaurar un adjunto, el foco pasa a la acción disponible. Al borrar una búsqueda, el foco vuelve al campo. En la validación de correo, el borde y el mensaje de error desaparecen cuando el valor es válido.
 
 Pagination lee `?pagina=` dentro de un límite de `Suspense` que cubre solo la demostración de navegación. El ejemplo usa la página 1 cuando falta el parámetro, es inválido o está repetido. En los extremos se omite el enlace anterior o siguiente según corresponda.
+
+## 9. Cobertura de los componentes simples
+
+En el índice, el filtro `Simple` reúne estas ocho rutas. Cada página presenta sus ejemplos en contenedores centrados y cierra con Anatomía y Referencia de API mediante `SimpleShowcase`.
+
+| Ruta | Ejemplos en orden |
+| :--- | :--- |
+| `/alert` | Mensaje informativo (`info`), Aviso neutro (`default`), Confirmación (`success`), Advertencia (`warning`), Error (`destructive`) y Aviso dinámico. |
+| `/aspect-ratio` | Formato panorámico (`16 / 9`), Formato cuadrado (`1`), Formato vertical (`3 / 4`) y Proporción por estilo (`3 / 1` mediante `style.aspectRatio`). |
+| `/badge` | Categoría destacada (`default`), Etiqueta secundaria (`secondary`), Estado informativo (`info`), Estado positivo (`success`), Estado de advertencia (`warning`), Estado de error (`destructive`), Etiqueta con contorno (`outline`) y Etiqueta con icono. |
+| `/card` | Tarjeta con acciones en `CardAction` y `CardFooter`, y Tamaño compacto (`size="sm"`). |
+| `/empty` | Sin resultados con icono y enlace al catálogo, Estado vacío sencillo, Recurso visual libre con `EmptyMedia` y superficie `soft`, Borde y superficie con `solid` y `bold`, y Borde y fondo personalizados con `none` y `className`. |
+| `/skeleton` | Carga de un perfil, Barrido sincronizado entre marcadores y Marcador en línea (`inline`). |
+| `/table` | Tabla de datos con título, encabezados y fila de totales, y Desplazamiento horizontal. |
+| `/textarea` | Texto editable, Valor controlado, Contador de caracteres, Crecimiento automático, Altura inicial y máxima, Valor por encima del límite, Validación nativa, Error comunicado, Solo lectura y Campo deshabilitado. |
+
+Los ejemplos con estado local de Alert, Skeleton y Textarea viven en `examples.tsx` dentro de su ruta. En Alert, `Mostrar resultado` actualiza una región `role="status"` y el foco permanece en el botón. En Skeleton, `Mostrar perfil` sustituye los marcadores por el contenido y cambia `aria-busy` a `false`. Con movimiento reducido, los marcadores se muestran estáticos.
+
+Para comprobar el desplazamiento de Table, enfoca la región `Resumen trimestral` con Tab y usa las flechas. En Textarea, el formulario bloquea el envío vacío o con menos de cinco caracteres. Un comentario válido muestra `Comentario válido` en la misma página y `Limpiar` restablece el campo y el contador.

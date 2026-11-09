@@ -1,5 +1,6 @@
 import { Skeleton } from "@/components/own/simple/skeleton";
 import { Example, SimpleShowcase } from "../simple-showcase";
+import { LoadingProfileExample } from "./examples";
 
 export default function Page() {
   return <SimpleShowcase name="Skeleton" description="Marcadores visuales para representar contenido durante la carga."
@@ -7,7 +8,10 @@ export default function Page() {
   <Skeleton className="h-4 w-40" />
 </div>`}
     parts={[["Skeleton", "Marcador decorativo oculto al árbol de accesibilidad."]]}
-    api={[["Skeleton", "inline", "boolean", "false", "Sí", "Usa inline-block para acompañar texto."], ["Skeleton", "className", "string", "—", "Sí", "Define las dimensiones del marcador."], ["Skeleton", "aria-hidden", "true", "true", "Sí", "El componente fuerza el ocultamiento del marcador decorativo."]]}>
+    api={[["Skeleton", "inline", "boolean", "false", "Sí", "Usa inline-block para acompañar texto."], ["Skeleton", "className", "string", "—", "Sí", "Define las dimensiones del marcador."], ["Skeleton", "aria-hidden", "Atributo generado", "true", "—", "El componente fija el atributo para ocultar el marcador decorativo."]]}>
+    <Example title="Carga de un perfil" description={<>Sustituye el marcador por el contenido cuando termine la carga y actualiza <code>aria-busy</code> en la región.</>}>
+      <LoadingProfileExample />
+    </Example>
     <Example
       title="Barrido sincronizado"
       description={<>La misma franja recorre la pantalla de izquierda a derecha y solo aparece dentro de los marcadores. Usa <code>aria-busy</code> para indicar que el contenido está en carga.</>}

@@ -294,7 +294,7 @@ export default function ShowcaseHomePage() {
         <header className="space-y-3 text-center">
           <h1 className="h1">own-ui</h1>
           <p className="subtitle">
-            Catálogo y showcase de componentes propios construidos sobre Base UI y Tailwind CSS v4.
+            Catálogo interactivo de componentes React con HTML nativo, Base UI y Tailwind CSS v4.
           </p>
         </header>
         <Catalog components={components} />

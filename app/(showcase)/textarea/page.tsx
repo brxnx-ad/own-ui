@@ -1,6 +1,6 @@
 import { Textarea } from "@/components/own/simple/textarea";
 import { Example, SimpleShowcase } from "../simple-showcase";
-import { ControlledTextarea } from "./examples";
+import { ControlledTextarea, NativeValidationExample } from "./examples";
 
 export default function Page() {
   return <SimpleShowcase name="Textarea" description="Campo de texto multilínea con estados y validación nativos."
@@ -11,8 +11,8 @@ export default function Page() {
       ["Textarea", "rows", "number", "1", "Sí", "Número mínimo de líneas visibles. Si supera maxRows, se ajusta al máximo."],
       ["Textarea", "maxRows", "number", "Sin límite", "Sí", "Máximo de líneas visibles como entero positivo. El resto del texto se consulta con desplazamiento interno."],
       ["Textarea", "showCount", "boolean", "false", "Sí", "Muestra el contador abajo a la derecha e incluye el límite cuando se define maxLength."],
-      ["Textarea", "value / onChange", "string / ChangeEventHandler", "—", "Sí", "Permite controlar el valor desde el consumidor."],
-      ["Textarea", "defaultValue", "string", "—", "Sí", "Valor inicial para uso no controlado."],
+      ["Textarea", "value / defaultValue", "string | number | readonly string[]", "—", "Sí", "Valor controlado o valor inicial. Para texto, usa string y elige un solo modo."],
+      ["Textarea", "onChange", "ChangeEventHandler<HTMLTextAreaElement>", "—", "Sí", "Recibe el evento de edición con el texto ya truncado si hubo exceso."],
       ["Textarea", "required, minLength", "boolean, number", "—", "Sí", "Restricciones nativas de formulario."],
       ["Textarea", "maxLength", "number", "Sin límite", "Sí", "El navegador limita la edición. Si llega un valor más largo, el componente trunca el exceso y marca el campo como inválido."],
       ["Textarea", "aria-invalid", "boolean | string", "—", "Sí", "Señala un error comunicado por el consumidor."],
@@ -44,7 +44,9 @@ export default function Page() {
         <Textarea showCount maxLength={20} defaultValue="Texto de un comentario importado" />
       </label>
     </Example>
-    <Example title="Validación nativa" description={<>El formulario exige un comentario de entre 5 y 120 caracteres.</>}><form className="mx-auto max-w-md space-y-3"><label className="block space-y-2"><span className="body-sm block">Comentario obligatorio</span><Textarea name="comment" required minLength={5} maxLength={120} /></label><button type="submit" className="rounded-base border border-gray-base bg-surface-bold px-3 py-2">Enviar</button></form></Example>
+    <Example title="Validación nativa" description={<>Prueba a enviar el formulario vacío o con menos de cinco caracteres para comprobar <code>required</code> y <code>minLength</code>.</>}>
+      <NativeValidationExample />
+    </Example>
     <Example title="Error comunicado" description={<>Relaciona el mensaje de error mediante <code>aria-describedby</code> y marca el campo con <code>aria-invalid</code>.</>}><div className="mx-auto max-w-md space-y-2"><label htmlFor="invalid-message" className="body-sm block">Comentario</label><Textarea id="invalid-message" aria-invalid="true" aria-describedby="message-error" defaultValue="Hola" /><p id="message-error" className="body-sm text-error-bold">Escribe al menos cinco caracteres.</p></div></Example>
     <Example title="Solo lectura" description={<>Con <code>readOnly</code> el contenido permanece seleccionable.</>}><label className="mx-auto block max-w-md space-y-2"><span className="body-sm block">Mensaje guardado</span><Textarea readOnly defaultValue="Este texto está disponible para consulta." /></label></Example>
     <Example title="Campo deshabilitado" description={<>Con <code>disabled</code> el campo queda fuera de la interacción y del envío.</>}><label className="mx-auto block max-w-md space-y-2"><span className="body-sm block">Comentario deshabilitado</span><Textarea disabled defaultValue="Edición no disponible." /></label></Example>
