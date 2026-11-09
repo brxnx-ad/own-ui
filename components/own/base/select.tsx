@@ -3,6 +3,7 @@
 import { Select as Primitive } from "@base-ui/react/select";
 import clsx from "clsx";
 import { Check, Chevron } from "@/components/own/icons";
+import styles from "./select.module.css";
 
 export const Select = Primitive.Root;
 export type SelectProps<Value, Multiple extends boolean | undefined = false> =
@@ -66,7 +67,7 @@ export function SelectIcon({ className, children = <Chevron />, ...props }: Prim
   return (
     <Primitive.Icon
       data-slot="select-icon"
-      className={classes(clsx(iconStyles, "data-popup-open:rotate-180 motion-safe:transition-transform motion-safe:duration-150"), className)}
+      className={classes(clsx(iconStyles, styles.icon), className)}
       {...props}
     >
       {children}
@@ -83,7 +84,7 @@ export function SelectBackdrop({ className, ...props }: Primitive.Backdrop.Props
     <Primitive.Backdrop
       data-slot="select-backdrop"
       className={classes(
-        "fixed inset-0 z-40 bg-gray-bold/40 data-starting-style:opacity-0 data-ending-style:opacity-0 motion-safe:transition-opacity motion-safe:duration-150 dark:bg-surface-soft/70",
+        clsx(styles.backdrop, "fixed inset-0 z-40 bg-gray-bold/40 dark:bg-surface-soft/70"),
         className,
       )}
       {...props}
@@ -114,9 +115,8 @@ export function SelectPopup({ className, ...props }: Primitive.Popup.Props) {
       data-slot="select-popup"
       className={classes(
         clsx(
+          styles.popup,
           "relative flex max-h-[min(var(--available-height,20rem),20rem)] origin-(--transform-origin) flex-col rounded-base border border-gray-base bg-surface-base text-gray-bold shadow-m outline-none data-[side=none]:max-h-80",
-          "data-starting-style:opacity-0 data-ending-style:opacity-0 motion-safe:transition-[opacity,scale] motion-safe:duration-150 motion-safe:ease-out",
-          "motion-safe:not-data-[side=none]:data-starting-style:scale-95 motion-safe:not-data-[side=none]:data-ending-style:scale-95",
         ),
         className,
       )}

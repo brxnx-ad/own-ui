@@ -3,6 +3,7 @@
 import { Accordion as Primitive } from "@base-ui/react/accordion";
 import { Chevron } from "@/components/own/icons";
 import clsx from "clsx";
+import styles from "./accordion.module.css";
 
 function classes<State>(
   base: string,
@@ -61,7 +62,7 @@ export function AccordionTrigger({
       {children}
       <Chevron
         aria-hidden="true"
-        className="size-4 shrink-0 transition-transform duration-150 group-data-panel-open:rotate-180 motion-reduce:transition-none"
+        className={clsx(styles.chevron, "size-4 shrink-0")}
       />
     </Primitive.Trigger>
   );
@@ -76,7 +77,7 @@ export function AccordionPanel({
     <Primitive.Panel
       data-slot="accordion-panel"
       className={classes(
-        "h-(--accordion-panel-height) overflow-hidden text-sm text-gray-bold/75 transition-[height,opacity] duration-150 ease-out data-starting-style:h-0 data-starting-style:opacity-0 data-ending-style:h-0 data-ending-style:opacity-0 motion-reduce:transition-none",
+        clsx(styles.panel, "overflow-hidden text-sm text-gray-bold/75"),
         className,
       )}
       {...props}

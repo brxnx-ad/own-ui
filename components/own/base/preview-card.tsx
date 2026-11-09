@@ -2,6 +2,7 @@
 
 import { PreviewCard as Primitive } from "@base-ui/react/preview-card";
 import clsx from "clsx";
+import styles from "./preview-card.module.css";
 
 export const PreviewCard = Primitive.Root;
 export const createPreviewCardHandle = Primitive.createHandle;
@@ -38,18 +39,15 @@ const positionerStyles = clsx(
 );
 
 const popupStyles = clsx(
+  styles.popup,
   "relative max-h-(--available-height) w-72 min-w-0 max-w-(--available-width) overflow-hidden rounded-base",
   "origin-(--transform-origin) border border-gray-base bg-surface-base p-4 text-gray-bold shadow-m",
   "has-[>[data-slot=preview-card-viewport]]:h-(--popup-height)",
-  "motion-safe:transition-[opacity,scale,height] motion-safe:duration-150 motion-safe:ease-out",
-  "data-starting-style:opacity-0 data-ending-style:opacity-0 motion-safe:data-starting-style:scale-95 motion-safe:data-ending-style:scale-95",
-  "data-instant:transition-none",
 );
 
 const viewportStyles = clsx(
-  "relative min-w-0 overflow-hidden [&>[data-previous]]:hidden",
-  "motion-safe:[&>[data-current]]:transition-opacity motion-safe:[&>[data-current]]:duration-150",
-  "motion-safe:[&>[data-current][data-starting-style]]:opacity-0 data-instant:[&>[data-current]]:transition-none",
+  styles.viewport,
+  "relative min-w-0 overflow-hidden ",
 );
 
 export function PreviewCardTrigger<Payload>({ className, ...props }: PreviewCardTriggerProps<Payload>) {
@@ -65,7 +63,7 @@ export function PreviewCardBackdrop({ className, ...props }: PreviewCardBackdrop
     <Primitive.Backdrop
       data-slot="preview-card-backdrop"
       className={classes(
-        "fixed inset-0 z-40 bg-gray-bold/40 dark:bg-surface-soft/70 motion-safe:transition-opacity motion-safe:duration-150 data-starting-style:opacity-0 data-ending-style:opacity-0",
+        clsx(styles.backdrop, "fixed inset-0 z-40 bg-gray-bold/40 dark:bg-surface-soft/70"),
         className,
       )}
       {...props}

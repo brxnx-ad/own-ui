@@ -1,0 +1,19 @@
+@layer components {
+  :where(.toast) {
+    transform: translate(var(--toast-swipe-movement-x, 0px), var(--toast-swipe-movement-y, 0px));
+  }
+
+  :where(.toast:is([data-starting-style], [data-ending-style])) {
+    opacity: 0;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    :where(.toast) {
+      transition: opacity 200ms var(--ease-out, cubic-bezier(0, 0, 0.2, 1)), transform 200ms var(--ease-out, cubic-bezier(0, 0, 0.2, 1));
+    }
+
+    :where(.toast[data-starting-style]) {
+      transform: translateY(0.5rem);
+    }
+  }
+}

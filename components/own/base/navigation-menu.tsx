@@ -3,6 +3,7 @@
 import { NavigationMenu as Primitive } from "@base-ui/react/navigation-menu";
 import clsx from "clsx";
 import { Chevron } from "@/components/own/icons";
+import styles from "./navigation-menu.module.css";
 
 export type NavigationMenuProps<Value = unknown> = Primitive.Root.Props<Value>;
 export type NavigationMenuState = Primitive.Root.State;
@@ -149,13 +150,8 @@ export function NavigationMenuContent({
       data-slot="navigation-menu-content"
       className={classes(
         clsx(
+          styles.content,
           "w-(--navigation-menu-content-width,min(28rem,calc(var(--available-width,100vw)-2rem))) min-w-0 p-(--navigation-menu-content-padding,--spacing(3)) text-gray-bold",
-          "motion-safe:transition-[opacity,transform,translate] motion-safe:duration-200 motion-safe:ease-out",
-          "data-starting-style:opacity-0 data-ending-style:opacity-0",
-          "motion-safe:data-starting-style:data-[activation-direction=left]:-translate-x-2 motion-safe:data-starting-style:data-[activation-direction=right]:translate-x-2",
-          "motion-safe:data-ending-style:data-[activation-direction=left]:translate-x-2 motion-safe:data-ending-style:data-[activation-direction=right]:-translate-x-2",
-          "motion-safe:data-starting-style:data-[activation-direction=up]:-translate-y-2 motion-safe:data-starting-style:data-[activation-direction=down]:translate-y-2",
-          "motion-safe:data-ending-style:data-[activation-direction=up]:translate-y-2 motion-safe:data-ending-style:data-[activation-direction=down]:-translate-y-2",
         ),
         className,
       )}
@@ -189,7 +185,7 @@ export function NavigationMenuBackdrop({
     <Primitive.Backdrop
       data-slot="navigation-menu-backdrop"
       className={classes(
-        "pointer-events-none fixed inset-0 z-40 bg-gray-bold/40 dark:bg-surface-soft/70 motion-safe:transition-opacity motion-safe:duration-150 data-starting-style:opacity-0 data-ending-style:opacity-0",
+        clsx(styles.backdrop, "pointer-events-none fixed inset-0 z-40 bg-gray-bold/40 dark:bg-surface-soft/70"),
         className,
       )}
       {...props}
@@ -208,8 +204,8 @@ export function NavigationMenuPositioner({
       sideOffset={sideOffset}
       className={classes(
         clsx(
+          styles.positioner,
           "z-50 h-(--positioner-height,auto) w-(--positioner-width,auto) max-w-(--available-width)",
-          "motion-safe:transition-[top,left,right,bottom,transform] motion-safe:duration-200 motion-safe:ease-out data-instant:transition-none",
           "data-anchor-hidden:invisible",
         ),
         className,
@@ -228,9 +224,8 @@ export function NavigationMenuPopup({
       data-slot="navigation-menu-popup"
       className={classes(
         clsx(
+          styles.popup,
           "relative h-(--popup-height,auto) w-(--popup-width,auto) max-w-(--available-width) origin-(--transform-origin) rounded-base border border-gray-base bg-surface-base text-gray-bold shadow-m outline-none",
-          "motion-safe:transition-[width,height,opacity,scale] motion-safe:duration-200 motion-safe:ease-out",
-          "data-starting-style:opacity-0 data-ending-style:opacity-0 motion-safe:data-starting-style:scale-95 motion-safe:data-ending-style:scale-95 data-instant:transition-none",
         ),
         className,
       )}

@@ -1,0 +1,24 @@
+@layer components {
+  :where(.icon[data-popup-open]) {
+    rotate: 180deg;
+  }
+  :where(.popup:is([data-starting-style], [data-ending-style])),
+  :where(.backdrop:is([data-starting-style], [data-ending-style])) {
+    opacity: 0;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    :where(.icon) {
+      transition: transform 150ms var(--default-transition-timing-function, cubic-bezier(0.4, 0, 0.2, 1)), rotate 150ms var(--default-transition-timing-function, cubic-bezier(0.4, 0, 0.2, 1));
+    }
+    :where(.backdrop) {
+      transition: opacity 150ms var(--default-transition-timing-function, cubic-bezier(0.4, 0, 0.2, 1));
+    }
+    :where(.popup) {
+      transition: opacity 150ms var(--ease-out, cubic-bezier(0, 0, 0.2, 1)), scale 150ms var(--ease-out, cubic-bezier(0, 0, 0.2, 1));
+    }
+    :where(.popup:not([data-side="none"]):is([data-starting-style], [data-ending-style])) {
+      scale: 0.95;
+    }
+  }
+}

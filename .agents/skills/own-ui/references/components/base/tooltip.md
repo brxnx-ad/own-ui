@@ -250,3 +250,5 @@ export function SharedHintActions() {
 Exporta `tooltip.tsx` desde `base/` junto con [los tokens compartidos de `globals.css`](../../globals.md). No requiere iconos de soporte ni un bloque adicional en `@layer components`. Incluye `button.tsx` y su icono `Spinner` solo si el consumidor compone los activadores con `Button`. Coloca `createTooltipHandle`, estado controlado y callbacks en módulos con `"use client"`.
 
 Verifica la apertura con puntero y con Tab, el cierre con Escape, la transición inmediata entre controles dentro de `TooltipProvider`, la orientación de `TooltipArrow` en cada `side`, el cambio de contenido con `TooltipViewport`, ambos temas y el respeto a `prefers-reduced-motion`.
+
+Para exportar esta familia, incluye `tooltip.module.css` junto con `tooltip.tsx`. El módulo contiene las transiciones propias y respeta la preferencia de movimiento reducido.

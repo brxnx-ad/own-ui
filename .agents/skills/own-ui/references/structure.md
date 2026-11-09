@@ -44,17 +44,17 @@ Las 37 familias Base UI se ubican en `components/own/base/`, FloatingInput en `c
 | Table | `table.tsx`. Incluye el contenedor desplazable y las piezas de la tabla. |
 | Textarea | `textarea.tsx`. Conserva `"use client"` para el contador y su sincronización con el campo nativo. |
 | Button | `button.tsx`. Importa Spinner del [módulo de iconos](#iconos-de-soporte). |
-| Accordion | `accordion.tsx` y Chevron con su helper SVG, definidos en `icons/index.tsx`. Si se copia el módulo completo de iconos, incluye también los archivos que reexporta, como Spinner. |
+| Accordion | `accordion.tsx`, `accordion.module.css` y Chevron con su helper SVG, definidos en `icons/index.tsx`. Si se copia el módulo completo de iconos, incluye también los archivos que reexporta, como Spinner. |
 | Alert Dialog | `alert-dialog.tsx`; su definición no importa otras familias propias ni iconos de soporte. Button solo es necesario si el consumidor lo elige para sus acciones. |
 | Autocomplete | `autocomplete.tsx`, Chevron y Close con su helper SVG en `icons/index.tsx`. Si se copia el módulo de iconos completo, incluye también `icons/spinner.tsx` por su reexportación. |
 | Avatar | `avatar.tsx`. El consumidor aporta la imagen y el contenido alternativo. |
 | Checkbox | `checkbox.tsx`, Check y Minus con su helper SVG en `icons/index.tsx`. Si se copia el módulo de iconos completo, incluye también `icons/spinner.tsx` por su reexportación. |
 | Checkbox Group | `checkbox-group.tsx`. Incluye Checkbox y sus iconos cuando el consumidor componga el grupo con las casillas de own-ui. |
-| Collapsible | `collapsible.tsx` y Chevron con su helper SVG en `icons/index.tsx`. Si se copia el módulo completo de iconos, incluye también `icons/spinner.tsx` por su reexportación. |
+| Collapsible | `collapsible.tsx`, `collapsible.module.css` y Chevron con su helper SVG en `icons/index.tsx`. Si se copia el módulo completo de iconos, incluye también `icons/spinner.tsx` por su reexportación. |
 | Combobox | `combobox.tsx`, Check, Chevron y Close con su helper SVG en `icons/index.tsx`. Si se copia el módulo completo de iconos, incluye también `icons/spinner.tsx` por su reexportación. |
 | Context Menu | `context-menu.tsx`, Check y Chevron con su helper SVG en `icons/index.tsx`. Si se copia el módulo completo de iconos, incluye también `icons/spinner.tsx` por su reexportación. |
 | Dialog | `dialog.tsx`. Los controles se eligen en la composición del consumidor. |
-| Drawer | `drawer.tsx` y el bloque de geometría de Drawer en `globals.css`. Sus piezas envuelven Base UI y los controles se eligen en la composición. |
+| Drawer | `drawer.tsx` y `drawer.module.css`. El módulo contiene las transiciones del panel y del fondo, la geometría del agarre y el espacio reservado en los puntos de ajuste. Sus piezas envuelven Base UI y los controles se eligen en la composición. |
 | Field | `field.tsx` y `field.module.css`. Los controles adicionales y Base UI Form se incorporan según la composición. |
 | Fieldset | `fieldset.tsx`. Los campos y controles se eligen en la composición. |
 | FloatingInput | `composed/floating-input.tsx`, `composed/floating-input.module.css`, `base/input.tsx`, `base/field.tsx` e `base/field.module.css`. |
@@ -63,24 +63,24 @@ Las 37 familias Base UI se ubican en `components/own/base/`, FloatingInput en `c
 | Menu | `menu.tsx`, Check y Chevron con su helper SVG en `icons/index.tsx`. Si se copia el módulo completo de iconos, incluye también `icons/spinner.tsx` por su reexportación. |
 | Menubar | `menubar.tsx`. Incluye Menu y sus archivos de soporte cuando el consumidor elija las piezas de own-ui para componer la barra. |
 | Meter | `meter.tsx`. Sus piezas envuelven Base UI sin requerir iconos ni otras familias propias. |
-| Navigation Menu | `navigation-menu.tsx` y Chevron con su helper SVG en `icons/index.tsx`. Si se copia el módulo completo de iconos, incluye también `icons/spinner.tsx` por su reexportación. |
+| Navigation Menu | `navigation-menu.tsx`, `navigation-menu.module.css` y Chevron con su helper SVG en `icons/index.tsx`. Si se copia el módulo completo de iconos, incluye también `icons/spinner.tsx` por su reexportación. |
 | Number Field | `number-field.tsx`, Minus y Plus con su helper SVG en `icons/index.tsx`. Si se copia el módulo completo de iconos, incluye también `icons/spinner.tsx` por su reexportación. |
 | OTP Field | `otp-field.tsx`. Sus piezas envuelven Base UI sin requerir iconos ni otras familias propias. Incluye Field si el consumidor utiliza su etiquetado y validación. |
-| Popover | `popover.tsx`. Sus piezas envuelven Base UI. Incluye Button u otros controles si la composición del consumidor los utiliza. |
-| Preview Card | `preview-card.tsx`. Sus piezas envuelven Base UI. El consumidor aporta los enlaces y el contenido de sus vistas previas. |
+| Popover | `popover.tsx` y `popover.module.css`. Sus piezas envuelven Base UI. Incluye Button u otros controles si la composición del consumidor los utiliza. |
+| Preview Card | `preview-card.tsx` y `preview-card.module.css`. Sus piezas envuelven Base UI. El consumidor aporta los enlaces y el contenido de sus vistas previas. |
 | Progress | `progress.tsx` y `progress.module.css`, que define el barrido indeterminado. |
 | Radio Group | `radio-group.tsx`. El módulo exporta el grupo, la opción y el indicador. Incluye Field y Form si la composición los utiliza. |
 | Scroll Area | `scroll-area.tsx`. Utiliza las utilidades y tokens compartidos de Tailwind, sin un bloque de CSS de componente ni archivos de soporte propios. |
-| Select | `select.tsx`, Check y Chevron con su helper SVG en `icons/index.tsx`. Si se copia el módulo de iconos completo, incluye también `icons/spinner.tsx` por su reexportación. Field y Form se incluyen según la composición. |
+| Select | `select.tsx` y `select.module.css`, Check y Chevron con su helper SVG en `icons/index.tsx`. Si se copia el módulo de iconos completo, incluye también `icons/spinner.tsx` por su reexportación. Field y Form se incluyen según la composición. |
 | Separator | `separator.tsx`. Usa Base UI, `clsx` y los tokens y utilidades compartidos de Tailwind. |
 | Slider | `slider.tsx`. Usa las siete piezas de Base UI y las utilidades compartidas de Tailwind. Incluye Field o Form si el consumidor los utiliza para validación coordinada. |
 | Switch | `switch.tsx`. Usa Base UI, `clsx` y los tokens y utilidades compartidos de Tailwind. Field y Form se incluyen según la composición. |
 | Tabs | `tabs.tsx`. Usa Base UI, `clsx` y los tokens y utilidades compartidos de Tailwind. El consumidor aporta el contenido de los paneles. |
-| Toast | `toast.tsx`. Usa Base UI, `clsx` y las utilidades compartidas de Tailwind. El consumidor aporta el proveedor, la región y la composición que renderiza la cola. |
+| Toast | `toast.tsx` y `toast.module.css`. Usa Base UI, `clsx` y las utilidades compartidas de Tailwind. El consumidor aporta el proveedor, la región y la composición que renderiza la cola. |
 | Toggle | `toggle.tsx`. Usa Base UI, `clsx` y las utilidades compartidas de Tailwind. Los iconos y la agrupación pertenecen a la composición del consumidor. |
 | Toggle Group | `toggle-group.tsx`. Usa Base UI, `clsx` y utilidades de distribución de Tailwind. Incluye `toggle.tsx` si el consumidor elige los botones de own-ui. |
 | Toolbar | `toolbar.tsx`. Usa Base UI, `clsx` y las utilidades compartidas de Tailwind. Incluye las familias adicionales que el consumidor componga como herramientas. |
-| Tooltip | `tooltip.tsx`. Sus piezas envuelven Base UI sin requerir iconos ni bloques de CSS propios. Incluye Button si la composición del consumidor lo utiliza. |
+| Tooltip | `tooltip.tsx` y `tooltip.module.css`. Sus piezas envuelven Base UI. Incluye Button si la composición del consumidor lo utiliza. |
 
 Al preparar una exportación, reúne las familias seleccionadas, sus dependencias transitivas, los módulos CSS importados y las reglas globales que consumen. Adapta los imports de soporte si distribuyes solo parte del módulo de iconos. Copia la carpeta de la skill con sus referencias y ajusta el índice a las familias entregadas o indica su disponibilidad. Verifica los enlaces relativos desde la carpeta copiada y registra la revisión y las versiones comprobadas.
 

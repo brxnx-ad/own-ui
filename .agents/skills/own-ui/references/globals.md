@@ -15,7 +15,6 @@ La ruta convencional del CSS es `assets/styles/globals.css`. Las tablas describe
 | Segundo `:root` de `@layer base` | `color-scheme: light`, superficies y tríadas del modo claro. |
 | `.dark` de `@layer base` | `color-scheme: dark` y reasignación de superficies y tríadas. |
 | Encabezados de `@layer base` | Estilos de `h1` a `h6` y sus clases equivalentes `.h1` a `.h6`. |
-| `@layer components` | Geometría del tirador y del contenido de Drawer. |
 | `@layer utilities` | Subtítulos, cuerpo, caption y overline. |
 
 Mantén las variables base, su asignación por tema y su exposición a Tailwind en sus respectivos bloques. Para estilos globales, usa este archivo; la disposición particular de una pantalla pertenece a su consumidor.
@@ -174,9 +173,11 @@ Para las piezas con portales, separa el apilamiento del contenido de la aplicaci
 
 El destino del portal debe recibir los tokens de tema y la tipografía necesarios. Si no hereda el contexto de la interfaz, proporciona allí la clase o las variables correspondientes. En un ShadowRoot, carga los estilos en el ámbito que renderiza las piezas y verifica también cómo se resuelven la variante `dark`, las fuentes y las variables heredadas.
 
-Las transiciones se definen en las clases de [Button](components/base/button.md), [Accordion](components/base/accordion.md), [Alert Dialog](components/base/alert-dialog.md) y [Autocomplete](components/base/autocomplete.md). [Spinner](icons.md) usa la animación `animate-spin` de Tailwind. Al ajustar una transición, conserva los selectores de entrada y salida de la pieza y comprueba el movimiento reducido en la referencia correspondiente.
+Las transiciones se definen en las clases de [Button](components/base/button.md), [Alert Dialog](components/base/alert-dialog.md) y [Autocomplete](components/base/autocomplete.md). [Spinner](icons.md) usa la animación `animate-spin` de Tailwind. Al ajustar una transición, conserva los selectores de entrada y salida de la pieza y comprueba el movimiento reducido en la referencia correspondiente.
 
-Los módulos CSS de [Field](components/base/field.md), [FloatingInput](components/composed/floating-input.md), [Progress](components/base/progress.md) y [Skeleton](components/simple/skeleton.md) contienen sus animaciones personalizadas y los estados asociados. Los importa cada componente y sus transiciones y barridos se activan con `prefers-reduced-motion: no-preference`. Si el consumidor usa una regla de Turbopack que transforma `*.css` con `@tailwindcss/turbopack` y `as: "*.css"`, excluye `*.module.css` de esa regla para conservar el ámbito local.
+Las animaciones propias de [Accordion](components/base/accordion.md), [Collapsible](components/base/collapsible.md), [Navigation Menu](components/base/navigation-menu.md), [Popover](components/base/popover.md), [Preview Card](components/base/preview-card.md), [Select](components/base/select.md), [Toast](components/base/toast.md), [Tooltip](components/base/tooltip.md) y [Drawer](components/base/drawer.md), [Field](components/base/field.md), [FloatingInput](components/composed/floating-input.md), [Progress](components/base/progress.md) y [Skeleton](components/simple/skeleton.md) viven en módulos CSS junto con sus reglas de estado y geometría. Cada componente importa su módulo. Las transiciones y los barridos se activan con `prefers-reduced-motion: no-preference`. En Drawer, el módulo también mantiene el agarre y el contenido dentro de la parte visible del panel según el punto de ajuste.
+
+Si el consumidor usa una regla de Turbopack que transforma `*.css` con `@tailwindcss/turbopack` y `as: "*.css"`, excluye `*.module.css` de esa regla para conservar el ámbito local.
 
 ## 7. Elegir el alcance del cambio
 

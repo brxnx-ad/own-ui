@@ -3,6 +3,7 @@
 import { Toast as Primitive } from "@base-ui/react/toast";
 import clsx from "clsx";
 import type { ComponentPropsWithRef } from "react";
+import styles from "./toast.module.css";
 
 export const ToastProvider = Primitive.Provider;
 export const createToastManager = Primitive.createToastManager;
@@ -41,12 +42,11 @@ function classes<State>(
 }
 
 const toastStyles = clsx(
+  styles.toast,
   "pointer-events-auto relative w-full min-w-0 shrink-0 rounded-base border border-gray-base border-s-4 border-s-gray-bold/50 bg-surface-base text-gray-bold shadow-m",
   "data-[type=info]:border-s-info-base data-[type=success]:border-s-success-base data-[type=warning]:border-s-warning-base data-[type=error]:border-s-error-base data-[type=loading]:border-s-primary-base",
   "focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-gray-bold",
-  "[transform:translate(var(--toast-swipe-movement-x,0px),var(--toast-swipe-movement-y,0px))]",
-  "motion-safe:transition-[opacity,transform] motion-safe:duration-200 motion-safe:ease-out motion-safe:data-starting-style:[transform:translateY(0.5rem)]",
-  "data-starting-style:opacity-0 data-ending-style:pointer-events-none data-ending-style:opacity-0 data-limited:hidden",
+  "data-ending-style:pointer-events-none data-limited:hidden",
 );
 
 const buttonStyles = clsx(

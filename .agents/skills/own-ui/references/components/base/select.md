@@ -245,3 +245,5 @@ Para solapar la opción seleccionada, añade `alignItemWithTrigger` a Positioner
 Distribuye `select.tsx`, los iconos de soporte descritos en [structure.md](../../structure.md) y la configuración compartida de Tailwind de own-ui. La implementación se apoya en Base UI 1.9.0 y utiliza las utilidades de Tailwind para todos los estilos propios.
 
 La búsqueda por teclado recorre opciones y la lista permanece completa. Comprueba los nombres accesibles, los valores individuales y múltiples, el envío y la validación, las opciones deshabilitadas, el foco de cierre, el desplazamiento de listas largas y la geometría del panel en pantalla estrecha, ambos temas y movimiento reducido.
+
+Para exportar esta familia, incluye `select.module.css` junto con `select.tsx`. El módulo contiene las transiciones propias y respeta la preferencia de movimiento reducido.

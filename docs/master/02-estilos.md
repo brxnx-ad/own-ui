@@ -96,16 +96,28 @@ Compuesto por dos familias de 3 magnitudes universales (funcionan en modo claro 
 
 ## 5. Animaciones y estilos de componente
 
-Las animaciones personalizadas y sus estados visuales se definen en módulos CSS junto al componente. Cada módulo conserva `@layer components` para que las utilidades de Tailwind puedan sobrescribir sus estilos.
+Cada familia que requiera animaciones propias o transiciones coordinadas entre piezas las define, junto con los estados y la geometría asociados, en un archivo `<componente>.module.css` que importa desde su implementación. Las reglas locales usan `@layer components` para admitir ajustes con utilidades de Tailwind. Las transiciones simples pueden usar las utilidades existentes en el componente. `globals.css` reúne los estilos compartidos por toda la aplicación.
+
+El import local permite que Next.js agrupe el CSS según las dependencias de cada ruta y mantiene el módulo junto al componente al exportarlo. El coste por fotograma depende de las propiedades animadas y los elementos que afectan.
 
 | Archivo | Responsabilidad |
 | :--- | :--- |
+| `accordion.module.css` | Controla la altura y la opacidad del panel durante la apertura y el cierre. |
+| `collapsible.module.css` | Controla la altura y la opacidad del panel durante la apertura y el cierre. |
+| `drawer.module.css` | Coordina la opacidad del fondo y la traslación del panel al abrir, arrastrar y cerrar. Define la geometría del agarre y la reserva de espacio en los puntos de ajuste. |
 | `field.module.css` | Define la separación entre piezas y coordina la altura, la opacidad y el espacio que ocupa `FieldError` al aparecer o desaparecer. |
 | `floating-input.module.css` | Posiciona la etiqueta según el foco y el valor. En `outline`, el recorte abre desde el centro y sus extremos quedan en el tramo recto del borde. |
+| `navigation-menu.module.css` | Coordina la posición, las dimensiones y la entrada direccional del contenido. |
+| `popover.module.css` | Coordina el tamaño del popup y el contenido al cambiar de activador. |
+| `preview-card.module.css` | Coordina el tamaño del popup y el contenido al cambiar de activador. |
+| `select.module.css` | Coordina el indicador, el fondo y la apertura del popup. |
+| `tooltip.module.css` | Coordina el tamaño del popup y el contenido al cambiar de activador. |
 | `progress.module.css` | Define el barrido del indicador indeterminado mediante `own-ui-progress-sweep` e `inset-inline-start`. |
+| `skeleton.module.css` | Sincroniza el barrido de los marcadores visibles mediante una posición de fondo compartida. |
+| `toast.module.css` | Coordina la entrada, la salida y la transformación aplicada al arrastrar el aviso. |
 
 La etiqueta de FloatingInput y el recorte de `outline` empiezan a moverse juntos. El bloque centraliza la transición de posición, tamaño de fuente y altura de línea, además de la apertura y el cierre del borde. Con `prefers-reduced-motion: reduce`, los estados cambian de inmediato.
 
 El barrido indeterminado de Progress se activa con `prefers-reduced-motion: no-preference`. Con movimiento reducido, el segmento queda centrado y estático.
 
-El bloque de Drawer en `globals.css` calcula la geometría del tirador y el espacio que ocupa el contenido según el punto de ajuste. Las transiciones de Drawer se definen mediante utilidades en `drawer.tsx`.
+Drawer usa una duración base de `300ms`. Durante el arrastre, el panel sigue el gesto con duración cero. El cierre ajusta la duración con `--drawer-swipe-strength`. Con movimiento reducido, el panel sigue respondiendo al arrastre y los cambios de estado se aplican de inmediato.

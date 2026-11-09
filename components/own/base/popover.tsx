@@ -2,6 +2,7 @@
 
 import { Popover as Primitive } from "@base-ui/react/popover";
 import clsx from "clsx";
+import styles from "./popover.module.css";
 
 export const Popover = Primitive.Root;
 export const createPopoverHandle = Primitive.createHandle;
@@ -35,20 +36,16 @@ const positionerStyles = clsx(
 );
 
 const popupStyles = clsx(
+  styles.popup,
   "relative flex max-h-(--available-height) w-80 min-w-0 max-w-(--available-width) flex-col gap-2",
   "origin-(--transform-origin) overflow-y-auto overscroll-contain rounded-base border border-gray-base bg-surface-base p-4 text-gray-bold shadow-m outline-hidden focus-visible:ring-2 focus-visible:ring-primary-base",
   "has-[>[data-slot=popover-viewport]]:h-(--popup-height)",
-  "motion-safe:transition-[opacity,scale,height] motion-safe:duration-150 motion-safe:ease-out",
-  "data-starting-style:opacity-0 data-ending-style:opacity-0 motion-safe:data-starting-style:scale-95 motion-safe:data-ending-style:scale-95",
-  "data-instant:not-data-[instant=trigger-change]:transition-none",
 );
 
 const viewportStyles = clsx(
+  styles.viewport,
   "relative min-h-0 min-w-0 overflow-y-auto overscroll-contain data-transitioning:overflow-hidden",
-  "[&>[data-previous]]:hidden",
-  "motion-safe:[&>[data-current]]:transition-opacity motion-safe:[&>[data-current]]:duration-150",
-  "motion-safe:[&>[data-current][data-starting-style]]:opacity-0",
-  "data-instant:not-data-[instant=trigger-change]:[&>[data-current]]:transition-none",
+  "",
 );
 
 export function PopoverTrigger<Payload>(props: PopoverTriggerProps<Payload>) {
@@ -64,7 +61,7 @@ export function PopoverBackdrop({ className, ...props }: PopoverBackdropProps) {
     <Primitive.Backdrop
       data-slot="popover-backdrop"
       className={classes(
-        "pointer-events-none fixed inset-0 z-40 bg-gray-bold/40 dark:bg-surface-soft/70 motion-safe:transition-opacity motion-safe:duration-150 data-starting-style:opacity-0 data-ending-style:opacity-0",
+        clsx(styles.backdrop, "pointer-events-none fixed inset-0 z-40 bg-gray-bold/40 dark:bg-surface-soft/70"),
         className,
       )}
       {...props}

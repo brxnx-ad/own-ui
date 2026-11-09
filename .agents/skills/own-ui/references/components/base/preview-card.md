@@ -188,3 +188,5 @@ return (
 Exporta `preview-card.tsx` desde `base/` con los tokens de [globals.css](../../globals.md). Sus clases se generan desde el módulo. Coloca estado, callbacks y handles en una frontera cliente.
 
 Verifica apertura por foco y puntero, cierre con Escape, navegación al destino, colisiones, ambos temas y anchos pequeños. Al compartir una tarjeta, prueba el cambio en ambos sentidos y con movimiento reducido para comprobar que el resumen anterior se oculta al moverse el anclaje. En pantallas táctiles, verifica que el enlace abra el destino.
+
+Para exportar esta familia, incluye `preview-card.module.css` junto con `preview-card.tsx`. El módulo contiene las transiciones propias y respeta la preferencia de movimiento reducido.

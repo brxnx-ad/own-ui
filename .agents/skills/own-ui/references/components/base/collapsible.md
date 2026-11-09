@@ -123,6 +123,6 @@ Para contenido documental que deba aparecer en la búsqueda de página, usa `hid
 
 ## 10. Límites y verificación
 
-Exporta `collapsible.tsx`, el icono `Chevron` y sus archivos de soporte. Usa Base UI 1.9.0, `clsx`, React 19 y Tailwind CSS con los tokens del sistema. Consulta [estructura](../../structure.md) para resolver los imports.
+Exporta `collapsible.tsx`, `collapsible.module.css`, el icono `Chevron` y sus archivos de soporte. Usa Base UI 1.9.0, `clsx`, React 19 y Tailwind CSS con los tokens del sistema. Consulta [estructura](../../structure.md) para resolver los imports.
 
 Verifica la apertura por teclado, el montaje por defecto, la persistencia del contenido, ambos temas y el movimiento reducido. Comprueba la búsqueda de un panel cerrado en navegadores compatibles con `hidden="until-found"`. En los demás, el usuario puede abrirlo desde el activador. [Documentación de Collapsible en Base UI](https://base-ui.com/react/components/collapsible).

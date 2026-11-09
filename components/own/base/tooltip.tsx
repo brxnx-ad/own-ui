@@ -2,6 +2,7 @@
 
 import { Tooltip as Primitive } from "@base-ui/react/tooltip";
 import clsx from "clsx";
+import styles from "./tooltip.module.css";
 
 export const Tooltip = Primitive.Root;
 export const TooltipProvider = Primitive.Provider;
@@ -43,13 +44,11 @@ const positionerStyles = clsx(
 );
 
 const popupStyles = clsx(
+  styles.popup,
   "body-sm relative max-h-(--available-height) w-fit min-w-0 max-w-[min(20rem,var(--available-width))] overflow-hidden wrap-anywhere rounded-base",
   "origin-(--transform-origin) border border-gray-base bg-surface-base px-3 py-1.5 text-gray-bold shadow-m outline-none",
   "has-[>[data-slot=tooltip-viewport]]:w-(--popup-width) has-[>[data-slot=tooltip-viewport]]:h-(--popup-height)",
   "has-[>[data-slot=tooltip-arrow]]:overflow-visible",
-  "motion-safe:transition-[opacity,scale,width,height] motion-safe:duration-150 motion-safe:ease-out",
-  "data-starting-style:opacity-0 data-ending-style:opacity-0 motion-safe:data-starting-style:scale-95 motion-safe:data-ending-style:scale-95",
-  "data-instant:transition-none",
 );
 
 const arrowStyles = clsx(
@@ -61,9 +60,8 @@ const arrowStyles = clsx(
 );
 
 const viewportStyles = clsx(
-  "relative min-w-0 overflow-hidden [&>[data-previous]]:hidden",
-  "motion-safe:[&>[data-current]]:transition-opacity motion-safe:[&>[data-current]]:duration-150",
-  "motion-safe:[&>[data-current][data-starting-style]]:opacity-0 data-instant:[&>[data-current]]:transition-none",
+  styles.viewport,
+  "relative min-w-0 overflow-hidden ",
 );
 
 export function TooltipTrigger<Payload>(props: TooltipTriggerProps<Payload>) {

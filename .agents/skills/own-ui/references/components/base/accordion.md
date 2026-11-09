@@ -101,11 +101,11 @@ Consulta [globals](../../globals.md) para superficies, tríadas, geometría y ti
 | Estado abierto | Usa `data-panel-open:*` en Trigger, `data-open:*` en Item/Panel o `className={(state) => ...}` de la pieza adecuada. |
 | Hover | Trigger eleva un pseudo-elemento `before`: `surface-soft` en claro y `surface-bold` en oscuro. Ajusta `before:*` si personalizas ese plano. |
 | Animación | Panel anima altura y opacidad en 150 ms usando `--accordion-panel-height`. Chevron gira 180° al abrirse mediante el estado de Trigger. |
-| Movimiento reducido | Se eliminan las transiciones del Panel, Chevron y pseudo-elemento con `motion-reduce:transition-none`. Preserva esa adaptación al extender animaciones. |
+| Movimiento reducido | El módulo activa las transiciones del Panel y Chevron con `prefers-reduced-motion: no-preference`. El pseudo-elemento usa `motion-reduce:transition-none`. Preserva esa adaptación al extender animaciones. |
 
 Item, Trigger y Panel combinan clases estáticas y funcionales con `clsx` sin fusionar conflictos de Tailwind. Accordion y Header pasan `className` a Base UI. Usa `style` estático o funcional para propiedades directas del nodo y selectores con precedencia comprobada para el pseudo-elemento, Chevron o el contenido interno.
 
-Conserva `overflow-hidden` y el paso entre altura medida y cero durante la entrada y la salida. Base UI publica `--accordion-panel-height` y `--accordion-panel-width`. El wrapper usa la altura. Al ajustar la transición, limita la duración nueva a `prefers-reduced-motion: no-preference` y conserva `motion-reduce:transition-none`.
+Conserva `overflow-hidden` y el paso entre altura medida y cero durante la entrada y la salida. Base UI publica `--accordion-panel-height` y `--accordion-panel-width`. El wrapper usa la altura. Al ajustar la transición, limita la duración nueva a `prefers-reduced-motion: no-preference`.
 
 ## 8. Ejemplos de composición
 
@@ -158,3 +158,5 @@ export function ProjectDetails() {
 
 - Chevron forma parte del wrapper. Su personalización visual usa un selector dirigido. `orientation` y `loopFocus` están obsoletos desde la perspectiva de navegación en Base UI 1.9.0.
 - Comprueba apertura individual y múltiple, deshabilitación, montaje, búsqueda nativa cuando se use, jerarquía de encabezados, foco y transiciones en ambos temas, con ancho estrecho y movimiento reducido.
+
+Para exportar esta familia, incluye `accordion.module.css` junto con `accordion.tsx`. El módulo contiene las transiciones propias y respeta la preferencia de movimiento reducido.

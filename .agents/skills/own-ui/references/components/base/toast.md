@@ -168,6 +168,6 @@ Para una acción reversible, entrega `actionProps: { children: "Deshacer", onCli
 
 ## 10. Límites y verificación
 
-Exporta `toast.tsx` con Base UI, `clsx` y las utilidades compartidas de Tailwind. La familia usa las piezas que entrega el consumidor para iconos y acciones. Los estilos de posición y animación residen en el módulo y se generan al incluirlo en las fuentes de Tailwind.
+Exporta `toast.tsx` y `toast.module.css` con Base UI, `clsx` y las utilidades compartidas de Tailwind. La familia usa las piezas que entrega el consumidor para iconos y acciones.
 
 Verifica la cola con alturas diferentes, los avisos limitados, el cierre con teclado y con gesto, la pausa del temporizador, el enfoque de la región y el comportamiento anclado. Comprueba la anchura móvil, el desplazamiento, ambos temas y el movimiento reducido. Si publicas promesas, maneja su rechazo según el flujo de la aplicación incluso cuando ya muestres un aviso de error.

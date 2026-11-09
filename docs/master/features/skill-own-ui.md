@@ -165,6 +165,6 @@ La entrada y las referencias están orientadas a proyectos Next.js consumidores 
 
 Esta portabilidad documental requiere que la distribución incluya los componentes y el CSS descritos. Cada consumidor debe verificar las rutas reales, las versiones compatibles y la generación de estilos y comprobar el comportamiento de su integración.
 
-Para exportar FloatingInput, incluye `floating-input.tsx` y `floating-input.module.css` junto con Input, Field y `field.module.css`.
+Para exportar Drawer, incluye `drawer.tsx` y `drawer.module.css`, que define las transiciones, la geometría del agarre y los ajustes de espacio del panel. Para FloatingInput, incluye `floating-input.tsx` y `floating-input.module.css` junto con Input, Field y `field.module.css`.
 
 Para exportar Number Field, incluye el módulo que provee Minus y Plus. Para Progress, incluye `progress.module.css`, que contiene el barrido indeterminado y respeta la preferencia de movimiento.

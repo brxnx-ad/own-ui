@@ -220,3 +220,5 @@ export function WorkspacePopover() {
 Exporta `popover.tsx` desde `base/` con [los tokens compartidos](../../globals.md). La familia usa clases del módulo sin CSS específico ni iconos de soporte. Incluye Button u otros controles si el consumidor los elige. Coloca callbacks, referencias y handles en una frontera cliente de App Router.
 
 Comprueba colocación y colisiones a anchos reducidos, retorno de foco, cierre exterior, Escape y desplazamiento del contenido. Prueba los dos temas, el movimiento reducido y el cambio entre activadores con `PopoverViewport`. Verifica el cierre táctil cuando combines activadores de hover con modalidades de foco.
+
+Para exportar esta familia, incluye `popover.module.css` junto con `popover.tsx`. El módulo contiene las transiciones propias y respeta la preferencia de movimiento reducido.

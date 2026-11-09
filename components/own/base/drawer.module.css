@@ -1,0 +1,150 @@
+@layer components {
+  :where(.backdrop) {
+    opacity: max(0.25, calc(1 - var(--drawer-swipe-progress, 0)));
+  }
+
+  :where(.backdrop:is([data-starting-style], [data-ending-style])) {
+    opacity: 0;
+  }
+
+  :where(.popup) {
+    transform: translate(
+      var(--drawer-swipe-movement-x, 0px),
+      calc(var(--drawer-swipe-movement-y, 0px) + var(--drawer-snap-point-offset, 0px))
+    );
+  }
+
+  :where(.popup[data-swipe-direction="down"]) {
+    --own-drawer-exit: translateY(calc(100% + 2rem));
+  }
+
+  :where(.popup[data-swipe-direction="up"]) {
+    --own-drawer-exit: translateY(calc(-100% - 2rem));
+  }
+
+  :where(.popup[data-swipe-direction="left"]) {
+    --own-drawer-exit: translateX(calc(-100% - 2rem));
+  }
+
+  :where(.popup[data-swipe-direction="right"]) {
+    --own-drawer-exit: translateX(calc(100% + 2rem));
+  }
+
+  :where(.popup:is([data-starting-style], [data-ending-style])) {
+    transform: var(--own-drawer-exit);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    :where(.backdrop, .popup) {
+      transition-duration: 300ms;
+      transition-timing-function: var(--ease-out, cubic-bezier(0, 0, 0.2, 1));
+    }
+
+    :where(.backdrop) {
+      transition-property: opacity;
+    }
+
+    :where(.popup) {
+      transition-property: transform, translate, scale, rotate;
+    }
+
+    :where(:is(.backdrop, .popup)[data-swiping]) {
+      transition-duration: 0ms;
+    }
+
+    :where(:is(.backdrop, .popup)[data-ending-style]) {
+      transition-duration: calc(var(--drawer-swipe-strength, 1) * 300ms);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :where(.backdrop, .popup) {
+      transition: none;
+    }
+  }
+
+  /* Keep the grip and content inside the visible part of a snapped drawer. */
+  :where(.popup) {
+    --drawer-grip-size: calc(var(--spacing) * 8);
+    --drawer-snap-top: 0px;
+    --drawer-snap-bottom: 0px;
+    padding-top: var(--drawer-snap-top);
+    padding-bottom: var(--drawer-snap-bottom);
+  }
+
+  :where(.popup[data-snap-points="up"]) {
+    --drawer-snap-top: max(0px, calc(-1 * var(--drawer-snap-point-offset, 0px)));
+  }
+
+  :where(.popup[data-snap-points="down"]) {
+    --drawer-snap-bottom: max(0px, var(--drawer-snap-point-offset, 0px));
+  }
+
+  :where(.popup[data-grip-position="top"]:has(> .grip)) {
+    padding-top: calc(var(--drawer-snap-top) + var(--drawer-grip-size));
+  }
+
+  :where(.popup[data-grip-position="right"]:has(> .grip)) {
+    padding-right: var(--drawer-grip-size);
+  }
+
+  :where(.popup[data-grip-position="bottom"]:has(> .grip)) {
+    padding-bottom: calc(var(--drawer-snap-bottom) + var(--drawer-grip-size));
+  }
+
+  :where(.popup[data-grip-position="left"]:has(> .grip)) {
+    padding-left: var(--drawer-grip-size);
+  }
+
+  :where(.grip) {
+    position: absolute;
+    display: grid;
+    place-items: center;
+    cursor: grab;
+    touch-action: none;
+    user-select: none;
+  }
+
+  :where(.grip[data-grip-border]) {
+    --drawer-grip-border-width: 1px;
+    border-color: var(--color-gray-base, var(--gray-base));
+  }
+
+  :where(.grip:active) {
+    cursor: grabbing;
+  }
+
+  :where(.popup[data-grip-position="top"] > .grip) {
+    inset: var(--drawer-snap-top) 0 auto;
+    height: var(--drawer-grip-size);
+    border-bottom-width: var(--drawer-grip-border-width, 0px);
+  }
+
+  :where(.popup[data-grip-position="right"] > .grip) {
+    inset: var(--drawer-snap-top) 0 var(--drawer-snap-bottom) auto;
+    width: var(--drawer-grip-size);
+    border-left-width: var(--drawer-grip-border-width, 0px);
+  }
+
+  :where(.popup[data-grip-position="bottom"] > .grip) {
+    inset: auto 0 var(--drawer-snap-bottom);
+    height: var(--drawer-grip-size);
+    border-top-width: var(--drawer-grip-border-width, 0px);
+  }
+
+  :where(.popup[data-grip-position="left"] > .grip) {
+    inset: var(--drawer-snap-top) auto var(--drawer-snap-bottom) 0;
+    width: var(--drawer-grip-size);
+    border-right-width: var(--drawer-grip-border-width, 0px);
+  }
+
+  :where(.gripIndicator) {
+    width: calc(var(--spacing) * 10);
+    height: var(--spacing);
+  }
+
+  :where(.popup[data-grip-position="left"], .popup[data-grip-position="right"]) > :where(.grip) > :where(.gripIndicator) {
+    width: var(--spacing);
+    height: calc(var(--spacing) * 10);
+  }
+}

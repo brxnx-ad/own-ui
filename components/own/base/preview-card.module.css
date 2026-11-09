@@ -1,0 +1,28 @@
+@layer components {
+  :where(.popup:is([data-starting-style], [data-ending-style])),
+  :where(.backdrop:is([data-starting-style], [data-ending-style])) {
+    opacity: 0;
+  }
+  :where(.viewport > [data-previous]) {
+    display: none;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    :where(.popup) {
+      transition-property: opacity, scale, height;
+      transition-duration: 150ms;
+      transition-timing-function: var(--ease-out, cubic-bezier(0, 0, 0.2, 1));
+    }
+    :where(.popup:is([data-starting-style], [data-ending-style])) {
+      scale: 0.95;
+    }
+    :where(.backdrop, .viewport > [data-current]) {
+      transition: opacity 150ms var(--default-transition-timing-function, cubic-bezier(0.4, 0, 0.2, 1));
+    }
+    :where(.viewport > [data-current][data-starting-style]) {
+      opacity: 0;
+    }
+    :where(.popup[data-instant], .viewport[data-instant] > [data-current]) {
+      transition: none;
+    }
+  }
+}

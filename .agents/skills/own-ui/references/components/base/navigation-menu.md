@@ -335,3 +335,5 @@ export function SidebarNavigation() {
   2. Verificar la navegación completa con teclado (`Tab`, flechas, `Enter`/`Espacio` y `Escape`) y la devolución de foco al activador.
   3. Confirmar que los enlaces compuestos con `next/link` mediante `render` navegan sin recargar la página y cierran el panel cuando tienen `closeOnClick`.
   4. Revisar ambos temas, el ajuste dentro de `--available-width` en pantallas estrechas y el comportamiento instantáneo con `prefers-reduced-motion: reduce`.
+
+Para exportar esta familia, incluye `navigation-menu.module.css` junto con `navigation-menu.tsx`. El módulo contiene las transiciones propias y respeta la preferencia de movimiento reducido.
