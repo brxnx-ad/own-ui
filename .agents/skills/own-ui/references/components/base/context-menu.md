@@ -115,7 +115,7 @@ Las opciones aceptan sus atributos y eventos HTML. Usa `onClick` para ejecutar u
 
 El popup anima opacidad y escala durante 150 ms con origen en `--transform-origin`. El fondo anima opacidad. Ambas transiciones se limitan a `motion-safe` y el popup respeta `data-instant`. Los tokens se reasignan por tema. [Referencia de globals](../../globals.md).
 
-Las piezas estilizadas combinan `className` estático o funcional con sus clases base. `style` se aplica al nodo según el contrato de Base UI. Si usas una función en `render`, propaga el estado y las props que necesita la pieza, incluidos eventos y referencia DOM. Las utilidades en conflicto siguen la cascada CSS.
+Las piezas estilizadas combinan `className` estático o funcional con sus clases base. `style` se aplica al nodo según el contrato de Base UI. Si usas una función en `render`, propaga el estado y las props que necesita la pieza, incluidos eventos y referencia DOM. Salvo la [excepción de colores `content`](../../globals.md#composición-y-precedencia-de-clases), las utilidades en conflicto siguen la cascada CSS.
 
 ## 8. Ejemplos de composición
 

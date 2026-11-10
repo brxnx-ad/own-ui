@@ -2,7 +2,7 @@
 
 import { createContext, useContext, type ComponentPropsWithRef } from "react";
 import { useRender } from "@base-ui/react/use-render";
-import clsx from "clsx";
+import clsx from "@/components/own/classes";
 import { Separator, type SeparatorProps } from "@/components/own/base/separator";
 
 export type ItemVariant = "default" | "outline" | "muted";
@@ -74,7 +74,7 @@ export function Item({
       "data-size": size,
       role: inGroup && !render ? "listitem" : undefined,
       className: clsx(
-        "group/item flex w-full min-w-0 flex-wrap items-center rounded-base border text-gray-bold",
+        "group/item flex w-full min-w-0 flex-wrap items-center rounded-base border text-content-bold",
         "motion-safe:transition-colors [&:is(a,button)]:hover:bg-surface-bold",
         "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-base",
         variantStyles[variant],
@@ -125,7 +125,7 @@ export function ItemDescription({ className, ...props }: ComponentPropsWithRef<"
   return (
     <p
       data-slot="item-description"
-      className={clsx("wrap-anywhere leading-normal text-gray-bold/75 [&_a]:underline [&_a]:underline-offset-4", className)}
+      className={clsx("wrap-anywhere leading-normal text-content-base [&_a]:underline [&_a]:underline-offset-4", className)}
       {...props}
     />
   );

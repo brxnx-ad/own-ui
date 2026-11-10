@@ -130,7 +130,7 @@ export function UndoExample() {
 
   return (
     <div className="body-sm flex w-full max-w-xs items-center justify-between gap-3">
-      <span>Informe mensual <span className="caption block text-gray-bold/75">{archived ? "Archivado" : "Activo"}</span></span>
+      <span>Informe mensual <span className="caption block text-content-base">{archived ? "Archivado" : "Activo"}</span></span>
       <Button type="button" size="sm" variant="outline" onClick={archive} disabled={archived}>Archivar</Button>
     </div>
   );

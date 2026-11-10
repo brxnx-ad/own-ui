@@ -1,7 +1,7 @@
 "use client";
 
 import { Combobox as Primitive } from "@base-ui/react/combobox";
-import clsx from "clsx";
+import clsx from "@/components/own/classes";
 import { Check, Chevron, Close } from "@/components/own/icons";
 
 export const Combobox = Primitive.Root;
@@ -20,14 +20,14 @@ function classes<State>(
     : clsx(base, className);
 }
 
-const controlClasses = "inline-flex shrink-0 items-center justify-center rounded-base text-gray-bold/75 outline-none hover:bg-surface-base hover:text-gray-bold focus-visible:ring-2 focus-visible:ring-primary-base disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&_svg:not([class*='size-'])]:size-4";
-const messageClasses = "body-sm px-3 py-2 text-gray-bold/75 empty:p-0";
+const controlClasses = "inline-flex shrink-0 items-center justify-center rounded-base text-content-base outline-none hover:bg-surface-base hover:text-content-bold focus-visible:ring-2 focus-visible:ring-primary-base disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&_svg:not([class*='size-'])]:size-4";
+const messageClasses = "body-sm px-3 py-2 text-content-base empty:p-0";
 
 export function ComboboxLabel({ className, ...props }: Primitive.Label.Props) {
   return (
     <Primitive.Label
       data-slot="combobox-label"
-      className={classes("body-sm font-medium text-gray-bold", className)}
+      className={classes("body-sm font-medium text-content-bold", className)}
       {...props}
     />
   );
@@ -37,7 +37,7 @@ export function ComboboxInputGroup({ className, ...props }: Primitive.InputGroup
   return (
     <Primitive.InputGroup
       data-slot="combobox-input-group"
-      className={classes("flex min-w-0 items-center gap-1 rounded-base border border-gray-base bg-surface-bold pr-1 text-gray-bold focus-within:ring-2 focus-within:ring-primary-base data-invalid:border-error-base data-invalid:focus-within:ring-error-base data-disabled:opacity-50 [&>[data-slot=combobox-input]]:border-transparent [&>[data-slot=combobox-input]]:bg-transparent [&>[data-slot=combobox-input]]:focus-visible:ring-0 data-disabled:[&_[data-slot=combobox-input]]:opacity-100", className)}
+      className={classes("flex min-w-0 items-center gap-1 rounded-base border border-gray-base bg-surface-bold pr-1 text-content-bold focus-within:ring-2 focus-within:ring-primary-base data-invalid:border-error-base data-invalid:focus-within:ring-error-base data-disabled:opacity-50 [&>[data-slot=combobox-input]]:border-transparent [&>[data-slot=combobox-input]]:bg-transparent [&>[data-slot=combobox-input]]:focus-visible:ring-0 data-disabled:[&_[data-slot=combobox-input]]:opacity-100", className)}
       {...props}
     />
   );
@@ -47,7 +47,7 @@ export function ComboboxInput({ className, ...props }: Primitive.Input.Props) {
   return (
     <Primitive.Input
       data-slot="combobox-input"
-      className={classes("min-h-10 w-full min-w-0 rounded-base border border-gray-base bg-surface-bold px-3 py-2 text-base text-gray-bold outline-none placeholder:text-gray-bold/60 focus-visible:ring-2 focus-visible:ring-primary-base aria-invalid:border-error-base aria-invalid:focus-visible:ring-error-base disabled:opacity-50 sm:text-sm", className)}
+      className={classes("min-h-10 w-full min-w-0 rounded-base border border-gray-base bg-surface-bold px-3 py-2 text-base text-content-bold outline-none placeholder:text-content-soft focus-visible:ring-2 focus-visible:ring-primary-base aria-invalid:border-error-base aria-invalid:focus-visible:ring-error-base disabled:opacity-50 sm:text-sm", className)}
       {...props}
     />
   );
@@ -103,7 +103,7 @@ export function ComboboxChip({ className, ...props }: Primitive.Chip.Props) {
   return (
     <Primitive.Chip
       data-slot="combobox-chip"
-      className={classes("body-sm inline-flex min-w-0 max-w-full items-center gap-1 rounded-base bg-gray-soft py-0.5 ps-2 pe-1 text-gray-bold outline-none focus-visible:ring-2 focus-visible:ring-primary-base", className)}
+      className={classes("body-sm inline-flex min-w-0 max-w-full items-center gap-1 rounded-base bg-gray-soft py-0.5 ps-2 pe-1 text-content-bold outline-none focus-visible:ring-2 focus-visible:ring-primary-base", className)}
       {...props}
     />
   );
@@ -146,7 +146,7 @@ export function ComboboxPopup({ className, ...props }: Primitive.Popup.Props) {
   return (
     <Primitive.Popup
       data-slot="combobox-popup"
-      className={classes("relative flex max-h-[min(var(--available-height),20rem)] origin-(--transform-origin) flex-col rounded-base border border-gray-base bg-surface-base text-gray-bold shadow-m outline-none motion-safe:transition-[opacity,scale] motion-safe:duration-150 motion-safe:ease-out data-starting-style:opacity-0 data-ending-style:opacity-0 motion-safe:data-starting-style:scale-95 motion-safe:data-ending-style:scale-95", className)}
+      className={classes("relative flex max-h-[min(var(--available-height),20rem)] origin-(--transform-origin) flex-col rounded-base border border-gray-base bg-surface-base text-content-bold shadow-m outline-none motion-safe:transition-[opacity,scale] motion-safe:duration-150 motion-safe:ease-out data-starting-style:opacity-0 data-ending-style:opacity-0 motion-safe:data-starting-style:scale-95 motion-safe:data-ending-style:scale-95", className)}
       {...props}
     />
   );
@@ -196,7 +196,7 @@ export function ComboboxItem({ className, ...props }: Primitive.Item.Props) {
   return (
     <Primitive.Item
       data-slot="combobox-item"
-      className={classes("body-sm flex min-w-0 cursor-default items-center justify-between gap-2 wrap-break-word rounded-base px-2 py-2 text-gray-bold outline-none select-none data-highlighted:bg-primary-soft data-selected:font-semibold data-disabled:opacity-50", className)}
+      className={classes("body-sm flex min-w-0 cursor-default items-center justify-between gap-2 wrap-break-word rounded-base px-2 py-2 text-content-bold outline-none select-none data-highlighted:bg-primary-soft data-selected:font-semibold data-disabled:opacity-50", className)}
       {...props}
     />
   );
@@ -228,7 +228,7 @@ export function ComboboxGroupLabel({ className, ...props }: Primitive.GroupLabel
   return (
     <Primitive.GroupLabel
       data-slot="combobox-group-label"
-      className={classes("caption px-2 py-1 font-semibold text-gray-bold/75", className)}
+      className={classes("caption px-2 py-1 font-semibold text-content-base", className)}
       {...props}
     />
   );

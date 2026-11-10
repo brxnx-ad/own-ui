@@ -1,7 +1,7 @@
 "use client";
 
 import type { ComponentPropsWithRef } from "react";
-import clsx from "clsx";
+import clsx from "@/components/own/classes";
 import { Button, type ButtonProps } from "@/components/own/base/button";
 import { Input, type InputProps } from "@/components/own/base/input";
 import { Textarea, type TextareaProps } from "@/components/own/simple/textarea";
@@ -69,7 +69,7 @@ export function InputGroupAddon({
       data-slot="input-group-addon"
       data-align={align}
       className={clsx(
-        "flex min-w-0 items-center gap-2 text-sm text-gray-bold/75 [&_svg:not([class*='size-'])]:size-4",
+        "flex min-w-0 items-center gap-2 text-sm text-content-base [&_svg:not([class*='size-'])]:size-4",
         addonStyles[align],
         className,
       )}

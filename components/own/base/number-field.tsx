@@ -1,7 +1,7 @@
 "use client";
 
 import { NumberField as Primitive } from "@base-ui/react/number-field";
-import clsx from "clsx";
+import clsx from "@/components/own/classes";
 import { Minus, Plus } from "@/components/own/icons";
 
 export type NumberFieldProps = Primitive.Root.Props;
@@ -33,16 +33,16 @@ const groupStyles = clsx(
 
 const inputStyles = clsx(
   "w-full min-w-0 flex-1 rounded-base bg-transparent px-3 py-2",
-  "text-center text-base text-gray-bold tabular-nums placeholder:text-gray-bold/60 focus:placeholder:opacity-0 sm:text-sm",
+  "text-center text-base text-content-bold tabular-nums placeholder:text-content-soft focus:placeholder:opacity-0 sm:text-sm",
   "outline-hidden data-disabled:cursor-not-allowed",
 );
 
 const stepperStyles = clsx(
   "inline-flex w-10 shrink-0 items-center justify-center border-gray-base bg-surface-base",
-  "text-sm font-medium text-gray-bold [&_svg:not([class*='size-'])]:size-[1.15em]",
+  "text-sm font-medium text-content-bold [&_svg:not([class*='size-'])]:size-[1.15em]",
   "outline-hidden focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary-base",
   "not-aria-disabled:hover:bg-surface-bold not-aria-disabled:active:bg-surface-soft",
-  "aria-disabled:cursor-not-allowed aria-disabled:text-gray-bold/50 data-readonly:cursor-default",
+  "aria-disabled:cursor-not-allowed aria-disabled:text-content-soft data-readonly:cursor-default",
   "motion-safe:transition-colors motion-safe:duration-150",
 );
 

@@ -61,7 +61,7 @@ export function ApiReference() {
           rows: rows.map(([prop, type, initial, description]) => ({ prop, type, defaultValue: initial, description })),
         }]}
       />
-      <ul className="body-sm list-disc space-y-2 ps-5 text-gray-bold/75">
+      <ul className="body-sm list-disc space-y-2 ps-5 text-content-base">
         <li><code>MenubarState</code> expone <code>orientation</code>, <code>modal</code> y <code>hasSubmenuOpen</code>.</li>
         <li>La barra publica <code>{'data-slot="menubar"'}</code>, <code>data-orientation</code>, <code>data-modal</code> y <code>data-has-submenu-open</code> según el estado.</li>
         <li>La apertura controlada y <code>onOpenChange</code> se configuran en cada <code>Menu</code>; <code>modal</code> se configura en la barra.</li>

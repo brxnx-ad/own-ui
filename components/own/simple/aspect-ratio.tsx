@@ -1,4 +1,4 @@
-import clsx from "clsx";
+import clsx from "@/components/own/classes";
 import type { ComponentPropsWithRef } from "react";
 
 export interface AspectRatioProps extends ComponentPropsWithRef<"div"> {

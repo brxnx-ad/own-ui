@@ -10,6 +10,7 @@ El entorno de referencia es Next.js con App Router. Las rutas siguientes son con
 | `components/own/base/` | Familias basadas en una sola familia primitiva de Base UI, sin dependencias de otras familias propias ni motores externos especializados. Verifica cuáles se han exportado al destino en la tabla de archivos necesarios. |
 | `components/own/composed/` | Familias que reutilizan internamente otros componentes definidos en `components/own/`. |
 | `components/own/dependant/` | Familias que requieren una librería externa especializada para su comportamiento principal, aunque también compongan componentes de own-ui. |
+| `components/own/classes.ts` | Helper compartido de clases; usa `clsx` y resuelve de forma acotada sustituciones por `text-content-*`. Inclúyelo junto con sus consumidores. |
 | `components/own/icons/` | Soporte SVG compartido. Consulta la [referencia de iconos](icons.md) para sus API y archivos. |
 | `app/` o `src/app/` | Rutas, páginas y layouts del App Router del proyecto consumidor. Los ejemplos interactivos y componentes exclusivos de una vista se colocan cerca de ella. |
 | `app/layout.tsx` o `src/app/layout.tsx` | Layout raíz: importa la hoja global e integra la fuente, el proveedor de temas y el apilamiento del contenido y los portales. |
@@ -33,7 +34,7 @@ Las referencias de Button, Accordion y Alert Dialog parten de la revisión de or
 
 Comprueba la compatibilidad del entorno receptor al usar otras versiones. Consulta los tipos de la primitiva instalada para las opciones heredadas y distingue las dependencias de cada wrapper de la configuración compartida de la aplicación.
 
-Las 37 familias Base UI se ubican en `components/own/base/`, siete familias compuestas en `components/own/composed/` y las ocho familias de HTML nativo en `components/own/simple/`. Carousel y Chart se ubican en `components/own/dependant/`. En la tabla, los nombres de archivo sueltos se resuelven dentro de la carpeta de cada familia. Las rutas que incluyen una carpeta son relativas a `components/own/`.
+Las 37 familias Base UI se ubican en `components/own/base/`, siete familias compuestas en `components/own/composed/` y las ocho familias de HTML nativo en `components/own/simple/`. Carousel y Chart se ubican en `components/own/dependant/`. Además de los archivos de la tabla, incluye `components/own/classes.ts` y `clsx` para los módulos que lo importan, incluido `icons/spinner.tsx` cuando se exporta. En la tabla, los nombres de archivo sueltos se resuelven dentro de la carpeta de cada familia. Las rutas que incluyen una carpeta son relativas a `components/own/`.
 
 | Familia | Archivos propios y de soporte necesarios |
 | :--- | :--- |
@@ -139,7 +140,7 @@ La definición reutilizable controla sus piezas y estados internos. El consumido
 
 Localiza la hoja global del consumidor e integra allí los bloques de own-ui descritos en [globals.md](globals.md), conservando los estilos existentes y resolviendo posibles colisiones de tokens. Importa esa hoja desde el layout raíz de App Router. Comprueba que Tailwind CSS v4 detecta las clases de los componentes exportados; si sus archivos quedan fuera de las fuentes detectadas, registra su ubicación con la configuración de fuentes del compilador.
 
-La integración de referencia carga Plus Jakarta Sans mediante `next/font/google`, aplica su variable `--font-sans` a `html` y usa `font-sans antialiased` en `body`. Integra `next-themes` con `attribute="class"`, `defaultTheme="system"`, `enableSystem` y `disableTransitionOnChange`; coloca `suppressHydrationWarning` en `html`. Si el consumidor ya tiene esta configuración, reutilízala. Las piezas reutilizables no incluyen por sí solas la configuración del layout; [globals.md](globals.md) detalla cómo integrarla sin requerir un archivo del proyecto de origen.
+La integración de referencia carga Plus Jakarta Sans mediante `next/font/google`, aplica su variable `--font-sans` a `html` y usa `font-sans text-content-bold antialiased` en `body`. Integra `next-themes` con `attribute="class"`, `defaultTheme="system"`, `enableSystem` y `disableTransitionOnChange`; coloca `suppressHydrationWarning` en `html`. Si el consumidor ya tiene esta configuración, reutilízala. Las piezas reutilizables no incluyen por sí solas la configuración del layout; [globals.md](globals.md) detalla cómo integrarla sin requerir un archivo del proyecto de origen.
 
 Para Alert Dialog, el fondo absoluto necesita un contenedor de referencia que cubra la página; con el portal predeterminado en `body`, proporciona un contexto adecuado, por ejemplo `body { position: relative; }`. Aísla el apilamiento del contenido de aplicación, por ejemplo con `isolation: isolate`, dejando los portales fuera de ese contexto. Comprueba cobertura, orden visual y herencia de tema si cambias el contenedor del portal.
 
@@ -147,7 +148,7 @@ Conserva las directivas `"use client"` de los módulos recibidos y coloca el est
 
 ## Extensión y verificación
 
-Para una nueva familia, sigue el tipado del elemento nativo o de la primitiva instalada y los patrones de las familias recibidas. Los estilos actuales se construyen con `clsx` y tipos o diccionarios de TypeScript. Documenta las props, estados, formas de estilo y límites reales de la implementación que se distribuya. Al ampliar el catálogo, vincula la referencia desde el índice y registra en esta guía los archivos requeridos. Incluye también la API de las piezas de soporte que se exporten.
+Para una nueva familia, sigue el tipado del elemento nativo o de la primitiva instalada y los patrones de las familias recibidas. Los estilos actuales usan `components/own/classes.ts`, `clsx` y tipos o diccionarios de TypeScript. Consulta [globals.md](globals.md) para la resolución limitada de colores de texto. Documenta las props, estados, formas de estilo y límites reales de la implementación que se distribuya. Al ampliar el catálogo, vincula la referencia desde el índice y registra en esta guía los archivos requeridos. Incluye también la API de las piezas de soporte que se exporten.
 
 Verifica imports, tipado y generación de utilidades con las herramientas del consumidor. Prueba las composiciones relevantes en una vista de su aplicación, incluidos ambos temas, foco, ancho disponible y estados afectados. La demostración define su disposición en sus contenedores.
 

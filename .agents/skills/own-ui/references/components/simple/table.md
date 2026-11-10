@@ -72,7 +72,7 @@ Los slots son `table-container`, `table`, `table-caption`, `table-header`, `tabl
 ## 7. Estilos admitidos por pieza
 
 - **Contenedor.** `min-w-0 max-w-full overflow-x-auto`, `rounded-base`, `surface-base` y borde `gray-base`. El contorno visible usa `gray-bold` con offset interior. Ajusta este nodo con `containerProps.className`, `containerProps.style` o su slot.
-- **Tabla y grupos.** `Table` usa `w-full`, `body-sm`, `gray-bold` y `caption-top`. `TableHeader` y `TableFooter` usan `surface-bold` y un borde inferior y superior respectivamente. El pie también usa `font-medium`. `TableBody` carece de estilos propios.
+- **Tabla y grupos.** `Table` usa `w-full`, `body-sm`, `content-bold` y `caption-top`. `TableHeader` y `TableFooter` usan `surface-bold` y un borde inferior y superior respectivamente. El pie también usa `font-medium`. `TableBody` carece de estilos propios.
 - **Filas y celdas.** `TableRow` usa borde inferior `gray-base` salvo en la última fila del grupo. `TableHead` y `TableCell` usan `px-3 py-2` y alineación vertical media. El encabezado usa `text-start` y `font-semibold`. `TableCaption` usa `h6`, borde inferior, `px-3 py-2` y `text-start`.
 - La familia carece de sombras, animaciones y prop `render`.
 

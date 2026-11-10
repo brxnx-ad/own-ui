@@ -1,7 +1,7 @@
 "use client";
 
 import { NavigationMenu as Primitive } from "@base-ui/react/navigation-menu";
-import clsx from "clsx";
+import clsx from "@/components/own/classes";
 import { Chevron } from "@/components/own/icons";
 import styles from "./navigation-menu.module.css";
 
@@ -43,7 +43,7 @@ function classes<State>(
 }
 
 const triggerClasses = clsx(
-  "body-sm inline-flex min-h-10 min-w-0 items-center justify-between gap-1.5 rounded-base px-3 py-1.5 font-medium text-gray-bold outline-none select-none",
+  "body-sm inline-flex min-h-10 min-w-0 items-center justify-between gap-1.5 rounded-base px-3 py-1.5 font-medium text-content-bold outline-none select-none",
   "transition-colors duration-150 motion-reduce:transition-none",
   "hover:not-data-disabled:bg-surface-bold data-popup-open:bg-surface-bold",
   "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-base",
@@ -51,7 +51,7 @@ const triggerClasses = clsx(
 );
 
 const linkClasses = clsx(
-  "body-sm flex min-w-0 flex-col gap-0.5 rounded-base px-3 py-2 text-gray-bold no-underline outline-none",
+  "body-sm flex min-w-0 flex-col gap-0.5 rounded-base px-3 py-2 text-content-bold no-underline outline-none",
   "transition-colors duration-150 motion-reduce:transition-none",
   "[[data-slot=navigation-menu-list]>[data-slot=navigation-menu-item]>&]:min-h-10 [[data-slot=navigation-menu-list]>[data-slot=navigation-menu-item]>&]:flex-row [[data-slot=navigation-menu-list]>[data-slot=navigation-menu-item]>&]:items-center [[data-slot=navigation-menu-list]>[data-slot=navigation-menu-item]>&]:gap-1.5 [[data-slot=navigation-menu-list]>[data-slot=navigation-menu-item]>&]:py-1.5 [[data-slot=navigation-menu-list]>[data-slot=navigation-menu-item]>&]:font-medium",
   "hover:bg-surface-bold data-active:bg-primary-soft data-active:text-primary-bold",
@@ -131,7 +131,7 @@ export function NavigationMenuIcon({
     <Primitive.Icon
       data-slot="navigation-menu-icon"
       className={classes(
-        "inline-flex shrink-0 items-center justify-center text-gray-bold/75 transition-transform duration-150 data-popup-open:rotate-180 motion-reduce:transition-none",
+        "inline-flex shrink-0 items-center justify-center text-content-base transition-transform duration-150 data-popup-open:rotate-180 motion-reduce:transition-none",
         className,
       )}
       {...props}
@@ -151,7 +151,7 @@ export function NavigationMenuContent({
       className={classes(
         clsx(
           styles.content,
-          "w-(--navigation-menu-content-width,min(28rem,calc(var(--available-width,100vw)-2rem))) min-w-0 p-(--navigation-menu-content-padding,--spacing(3)) text-gray-bold",
+          "w-(--navigation-menu-content-width,min(28rem,calc(var(--available-width,100vw)-2rem))) min-w-0 p-(--navigation-menu-content-padding,--spacing(3)) text-content-bold",
         ),
         className,
       )}
@@ -225,7 +225,7 @@ export function NavigationMenuPopup({
       className={classes(
         clsx(
           styles.popup,
-          "relative h-(--popup-height,auto) w-(--popup-width,auto) max-w-(--available-width) origin-(--transform-origin) rounded-base border border-gray-base bg-surface-base text-gray-bold shadow-m outline-none",
+          "relative h-(--popup-height,auto) w-(--popup-width,auto) max-w-(--available-width) origin-(--transform-origin) rounded-base border border-gray-base bg-surface-base text-content-bold shadow-m outline-none",
         ),
         className,
       )}

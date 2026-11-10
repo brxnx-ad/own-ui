@@ -1,4 +1,4 @@
-import clsx from "clsx";
+import clsx from "@/components/own/classes";
 import type { ComponentPropsWithRef, ReactNode } from "react";
 
 export type AlertVariant = "default" | "info" | "success" | "warning" | "destructive";
@@ -22,7 +22,7 @@ export function Alert({ className, variant = "default", icon, children, ...props
       data-slot="alert"
       data-variant={variant}
       className={clsx(
-        "flex min-w-0 items-start gap-3 rounded-base border px-4 py-3 text-gray-bold",
+        "flex min-w-0 items-start gap-3 rounded-base border px-4 py-3 text-content-bold",
         variantStyles[variant],
         className,
       )}

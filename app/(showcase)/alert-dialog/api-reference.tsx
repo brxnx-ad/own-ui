@@ -89,7 +89,7 @@ const groups = [
 export function Anatomy() {
   return (
     <ShowcaseAnatomy>
-      <p className="body-sm text-gray-bold/75">Nueve piezas con acciones compuestas mediante Button:</p>
+      <p className="body-sm text-content-base">Nueve piezas con acciones compuestas mediante Button:</p>
       <ShowcaseAnatomyContent name="Alert Dialog" code={anatomy} parts={parts} />
     </ShowcaseAnatomy>
   );
@@ -98,7 +98,7 @@ export function Anatomy() {
 export function ApiReference() {
   return (
     <ShowcaseApiReference>
-      <p className="body-sm text-gray-bold/75">Props de cada pieza y utilidades para compartir el diálogo entre activadores.</p>
+      <p className="body-sm text-content-base">Props de cada pieza y utilidades para compartir el diálogo entre activadores.</p>
       <ShowcaseApiTable
         name="Alert Dialog"
         groups={groups.map((group) => ({
@@ -106,12 +106,12 @@ export function ApiReference() {
           rows: group.rows.map(([name, type, defaultValue, optional, description]) => ({ prop: name, type, defaultValue, description, optional })),
         }))}
       />
-      <dl className="space-y-3 body-sm text-gray-bold/75">
-        <div><dt className="inline font-medium text-gray-bold">Eventos: </dt><dd className="inline"><code>eventDetails</code> incluye el evento original, <code>reason</code> y <code>cancel()</code>. Los motivos tipados son <code>trigger-press</code>, <code>close-press</code>, <code>escape-key</code>, <code>imperative-action</code>, <code>none</code>, <code>outside-press</code> y <code>focus-out</code>; los dos últimos no cierran un Alert Dialog mediante interacción exterior.</dd></div>
-        <div><dt className="inline font-medium text-gray-bold">Accesibilidad: </dt><dd className="inline">Incluye un título, una descripción breve y una acción de cancelación. Tab y Mayús+Tab recorren el diálogo, Enter y Espacio activan sus botones y Escape solicita el cierre. El foco permanece dentro y se devuelve al cerrar; el desplazamiento de la página queda bloqueado.</dd></div>
-        <div><dt className="inline font-medium text-gray-bold">Carga asíncrona: </dt><dd className="inline">Usa Button con <code>loading</code> para confirmar, controla <code>open</code> y cancela las solicitudes de cierre mientras la operación está pendiente. AlertDialogClose cierra de inmediato y se reserva para acciones que puedan terminar de forma síncrona.</dd></div>
-        <div><dt className="inline font-medium text-gray-bold">Atributos y movimiento: </dt><dd className="inline">Las piezas DOM aceptan atributos HTML y exponen <code>data-slot</code>. Base UI añade los estados de cada pieza, como <code>data-open</code>, <code>data-closed</code>, <code>data-starting-style</code> y <code>data-ending-style</code>. Se respeta el movimiento reducido.</dd></div>
-        <div><dt className="inline font-medium text-gray-bold">Modalidad: </dt><dd className="inline">El diálogo siempre es modal y pulsar fuera no lo cierra. La raíz no acepta <code>modal</code> ni <code>disablePointerDismissal</code>.</dd></div>
+      <dl className="space-y-3 body-sm text-content-base">
+        <div><dt className="inline font-medium text-content-bold">Eventos: </dt><dd className="inline"><code>eventDetails</code> incluye el evento original, <code>reason</code> y <code>cancel()</code>. Los motivos tipados son <code>trigger-press</code>, <code>close-press</code>, <code>escape-key</code>, <code>imperative-action</code>, <code>none</code>, <code>outside-press</code> y <code>focus-out</code>; los dos últimos no cierran un Alert Dialog mediante interacción exterior.</dd></div>
+        <div><dt className="inline font-medium text-content-bold">Accesibilidad: </dt><dd className="inline">Incluye un título, una descripción breve y una acción de cancelación. Tab y Mayús+Tab recorren el diálogo, Enter y Espacio activan sus botones y Escape solicita el cierre. El foco permanece dentro y se devuelve al cerrar; el desplazamiento de la página queda bloqueado.</dd></div>
+        <div><dt className="inline font-medium text-content-bold">Carga asíncrona: </dt><dd className="inline">Usa Button con <code>loading</code> para confirmar, controla <code>open</code> y cancela las solicitudes de cierre mientras la operación está pendiente. AlertDialogClose cierra de inmediato y se reserva para acciones que puedan terminar de forma síncrona.</dd></div>
+        <div><dt className="inline font-medium text-content-bold">Atributos y movimiento: </dt><dd className="inline">Las piezas DOM aceptan atributos HTML y exponen <code>data-slot</code>. Base UI añade los estados de cada pieza, como <code>data-open</code>, <code>data-closed</code>, <code>data-starting-style</code> y <code>data-ending-style</code>. Se respeta el movimiento reducido.</dd></div>
+        <div><dt className="inline font-medium text-content-bold">Modalidad: </dt><dd className="inline">El diálogo siempre es modal y pulsar fuera no lo cierra. La raíz no acepta <code>modal</code> ni <code>disablePointerDismissal</code>.</dd></div>
       </dl>
     </ShowcaseApiReference>
   );

@@ -1,4 +1,4 @@
-import clsx from "clsx";
+import clsx from "@/components/own/classes";
 import type { ComponentPropsWithRef } from "react";
 
 export interface TableProps extends ComponentPropsWithRef<"table"> {
@@ -21,7 +21,7 @@ export function Table({ className, containerProps, ...props }: TableProps) {
     >
       <table
         data-slot="table"
-        className={clsx("body-sm w-full caption-top text-gray-bold", className)}
+        className={clsx("body-sm w-full caption-top text-content-bold", className)}
         {...props}
       />
     </div>

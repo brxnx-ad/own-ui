@@ -61,7 +61,7 @@ export function ApiReference() {
           rows: rows.map(([prop, type, defaultValue, optional, description]) => ({ prop, type, defaultValue, description, optional })),
         }))}
       />
-      <ul className="body-sm space-y-2 text-gray-bold/75">
+      <ul className="body-sm space-y-2 text-content-base">
         <li>Base UI acota los valores finitos al rango y omite <code>aria-valuenow</code> cuando el progreso es indeterminado.</li>
         <li>Las piezas exponen <code>data-progressing</code>, <code>data-indeterminate</code> o <code>data-complete</code>. Con movimiento reducido, el segmento indeterminado permanece centrado.</li>
         <li>Coloca los controles que cambian el avance fuera de la barra. Usa <code>ProgressLabel</code> o un nombre accesible en la raíz.</li>

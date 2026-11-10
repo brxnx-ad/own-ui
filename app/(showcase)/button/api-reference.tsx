@@ -15,7 +15,7 @@ const options = [
   ["focusableWhenDisabled", "boolean", "false", "Permite el foco de teclado estando deshabilitado; la acción permanece bloqueada."],
   ["render", "ReactElement | (props, state) => ReactElement", "button", "Sustituye el elemento. En la forma de función, propaga las props y ref recibidas."],
   ["nativeButton", "boolean", "true", "Indica si el elemento de render es un button nativo. Para un enlace, usa false y role=link."],
-  ["className", "string", "—", "Añade clases al botón."],
+  ["className", "string | (state) => string", "—", "Añade clases al botón."],
   ["style", "CSSProperties | (state) => CSSProperties", "—", "Añade estilos estáticos o dependientes del estado de Base UI."],
   ["onClick", "(event) => void", "—", "Se ejecuta al activar el botón habilitado con ratón o teclado."],
   ["type", '"button" | "submit" | "reset"', '"button"', "Define la acción nativa dentro de un formulario."],
@@ -24,7 +24,7 @@ const options = [
 export function ButtonAnatomy() {
   return (
     <ShowcaseAnatomy id="button-anatomy">
-      <p className="body-sm text-gray-bold/75">Una pieza pública con contenido e icono opcionales.</p>
+      <p className="body-sm text-content-base">Una pieza pública con contenido e icono opcionales.</p>
       <ShowcaseAnatomyContent name="Button" code={anatomy} parts={[[<>Button</>, <>Gestiona la acción, los estilos y el foco mediante Base UI.</>], [<>icon</>, <>Ranura opcional; no es un subcomponente exportado. ProjectIcon representa un icono del consumidor.</>], [<>children</>, <>Texto o contenido opcional del botón.</>], [<>Spinner</>, <>Indicador interno que sustituye al icono durante loading; no se compone manualmente dentro de Button.</>]]} />
     </ShowcaseAnatomy>
   );
@@ -33,7 +33,7 @@ export function ButtonAnatomy() {
 export function ButtonApiReference() {
   return (
     <ShowcaseApiReference id="button-api">
-      <p className="body-sm text-gray-bold/75">Opciones de Button. Todas son opcionales.</p>
+      <p className="body-sm text-content-base">Opciones de Button. Todas son opcionales.</p>
       <ShowcaseApiTable
         name="Button"
         groups={[{
@@ -41,8 +41,8 @@ export function ButtonApiReference() {
           rows: options.map(([name, type, defaultValue, description]) => ({ prop: name, type, defaultValue, description })),
         }]}
       />
-      <p className="body-sm text-gray-bold/75">Tab recorre los botones habilitados; Enter y Espacio activan un botón nativo. Los enlaces conservan su navegación nativa. Los botones de solo icono necesitan un nombre accesible y los iconos decorativos deben ocultarse a lectores de pantalla.</p>
-      <p className="caption text-gray-bold/75">También se admiten atributos HTML, ARIA, ref y eventos nativos. La prop className se documenta como cadena porque el wrapper actual no evalúa funciones de clases.</p>
+      <p className="body-sm text-content-base">Tab recorre los botones habilitados; Enter y Espacio activan un botón nativo. Los enlaces conservan su navegación nativa. Los botones de solo icono necesitan un nombre accesible y los iconos decorativos deben ocultarse a lectores de pantalla.</p>
+      <p className="caption text-content-base">También se admiten atributos HTML, ARIA, ref y eventos nativos. La prop className admite una cadena o una función del estado del botón.</p>
     </ShowcaseApiReference>
   );
 }

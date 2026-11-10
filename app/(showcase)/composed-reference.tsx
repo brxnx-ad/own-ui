@@ -12,7 +12,7 @@ export function ComposedReference({ name, code, parts, groups, note }: {
     <ShowcaseAnatomy><ShowcaseAnatomyContent name={name} code={code} parts={parts} /></ShowcaseAnatomy>
     <ShowcaseApiReference>
       <ShowcaseApiTable name={name} groups={groups} />
-      {note && <p className="body-sm text-gray-bold/75">{note}</p>}
+      {note && <p className="body-sm text-content-base">{note}</p>}
     </ShowcaseApiReference>
   </>;
 }

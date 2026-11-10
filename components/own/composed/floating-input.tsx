@@ -1,7 +1,7 @@
 "use client";
 
 import type { ComponentProps, ReactNode } from "react";
-import clsx from "clsx";
+import clsx from "@/components/own/classes";
 import { Field, FieldLabel } from "@/components/own/base/field";
 import { Input, type InputProps } from "@/components/own/base/input";
 import styles from "./floating-input.module.css";

@@ -1,7 +1,7 @@
 "use client";
 
 import { Fieldset as Primitive } from "@base-ui/react/fieldset";
-import clsx from "clsx";
+import clsx from "@/components/own/classes";
 
 function classes<State>(
   base: string,
@@ -26,7 +26,7 @@ export function FieldsetLegend({ className, ...props }: Primitive.Legend.Props) 
   return (
     <Primitive.Legend
       data-slot="fieldset-legend"
-      className={classes("h5 border-b border-gray-base pb-2 text-gray-bold data-disabled:text-gray-bold/60", className)}
+      className={classes("h5 border-b border-gray-base pb-2 text-content-bold data-disabled:text-content-soft", className)}
       {...props}
     />
   );

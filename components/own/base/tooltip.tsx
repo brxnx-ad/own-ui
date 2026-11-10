@@ -1,7 +1,7 @@
 "use client";
 
 import { Tooltip as Primitive } from "@base-ui/react/tooltip";
-import clsx from "clsx";
+import clsx from "@/components/own/classes";
 import styles from "./tooltip.module.css";
 
 export const Tooltip = Primitive.Root;
@@ -46,7 +46,7 @@ const positionerStyles = clsx(
 const popupStyles = clsx(
   styles.popup,
   "body-sm relative max-h-(--available-height) w-fit min-w-0 max-w-[min(20rem,var(--available-width))] overflow-hidden wrap-anywhere rounded-base",
-  "origin-(--transform-origin) border border-gray-base bg-surface-base px-3 py-1.5 text-gray-bold shadow-m outline-none",
+  "origin-(--transform-origin) border border-gray-base bg-surface-base px-3 py-1.5 text-content-bold shadow-m outline-none",
   "has-[>[data-slot=tooltip-viewport]]:w-(--popup-width) has-[>[data-slot=tooltip-viewport]]:h-(--popup-height)",
   "has-[>[data-slot=tooltip-arrow]]:overflow-visible",
 );

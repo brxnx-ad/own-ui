@@ -25,11 +25,11 @@ function StateRow({
   return (
     <div className="w-full space-y-3">
       <div className="flex items-center justify-center gap-2">
-        <span className="caption font-semibold uppercase tracking-wider text-gray-bold/70">
+        <span className="caption font-semibold uppercase tracking-wider text-content-base">
           {label}
         </span>
         {propCode && (
-          <code className="rounded bg-gray-base/30 px-1.5 py-0.5 text-xs font-mono text-gray-bold font-medium">
+          <code className="rounded bg-gray-base/30 px-1.5 py-0.5 text-xs font-mono text-content-bold font-medium">
             {propCode}
           </code>
         )}

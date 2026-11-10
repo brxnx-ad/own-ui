@@ -160,7 +160,7 @@ Los callbacks de cambio reciben `details.event`, `details.reason` y `details.can
 | Pieza | Dimensiones, estilos y ajustes locales |
 | :--- | :--- |
 | Select y Label | Define la separación y el ancho del campo en un contenedor del consumidor. Label usa `body-sm` con peso medio. |
-| Trigger | Superficie `surface-bold`, borde `gray-base`, radio base y texto `gray-bold`. Hover y apertura usan `surface-base`. El foco visible tiene contorno `gray-bold` y el estado inválido usa `error-base` en borde y contorno. Ajusta el ancho con `w-full` o clases de ancho en este nodo. |
+| Trigger | Superficie `surface-bold`, borde `gray-base`, radio base y texto `content-bold`. Hover y apertura usan `surface-base`. El foco visible tiene contorno `gray-bold` y el estado inválido usa `error-base` en borde y contorno. Ajusta el ancho con `w-full` o clases de ancho en este nodo. |
 | Value e Icon | Value se trunca a una línea y el placeholder tiene menor énfasis. Icon no se encoge y dimensiona los SVG sin clase de tamaño a `1rem`. Aporta `children` para sustituir el chevron. |
 | Portal, Backdrop y Positioner | El portal va a `body` por defecto. Backdrop cubre el viewport con `z-40`, `gray-bold/40` en claro y `surface-soft/70` en oscuro. Positioner usa `z-50`, ancho de ancla y máximo disponible. Aplica cambios de ancho aquí y conserva la posición calculada por Base UI. |
 | Popup, Arrow y List | Popup usa `surface-base`, `gray-base`, radio base y `shadow-m`. Arrow es un cuadrado rotado de `0.5rem`, usa los colores del panel y se oculta con `data-side="none"`. List contiene el overflow vertical, tiene padding de `0.25rem` y hereda el radio. Ajusta el límite de altura en Popup para mantener List como zona desplazable. |
@@ -170,7 +170,7 @@ Los callbacks de cambio reciben `details.event`, `details.reason` y `details.can
 
 Positioner expone `--anchor-width`, `--anchor-height`, `--available-width`, `--available-height` y `--transform-origin`. Popup anima opacidad y escala durante 150 ms con `motion-safe` en modo separado. Cuando `data-side="none"`, solo transiciona opacidad para conservar la alineación. Backdrop transiciona opacidad e Icon gira con la misma duración. Con movimiento reducido, se aplican los estados finales sin transición. Conserva los estados de entrada y salida si cambias la animación.
 
-Los wrappers estilizados combinan `className` estático o funcional con sus clases mediante `clsx`. Group y Portal delegan las clases directamente. Base UI combina estilos, eventos y refs en la composición. El estilo inline puede sobrescribir la geometría de la primitiva y las clases en conflicto se resuelven por cascada. Los tokens de [globals.css](../../globals.md) cambian con el tema y afectan a todas las familias que los consumen.
+Los wrappers estilizados combinan `className` estático o funcional con sus clases mediante `clsx`. Group y Portal delegan las clases directamente. Base UI combina estilos, eventos y refs en la composición. El estilo inline puede sobrescribir la geometría de la primitiva y, salvo la [excepción de colores `content`](../../globals.md#composición-y-precedencia-de-clases), las clases en conflicto se resuelven por cascada. Los tokens de [globals.css](../../globals.md) cambian con el tema y afectan a todas las familias que los consumen.
 
 ## 8. Ejemplos de composición
 

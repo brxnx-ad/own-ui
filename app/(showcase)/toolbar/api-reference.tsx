@@ -83,7 +83,7 @@ const groups = [
 export function Anatomy() {
   return (
     <ShowcaseAnatomy>
-      <p className="body-sm text-gray-bold/75">El ejemplo usa <code>Link</code> de <code>next/link</code> para la navegación interna.</p>
+      <p className="body-sm text-content-base">El ejemplo usa <code>Link</code> de <code>next/link</code> para la navegación interna.</p>
       <ShowcaseAnatomyContent name="Toolbar" code={anatomy} parts={parts} />
     </ShowcaseAnatomy>
   );
@@ -99,7 +99,7 @@ export function ApiReference() {
           rows: rows.map(([name, type, defaultValue, description]) => ({ prop: name, type, defaultValue, description })),
         }))}
       />
-      <ul className="body-sm list-disc space-y-2 ps-5 text-gray-bold/75">
+      <ul className="body-sm list-disc space-y-2 ps-5 text-content-base">
         <li>Usa <kbd>Tab</kbd> para entrar o salir de la barra y las flechas del eje para recorrerla.</li>
         <li>En horizontal, coloca un solo campo de texto y déjalo al final para reducir los conflictos entre las flechas de edición y de navegación.</li>
         <li>Las piezas reflejan su eje con <code>data-orientation</code>. Botón y campo también exponen <code>data-disabled</code> y <code>data-focusable</code>.</li>

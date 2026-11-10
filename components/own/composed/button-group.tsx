@@ -2,7 +2,7 @@
 
 import { createContext, useContext, type ComponentPropsWithRef } from "react";
 import { useRender } from "@base-ui/react/use-render";
-import clsx from "clsx";
+import clsx from "@/components/own/classes";
 import { Separator, type SeparatorProps } from "@/components/own/base/separator";
 import styles from "./button-group.module.css";
 
@@ -43,7 +43,7 @@ export function ButtonGroupText({ className, render, ref, ...props }: ButtonGrou
     props: {
       "data-slot": "button-group-text",
       className: clsx(
-        "flex min-w-0 items-center gap-2 rounded-base border border-gray-base bg-surface-base px-3 text-sm font-medium text-gray-bold",
+        "flex min-w-0 items-center gap-2 rounded-base border border-gray-base bg-surface-base px-3 text-sm font-medium text-content-bold",
         "[&_svg:not([class*='size-'])]:size-4",
         className,
       ),

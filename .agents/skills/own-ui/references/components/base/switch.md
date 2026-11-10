@@ -79,7 +79,7 @@ Con colores forzados, la pista usa `Canvas` o `Highlight` y el indicador usa `Ca
 
 Con `motion-safe`, la pista transiciona sus colores durante 150 ms. El indicador transiciona la posición y el fondo durante 150 ms con `ease-out`. Con movimiento reducido, ambos cambios son inmediatos.
 
-Usa `data-slot` junto con los atributos de estado para seleccionar la pieza. Las clases estáticas o funcionales se combinan con `clsx`. La cascada resuelve las utilidades en conflicto. `style` actúa sobre la pieza visible y un estilo inline incondicional puede prevalecer sobre los colores de estado.
+Usa `data-slot` junto con los atributos de estado para seleccionar la pieza. Las clases estáticas o funcionales se combinan con `clsx`. Salvo la [excepción de colores `content`](../../globals.md#composición-y-precedencia-de-clases), la cascada resuelve las utilidades en conflicto. `style` actúa sobre la pieza visible y un estilo inline incondicional puede prevalecer sobre los colores de estado.
 
 ## 8. Ejemplos de composición
 

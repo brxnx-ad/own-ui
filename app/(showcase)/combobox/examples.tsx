@@ -218,7 +218,7 @@ export function FormExample() {
         </OptionsPopup>
       </Combobox>
       <Button size="sm" type="submit">Confirmar bodega</Button>
-      <output className="block body-sm text-gray-bold/75 empty:hidden">
+      <output className="block body-sm text-content-base empty:hidden">
         {submittedCode && `Bodega confirmada con el código ${submittedCode}.`}
       </output>
     </form>

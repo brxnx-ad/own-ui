@@ -1,7 +1,7 @@
 "use client";
 
 import { Popover as Primitive } from "@base-ui/react/popover";
-import clsx from "clsx";
+import clsx from "@/components/own/classes";
 import styles from "./popover.module.css";
 
 export const Popover = Primitive.Root;
@@ -38,7 +38,7 @@ const positionerStyles = clsx(
 const popupStyles = clsx(
   styles.popup,
   "relative flex max-h-(--available-height) w-80 min-w-0 max-w-(--available-width) flex-col gap-2",
-  "origin-(--transform-origin) overflow-y-auto overscroll-contain rounded-base border border-gray-base bg-surface-base p-4 text-gray-bold shadow-m outline-hidden focus-visible:ring-2 focus-visible:ring-primary-base",
+  "origin-(--transform-origin) overflow-y-auto overscroll-contain rounded-base border border-gray-base bg-surface-base p-4 text-content-bold shadow-m outline-hidden focus-visible:ring-2 focus-visible:ring-primary-base",
   "has-[>[data-slot=popover-viewport]]:h-(--popup-height)",
 );
 
@@ -93,11 +93,11 @@ export function PopoverViewport({ className, ...props }: PopoverViewportProps) {
 }
 
 export function PopoverTitle({ className, ...props }: PopoverTitleProps) {
-  return <Primitive.Title data-slot="popover-title" className={classes("h4 wrap-anywhere text-gray-bold", className)} {...props} />;
+  return <Primitive.Title data-slot="popover-title" className={classes("h4 wrap-anywhere text-content-bold", className)} {...props} />;
 }
 
 export function PopoverDescription({ className, ...props }: PopoverDescriptionProps) {
-  return <Primitive.Description data-slot="popover-description" className={classes("body-sm wrap-anywhere text-gray-bold/75", className)} {...props} />;
+  return <Primitive.Description data-slot="popover-description" className={classes("body-sm wrap-anywhere text-content-base", className)} {...props} />;
 }
 
 export function PopoverClose(props: PopoverCloseProps) {

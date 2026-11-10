@@ -25,7 +25,7 @@ Los valores predeterminados son `variant="primary"` y `size="md"`.
 | `variant` | Uso | Reposo | Hover y active |
 | :--- | :--- | :--- | :--- |
 | `primary` | Acción principal. | `bg-primary-base text-white`. | `bg-primary-bold`. |
-| `secondary` | Acción secundaria delimitada. | `bg-surface-base border-gray-base text-gray-bold`. | `bg-surface-bold`. |
+| `secondary` | Acción secundaria delimitada. | `bg-surface-base border-gray-base text-content-bold`. | `bg-surface-bold`. |
 | `outline` | Acción delimitada sobre su entorno. | Fondo transparente, `border-gray-base`. | `bg-surface-bold`. |
 | `ghost` | Acción de baja jerarquía. | Fondo y borde transparentes. | `bg-surface-bold`. |
 | `destructive` | Acción destructiva explícita. | `bg-error-soft border-error-base text-error-bold`. | `bg-error-base text-white`. |
@@ -58,7 +58,7 @@ Las filas marcadas como propias amplían `ButtonPrimitive.Props`. El resto corre
 | Button | `focusableWhenDisabled` | `boolean` | `false` | Sí | Mantiene el acceso con teclado cuando está deshabilitado. La acción sigue bloqueada. |
 | Button | `nativeButton` | `boolean` | `true` | Sí | Indica si `render` conserva un botón nativo. |
 | Button | `render` | `ReactElement \| ((props, state) => ReactElement)` | Elemento nativo | Sí | Compone el comportamiento en un elemento. |
-| Button | `className` | `string \| ((state) => string \| undefined)` | — | Sí | Tipo heredado. El wrapper incorpora únicamente cadenas en ejecución. |
+| Button | `className` | `string \| ((state) => string \| undefined)` | — | Sí | Tipo heredado. El wrapper evalúa la función con el estado de Base UI y combina su resultado con las clases propias. |
 | Button | `style` | `CSSProperties \| ((state) => CSSProperties \| undefined)` | — | Sí | Estilos directos o derivados del estado de Base UI. |
 | Button | `ref` | `Ref<HTMLButtonElement>` | — | Sí | Referencia al nodo. Verifica que el elemento aportado por `render` admita la ref que necesita tu composición. |
 
@@ -85,7 +85,7 @@ Consulta [globals](../../globals.md) para los tokens y las utilidades compartida
 | Movimiento reducido | La compresión ya usa `motion-safe`. El wrapper conserva la transición base y Spinner usa `animate-spin`. Si el ajuste debe desactivar ambos, usa `motion-reduce:transition-none motion-reduce:[&_[data-slot=spinner]]:animate-none` en Button. |
 | Elemento distinto | Usa `render`, propagando las props y `ref` recibidas si eliges la forma de función. |
 
-El wrapper pasa `className` a `clsx` sin evaluar funciones y sin fusionar conflictos de Tailwind. Para un ajuste directo usa `style` sobre el nodo principal. Para estados y descendientes usa un selector con precedencia comprobada. El consumidor controla la separación exterior desde su contenedor.
+El wrapper evalúa `className` funcional y combina el resultado mediante el helper compartido. Una clase `text-content-*` posterior sustituye colores de texto reconocidos con el mismo prefijo; los demás conflictos siguen la cascada. Consulta [globals](../../globals.md#composición-y-precedencia-de-clases). Para un ajuste directo usa `style` sobre el nodo principal. Para estados y descendientes usa un selector con precedencia comprobada. El consumidor controla la separación exterior desde su contenedor.
 
 ## 8. Ejemplos de composición
 
@@ -124,4 +124,4 @@ En una confirmación se puede componer Button con `AlertDialogClose render={<But
 ## 10. Límites y verificación
 
 - Para un botón solo icono usa `iconPosition="start"`. Con `"end"` y sin contenido el wrapper omite la ranura.
-- Usa cadenas para `className` y `render` para composición. Comprueba variantes, anchos con texto y con icono, carga, deshabilitación, foco y nombres accesibles en ambos temas.
+- Usa una cadena o función de estado en `className` y `render` para composición. Comprueba variantes, anchos con texto y con icono, carga, deshabilitación, foco y nombres accesibles en ambos temas.

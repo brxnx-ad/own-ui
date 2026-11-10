@@ -106,7 +106,7 @@ export function ApiReference() {
           rows: rows.map(([prop, type, defaultValue, description]) => ({ prop, type, defaultValue, description })),
         }))}
       />
-      <ul className="body-sm space-y-2 text-gray-bold/75">
+      <ul className="body-sm space-y-2 text-content-base">
         <li><code>details.reason</code> distingue el activador, el clic exterior, Escape, el botón de cierre, la salida de foco y las acciones imperativas. Usa <code>details.cancel()</code> para rechazar el cambio.</li>
         <li><code>createPopoverHandle()</code> vincula una raíz montada con sus activadores externos y expone <code>open(id)</code>, <code>close()</code> e <code>isOpen</code>.</li>
         <li><code>PopoverViewport</code> añade una transición de contenido entre activadores con movimiento permitido.</li>

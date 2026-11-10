@@ -70,13 +70,13 @@ InputGroupButton acepta los tamaños `xs`, `sm`, `icon-xs` e `icon-sm`. Parte de
 | Pieza | Estilos y selectores |
 | :--- | :--- |
 | InputGroup | Flex wrapping, borde `gray-base`, fondo de control `surface-bold`, radio `rounded-base` y ancho del contenedor. Al enfocar el campo muestra un contorno `primary-base`; los estados inválidos usan `error-bold`. |
-| InputGroupAddon | Texto `gray-bold/75`, SVG sin tamaño explícito `size-4` y padding de acuerdo con `data-align`. `basis-full` coloca complementos en filas superiores e inferiores. |
+| InputGroupAddon | Texto `content-base`, SVG sin tamaño explícito `size-4` y padding de acuerdo con `data-align`. `basis-full` coloca complementos en filas superiores e inferiores. |
 | InputGroupText | Conserva la tipografía del complemento; admite `className`, `style` y SVG del consumidor. |
 | InputGroupButton | Usa Button; los tamaños compactos sustituyen altura, anchura, separación y padding. Mantiene sus tokens, estados y foco. |
 | InputGroupInput | El CSS Module elimina borde, fondo, radio, sombra y anillo propios de Input dentro del marco y alinea su altura. El grupo asume esas responsabilidades visuales. |
 | InputGroupTextarea | El marco del contador se integra con el grupo. `maxRows` mantiene el límite de altura y el campo puede desplazarse verticalmente. |
 
-Al exportar incluye `input-group.module.css`. Sus selectores internos combinan complementos y controles directos, incluido el contenedor generado por Textarea con contador. Ajusta el grupo con `className`; el CSS Module tiene reglas propias de borde y fondo para que la superficie se mantenga en una única pieza. `clsx` concatena clases y no fusiona conflictos de Tailwind. Los tokens se adaptan por tema.
+Al exportar incluye `input-group.module.css`. Sus selectores internos combinan complementos y controles directos, incluido el contenedor generado por Textarea con contador. Ajusta el grupo con `className`; el CSS Module tiene reglas propias de borde y fondo para que la superficie se mantenga en una única pieza. `clsx` concatena clases y aplica la excepción de colores descrita en [globals](../../globals.md#composición-y-precedencia-de-clases). Los tokens se adaptan por tema.
 
 ## 8. Ejemplos de composición
 

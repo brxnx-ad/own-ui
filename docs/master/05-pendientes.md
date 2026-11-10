@@ -2,7 +2,7 @@
 
 > **Objetivo y alcance del documento:** Registrar el estado de implementación del catálogo de own-ui, su distribución prevista entre componentes base, simples, compuestos y dependientes, junto con las referencias externas y los conceptos de animación pendientes de evaluar. Se considera desactualizado si los componentes marcados como implementados difieren del catálogo existente, si la distribución contradice las dependencias de sus definiciones y la estructura vigente del proyecto o si las referencias externas no corresponden a los componentes, ejemplos o transiciones descritos.
 
-[Estructura del proyecto](01-estructura-del-proyecto.md) · [Sistema de estilos](02-estilos.md) · [Objetivos](03-objetivos.md) · [Mantenimiento](04-mantenimiento.md)
+
 
 ---
 
@@ -64,10 +64,10 @@ En `components/own/base/` hay 37 familias implementadas, cada una basada en una 
 
 ## 2. Componentes compuestos (`components/own/composed/`)
 
-En `components/own/composed/` hay siete familias implementadas. FloatingInput y Command se detallan aquí y las cinco familias incorporadas a partir de Takk se registran en [la sección 3.2](#32-familias-compuestas-implementadas).
+En `components/own/composed/` hay siete familias implementadas. FloatingInput y Command se detallan aquí y las cinco familias incorporadas a partir de Takk se registran en la sección 3.2.
 
 - [x] FloatingInput. Compone Input y Field para renderizar un campo con etiqueta flotante, con las variantes `inset` y `outline`.
-- [x] Command. Compone Autocomplete y Dialog de own-ui para buscar y ejecutar acciones desde una paleta modal. [Showcase](features/showcase.md#10-cobertura-de-command) · [Referencia en la skill](features/skill-own-ui.md#7-estado-de-la-skill-en-este-repositorio)
+- [x] Command. Compone Autocomplete y Dialog de own-ui para buscar y ejecutar acciones desde una paleta modal. Showcase · Referencia en la skill
 
 Las familias que reutilizan otros componentes de own-ui en su definición se ubican en `composed/`.
 
@@ -88,7 +88,7 @@ Estas ocho familias de Takk están implementadas con HTML nativo o utilidades de
 
 ### 3.2. Familias compuestas implementadas
 
-Cada familia reutiliza las piezas de own-ui indicadas y cuenta con una [página de showcase](features/showcase.md#8-cobertura-de-los-componentes-compuestos-de-takk) y una [referencia en la skill](features/skill-own-ui.md#7-estado-de-la-skill-en-este-repositorio).
+Cada familia reutiliza las piezas de own-ui indicadas y cuenta con una página de showcase y una referencia en la skill.
 
 - [x] Attachment · Button.
 - [x] Button Group · Separator.
@@ -100,102 +100,102 @@ Cada familia reutiliza las piezas de own-ui indicadas y cuenta con una [página 
 
 Estas familias se ubican en `dependant/`, incluso cuando también componen componentes de own-ui. Su incorporación requiere aprobación antes de añadir la dependencia.
 
-- [x] Carousel · Embla (`embla-carousel-react`) y Button. [Showcase](features/showcase.md#11-cobertura-de-carousel) · [Referencia en la skill](features/skill-own-ui.md#7-estado-de-la-skill-en-este-repositorio)
-- [x] Chart · TanStack Charts (`@tanstack/charts`). [Showcase](features/showcase.md#12-cobertura-de-chart) · [Referencia en la skill](features/skill-own-ui.md#7-estado-de-la-skill-en-este-repositorio)
+- [x] Carousel · Embla (`embla-carousel-react`) y Button. Showcase · Referencia en la skill
+- [x] Chart · TanStack Charts (`@tanstack/charts`). Showcase · Referencia en la skill
 
 ## 4. Referencias de Interior para componentes propios
 
-Selección de referencias de [Interior](https://www.interior.dev/docs) agrupadas por categoría de origen. Se evaluará qué patrones de interacción y animación conviene adaptar e integrar en componentes propios de own-ui.
+Selección de referencias de Interior agrupadas por categoría de origen. Se evaluará qué patrones de interacción y animación conviene adaptar e integrar en componentes propios de own-ui.
 
 ### 4.1. Action Feedback
 
 You did something. Did it land?
 
-- [Copy Button](https://www.interior.dev/docs/copy-button)
-- [Loading Button](https://www.interior.dev/docs/loading-button)
-- [Hold to Confirm](https://www.interior.dev/docs/hold-to-confirm)
-- [Like Burst](https://www.interior.dev/docs/like-burst)
-- [Ripple](https://www.interior.dev/docs/ripple)
-- [Icon Morph](https://www.interior.dev/docs/icon-morph)
-- [Press Depth](https://www.interior.dev/docs/press-depth)
+- Copy Button
+- Loading Button
+- Hold to Confirm
+- Like Burst
+- Ripple
+- Icon Morph
+- Press Depth
 
 ### 4.2. Input
 
 You are telling the system something it might reject.
 
-- [Password Strength](https://www.interior.dev/docs/password-strength)
-- [Tag Input](https://www.interior.dev/docs/tag-input)
-- [Expanding Search](https://www.interior.dev/docs/expanding-search)
+- Password Strength
+- Tag Input
+- Expanding Search
 
 ### 4.3. Async
 
 You are waiting, and you deserve to know on what.
 
-- [Skeleton Swap](https://www.interior.dev/docs/skeleton-swap)
-- [Progress Bar](https://www.interior.dev/docs/progress-bar)
-- [Load More](https://www.interior.dev/docs/load-more)
-- [Streaming Text](https://www.interior.dev/docs/streaming-text)
-- [Task Steps](https://www.interior.dev/docs/task-steps)
+- Skeleton Swap
+- Progress Bar
+- Load More
+- Streaming Text
+- Task Steps
 
 ### 4.4. Notification
 
 The system is telling you something you did not ask for.
 
-- [Collapsible Banner](https://www.interior.dev/docs/collapsible-banner)
-- [New Items Pill](https://www.interior.dev/docs/new-items-pill)
+- Collapsible Banner
+- New Items Pill
 
 ### 4.5. Overlay
 
 Something came on top. It has to know where it came from.
 
-- [Command Palette](https://www.interior.dev/docs/command-palette)
-- [Dropdown](https://www.interior.dev/docs/dropdown)
+- Command Palette
+- Dropdown
 
 ### 4.6. Navigation
 
 You moved. The interface should agree about where.
 
-- [Segmented Control](https://www.interior.dev/docs/segmented-control)
-- [Accordion](https://www.interior.dev/docs/accordion)
-- [Wizard Steps](https://www.interior.dev/docs/wizard-steps)
-- [Pagination](https://www.interior.dev/docs/pagination)
-- [Tree View](https://www.interior.dev/docs/tree-view)
+- Segmented Control
+- Accordion
+- Wizard Steps
+- Pagination
+- Tree View
 
 ### 4.7. Scroll
 
 You are reading, and the page is reacting to that.
 
-- [Sticky Header](https://www.interior.dev/docs/sticky-header)
-- [Reading Progress](https://www.interior.dev/docs/reading-progress)
-- [Scroll Spy](https://www.interior.dev/docs/scroll-spy)
-- [Snap Carousel](https://www.interior.dev/docs/snap-carousel)
-- [Hide on Scroll](https://www.interior.dev/docs/hide-on-scroll)
+- Sticky Header
+- Reading Progress
+- Scroll Spy
+- Snap Carousel
+- Hide on Scroll
 
 ### 4.8. Data
 
 A number changed. Which one, and by how much?
 
-- [Sortable Table](https://www.interior.dev/docs/sortable-table)
-- [Filter Grid](https://www.interior.dev/docs/filter-grid)
-- [Value Flash](https://www.interior.dev/docs/value-flash)
+- Sortable Table
+- Filter Grid
+- Value Flash
 
 ### 4.9. Gesture
 
 Your finger is on it. Physics is now part of the API.
 
-- [Slider Detents](https://www.interior.dev/docs/slider-detents)
-- [Reorder List](https://www.interior.dev/docs/reorder-list)
-- [Long Press](https://www.interior.dev/docs/long-press)
-- [Lightbox](https://www.interior.dev/docs/lightbox)
+- Slider Detents
+- Reorder List
+- Long Press
+- Lightbox
 
 ### 4.10. Content
 
 The thing itself arrives, resolves, or is missing.
 
-- [Text Reveal](https://www.interior.dev/docs/text-reveal)
-- [Logo Marquee](https://www.interior.dev/docs/logo-marquee)
-- [Blur-up Image](https://www.interior.dev/docs/blur-up-image)
-- [Show More](https://www.interior.dev/docs/show-more)
+- Text Reveal
+- Logo Marquee
+- Blur-up Image
+- Show More
 
 ## 5. Conceptos de animación por evaluar
 

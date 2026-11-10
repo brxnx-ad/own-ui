@@ -49,7 +49,7 @@ export function ApiReference() {
           rows: rows.map(([prop, type, defaultValue, optional, description]) => ({ prop, type, defaultValue, description, optional })),
         }]}
       />
-      <ul className="body-sm space-y-2 text-gray-bold/75">
+      <ul className="body-sm space-y-2 text-content-base">
         <li>Usa <code>label</code> para nombrar el campo y <code>FieldDescription</code> para una pista adicional.</li>
         <li>Las opciones de validación de Field van en <code>fieldProps</code>. Para mostrar el mensaje, añade <code>FieldError</code> como hijo.</li>
         <li><code>onValueChange</code> conserva los detalles de Input, incluido el evento nativo y el motivo <code>none</code>.</li>

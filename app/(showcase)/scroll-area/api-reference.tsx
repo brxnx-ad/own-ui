@@ -59,7 +59,7 @@ const groups = [
 export function Anatomy() {
   return (
     <ShowcaseAnatomy>
-      <p className="body-sm text-gray-bold/75">El viewport contiene el contenido y cada barra se compone con su indicador.</p>
+      <p className="body-sm text-content-base">El viewport contiene el contenido y cada barra se compone con su indicador.</p>
       <ShowcaseAnatomyContent name="Scroll Area" code={anatomy} parts={parts} />
     </ShowcaseAnatomy>
   );
@@ -68,7 +68,7 @@ export function Anatomy() {
 export function ApiReference() {
   return (
     <ShowcaseApiReference>
-      <p className="body-sm text-gray-bold/75">Las opciones específicas de cada pieza provienen de Base UI.</p>
+      <p className="body-sm text-content-base">Las opciones específicas de cada pieza provienen de Base UI.</p>
       <ShowcaseApiTable
         name="Scroll Area"
         groups={groups.map(({ piece, rows }) => ({
@@ -76,7 +76,7 @@ export function ApiReference() {
           rows: rows.map(([name, type, defaultValue, description]) => ({ prop: name, type, defaultValue, description })),
         }))}
       />
-      <ul className="body-sm list-disc space-y-2 ps-5 text-gray-bold/75">
+      <ul className="body-sm list-disc space-y-2 ps-5 text-content-base">
         <li>Usa <code>Tab</code> para enfocar el viewport y las flechas para recorrerlo. Identifica las regiones relevantes con un nombre accesible.</li>
         <li>Los atributos <code>data-has-overflow-x</code> y <code>data-has-overflow-y</code> indican qué ejes desbordan. Los atributos <code>data-overflow-*-start</code> y <code>data-overflow-*-end</code> indican hacia qué bordes queda contenido.</li>
         <li>Las pistas se superponen al contenido. Reserva espacio junto al borde con padding en <code>ScrollAreaContent</code>.</li>

@@ -1,7 +1,7 @@
 "use client";
 
 import { Menu as Primitive } from "@base-ui/react/menu";
-import clsx from "clsx";
+import clsx from "@/components/own/classes";
 import { Check, Chevron } from "@/components/own/icons";
 
 export const Menu = Primitive.Root;
@@ -21,12 +21,12 @@ function classes<State>(
 }
 
 const itemClasses = clsx(
-  "body-sm flex min-h-9 min-w-0 cursor-default items-center gap-2 wrap-anywhere rounded-base px-2 py-1.5 text-gray-bold outline-none select-none",
+  "body-sm flex min-h-9 min-w-0 cursor-default items-center gap-2 wrap-anywhere rounded-base px-2 py-1.5 text-content-bold outline-none select-none",
   "data-highlighted:bg-primary-soft data-disabled:opacity-50",
 );
 
 const indicatorClasses =
-  "inline-flex size-4 shrink-0 items-center justify-center text-gray-bold invisible data-checked:visible";
+  "inline-flex size-4 shrink-0 items-center justify-center text-content-bold invisible data-checked:visible";
 
 export function MenuTrigger<Payload>(props: Primitive.Trigger.Props<Payload>) {
   const { className, ...triggerProps } = props;
@@ -35,7 +35,7 @@ export function MenuTrigger<Payload>(props: Primitive.Trigger.Props<Payload>) {
     <Primitive.Trigger
       data-slot="menu-trigger"
       className={classes(clsx(
-        "body-sm inline-flex min-h-10 min-w-0 items-center justify-center gap-2 rounded-base border border-gray-base bg-surface-base px-3 py-1.5 font-medium text-gray-bold outline-none",
+        "body-sm inline-flex min-h-10 min-w-0 items-center justify-center gap-2 rounded-base border border-gray-base bg-surface-base px-3 py-1.5 font-medium text-content-bold outline-none",
         "hover:bg-surface-bold data-popup-open:bg-surface-bold data-disabled:opacity-50",
         "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-base",
       ), className)}
@@ -73,7 +73,7 @@ export function MenuPopup({ className, ...props }: Primitive.Popup.Props) {
     <Primitive.Popup
       data-slot="menu-popup"
       className={classes(clsx(
-        "min-w-[min(12rem,var(--available-width))] max-w-[min(20rem,var(--available-width))] max-h-(--available-height) origin-(--transform-origin) overflow-y-auto overscroll-contain rounded-base border border-gray-base bg-surface-base p-1 text-gray-bold shadow-m outline-none",
+        "min-w-[min(12rem,var(--available-width))] max-w-[min(20rem,var(--available-width))] max-h-(--available-height) origin-(--transform-origin) overflow-y-auto overscroll-contain rounded-base border border-gray-base bg-surface-base p-1 text-content-bold shadow-m outline-none",
         "motion-safe:transition-[opacity,scale] motion-safe:duration-150 motion-safe:ease-out data-starting-style:opacity-0 data-ending-style:opacity-0 motion-safe:data-starting-style:scale-95 motion-safe:data-ending-style:scale-95 data-instant:transition-none",
         "has-[>[data-slot=menu-arrow]]:overflow-visible",
       ), className)}
@@ -114,7 +114,7 @@ export function MenuGroupLabel({ className, ...props }: Primitive.GroupLabel.Pro
   return (
     <Primitive.GroupLabel
       data-slot="menu-group-label"
-      className={classes("caption px-2 py-1 font-semibold text-gray-bold/75", className)}
+      className={classes("caption px-2 py-1 font-semibold text-content-base", className)}
       {...props}
     />
   );
@@ -195,7 +195,7 @@ export function MenuInput({ className, ...props }: Primitive.Input.Props) {
   return (
     <Primitive.Input
       data-slot="menu-input"
-      className={classes("body-sm min-h-9 w-full min-w-0 rounded-base border border-gray-base bg-surface-bold px-2 py-1.5 text-gray-bold outline-none placeholder:text-gray-bold/70 focus:border-primary-base focus-visible:ring-1 focus-visible:ring-primary-base", className)}
+      className={classes("body-sm min-h-9 w-full min-w-0 rounded-base border border-gray-base bg-surface-bold px-2 py-1.5 text-content-bold outline-none placeholder:text-content-base focus:border-primary-base focus-visible:ring-1 focus-visible:ring-primary-base", className)}
       {...props}
     />
   );
@@ -205,7 +205,7 @@ export function MenuClear({ className, ...props }: Primitive.Clear.Props) {
   return (
     <Primitive.Clear
       data-slot="menu-clear"
-      className={classes("body-sm inline-flex min-h-9 shrink-0 items-center justify-center rounded-base px-2 text-gray-bold outline-none hover:bg-surface-bold focus-visible:outline-2 focus-visible:outline-primary-base data-disabled:opacity-50", className)}
+      className={classes("body-sm inline-flex min-h-9 shrink-0 items-center justify-center rounded-base px-2 text-content-bold outline-none hover:bg-surface-bold focus-visible:outline-2 focus-visible:outline-primary-base data-disabled:opacity-50", className)}
       {...props}
     />
   );
@@ -219,7 +219,7 @@ export function MenuEmpty({ className, ...props }: Primitive.Empty.Props) {
   return (
     <Primitive.Empty
       data-slot="menu-empty"
-      className={classes("body-sm px-2 py-1.5 text-gray-bold/75", className)}
+      className={classes("body-sm px-2 py-1.5 text-content-base", className)}
       {...props}
     />
   );

@@ -53,7 +53,7 @@ export function ApiReference() {
           rows: rows.map(([prop, type, defaultValue, description]) => ({ prop, type, defaultValue, description })),
         }))}
       />
-      <ul className="body-sm space-y-2 text-gray-bold/75">
+      <ul className="body-sm space-y-2 text-content-base">
         <li>Ambas piezas exponen <code>data-disabled</code> al deshabilitarse. La raíz nativa omite sus controles deshabilitados del envío.</li>
         <li>Si sustituyes el <code>fieldset</code> por otro elemento, el componente usado en <code>render</code> debe encargarse de la semántica y de aplicar la deshabilitación a sus controles.</li>
       </ul>

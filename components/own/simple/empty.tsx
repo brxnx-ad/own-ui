@@ -1,4 +1,4 @@
-import clsx from "clsx";
+import clsx from "@/components/own/classes";
 import type { ComponentPropsWithRef } from "react";
 
 export type EmptyMediaVariant = "default" | "icon";
@@ -41,7 +41,7 @@ export function Empty({ className, border = "dashed", background = "base", ...pr
     <div
       data-slot="empty"
       className={clsx(
-        "flex min-w-0 flex-col items-center gap-4 rounded-base p-6 text-center text-gray-bold",
+        "flex min-w-0 flex-col items-center gap-4 rounded-base p-6 text-center text-content-bold",
         borderStyles[border],
         backgroundStyles[background],
         className,
@@ -87,7 +87,7 @@ export function EmptyDescription({ className, ...props }: ComponentPropsWithRef<
     <p
       data-slot="empty-description"
       className={clsx(
-        "body-sm wrap-anywhere text-gray-bold/80 [&_a]:underline [&_a]:underline-offset-2",
+        "body-sm wrap-anywhere text-content-base [&_a]:underline [&_a]:underline-offset-2",
         className,
       )}
       {...props}

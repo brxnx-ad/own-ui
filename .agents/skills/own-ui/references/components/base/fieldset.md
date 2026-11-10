@@ -73,9 +73,9 @@ Los cambios del grupo se expresan mediante `disabled`. Los callbacks de valor, v
 | Pieza | Estilos base y ajustes locales |
 | :--- | :--- |
 | Fieldset | `flex min-w-0 flex-col gap-4`. Permite ajustar el ancho y la separación en la raíz. Para una instancia con otra separación, usa `style={{ gap: "0.75rem" }}`. El consumidor puede añadir una superficie, borde o relleno si su composición lo pide. |
-| FieldsetLegend | `h5 border-b border-gray-base pb-2 text-gray-bold`. El estado deshabilitado usa `text-gray-bold/60`. El nodo acepta estilos y un elemento semántico mediante `render`. |
+| FieldsetLegend | `h5 border-b border-gray-base pb-2 text-content-bold`. El estado deshabilitado usa `text-content-soft`. El nodo acepta estilos y un elemento semántico mediante `render`. |
 
-Los tokens se adaptan a ambos temas. El estado visual cambia de inmediato. Las clases estáticas o funcionales se combinan con `clsx` y la cascada de Tailwind decide la precedencia. Si usas `render` como función, conserva las props, eventos y refs recibidos.
+Los tokens se adaptan a ambos temas. El estado visual cambia de inmediato. Las clases estáticas o funcionales se combinan con `clsx`; salvo la [excepción de colores `content`](../../globals.md#composición-y-precedencia-de-clases), la cascada de Tailwind decide la precedencia. Si usas `render` como función, conserva las props, eventos y refs recibidos.
 
 ## 8. Ejemplos de composición
 

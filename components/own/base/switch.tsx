@@ -1,7 +1,7 @@
 "use client";
 
 import { Switch as Primitive } from "@base-ui/react/switch";
-import clsx from "clsx";
+import clsx from "@/components/own/classes";
 
 export type SwitchProps = Primitive.Root.Props;
 export type SwitchState = Primitive.Root.State;

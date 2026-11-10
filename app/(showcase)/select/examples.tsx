@@ -208,7 +208,7 @@ export function FormExample() {
         <FieldError match="valueMissing">Selecciona un formato para continuar.</FieldError>
       </Field>
       <Button size="sm" type="submit">Confirmar formato</Button>
-      <output className="body-sm text-gray-bold/75 empty:hidden">
+      <output className="body-sm text-content-base empty:hidden">
         {submitted && <>Formato confirmado · {submitted}</>}
       </output>
     </Form>

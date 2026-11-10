@@ -14,7 +14,7 @@ export function ShowcasePage({ title, description, implementation, note, childre
   children: ReactNode;
 }) {
   return (
-    <main className="min-h-screen bg-surface-soft px-6 py-12 text-gray-bold sm:px-12">
+    <main className="min-h-screen bg-surface-soft px-6 py-12 text-content-bold sm:px-12">
       <div className="mx-auto max-w-4xl space-y-12">
         <div className="space-y-4">
           <div className="flex items-center justify-between">
@@ -42,7 +42,7 @@ export function ShowcaseExample({ title, description, children, contentClassName
 }) {
   return (
     <section aria-label={ariaLabel} className="space-y-4">
-      <div className="space-y-2"><h2 className="h3">{title}</h2><p className="body-sm text-gray-bold/75">{description}</p></div>
+      <div className="space-y-2"><h2 className="h3">{title}</h2><p className="body-sm text-content-base">{description}</p></div>
       <Card className="rounded-2xl! p-6! sm:p-8!">
         <div className={contentClassName}>{children}</div>
       </Card>

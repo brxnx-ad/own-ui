@@ -2,7 +2,7 @@
 
 import type { ComponentPropsWithRef } from "react";
 import { useRender } from "@base-ui/react/use-render";
-import clsx from "clsx";
+import clsx from "@/components/own/classes";
 import { Button, type ButtonProps } from "@/components/own/base/button";
 
 export type AttachmentState = "idle" | "uploading" | "processing" | "error" | "done";
@@ -43,7 +43,7 @@ export function Attachment({
       data-orientation={orientation}
       aria-busy={state === "uploading" || state === "processing" || undefined}
       className={clsx(
-        "group/attachment relative flex max-w-full min-w-0 rounded-base border border-gray-base bg-surface-base text-gray-bold",
+        "group/attachment relative flex max-w-full min-w-0 rounded-base border border-gray-base bg-surface-base text-content-bold",
         "data-[state=idle]:border-dashed data-[state=error]:border-error-base",
         "has-[>[data-slot=attachment-trigger]:hover]:bg-surface-bold motion-safe:transition-colors",
         orientation === "vertical" ? "w-28 flex-col" : "w-fit items-center",
@@ -126,7 +126,7 @@ export function AttachmentDescription({ className, ...props }: ComponentPropsWit
     <span
       data-slot="attachment-description"
       className={clsx(
-        "block truncate text-xs text-gray-bold/75 group-data-[state=error]/attachment:text-error-bold",
+        "block truncate text-xs text-content-base group-data-[state=error]/attachment:text-error-bold",
         className,
       )}
       {...props}

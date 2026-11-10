@@ -1,7 +1,7 @@
 "use client";
 
 import { PreviewCard as Primitive } from "@base-ui/react/preview-card";
-import clsx from "clsx";
+import clsx from "@/components/own/classes";
 import styles from "./preview-card.module.css";
 
 export const PreviewCard = Primitive.Root;
@@ -27,7 +27,7 @@ function classes<State>(
 }
 
 const triggerStyles = clsx(
-  "rounded-sm font-medium text-primary-bold underline decoration-current underline-offset-4 dark:text-gray-bold",
+  "rounded-sm font-medium text-primary-bold underline decoration-current underline-offset-4 dark:text-content-bold",
   "hover:decoration-2 data-popup-open:decoration-2",
   "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-base",
 );
@@ -41,7 +41,7 @@ const positionerStyles = clsx(
 const popupStyles = clsx(
   styles.popup,
   "relative max-h-(--available-height) w-72 min-w-0 max-w-(--available-width) overflow-hidden rounded-base",
-  "origin-(--transform-origin) border border-gray-base bg-surface-base p-4 text-gray-bold shadow-m",
+  "origin-(--transform-origin) border border-gray-base bg-surface-base p-4 text-content-bold shadow-m",
   "has-[>[data-slot=preview-card-viewport]]:h-(--popup-height)",
 );
 

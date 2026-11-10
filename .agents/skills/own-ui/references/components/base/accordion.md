@@ -97,13 +97,13 @@ Consulta [globals](../../globals.md) para superficies, tríadas, geometría y ti
 | Bordes por elemento | Item incorpora `border-b border-gray-base last:border-b-0`; extiende esa pieza para ajustes de separación visual. |
 | Dimensión del activador | Trigger tiene `w-full`, `gap-4`, `px-4 py-4`, `rounded-base` y `text-sm font-semibold`. Chevron mide `size-4` y se mantiene al reducir el ancho. |
 | Contenido y padding del panel | El padding pertenece al `div` interior, no al Panel exterior. Para afectarlo desde el uso, usa un selector dirigido como `[&>div]:px-6`. |
-| Colores y foco | Item usa el borde `gray-base`, Trigger usa texto `gray-bold` y anillo de foco `primary-base`, y Panel usa texto `gray-bold/75`. Los tokens se reasignan por tema. |
+| Colores y foco | Item usa el borde `gray-base`, Trigger usa texto `content-bold` y anillo de foco `primary-base`, y Panel usa texto `content-base`. Los tokens se reasignan por tema. |
 | Estado abierto | Usa `data-panel-open:*` en Trigger, `data-open:*` en Item/Panel o `className={(state) => ...}` de la pieza adecuada. |
 | Hover | Trigger eleva un pseudo-elemento `before`: `surface-soft` en claro y `surface-bold` en oscuro. Ajusta `before:*` si personalizas ese plano. |
 | Animación | Panel anima altura y opacidad en 150 ms usando `--accordion-panel-height`. Chevron gira 180° al abrirse mediante el estado de Trigger. |
 | Movimiento reducido | El módulo activa las transiciones del Panel y Chevron con `prefers-reduced-motion: no-preference`. El pseudo-elemento usa `motion-reduce:transition-none`. Preserva esa adaptación al extender animaciones. |
 
-Item, Trigger y Panel combinan clases estáticas y funcionales con `clsx` sin fusionar conflictos de Tailwind. Accordion y Header pasan `className` a Base UI. Usa `style` estático o funcional para propiedades directas del nodo y selectores con precedencia comprobada para el pseudo-elemento, Chevron o el contenido interno.
+Item, Trigger y Panel combinan clases estáticas y funcionales con `clsx` con la excepción de colores descrita en [globals](../../globals.md#composición-y-precedencia-de-clases). Accordion y Header pasan `className` a Base UI. Usa `style` estático o funcional para propiedades directas del nodo y selectores con precedencia comprobada para el pseudo-elemento, Chevron o el contenido interno.
 
 Conserva `overflow-hidden` y el paso entre altura medida y cero durante la entrada y la salida. Base UI publica `--accordion-panel-height` y `--accordion-panel-width`. El wrapper usa la altura. Al ajustar la transición, limita la duración nueva a `prefers-reduced-motion: no-preference`.
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { Separator as Primitive } from "@base-ui/react/separator";
-import clsx from "clsx";
+import clsx from "@/components/own/classes";
 
 export type SeparatorProps = Primitive.Props;
 export type SeparatorState = Primitive.State;

@@ -115,7 +115,7 @@ Base UI define `--scroll-area-corner-width` y `--scroll-area-corner-height` en R
 
 El color de Thumb transiciona durante 150 ms con `motion-safe`. Con movimiento reducido, cambia de inmediato. La posición y el largo se sincronizan con el desplazamiento nativo, sin una transición añadida. Evita animar esos valores si necesitas que el indicador siga al puntero con precisión. Las barras aparecen o se ocultan según la medición sin animación de montaje.
 
-Los wrappers combinan `className` estático o funcional con sus clases base mediante `clsx`. Content delega `className` directamente porque carece de clases propias. Base UI combina los estilos, eventos y refs que intervienen en la composición. Los estilos inline pueden sobrescribir la geometría interna y las utilidades en conflicto se resuelven por cascada. Conserva los eventos y el ref recibidos al sustituir el nodo con `render`.
+Los wrappers combinan `className` estático o funcional con sus clases base mediante `clsx`. Content delega `className` directamente porque carece de clases propias. Base UI combina los estilos, eventos y refs que intervienen en la composición. Los estilos inline pueden sobrescribir la geometría interna y, salvo la [excepción de colores `content`](../../globals.md#composición-y-precedencia-de-clases), las utilidades en conflicto se resuelven por cascada. Conserva los eventos y el ref recibidos al sustituir el nodo con `render`.
 
 ## 8. Ejemplos de composición
 

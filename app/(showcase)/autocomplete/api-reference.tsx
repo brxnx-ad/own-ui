@@ -135,7 +135,7 @@ export function ApiReference() {
           rows: rows.map(([name, type, defaultValue, optional, description]) => ({ prop: name, type, defaultValue, description, optional })),
         }))}
       />
-      <ul className="space-y-2 body-sm text-gray-bold/75">
+      <ul className="space-y-2 body-sm text-content-base">
         <li><code>useAutocompleteFilter</code> ofrece coincidencia parcial, inicial y final. <code>useAutocompleteFilteredItems</code> lee los resultados dentro de <code>Autocomplete</code>.</li>
         <li>Los detalles de cambio indican el motivo mediante <code>reason</code>, por ejemplo <code>input-change</code>, <code>item-press</code>, <code>clear-press</code> o <code>escape-key</code>.</li>
         <li>Asocia una etiqueta visible con el campo. Las flechas recorren las opciones, Enter acepta la opción resaltada y Escape cierra el panel.</li>

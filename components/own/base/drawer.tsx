@@ -1,7 +1,7 @@
 "use client";
 
 import { Drawer as Primitive } from "@base-ui/react/drawer";
-import clsx from "clsx";
+import clsx from "@/components/own/classes";
 import { createContext, useContext } from "react";
 import styles from "./drawer.module.css";
 
@@ -82,7 +82,7 @@ export function DrawerViewport({ className, ...props }: Primitive.Viewport.Props
 
 const popupClass = clsx(
   styles.popup,
-  "pointer-events-auto absolute flex min-h-0 min-w-0 flex-col border-gray-base bg-surface-base text-gray-bold shadow-l outline-none",
+  "pointer-events-auto absolute flex min-h-0 min-w-0 flex-col border-gray-base bg-surface-base text-content-bold shadow-l outline-none",
   "data-swiping:select-none data-closed:pointer-events-none",
   "data-[swipe-direction=down]:inset-x-0 data-[swipe-direction=down]:bottom-0 data-[swipe-direction=down]:max-h-[calc(100%-1rem)] data-[swipe-direction=down]:rounded-t-base data-[swipe-direction=down]:border-t",
   "data-[swipe-direction=up]:inset-x-0 data-[swipe-direction=up]:top-0 data-[swipe-direction=up]:max-h-[calc(100%-1rem)] data-[swipe-direction=up]:rounded-b-base data-[swipe-direction=up]:border-b",
@@ -141,7 +141,7 @@ export function DrawerTitle({ className, ...props }: Primitive.Title.Props) {
   return (
     <Primitive.Title
       data-slot="drawer-title"
-      className={classes("h4 text-gray-bold", className)}
+      className={classes("h4 text-content-bold", className)}
       {...props}
     />
   );
@@ -151,7 +151,7 @@ export function DrawerDescription({ className, ...props }: Primitive.Description
   return (
     <Primitive.Description
       data-slot="drawer-description"
-      className={classes("body-sm text-gray-bold/75", className)}
+      className={classes("body-sm text-content-base", className)}
       {...props}
     />
   );

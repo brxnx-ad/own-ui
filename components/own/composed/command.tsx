@@ -106,7 +106,7 @@ export function Command({
               <DialogClose
                 data-slot="command-close"
                 aria-label={closeLabel}
-                className="grid size-8 shrink-0 place-items-center rounded-base text-gray-bold outline-none hover:bg-surface-bold focus-visible:ring-2 focus-visible:ring-primary-base"
+                className="grid size-8 shrink-0 place-items-center rounded-base text-content-bold outline-none hover:bg-surface-bold focus-visible:ring-2 focus-visible:ring-primary-base"
               >
                 <Close className="size-4" />
               </DialogClose>

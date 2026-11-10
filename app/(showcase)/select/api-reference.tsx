@@ -124,7 +124,7 @@ const groups = [
 export function Anatomy() {
   return (
     <ShowcaseAnatomy>
-      <p className="body-sm text-gray-bold/75">Compón el activador y las opciones, y añade las piezas de grupo, anclaje o desplazamiento según el contenido.</p>
+      <p className="body-sm text-content-base">Compón el activador y las opciones, y añade las piezas de grupo, anclaje o desplazamiento según el contenido.</p>
       <ShowcaseAnatomyContent name="Select" code={anatomy} parts={parts} />
     </ShowcaseAnatomy>
   );
@@ -133,7 +133,7 @@ export function Anatomy() {
 export function ApiReference() {
   return (
     <ShowcaseApiReference>
-      <p className="body-sm text-gray-bold/75">El posicionador de own-ui usa un panel separado por defecto con una distancia de 4 px.</p>
+      <p className="body-sm text-content-base">El posicionador de own-ui usa un panel separado por defecto con una distancia de 4 px.</p>
       <ShowcaseApiTable
         name="Select"
         groups={groups.map(({ piece, rows }) => ({
@@ -141,7 +141,7 @@ export function ApiReference() {
           rows: rows.map(([name, type, defaultValue, description]) => ({ prop: name, type, defaultValue, description })),
         }))}
       />
-      <ul className="body-sm list-disc space-y-2 ps-5 text-gray-bold/75">
+      <ul className="body-sm list-disc space-y-2 ps-5 text-content-base">
         <li><code>details.reason</code> distingue motivos como <code>item-press</code> o <code>escape-key</code>. <code>details.cancel()</code> cancela el cambio asociado.</li>
         <li>Usa <code>Tab</code> para enfocar, flechas para recorrer, <code>Enter</code> o espacio para seleccionar y <code>Escape</code> para cerrar.</li>
         <li>Identifica el activador con <code>SelectLabel</code> o con un nombre accesible en <code>SelectTrigger</code>. En selección múltiple, <code>FormData.getAll()</code> recupera los valores del campo.</li>

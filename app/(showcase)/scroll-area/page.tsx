@@ -71,7 +71,7 @@ export default function ScrollAreaShowcasePage() {
                   {milestones.map(([title, detail]) => (
                     <li key={title} className="w-36 shrink-0 space-y-1 rounded-base border border-gray-base bg-surface-base p-3">
                       <span className="block text-sm font-semibold">{title}</span>
-                      <span className="caption block text-gray-bold/75">{detail}</span>
+                      <span className="caption block text-content-base">{detail}</span>
                     </li>
                   ))}
                 </ol>

@@ -31,7 +31,7 @@ export function PersistenceExample() {
         <AccordionPanel keepMounted>
           <label className="block space-y-2">
             <span className="block">Escribe, cierra y vuelve a abrir el panel:</span>
-            <input className="w-full rounded-base border border-gray-base bg-surface-bold px-3 py-2 text-gray-bold focus-visible:outline-2 focus-visible:outline-primary-base" />
+            <input className="w-full rounded-base border border-gray-base bg-surface-bold px-3 py-2 text-content-bold focus-visible:outline-2 focus-visible:outline-primary-base" />
           </label>
         </AccordionPanel>
       </AccordionItem>

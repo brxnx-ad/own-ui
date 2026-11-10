@@ -20,10 +20,10 @@ export function LoadingProfileExample() {
           </>
         ) : (
           <>
-            <span aria-hidden="true" className="grid size-12 shrink-0 place-items-center rounded-full bg-primary-soft text-gray-bold">AM</span>
+            <span aria-hidden="true" className="grid size-12 shrink-0 place-items-center rounded-full bg-primary-soft text-content-bold">AM</span>
             <div>
               <p className="h5">Ana Morales</p>
-              <p className="body-sm text-gray-bold/75">Diseño de producto</p>
+              <p className="body-sm text-content-base">Diseño de producto</p>
             </div>
           </>
         )}

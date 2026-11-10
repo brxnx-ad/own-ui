@@ -126,7 +126,7 @@ Los nodos incluyen `data-slot="combobox-…"`, con el sufijo de la pieza en min�
 
 El popup anima opacidad y escala durante 150 ms con `--transform-origin`. El fondo anima opacidad durante el mismo intervalo. Las transiciones se limitan a `motion-safe`. Ajusta el tamaño de la lista sin eliminar su capacidad de desplazarse y conserva los atributos de salida si personalizas las transiciones. Los tokens de [globals.md](../../globals.md) se reasignan por tema.
 
-`className` y `style` pueden ser estáticos o funciones de estado donde la primitiva los admite. `clsx` combina las clases base y las adicionales. Las utilidades en conflicto siguen la cascada. En una función `render`, propaga las props, estilos, eventos y referencias recibidos.
+`className` y `style` pueden ser estáticos o funciones de estado donde la primitiva los admite. `clsx` combina las clases base y las adicionales. Salvo la [excepción de colores `content`](../../globals.md#composición-y-precedencia-de-clases), las utilidades en conflicto siguen la cascada. En una función `render`, propaga las props, estilos, eventos y referencias recibidos.
 
 ## 8. Ejemplos de composición
 

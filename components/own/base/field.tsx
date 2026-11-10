@@ -3,7 +3,7 @@
 import { Field as Primitive } from "@base-ui/react/field";
 import type { HTMLProps } from "@base-ui/react/types";
 import { useRender } from "@base-ui/react/use-render";
-import clsx from "clsx";
+import clsx from "@/components/own/classes";
 import { cloneElement, type ReactElement, type ReactNode } from "react";
 import styles from "./field.module.css";
 
@@ -35,7 +35,7 @@ export function FieldLabel({ className, ...props }: Primitive.Label.Props) {
   return (
     <Primitive.Label
       data-slot="field-label"
-      className={classes("body-sm font-medium text-gray-bold data-disabled:text-gray-bold/60", className)}
+      className={classes("body-sm font-medium text-content-bold data-disabled:text-content-soft", className)}
       {...props}
     />
   );
@@ -46,7 +46,7 @@ export function FieldControl({ className, ...props }: Primitive.Control.Props) {
     <Primitive.Control
       data-slot="field-control"
       className={classes(
-        "min-h-10 w-full min-w-0 rounded-base border border-gray-base bg-surface-bold px-3 py-2 text-base text-gray-bold outline-none placeholder:text-gray-bold/60 focus-visible:ring-2 focus-visible:ring-primary-base aria-invalid:border-error-base aria-invalid:focus-visible:ring-error-base data-disabled:cursor-not-allowed data-disabled:opacity-50 sm:text-sm",
+        "min-h-10 w-full min-w-0 rounded-base border border-gray-base bg-surface-bold px-3 py-2 text-base text-content-bold outline-none placeholder:text-content-soft focus-visible:ring-2 focus-visible:ring-primary-base aria-invalid:border-error-base aria-invalid:focus-visible:ring-error-base data-disabled:cursor-not-allowed data-disabled:opacity-50 sm:text-sm",
         className,
       )}
       {...props}
@@ -58,7 +58,7 @@ export function FieldDescription({ className, ...props }: Primitive.Description.
   return (
     <Primitive.Description
       data-slot="field-description"
-      className={classes("body-sm text-gray-bold/75 data-disabled:text-gray-bold/60", className)}
+      className={classes("body-sm text-content-base data-disabled:text-content-soft", className)}
       {...props}
     />
   );

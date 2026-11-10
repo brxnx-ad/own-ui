@@ -104,14 +104,14 @@ Los iconos predeterminados, los slots y los estilos pertenecen a own-ui. Las pro
 | :--- | :--- |
 | NumberField | Cuadrícula con `gap-2` y `min-w-0`. Define el ancho máximo aquí o en el contenedor. La composición consumidora controla el espacio exterior. |
 | NumberFieldGroup | Fila flexible de ancho completo con `min-h-10`, radio `rounded-base`, borde `gray-base` y fondo `surface-bold`. El foco visible de un descendiente activa el anillo `primary-base`. Un descendiente con `aria-invalid="true"` cambia el borde y el anillo a `error-base`. La opacidad del grupo deshabilitado baja al 50 %. |
-| NumberFieldInput | Ocupa el espacio disponible con `flex-1 min-w-0`, `px-3 py-2` y fondo transparente. Centra las cifras tabulares en `gray-bold` con `text-base` en móvil y `text-sm` desde `sm`. Conserva el indicador de foco del grupo al ajustar la geometría. |
-| Botones | Usan `w-10` sin encogerse, un borde separador y radios exteriores lógicos. Los SVG sin clase `size-*` escalan a `1.15em`. Pasan de `surface-base` a `surface-bold` al pasar el puntero y a `surface-soft` al presionar. `aria-disabled` atenúa el texto y el icono `gray-bold`. |
+| NumberFieldInput | Ocupa el espacio disponible con `flex-1 min-w-0`, `px-3 py-2` y fondo transparente. Centra las cifras tabulares en `content-bold` con `text-base` en móvil y `text-sm` desde `sm`. Conserva el indicador de foco del grupo al ajustar la geometría. |
+| Botones | Usan `w-10` sin encogerse, un borde separador y radios exteriores lógicos. Los SVG sin clase `size-*` escalan a `1.15em`. Pasan de `surface-base` a `surface-bold` al pasar el puntero y a `surface-soft` al presionar. `aria-disabled` usa `content-soft` para texto e icono. |
 | NumberFieldScrubArea | Fila en línea ajustada al contenido con `gap-2` y selección de texto desactivada. Usa un cursor como `cursor-ew-resize` o `cursor-ns-resize` según el eje. Base UI aplica estilos inline para gestionar el gesto táctil. |
 | NumberFieldScrubAreaCursor | Base UI fija y desplaza el nodo portaleado. Estiliza su contenido para elegir tamaño, sombra, color y alineación. Conserva la posición, la transformación y `pointer-events: none` del nodo exterior. |
 
 Los colores siguen los temas de [globals.css](../../globals.md). Los botones transicionan colores en 150 ms con `motion-safe`. El cursor sigue al puntero directamente. Las piezas carecen de animaciones de entrada y salida.
 
-Usa `className` como cadena o función del estado. Los wrappers estilizados combinan su resultado mediante `clsx` sin resolver utilidades en conflicto. `style` acepta un objeto o una función del estado y se aplica al nodo. Por ejemplo, `<NumberField style={{ maxWidth: "18rem" }}>` limita una instancia y `<NumberFieldIncrement className={(state) => state.disabled ? "opacity-75" : undefined} />` ajusta el botón cuando alcanza un límite o se deshabilita. También puedes usar selectores por slot y componer el nodo con `render`.
+Usa `className` como cadena o función del estado. Los wrappers estilizados combinan su resultado mediante `clsx` con la excepción de colores descrita en [globals](../../globals.md#composición-y-precedencia-de-clases). `style` acepta un objeto o una función del estado y se aplica al nodo. Por ejemplo, `<NumberField style={{ maxWidth: "18rem" }}>` limita una instancia y `<NumberFieldIncrement className={(state) => state.disabled ? "opacity-75" : undefined} />` ajusta el botón cuando alcanza un límite o se deshabilita. También puedes usar selectores por slot y componer el nodo con `render`.
 
 ## 8. Ejemplos de composición
 
@@ -169,7 +169,7 @@ Para añadir el ajuste por arrastre al ejemplo de unidades, reemplaza su etiquet
 <NumberFieldScrubArea className="cursor-ew-resize">
   <label htmlFor="units" className="body-sm cursor-inherit font-medium">Unidades</label>
   <NumberFieldScrubAreaCursor>
-    <span className="block -translate-x-1/2 -translate-y-1/2 rounded-base bg-surface-bold px-1 text-gray-bold shadow-s">
+    <span className="block -translate-x-1/2 -translate-y-1/2 rounded-base bg-surface-bold px-1 text-content-bold shadow-s">
       ↔
     </span>
   </NumberFieldScrubAreaCursor>

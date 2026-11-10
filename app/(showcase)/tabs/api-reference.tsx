@@ -85,7 +85,7 @@ export function ApiReference() {
           rows: rows.map(([name, type, defaultValue, description, optional = "Sí"]) => ({ prop: name, type, defaultValue, description, optional })),
         }))}
       />
-      <ul className="body-sm list-disc space-y-2 ps-5 text-gray-bold/75">
+      <ul className="body-sm list-disc space-y-2 ps-5 text-content-base">
         <li><code>TabsValue</code> conserva el tipo abierto de Base UI. Usa valores únicos, por ejemplo cadenas o números.</li>
         <li>Los motivos de cambio son <code>none</code>, <code>initial</code>, <code>disabled</code> y <code>missing</code>. <code>details.activationDirection</code> indica la dirección del cambio.</li>
         <li><kbd>Home</kbd> y <kbd>End</kbd> enfocan los extremos de la lista. Con <kbd>Tab</kbd> puedes seguir al panel activo.</li>

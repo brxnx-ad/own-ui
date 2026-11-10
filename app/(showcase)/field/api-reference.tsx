@@ -73,7 +73,7 @@ export function ApiReference() {
           rows: rows.map(([prop, type, defaultValue, description]) => ({ prop, type, defaultValue, description, optional: name === "FieldValidity" ? "No" : "Sí" })),
         }))}
       />
-      <ul className="body-sm space-y-2 text-gray-bold/75">
+      <ul className="body-sm space-y-2 text-content-base">
         <li><code>ValidationResult</code> admite <code>string</code>, <code>string[]</code>, <code>null</code> o <code>void</code>. Una promesa pendiente de <code>validate</code> no bloquea el envío.</li>
         <li><code>onValueChange</code> recibe el evento nativo y el motivo <code>none</code>. En modo no controlado, <code>details.cancel()</code> omite la validación de ese cambio.</li>
         <li>Los controles compatibles con el contexto de Field, como Checkbox, pueden sustituir a <code>FieldControl</code>. Las piezas con nodo aceptan los atributos HTML de su primitiva.</li>

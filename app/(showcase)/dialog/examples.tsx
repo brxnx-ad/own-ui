@@ -15,7 +15,7 @@ import {
   createDialogHandle,
 } from "@/components/own/base/dialog";
 
-const inputClass = "body-sm w-full rounded-base border border-gray-base bg-surface-bold px-3 py-2 text-gray-bold focus-visible:outline-2 focus-visible:outline-primary-base";
+const inputClass = "body-sm w-full rounded-base border border-gray-base bg-surface-bold px-3 py-2 text-content-bold focus-visible:outline-2 focus-visible:outline-primary-base";
 
 function Surface({
   backdrop = true,
@@ -244,7 +244,7 @@ export function ScrollableExample() {
             {reviewSteps.map(([title, description]) => (
               <div key={title} className="space-y-1">
                 <dt className="font-semibold">{title}</dt>
-                <dd className="text-gray-bold/75">{description}</dd>
+                <dd className="text-content-base">{description}</dd>
               </div>
             ))}
           </dl>

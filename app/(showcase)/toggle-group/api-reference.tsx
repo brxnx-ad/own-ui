@@ -57,7 +57,7 @@ export function ApiReference() {
           rows: rows.map(([name, type, defaultValue, description, optional = "Sí"]) => ({ prop: name, type, defaultValue, description, optional })),
         }))}
       />
-      <ul className="body-sm list-disc space-y-2 ps-5 text-gray-bold/75">
+      <ul className="body-sm list-disc space-y-2 ps-5 text-content-base">
         <li>El grupo usa <code>{'role="group"'}</code>. Cada botón mantiene su propio <code>aria-pressed</code>.</li>
         <li>El grupo expone <code>data-orientation</code> y, según el estado, <code>data-multiple</code> y <code>data-disabled</code>.</li>
         <li>Las flechas mueven el foco. <kbd>Enter</kbd> y <kbd>Espacio</kbd> cambian la selección.</li>

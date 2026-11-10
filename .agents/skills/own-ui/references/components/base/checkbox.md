@@ -83,7 +83,7 @@ El estado de los callbacks de estilo incluye `checked`, `indeterminate`, `disabl
 
 Los tokens se reasignan según el tema mediante [globals.md](../../globals.md). La raíz aplica opacidad reducida y cursor de deshabilitación con `data-disabled`, y cursor normal con `data-readonly`. Las piezas carecen de sombra predeterminada. Si modificas la duración o las propiedades animadas del indicador, comprueba la salida y su desmontaje.
 
-`className` admite strings y funciones de estado en ambas piezas. `clsx` conserva las clases base y la cascada de CSS resuelve las utilidades en conflicto. `style` también acepta una función de estado y se aplica al nodo visible correspondiente. Para estilos sobre el input asociado, usa la referencia que ofrece `inputRef` si necesitas acceder al nodo. Conserva las clases, el estilo, los eventos y la referencia al usar una función de `render`.
+`className` admite strings y funciones de estado en ambas piezas. El helper combina las clases base y aplica la [excepción de colores `content`](../../globals.md#composición-y-precedencia-de-clases); los demás conflictos siguen la cascada. `style` también acepta una función de estado y se aplica al nodo visible correspondiente. Para estilos sobre el input asociado, usa la referencia que ofrece `inputRef` si necesitas acceder al nodo. Conserva las clases, el estilo, los eventos y la referencia al usar una función de `render`.
 
 ## 8. Ejemplos de composición
 

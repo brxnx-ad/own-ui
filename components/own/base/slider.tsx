@@ -1,7 +1,7 @@
 "use client";
 
 import { Slider as Primitive } from "@base-ui/react/slider";
-import clsx from "clsx";
+import clsx from "@/components/own/classes";
 
 export type SliderProps<Value extends number | readonly number[] = number | readonly number[]> = Primitive.Root.Props<Value>;
 export type SliderState = Primitive.Root.State;
@@ -64,7 +64,7 @@ export function SliderLabel({ className, ...props }: SliderLabelProps) {
   return (
     <Primitive.Label
       data-slot="slider-label"
-      className={classes("body-sm min-w-0 wrap-anywhere font-medium text-gray-bold", className)}
+      className={classes("body-sm min-w-0 wrap-anywhere font-medium text-content-bold", className)}
       {...props}
     />
   );
@@ -74,7 +74,7 @@ export function SliderValue({ className, ...props }: SliderValueProps) {
   return (
     <Primitive.Value
       data-slot="slider-value"
-      className={classes("body-sm col-start-2 min-w-0 wrap-anywhere text-end font-medium text-gray-bold/75 tabular-nums", className)}
+      className={classes("body-sm col-start-2 min-w-0 wrap-anywhere text-end font-medium text-content-base tabular-nums", className)}
       {...props}
     />
   );

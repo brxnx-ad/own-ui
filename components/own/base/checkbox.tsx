@@ -1,7 +1,7 @@
 "use client";
 
 import { Checkbox as Primitive } from "@base-ui/react/checkbox";
-import clsx from "clsx";
+import clsx from "@/components/own/classes";
 import { Check, Minus } from "@/components/own/icons";
 
 function classes<State>(

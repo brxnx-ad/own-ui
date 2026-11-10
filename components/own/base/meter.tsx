@@ -1,7 +1,7 @@
 "use client";
 
 import { Meter as Primitive } from "@base-ui/react/meter";
-import clsx from "clsx";
+import clsx from "@/components/own/classes";
 
 export type MeterProps = Primitive.Root.Props;
 export type MeterState = Primitive.Root.State;
@@ -40,7 +40,7 @@ export function MeterLabel({ className, ...props }: MeterLabelProps) {
   return (
     <Primitive.Label
       data-slot="meter-label"
-      className={classes("body-sm min-w-0 font-medium text-gray-bold", className)}
+      className={classes("body-sm min-w-0 font-medium text-content-bold", className)}
       {...props}
     />
   );
@@ -51,7 +51,7 @@ export function MeterValue({ className, ...props }: MeterValueProps) {
     <Primitive.Value
       data-slot="meter-value"
       className={classes(
-        "body-sm col-start-2 justify-self-end text-right font-medium text-gray-bold/75 tabular-nums",
+        "body-sm col-start-2 justify-self-end text-right font-medium text-content-base tabular-nums",
         className,
       )}
       {...props}

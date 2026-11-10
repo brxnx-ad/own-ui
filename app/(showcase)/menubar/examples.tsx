@@ -35,7 +35,7 @@ function CommandMenu({ label, children }: { label: string; children: ReactNode }
 function Preview({ title, children }: { title: string; children: ReactNode }) {
   return (
     <div className="body-sm w-full max-w-64 space-y-2 rounded-base border border-gray-base bg-surface-bold px-3 py-2">
-      <p className="caption font-semibold text-gray-bold/75">{title}</p>
+      <p className="caption font-semibold text-content-base">{title}</p>
       {children}
     </div>
   );
@@ -84,7 +84,7 @@ export function DocumentEditorExample() {
       <Preview title="Vista previa del documento">
         <div>
           <p className={bold ? "font-bold" : undefined}>{renamed ? "Informe de abril" : "Informe mensual"}</p>
-          {showDetails && <p className="caption text-gray-bold/75">PDF · 12 páginas</p>}
+          {showDetails && <p className="caption text-content-base">PDF · 12 páginas</p>}
         </div>
       </Preview>
     </>
@@ -214,8 +214,8 @@ export function InboxExample() {
           <ul className="space-y-2">
             {messages.map(({ subject, excerpt, read }) => (
               <li key={subject}>
-                <p>{subject}{!allRead && !read && <span className="caption ms-2 text-gray-bold/75">Sin leer</span>}</p>
-                {showExcerpts && <p className="caption text-gray-bold/75">{excerpt}</p>}
+                <p>{subject}{!allRead && !read && <span className="caption ms-2 text-content-base">Sin leer</span>}</p>
+                {showExcerpts && <p className="caption text-content-base">{excerpt}</p>}
               </li>
             ))}
           </ul>

@@ -12,7 +12,7 @@ import {
 
 export default function AlertDialogShowcasePage() {
   return (
-    <ShowcasePage title="Alert Dialog" implementation="@base-ui/react/alert-dialog" description="Diálogos modales para confirmar acciones que requieren una decisión explícita." note={<><p className="body-sm text-gray-bold/75">Las acciones solo modifican la vista previa de cada ejemplo.</p></>}>
+    <ShowcasePage title="Alert Dialog" implementation="@base-ui/react/alert-dialog" description="Diálogos modales para confirmar acciones que requieren una decisión explícita." note={<><p className="body-sm text-content-base">Las acciones solo modifican la vista previa de cada ejemplo.</p></>}>
         <ShowcaseExample contentClassName="flex flex-col items-center gap-6" title="Confirmación básica" description={<>Restablecer cambia las preferencias de la vista previa; Cancelar las conserva. El diálogo gestiona su apertura sin <code>open</code>.</>}>
           <ConfirmationExample />
         </ShowcaseExample>

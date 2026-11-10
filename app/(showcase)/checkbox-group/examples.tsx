@@ -90,7 +90,7 @@ export function FormExample() {
         <Option name="canales" value="sms" label="SMS" />
       </CheckboxGroup>
       <Button type="submit" size="sm">Guardar canales</Button>
-      <output className="body-sm text-gray-bold/75 empty:hidden">{result}</output>
+      <output className="body-sm text-content-base empty:hidden">{result}</output>
     </form>
   );
 }

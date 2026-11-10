@@ -2,7 +2,7 @@
 
 > **Objetivo y alcance del documento:** Documentar la navegación del catálogo interactivo dentro de `app/(showcase)`, sus imports, el centrado de las demostraciones y el patrón de presentación de ejemplos, anatomía y referencia de API establecido en Accordion. Se considera desactualizado si las rutas, los imports, la alineación de los ejemplos o la cobertura de los showcases descritos difieren de lo documentado.
 
-[Estructura del proyecto](../01-estructura-del-proyecto.md) · [Sistema de estilos](../02-estilos.md) · [Objetivos](../03-objetivos.md) · [Mantenimiento](../04-mantenimiento.md) · [Pendientes](../05-pendientes.md) · [Creación de componentes](creacion-de-componentes.md)
+
 
 ---
 
@@ -83,7 +83,7 @@ Cada componente registrado cuenta con su propia ruta independiente (por ejemplo,
 | Toolbar | `/toolbar` | `@/components/own/base/toolbar` |
 | Tooltip | `/tooltip` | `@/components/own/base/tooltip` |
 
-Los ejemplos pueden combinar familias del catálogo. Alert Dialog permanece en `base/` cuando el showcase aporta Button mediante `render` o como acción con cierre controlado. La clasificación se determina por la definición de cada familia. [Estructura del proyecto](../01-estructura-del-proyecto.md#3-clasificación-de-componentes)
+Los ejemplos pueden combinar familias del catálogo. Alert Dialog permanece en `base/` cuando el showcase aporta Button mediante `render` o como acción con cierre controlado. La clasificación se determina por la definición de cada familia. Estructura del proyecto
 
 El showcase de Avatar carga una silueta genérica de usuario desde `public/showcase/avatar.svg`. La imagen se sirve en `/showcase/avatar.svg` y deja visible la superficie del avatar a través de su fondo transparente.
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { Select as Primitive } from "@base-ui/react/select";
-import clsx from "clsx";
+import clsx from "@/components/own/classes";
 import { Check, Chevron } from "@/components/own/icons";
 import styles from "./select.module.css";
 
@@ -22,13 +22,13 @@ function classes<State>(
 }
 
 const iconStyles = "inline-flex shrink-0 items-center justify-center [&_svg:not([class*='size-'])]:size-4";
-const scrollArrowStyles = "inset-x-px z-10 flex h-6 items-center justify-center rounded-base bg-surface-base text-gray-bold not-data-visible:invisible [&_svg:not([class*='size-'])]:size-4";
+const scrollArrowStyles = "inset-x-px z-10 flex h-6 items-center justify-center rounded-base bg-surface-base text-content-bold not-data-visible:invisible [&_svg:not([class*='size-'])]:size-4";
 
 export function SelectLabel({ className, ...props }: Primitive.Label.Props) {
   return (
     <Primitive.Label
       data-slot="select-label"
-      className={classes("body-sm font-medium text-gray-bold", className)}
+      className={classes("body-sm font-medium text-content-bold", className)}
       {...props}
     />
   );
@@ -40,7 +40,7 @@ export function SelectTrigger({ className, ...props }: Primitive.Trigger.Props) 
       data-slot="select-trigger"
       className={classes(
         clsx(
-          "inline-flex min-h-10 min-w-0 max-w-full items-center justify-between gap-2 rounded-base border border-gray-base bg-surface-bold px-3 py-2 text-start text-base text-gray-bold sm:text-sm",
+          "inline-flex min-h-10 min-w-0 max-w-full items-center justify-between gap-2 rounded-base border border-gray-base bg-surface-bold px-3 py-2 text-start text-base text-content-bold sm:text-sm",
           "hover:not-data-disabled:bg-surface-base data-popup-open:bg-surface-base",
           "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-bold",
           "data-invalid:border-error-base data-invalid:focus-visible:outline-error-base aria-invalid:border-error-base aria-invalid:focus-visible:outline-error-base",
@@ -57,7 +57,7 @@ export function SelectValue({ className, ...props }: Primitive.Value.Props) {
   return (
     <Primitive.Value
       data-slot="select-value"
-      className={classes("min-w-0 flex-1 truncate data-placeholder:text-gray-bold/75", className)}
+      className={classes("min-w-0 flex-1 truncate data-placeholder:text-content-base", className)}
       {...props}
     />
   );
@@ -116,7 +116,7 @@ export function SelectPopup({ className, ...props }: Primitive.Popup.Props) {
       className={classes(
         clsx(
           styles.popup,
-          "relative flex max-h-[min(var(--available-height,20rem),20rem)] origin-(--transform-origin) flex-col rounded-base border border-gray-base bg-surface-base text-gray-bold shadow-m outline-none data-[side=none]:max-h-80",
+          "relative flex max-h-[min(var(--available-height,20rem),20rem)] origin-(--transform-origin) flex-col rounded-base border border-gray-base bg-surface-base text-content-bold shadow-m outline-none data-[side=none]:max-h-80",
         ),
         className,
       )}
@@ -144,8 +144,8 @@ export function SelectArrow({ className, ...props }: Primitive.Arrow.Props) {
           "pointer-events-none size-2 border-t border-l border-gray-base bg-surface-base data-[side=none]:hidden",
           "data-[side=bottom]:-top-1 data-[side=bottom]:rotate-45 data-[side=top]:-bottom-1 data-[side=top]:-rotate-135",
           "data-[side=left]:-right-1 data-[side=left]:rotate-135 data-[side=right]:-left-1 data-[side=right]:-rotate-45",
-          "data-[side=inline-start]:-end-1 data-[side=inline-start]:rotate-135",
-          "data-[side=inline-end]:-start-1 data-[side=inline-end]:rotate-45",
+          "data-[side=inline-start]:-inset-e-1 data-[side=inline-start]:rotate-135",
+          "data-[side=inline-end]:-inset-s-1 data-[side=inline-end]:rotate-45",
         ),
         className,
       )}
@@ -160,7 +160,7 @@ export function SelectItem({ className, ...props }: Primitive.Item.Props) {
       data-slot="select-item"
       className={classes(
         clsx(
-          "body-sm grid min-h-9 min-w-0 cursor-default grid-cols-[minmax(0,1fr)_1rem] items-center gap-2 rounded-base px-2 py-2 text-gray-bold outline-none select-none",
+          "body-sm grid min-h-9 min-w-0 cursor-default grid-cols-[minmax(0,1fr)_1rem] items-center gap-2 rounded-base px-2 py-2 text-content-bold outline-none select-none",
           "data-highlighted:bg-primary-soft data-selected:font-semibold data-disabled:opacity-50",
           "forced-colors:data-highlighted:outline-2 forced-colors:data-highlighted:-outline-offset-2 forced-colors:data-highlighted:outline-solid",
         ),
@@ -201,7 +201,7 @@ export function SelectGroupLabel({ className, ...props }: Primitive.GroupLabel.P
   return (
     <Primitive.GroupLabel
       data-slot="select-group-label"
-      className={classes("caption px-2 py-1 font-semibold text-gray-bold/75", className)}
+      className={classes("caption px-2 py-1 font-semibold text-content-base", className)}
       {...props}
     />
   );

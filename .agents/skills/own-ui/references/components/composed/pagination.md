@@ -75,9 +75,9 @@ import {
 | PaginationContent | Lista flexible con wrapping, centrada, gap `1` y ancho mínimo cero. El consumidor puede ajustar distribución y separación. |
 | PaginationLink | Button `outline` activo y `ghost` inactivo. Tiene ancho mínimo `2rem`, números tabulares y conserva el foco visible de Button. `className` actúa a través del wrapper de Button y llega al enlace. |
 | Previous / Next | Chevron ocupa `1.15em`. El texto se muestra desde `sm`; en móvil los botones reducen el padding. Direcciones compatibles con RTL. |
-| PaginationEllipsis | `size-8`, centrado, con texto `gray-bold/75`. Puntos visuales ocultos a accesibilidad; texto de reemplazo visible para tecnologías de asistencia. |
+| PaginationEllipsis | `size-8`, centrado, con texto `content-base`. Puntos visuales ocultos a accesibilidad; texto de reemplazo visible para tecnologías de asistencia. |
 
-Los colores, estados de foco y tamaños de botones heredan el sistema de Button y sus tokens claro/oscuro. Ajusta la distribución de la lista mediante `className`; la familia no define módulos CSS. `clsx` no resuelve conflictos entre utilidades de Tailwind.
+Los colores, estados de foco y tamaños de botones heredan el sistema de Button y sus tokens claro/oscuro. Ajusta la distribución de la lista mediante `className`; la familia no define módulos CSS. El helper compartido aplica la excepción de colores descrita en [globals](../../globals.md#composición-y-precedencia-de-clases); los demás conflictos siguen la cascada.
 
 ## 8. Ejemplos de composición
 

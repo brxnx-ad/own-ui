@@ -102,7 +102,7 @@ export function ApiReference() {
           rows: rows.map(([prop, type, defaultValue, description]) => ({ prop, type, defaultValue, description })),
         }))}
       />
-      <ul className="body-sm space-y-2 text-gray-bold/75">
+      <ul className="body-sm space-y-2 text-content-base">
         <li><code>FocusTarget</code> acepta un booleano, una ref o una función que recibe <code>mouse</code>, <code>touch</code>, <code>pen</code>, <code>keyboard</code> o una cadena vacía si no hay interacción identificada.</li>
         <li><code>details.reason</code> distingue <code>trigger-press</code>, <code>outside-press</code>, <code>escape-key</code>, <code>close-watcher</code>, <code>close-press</code>, <code>focus-out</code>, <code>imperative-action</code>, <code>swipe</code> y <code>none</code>.</li>
         <li><code>createDrawerHandle&lt;Payload&gt;()</code> devuelve un handle con <code>open(id)</code>, <code>openWithPayload(payload)</code>, <code>close()</code> e <code>isOpen</code>.</li>

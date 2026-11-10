@@ -99,15 +99,15 @@ Los cambios automáticos llevan `activationDirection: "none"` y pueden seleccion
 | :--- | :--- |
 | Tabs | En horizontal sigue el flujo del contenedor. En vertical usa una rejilla con primera columna `fit-content(40%)`, segunda columna flexible y `gap-3`. El consumidor fija ancho máximo, margen y separación exterior. |
 | List | Fila o columna flex con `gap-1` y borde `gray-base`. En horizontal usa `overflow-x-auto`. Conserva su posición relativa y la pertenencia de Indicator a la lista para alinear la medición y el desplazamiento. |
-| Tab | Usa `text-sm`, peso medio, radio en el borde exterior, texto `gray-bold/75` y fondo `surface-bold` al pasar el puntero sobre una pestaña habilitada e inactiva. La activa usa `primary-soft` y texto `gray-bold`. El foco dibuja un contorno interior `gray-bold` de 2 px. La deshabilitada reduce su opacidad. |
+| Tab | Usa `text-sm`, peso medio, radio en el borde exterior, texto `content-base` y fondo `surface-bold` al pasar el puntero sobre una pestaña habilitada e inactiva. La activa usa `primary-soft` y texto `content-bold`. El foco dibuja un contorno interior `gray-bold` de 2 px. La deshabilitada reduce su opacidad. |
 | Indicator | Usa `primary-base`, radio completo y posición absoluta. En horizontal toma el ancho y la distancia izquierda medidos y se apoya al fondo. En vertical toma la altura y la distancia superior y se apoya al final lógico de la lista. |
-| Panel | Usa `body-sm`, texto `gray-bold/85`, `rounded-base`, padding adaptable y contorno interior de foco. En vertical ocupa la segunda columna si es hijo directo de la raíz. Puedes envolver los paneles para controlar su maquetación o superponerlos durante una transición. |
+| Panel | Usa `body-sm`, texto `content-base`, `rounded-base`, padding adaptable y contorno interior de foco. En vertical ocupa la segunda columna si es hijo directo de la raíz. Puedes envolver los paneles para controlar su maquetación o superponerlos durante una transición. |
 
 Indicator recibe `--active-tab-left`, `--active-tab-right`, `--active-tab-top`, `--active-tab-bottom`, `--active-tab-width` y `--active-tab-height` de Base UI. Conserva las variables que determinan su largo y posición. El indicador anima posición y dimensiones durante 150 ms con `ease-out` y la pestaña transiciona sus colores durante 150 ms. Ambas transiciones se limitan a `motion-safe`. Panel expone estados de transición para composiciones del consumidor.
 
 En colores forzados, la pestaña inactiva usa `Canvas` y `CanvasText`, la activa usa `Highlight` y `HighlightText` y la inactiva deshabilitada usa `GrayText`. El indicador usa `Highlight`. Los tokens normales siguen [globals.css](../../globals.md).
 
-Usa `data-slot` y los atributos de estado para localizar cada nodo. `className` estático o funcional se combina con `clsx` y la cascada resuelve utilidades en conflicto. `style` actúa sobre el nodo de la pieza. Si ajustas la animación, conserva las geometrías medidas, la inercia del panel saliente y el movimiento reducido.
+Usa `data-slot` y los atributos de estado para localizar cada nodo. `className` estático o funcional se combina con `clsx` y, salvo la [excepción de colores `content`](../../globals.md#composición-y-precedencia-de-clases), la cascada resuelve utilidades en conflicto. `style` actúa sobre el nodo de la pieza. Si ajustas la animación, conserva las geometrías medidas, la inercia del panel saliente y el movimiento reducido.
 
 ## 8. Ejemplos de composición
 

@@ -118,14 +118,14 @@ Consulta la [referencia de estilos](../../globals.md) para los tokens y utilidad
 | :--- | :--- |
 | Backdrop | `absolute inset-0 z-50`, `bg-gray-bold/40`, en oscuro `bg-surface-soft/70`. Ajusta la atenuación con tokens semánticos y opacidad. |
 | Viewport | `fixed inset-0 z-50 flex items-center justify-center`, `p-4 sm:p-6`, overflow y overscroll controlados. Aquí se adapta la posición y el espacio respecto del borde de la pantalla. |
-| Popup | `w-full min-w-0 max-w-lg max-h-full`, columna con `gap-6`, `p-6`, overflow vertical, `rounded-base`, borde `gray-base`, `surface-base`, texto `gray-bold` y `shadow-l`. Ajustar tamaño, límites, padding o separación según el caso conservando acceso al contenido. |
-| Title / Description | `h4 text-gray-bold` y `body-sm text-gray-bold/75`. Conservar jerarquía semántica y legibilidad al personalizarlos. |
+| Popup | `w-full min-w-0 max-w-lg max-h-full`, columna con `gap-6`, `p-6`, overflow vertical, `rounded-base`, borde `gray-base`, `surface-base`, texto `content-bold` y `shadow-l`. Ajustar tamaño, límites, padding o separación según el caso conservando acceso al contenido. |
+| Title / Description | `h4 text-content-bold` y `body-sm text-content-base`. Conservar jerarquía semántica y legibilidad al personalizarlos. |
 | Trigger / Close | Sin apariencia impuesta por own-ui; elegir Button, sus variantes, tamaños e iconos mediante `render`, o aportar estilos directamente. |
 | Portal | Su nodo envuelve el contenido portaleado. Verifica apilamiento, contenedor y herencia de tema al usar un destino personalizado. |
 
 Para sobrescribir una propiedad concreta del Popup puede usarse `style={{ maxWidth: "42rem" }}` o un selector de mayor especificidad, definido en `globals.css` si la personalización es compartida. Preferir límites adaptables y comprobar pantallas estrechas; no fijar una altura que oculte las acciones. Para detalle extenso, el consumidor puede reservar encabezado y acciones con `shrink-0` y dar `min-h-0 overflow-y-auto` al detalle.
 
-Backdrop, Viewport, Popup, Title y Description combinan clases estáticas y funcionales con `clsx` sin fusionar conflictos de Tailwind. Las demás piezas DOM pasan `className` a la primitiva. Usa `style` sobre el nodo pertinente o un selector con precedencia comprobada al modificar una propiedad de la base.
+Backdrop, Viewport, Popup, Title y Description combinan clases estáticas y funcionales con `clsx` con la excepción de colores descrita en [globals](../../globals.md#composición-y-precedencia-de-clases). Las demás piezas DOM pasan `className` a la primitiva. Usa `style` sobre el nodo pertinente o un selector con precedencia comprobada al modificar una propiedad de la base.
 
 Backdrop y Popup transicionan la opacidad durante 150 ms. Popup usa `scale-95` en entrada y salida si el usuario permite movimiento. Tailwind v4 emite la propiedad individual `scale`. Para interpolarla, incluye `scale` en la lista de propiedades de transición, que actualmente contiene `opacity,transform`. Conserva los estados `data-starting-style` y `data-ending-style` para coordinar el desmontaje. Mantén `motion-reduce:transition-none` y el escalado bajo `motion-safe`. Base UI expone `--nested-dialogs` en Popup para contar diálogos descendientes abiertos.
 

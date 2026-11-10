@@ -1,6 +1,6 @@
 "use client";
 
-import clsx from "clsx";
+import clsx from "@/components/own/classes";
 import { useCallback, useId, useLayoutEffect, useRef, useState, type ComponentPropsWithRef } from "react";
 
 export interface TextareaProps extends ComponentPropsWithRef<"textarea"> {
@@ -175,7 +175,7 @@ export function Textarea({
       }}
       className={clsx(
         "block w-full min-w-0 field-sizing-content overflow-y-auto rounded-base px-3 py-2",
-        "text-base text-gray-bold placeholder:text-gray-bold/80 sm:text-sm",
+        "text-base text-content-bold placeholder:text-content-base sm:text-sm",
         "disabled:cursor-not-allowed",
         showCount
           ? "bg-transparent outline-none"
@@ -184,7 +184,7 @@ export function Textarea({
             "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-bold",
             "aria-invalid:border-error-bold aria-invalid:focus-visible:outline-error-bold",
             "user-invalid:border-error-bold user-invalid:focus-visible:outline-error-bold",
-            "data-[length-overflow]:border-error-bold data-[length-overflow]:focus-visible:outline-error-bold",
+            "data-length-overflow:border-error-bold data-length-overflow:focus-visible:outline-error-bold",
           ],
         className,
       )}
@@ -211,7 +211,7 @@ export function Textarea({
         id={countId}
         data-slot="textarea-count"
         aria-hidden="true"
-        className="caption block px-3 pb-2 text-right text-gray-bold/80 tabular-nums"
+        className="caption block px-3 pb-2 text-right text-content-base tabular-nums"
       >
         {limit === undefined ? count : `${count} / ${limit}`}
       </span>

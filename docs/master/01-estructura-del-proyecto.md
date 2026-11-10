@@ -2,7 +2,7 @@
 
 > **Objetivo y alcance del documento:** Reflejar los directorios principales del repositorio, sus responsabilidades y la clasificación de los componentes propios por las dependencias de su implementación. Se considera desactualizado si existen carpetas raíz en el proyecto que no figuren en la tabla, si alguna carpeta listada ya no existe o si la ubicación de los componentes contradice el criterio de clasificación descrito.
 
-[Sistema de estilos](02-estilos.md) · [Objetivos](03-objetivos.md) · [Mantenimiento](04-mantenimiento.md) · [Pendientes](05-pendientes.md)
+
 
 ---
 
@@ -16,6 +16,7 @@
 | `components/own/base/` | Componentes que envuelven una familia primitiva de Base UI, como Input y Field. |
 | `components/own/composed/` | Componentes que reutilizan otras familias propias, como FloatingInput. |
 | `components/own/dependant/` | Componentes que necesitan una librería externa especializada. |
+| `components/own/classes.ts` | Composición de clases con `clsx` y resolución acotada de colores de texto `content-*`. Se exporta junto a los componentes que lo importan. |
 | `components/own/icons/` | Iconos internos compartidos de soporte. Su uso no determina la clasificación de un componente del catálogo. |
 | `components/shared/` | Componentes compartidos de soporte e interfaz transversal (como el alternador de temas). |
 | `assets/styles/` | Estilos globales del proyecto. Contiene `globals.css`, donde se importa Tailwind CSS v4, se definen las semillas de color en espacio OKLCH, las escalas, los tokens semánticos de superficies y tríadas cromáticas, y las utilidades tipográficas y de interacción. |

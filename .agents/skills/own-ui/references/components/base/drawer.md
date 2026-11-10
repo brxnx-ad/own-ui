@@ -163,10 +163,10 @@ El handle expone `open(triggerId: string | null): void`, `openWithPayload(payloa
 | Portal | Recibe clases y estilos en el contenedor portaleado. El destino debe heredar tipografía y tokens de tema. |
 | Backdrop | Capa fija `inset-0 z-50` con `bg-gray-bold/40` en claro y `bg-surface-soft/70` en oscuro. Su opacidad de reposo se ajusta con `--drawer-swipe-progress` y mantiene un mínimo de `0.25` mientras el panel sigue abierto. |
 | Viewport | Capa fija `z-50` con `overflow-clip` para recortar el movimiento sin desplazar el panel al enfocar sus controles. Deja pasar el puntero fuera del popup y ajusta el borde inferior con `--drawer-keyboard-inset` cuando el proveedor lo publica. |
-| Popup | Flex vertical con `bg-surface-base`, `text-gray-bold`, `border-gray-base`, `shadow-l` y `rounded-base` en el borde interior. Ajusta dimensiones con `style`, por ejemplo `style={{ width: "min(22rem, 90%)" }}` en un lateral. |
+| Popup | Flex vertical con `bg-surface-base`, `text-content-bold`, `border-gray-base`, `shadow-l` y `rounded-base` en el borde interior. Ajusta dimensiones con `style`, por ejemplo `style={{ width: "min(22rem, 90%)" }}` en un lateral. |
 | Agarre | Banda de `2rem` en el borde elegido. La marca es horizontal en `top` y `bottom`, y vertical en `left` y `right`. Personaliza el grosor mediante `--drawer-grip-size` en Popup, por ejemplo `className="[--drawer-grip-size:2.5rem]"`. `drawer.module.css` define su disposición y reserva el espacio al ajustar la altura. |
 | Content | Flex vertical con `gap-4`, `min-h-0`, `overflow-y-auto` y `overscroll-contain`. Su padding usa el mayor valor entre `1.5rem` y la zona segura de cada lado. |
-| Title y Description | `h4 text-gray-bold` y `body-sm text-gray-bold/75`. Usa `render={<h3 />}` si la jerarquía del documento lo pide. |
+| Title y Description | `h4 text-content-bold` y `body-sm text-content-base`. Usa `render={<h3 />}` si la jerarquía del documento lo pide. |
 | SwipeArea | El consumidor fija su posición, tamaño y señal visual. Evita cubrir otros controles. Base UI asigna el `touch-action` acorde al gesto. |
 | Indent y fondo | El consumidor define el efecto con `data-active` o con los valores de gesto. Mantén el portal fuera del ancestro transformado. |
 
@@ -174,7 +174,7 @@ El popup combina `--drawer-swipe-movement-x`, `--drawer-swipe-movement-y` y `--d
 
 `drawer.module.css` declara en `@layer components` las transiciones de Backdrop y Popup. La duración base es de `300ms` para la opacidad del fondo y la transformación del panel. `data-swiping` fija la duración en cero durante el arrastre y `data-ending-style` ajusta la duración del cierre mediante `--drawer-swipe-strength`. En entrada y salida, `--own-drawer-exit` determina la traslación fuera del borde. Con movimiento reducido, los cambios son inmediatos y el gesto sigue desplazando directamente el panel. Si cambias la transición del popup, conserva los selectores de entrada y salida para que Base UI sincronice el montaje.
 
-Las piezas estilizadas combinan `className` estático o funcional con `clsx`. Base UI aplica `style` estático o funcional y fusiona props, eventos y refs con `render`. En un `render` como función, propaga las props recibidas al nodo resultante. La cascada decide la precedencia de utilidades conflictivas. Consulta [globals](../../globals.md) para distinguir los ajustes locales de los cambios que afectan ambos temas.
+Las piezas estilizadas combinan `className` estático o funcional con `clsx`. Base UI aplica `style` estático o funcional y fusiona props, eventos y refs con `render`. En un `render` como función, propaga las props recibidas al nodo resultante. Salvo la [excepción de colores `content`](../../globals.md#composición-y-precedencia-de-clases), la cascada decide la precedencia de utilidades conflictivas. Consulta [globals](../../globals.md) para distinguir los ajustes locales de los cambios que afectan ambos temas.
 
 ## 8. Ejemplos de composición
 

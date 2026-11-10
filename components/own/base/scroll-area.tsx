@@ -1,7 +1,7 @@
 "use client";
 
 import { ScrollArea as Primitive } from "@base-ui/react/scroll-area";
-import clsx from "clsx";
+import clsx from "@/components/own/classes";
 
 export type ScrollAreaProps = Primitive.Root.Props;
 export type ScrollAreaState = Primitive.Root.State;

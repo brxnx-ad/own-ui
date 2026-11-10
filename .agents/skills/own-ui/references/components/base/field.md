@@ -108,15 +108,15 @@ Todas las piezas con nodo exponen `data-disabled`, `data-touched`, `data-dirty`,
 | Pieza | Estilos base y ajustes locales |
 | :--- | :--- |
 | Field | `flex min-w-0 flex-col`. Usa `--field-gap` para ajustar la separación entre piezas y sincronizarla con la transición del error. |
-| FieldControl | `min-h-10 w-full min-w-0`, `px-3 py-2`, borde `gray-base`, superficie `surface-bold`, texto `gray-bold`, `rounded-base`. Usa texto de `1rem` en móvil y `sm:text-sm` a partir del breakpoint. El foco visible usa un anillo `primary-base`, y `aria-invalid` cambia el borde y el anillo a `error-base`. El estado deshabilitado reduce opacidad y cambia el cursor. |
-| FieldLabel y FieldDescription | `body-sm`. La etiqueta usa peso medio y `gray-bold`; la descripción, `gray-bold/75`. Ambas usan `gray-bold/60` si se deshabilitan. |
+| FieldControl | `min-h-10 w-full min-w-0`, `px-3 py-2`, borde `gray-base`, superficie `surface-bold`, texto `content-bold`, `rounded-base`. Usa texto de `1rem` en móvil y `sm:text-sm` a partir del breakpoint. El foco visible usa un anillo `primary-base`, y `aria-invalid` cambia el borde y el anillo a `error-base`. El estado deshabilitado reduce opacidad y cambia el cursor. |
+| FieldLabel y FieldDescription | `body-sm`. La etiqueta usa peso medio y `content-bold`; la descripción, `content-base`. Ambas usan `content-soft` si se deshabilitan. |
 | FieldError | `body-sm text-error-bold`. Estiliza las listas automáticas con viñetas y sangría. El módulo `field.module.css` transiciona la opacidad y la altura durante `150ms` cuando se permite el movimiento. Si es hijo directo de Field, también transiciona la separación que ocupa al aparecer o desaparecer. Incluye el módulo al exportar la familia. |
 | FieldItem | `grid min-w-0 gap-1`. El consumidor decide la disposición de la casilla y su etiqueta. |
 | FieldValidity | El contenido que devuelve la función hija decide su estilo. |
 
 Las clases base no aplican sombras decorativas, iconos ni márgenes exteriores. Los colores se adaptan al tema por sus tokens. Puedes usar `style={{ minHeight: "5rem" }}` para dimensionar un área de texto o un selector de estado local para ajustar un anillo. Al modificar los tokens en [globals](../../globals.md), el cambio afecta a todos los componentes que los consumen.
 
-Las piezas estilizadas evalúan `className` funcional y combinan su resultado con `clsx`. Base UI aplica `style` estático o funcional y combina clases, estilos, eventos y refs al componer un elemento con `render`. En su forma de función, propaga las props recibidas. La cascada decide qué utilidad prevalece si las clases entran en conflicto.
+Las piezas estilizadas evalúan `className` funcional y combinan su resultado con `clsx`. Base UI aplica `style` estático o funcional y combina clases, estilos, eventos y refs al componer un elemento con `render`. En su forma de función, propaga las props recibidas. Salvo la [excepción de colores `content`](../../globals.md#composición-y-precedencia-de-clases), la cascada decide qué utilidad prevalece.
 
 ## 8. Ejemplos de composición
 

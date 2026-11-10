@@ -81,7 +81,7 @@ El detalle de apertura es el segundo parámetro de `NonNullable<CommandProps["on
 
 ## 7. Estilos admitidos por pieza
 
-- `className` se combina con las clases de Dialog mediante `clsx`. El panel utiliza `surface-base`, borde `gray-base`, texto `gray-bold`, radio `rounded-base` y sombra `shadow-l`. Hereda el padding del diálogo y se limita al viewport.
+- `className` se combina con las clases de Dialog mediante `clsx`. El panel utiliza `surface-base`, borde `gray-base`, texto `content-bold`, radio `rounded-base` y sombra `shadow-l`. Hereda el padding del diálogo y se limita al viewport.
 - El campo utiliza `surface-bold` y un anillo de foco `primary-base`. Las opciones resaltadas usan `primary-soft`, las deshabilitadas reducen su opacidad y la lista desplaza su contenido cuando excede la altura máxima. Los iconos SVG decorativos se ajustan a `size-4`.
 - Personaliza los descendientes desde el panel portaleado mediante sus slots, por ejemplo `className="max-w-md! [&_[data-slot=command-list]]:max-h-48!"`. El modificador `!` da precedencia sobre las utilidades de ancho y altura predeterminadas. El activador conserva los estilos que le aporta el consumidor.
 - El fondo y el panel heredan la transición de Dialog de 150 ms. El panel anima opacidad y escala. Dialog aplica el movimiento reducido del sistema.

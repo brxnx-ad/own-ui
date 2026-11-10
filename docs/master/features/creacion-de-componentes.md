@@ -2,7 +2,7 @@
 
 > **Objetivo y alcance del documento:** Establecer la guía canónica y los estándares técnicos para la creación de componentes propios en `components/own/`, utilizando `components/own/base/button.tsx` como componente modelo de referencia. Se considera desactualizado si la ubicación, la composición, el tipado o los estados de los componentes implementados divergen de las directrices aquí descritas.
 
-[Estructura del proyecto](../01-estructura-del-proyecto.md) · [Sistema de estilos](../02-estilos.md) · [Objetivos](../03-objetivos.md) · [Mantenimiento](../04-mantenimiento.md) · [Pendientes](../05-pendientes.md) · [Showcase](showcase.md)
+
 
 ---
 
@@ -14,11 +14,11 @@ Todo componente desarrollado en `components/own/` debe cumplir cinco reglas obli
 2. **Neutralidad de maquetación:** Tolerancia cero a márgenes exteriores (`m-*`). El componente nunca decide cómo se separa de su entorno; esa responsabilidad pertenece al contenedor padre.
 3. **Consumo de tokens propios:** Empleo exclusivo de los tokens semánticos de superficies (`surface-*`), tríadas cromáticas (`*-soft`, `*-base`, `*-bold`) y variables de geometría (`rounded-base`) definidas en `globals.css`.
 4. **Introspección por atributos `data-*`:** Declaración explícita de `data-slot`, `data-variant`, `data-size` y estados para pruebas automatizadas y estilos condicionales.
-5. **Composición limpia con `clsx`:** Concatenación condicional sin generar strings vacíos o valores booleanos huérfanos.
+5. **Composición de clases:** Usa `components/own/classes.ts`, que combina entradas con `clsx` y sustituye colores de texto reconocidos cuando una clase `text-content-*` posterior tiene el mismo prefijo de variantes. Los demás conflictos dependen de la cascada.
 
 ### 1.1. Ubicación e imports
 
-La ubicación del archivo sigue el [criterio de clasificación](../01-estructura-del-proyecto.md#3-clasificación-de-componentes).
+La ubicación del archivo sigue el criterio de clasificación.
 
 * `components/own/simple/` reúne familias definidas con HTML nativo y utilidades compartidas.
 * `components/own/base/` reúne familias que envuelven primitivas de Base UI, como Button, Accordion y Alert Dialog.
@@ -85,17 +85,17 @@ const variantStyles: Record<ButtonVariant, string> = {
     "active:bg-primary-bold"
   ),
   secondary: clsx(
-    "border border-gray-base bg-surface-base text-gray-bold",
+    "border border-gray-base bg-surface-base text-content-bold",
     "hover:bg-surface-bold",
     "active:bg-surface-bold"
   ),
   outline: clsx(
-    "border border-gray-base bg-transparent text-gray-bold",
+    "border border-gray-base bg-transparent text-content-bold",
     "hover:bg-surface-bold",
     "active:bg-surface-bold"
   ),
   ghost: clsx(
-    "border border-transparent bg-transparent text-gray-bold",
+    "border border-transparent bg-transparent text-content-bold",
     "hover:bg-surface-bold",
     "active:bg-surface-bold"
   ),
@@ -169,7 +169,7 @@ Esto asegura que cualquier SVG importado (como los de `lucide-react`) escale aut
 
 import * as React from "react";
 import { Button as ButtonPrimitive } from "@base-ui/react/button";
-import clsx from "clsx";
+import clsx from "@/components/own/classes";
 import { Spinner } from "@/components/own/icons";
 
 // 1. Tipos
@@ -208,6 +208,15 @@ export function Button({
   const isDisabled = Boolean(disabled || loading);
   const isIconOnly = !children && Boolean(icon || loading);
   const hasIconSlot = Boolean(icon || loading);
+  const baseClasses = clsx(
+    "inline-flex shrink-0 items-center justify-center rounded-base font-medium whitespace-nowrap select-none outline-none",
+    "transition-[background-color,color,border-color,box-shadow,transform,opacity] duration-150 ease-out",
+    "motion-safe:active:not-disabled:scale-[0.98]",
+    "focus-visible:ring-2 focus-visible:ring-primary-base data-[variant=destructive]:focus-visible:ring-error-base focus-visible:ring-offset-2 focus-visible:ring-offset-surface-soft",
+    "disabled:pointer-events-none disabled:opacity-50 data-loading:cursor-wait",
+    variantStyles[variant],
+    isIconOnly ? sizeStyles[size].iconOnly : sizeStyles[size].default,
+  );
 
   const iconNode = hasIconSlot ? (
     <span
@@ -226,16 +235,9 @@ export function Button({
       data-loading={loading ? "" : undefined}
       disabled={isDisabled}
       aria-busy={loading || undefined}
-      className={clsx(
-        "inline-flex shrink-0 items-center justify-center rounded-base font-medium whitespace-nowrap select-none outline-none",
-        "transition-[background-color,color,border-color,box-shadow,transform,opacity] duration-150 ease-out",
-        "motion-safe:active:not-disabled:scale-[0.98]",
-        "focus-visible:ring-2 focus-visible:ring-primary-base data-[variant=destructive]:focus-visible:ring-error-base focus-visible:ring-offset-2 focus-visible:ring-offset-surface-soft",
-        "disabled:pointer-events-none disabled:opacity-50 data-loading:cursor-wait",
-        variantStyles[variant],
-        isIconOnly ? sizeStyles[size].iconOnly : sizeStyles[size].default,
-        className
-      )}
+      className={typeof className === "function"
+        ? (state) => clsx(baseClasses, className(state))
+        : clsx(baseClasses, className)}
       {...props}
     >
       {iconPosition === "start" && iconNode}

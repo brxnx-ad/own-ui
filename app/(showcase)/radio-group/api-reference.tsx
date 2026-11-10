@@ -72,7 +72,7 @@ export function ApiReference() {
           rows: rows.map(([prop, type, defaultValue, optional, description]) => ({ prop, type, defaultValue, description, optional })),
         }))}
       />
-      <ul className="body-sm space-y-2 text-gray-bold/75">
+      <ul className="body-sm space-y-2 text-content-base">
         <li>Tab entra al grupo, las flechas recorren y seleccionan opciones habilitadas y Espacio marca la opción enfocada.</li>
         <li>Con el <code>span</code> predeterminado, Base UI puede conservar una parada de Tab en la opción marcada de un grupo deshabilitado.</li>
         <li>El grupo compara las opciones por igualdad estricta. Si usas objetos, conserva sus referencias. El input serializa el valor para <code>FormData</code>.</li>

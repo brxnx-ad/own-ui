@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { Button as ButtonPrimitive } from "@base-ui/react/button";
-import clsx from "clsx";
+import clsx from "@/components/own/classes";
 import { Spinner } from "@/components/own/icons";
 
 export type ButtonVariant =
@@ -20,17 +20,17 @@ const variantStyles: Record<ButtonVariant, string> = {
     "active:bg-primary-bold"
   ),
   secondary: clsx(
-    "border border-gray-base bg-surface-base text-gray-bold",
+    "border border-gray-base bg-surface-base text-content-bold",
     "hover:bg-surface-bold",
     "active:bg-surface-bold"
   ),
   outline: clsx(
-    "border border-gray-base bg-transparent text-gray-bold",
+    "border border-gray-base bg-transparent text-content-bold",
     "hover:bg-surface-bold",
     "active:bg-surface-bold"
   ),
   ghost: clsx(
-    "border border-transparent bg-transparent text-gray-bold",
+    "border border-transparent bg-transparent text-content-bold",
     "hover:bg-surface-bold",
     "active:bg-surface-bold"
   ),
@@ -78,6 +78,15 @@ export function Button({
   const isDisabled = Boolean(disabled || loading);
   const isIconOnly = !children && Boolean(icon || loading);
   const hasIconSlot = Boolean(icon || loading);
+  const baseClasses = clsx(
+    "inline-flex shrink-0 items-center justify-center rounded-base font-medium whitespace-nowrap select-none outline-none",
+    "transition-[background-color,color,border-color,box-shadow,transform,opacity] duration-150 ease-out",
+    "motion-safe:active:not-disabled:scale-[0.98]",
+    "focus-visible:ring-2 focus-visible:ring-primary-base data-[variant=destructive]:focus-visible:ring-error-base focus-visible:ring-offset-2 focus-visible:ring-offset-surface-soft",
+    "disabled:pointer-events-none disabled:opacity-50 data-loading:cursor-wait",
+    variantStyles[variant],
+    isIconOnly ? sizeStyles[size].iconOnly : sizeStyles[size].default,
+  );
 
   const iconNode = hasIconSlot ? (
     <span
@@ -96,21 +105,9 @@ export function Button({
       data-loading={loading ? "" : undefined}
       disabled={isDisabled}
       aria-busy={loading || undefined}
-      className={clsx(
-        // Estructura base y geometría vinculada a --radius
-        "inline-flex shrink-0 items-center justify-center rounded-base font-medium whitespace-nowrap select-none outline-none",
-        // Transiciones y feedback físico en estado active/pressed
-        "transition-[background-color,color,border-color,box-shadow,transform,opacity] duration-150 ease-out",
-        "motion-safe:active:not-disabled:scale-[0.98]",
-        // Foco accesible
-        "focus-visible:ring-2 focus-visible:ring-primary-base data-[variant=destructive]:focus-visible:ring-error-base focus-visible:ring-offset-2 focus-visible:ring-offset-surface-soft",
-        // Estados disabled y loading
-        "disabled:pointer-events-none disabled:opacity-50 data-loading:cursor-wait",
-        // Variante y tamaño proporcional
-        variantStyles[variant],
-        isIconOnly ? sizeStyles[size].iconOnly : sizeStyles[size].default,
-        className
-      )}
+      className={typeof className === "function"
+        ? (state) => clsx(baseClasses, className(state))
+        : clsx(baseClasses, className)}
       {...props}
     >
       {iconPosition === "start" && iconNode}

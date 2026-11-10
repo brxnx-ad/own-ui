@@ -1,7 +1,7 @@
 "use client";
 
 import { ToggleGroup as Primitive } from "@base-ui/react/toggle-group";
-import clsx from "clsx";
+import clsx from "@/components/own/classes";
 
 export type ToggleGroupProps<Value extends string = string> = Primitive.Props<Value>;
 export type ToggleGroupState = Primitive.State;

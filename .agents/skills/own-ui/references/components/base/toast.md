@@ -129,7 +129,7 @@ En `add`, puedes pasar `id`, `title`, `description`, `type`, `priority`, `timeou
 | Provider y Portal | Provider organiza el contexto. En Portal puedes elegir contenedor, atributos y estilos del nodo que recibe la región. |
 | Viewport y Stack | Viewport agrupa los avisos y dibuja el foco en Stack cuando se enfoca la región. Stack es fijo al final lógico, respeta el área segura inferior y limita la altura a la ventana dinámica. Usa `gap-2`, `p-2`, desplazamiento vertical y `z-50`. Ajusta posición, ancho y separación en Stack. |
 | Toast | Tarjeta `surface-base` con `rounded-base`, `shadow-m`, borde de 1 px y acento de 4 px al inicio lógico. Los tipos usan las tríadas `info`, `success`, `warning`, `error` y `primary`. El foco visible usa un contorno interior `gray-bold`. El movimiento de arrastre se aplica en este nodo. |
-| Content, Title y Description | Content usa `p-3` y espacio vertical de 8 px. Title usa texto pequeño seminegrita. Description usa `body-sm` y `gray-bold/75`. Ambas piezas permiten ajustar el salto de línea, el color o el elemento con `render`. |
+| Content, Title y Description | Content usa `p-3` y espacio vertical de 8 px. Title usa texto pequeño seminegrita. Description usa `body-sm` y `content-base`. Ambas piezas permiten ajustar el salto de línea, el color o el elemento con `render`. |
 | Action y Close | Controles con mínimo de 32 px, radio compartido y contorno exterior de foco. Action usa `surface-bold` y borde `gray-base`. Close eleva el fondo al pasar el puntero. Los SVG sin tamaño explícito se ajustan a 16 px. |
 | Positioner y Arrow | Positioner limita el ancho con `--available-width` y se oculta si el ancla queda oculta. Arrow usa un cuadrado de 8 px girado con superficie y borde de la tarjeta. La posición y rotación siguen `data-side`. |
 
@@ -137,7 +137,7 @@ La tarjeta transiciona opacidad y transformación durante 200 ms con `motion-saf
 
 El gesto usa `--toast-swipe-movement-x` y `--toast-swipe-movement-y` y Base UI aplica estilos inline mientras se arrastra. Con direcciones de descarte solo horizontales, un Stack desbordado prioriza el desplazamiento táctil nativo sobre el descarte táctil. La lista propia conserva el flujo, por lo que `--toast-index`, `--toast-offset-y`, `--toast-height` y `--toast-frontmost-height` quedan disponibles para otras composiciones. En los avisos anclados, conserva las posiciones inline y variables de Floating UI.
 
-Usa `data-slot`, atributos de estado, clases o estilos para ajustes locales. Las clases estáticas y funcionales se combinan con `clsx` y la cascada resuelve conflictos. Los cambios en los tokens globales afectan a todas las piezas que los comparten. [globals.css](../../globals.md)
+Usa `data-slot`, atributos de estado, clases o estilos para ajustes locales. Las clases estáticas y funcionales se combinan con `clsx` y, salvo la [excepción de colores `content`](../../globals.md#composición-y-precedencia-de-clases), la cascada resuelve conflictos. Los cambios en los tokens globales afectan a todas las piezas que los comparten. [globals.css](../../globals.md)
 
 ## 8. Ejemplos de composición
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { Toolbar as Primitive } from "@base-ui/react/toolbar";
-import clsx from "clsx";
+import clsx from "@/components/own/classes";
 import type { ComponentPropsWithRef } from "react";
 
 export type ToolbarProps = Primitive.Root.Props;
@@ -33,14 +33,14 @@ const layoutStyles = clsx(
 );
 
 const controlStyles = clsx(
-  "inline-flex min-h-9 min-w-9 max-w-full shrink-0 items-center justify-center gap-1.5 rounded-base px-2.5 py-1 text-center text-sm font-medium wrap-anywhere text-gray-bold",
+  "inline-flex min-h-9 min-w-9 max-w-full shrink-0 items-center justify-center gap-1.5 rounded-base px-2.5 py-1 text-center text-sm font-medium wrap-anywhere text-content-bold",
   "[&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
   "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-bold",
   "motion-safe:transition-colors motion-safe:duration-150",
 );
 
 const inputStyles = clsx(
-  "min-h-9 w-44 min-w-0 max-w-full rounded-base border border-gray-base bg-surface-bold px-2.5 py-1 text-base text-gray-bold placeholder:text-gray-bold/60 sm:text-sm",
+  "min-h-9 w-44 min-w-0 max-w-full rounded-base border border-gray-base bg-surface-bold px-2.5 py-1 text-base text-content-bold placeholder:text-content-soft sm:text-sm",
   "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-bold",
   "aria-invalid:border-error-base aria-invalid:focus-visible:outline-error-base",
   "data-disabled:cursor-not-allowed data-disabled:opacity-50 forced-colors:data-disabled:opacity-100 forced-colors:data-disabled:text-[GrayText]",

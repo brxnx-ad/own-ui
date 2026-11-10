@@ -89,7 +89,7 @@ export function ApiReference() {
           rows: rows.map(([prop, type, defaultValue, description]) => ({ prop, type, defaultValue, description })),
         }))}
       />
-      <ul className="body-sm space-y-2 text-gray-bold/75">
+      <ul className="body-sm space-y-2 text-content-base">
         <li>Usa un destino real en el enlace. Mantén el resumen visual libre de controles y ofrece la información en la página enlazada.</li>
         <li><code>details.reason</code> distingue puntero, foco, pulsación, Escape e interacción exterior o imperativa. <code>createPreviewCardHandle()</code> expone <code>open(id)</code>, <code>close()</code> e <code>isOpen</code> para una raíz montada.</li>
         <li>Al cambiar de activador, <code>PreviewCardViewport</code> oculta el contenido anterior y anima la entrada del nuevo si se permite el movimiento.</li>

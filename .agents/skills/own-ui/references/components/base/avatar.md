@@ -75,13 +75,13 @@ La API visual consta de `size`. La carga en el DOM y el tiempo de espera son opc
 
 | Pieza | Estilo base | Personalización |
 | :--- | :--- | :--- |
-| `Avatar` | Caja `inline-flex` que no se encoge, con `rounded-base`, `border-gray-base`, `bg-surface-bold` y `text-gray-bold`. Su contexto relativo y aislado contiene y recorta las dos capas. | Elige `size` o ajusta ancho y alto desde `style`. El contenedor consumidor controla los márgenes, gaps y la posición en el layout. |
+| `Avatar` | Caja `inline-flex` que no se encoge, con `rounded-base`, `border-gray-base`, `bg-surface-bold` y `text-content-bold`. Su contexto relativo y aislado contiene y recorta las dos capas. | Elige `size` o ajusta ancho y alto desde `style`. El contenedor consumidor controla los márgenes, gaps y la posición en el layout. |
 | `AvatarImage` | Capa absoluta sobre el fallback que cubre el interior con `object-cover`. Se oculta con `visibility: hidden` en `data-loading` y `data-error` para conservar la caja. | Ajusta `objectPosition` o `objectFit` en el `img`. Conserva la caja cuando uses carga diferida. |
 | `AvatarFallback` | Capa absoluta con contenido centrado, `font-semibold` y tipografía y color heredados de la raíz. | Ajusta color, fondo, tipografía, padding o gap en el `span` y el tamaño del icono en su propio nodo. Mantén el contenido breve para que quepa en el recorte. |
 
 Las superficies, el borde y el texto se adaptan al tema desde [globals.md](../../globals.md). Personaliza una instancia desde sus props o selectores de slot. Cambiar los tokens globales también afecta a las demás familias que los usan. Avatar carece de sombra y transición predeterminadas. Si añades una transición con los atributos de entrada y salida, respeta `prefers-reduced-motion` y comprueba el desmontaje. Para carga diferida, conserva `visibility` u `opacity` para ocultar la imagen durante la carga y el error.
 
-`className` funcional se evalúa con el estado de cada pieza y se combina con las clases de own-ui mediante `clsx`. Las utilidades en conflicto siguen la cascada de CSS. Para cambiar una dimensión puntual de la raíz, por ejemplo, usa `style={{ width: "3.5rem", height: "3.5rem" }}`. Base UI aplica `style` y compone el elemento de `render`; una función de `render` debe propagar las clases, estilos, eventos y `ref` que recibe.
+`className` funcional se evalúa con el estado de cada pieza y se combina con las clases de own-ui mediante `clsx`. Salvo la [excepción de colores `content`](../../globals.md#composición-y-precedencia-de-clases), las utilidades en conflicto siguen la cascada de CSS. Para cambiar una dimensión puntual de la raíz, por ejemplo, usa `style={{ width: "3.5rem", height: "3.5rem" }}`. Base UI aplica `style` y compone el elemento de `render`; una función de `render` debe propagar las clases, estilos, eventos y `ref` que recibe.
 
 ## 8. Ejemplos de composición
 

@@ -28,7 +28,7 @@ export function NativeValidationExample() {
       }}
     >
       <label htmlFor="required-comment" className="body-sm block">Comentario obligatorio</label>
-      <p id="comment-length-hint" className="body-sm text-gray-bold/75">Escribe entre 5 y 120 caracteres.</p>
+      <p id="comment-length-hint" className="body-sm text-content-base">Escribe entre 5 y 120 caracteres.</p>
       <Textarea id="required-comment" name="comment" aria-describedby="comment-length-hint" required minLength={5} maxLength={120} showCount />
       <div className="flex flex-wrap items-center gap-2">
         <Button type="submit" size="sm">Enviar</Button>

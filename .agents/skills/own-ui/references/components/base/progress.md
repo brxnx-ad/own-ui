@@ -79,14 +79,14 @@ Los slots y los estilos son de own-ui. La raíz recibe el valor de la aplicació
 | Pieza | Estilo base y ajustes |
 | :--- | :--- |
 | Progress | Cuadrícula de ancho completo con dos columnas, alineación por línea base, `gap-x-4` y `gap-y-2`. Limita su ancho mediante el contenedor o `style`. |
-| Label | Texto `body-sm` de peso medio en `gray-bold`. Permite el quiebre de etiquetas largas. |
-| Value | Segunda columna con alineación al final, texto `body-sm` en `gray-bold/75` y cifras tabulares. |
+| Label | Texto `body-sm` de peso medio en `content-bold`. Permite el quiebre de etiquetas largas. |
+| Value | Segunda columna con alineación al final, texto `body-sm` en `content-base` y cifras tabulares. |
 | Track | Ocupa ambas columnas. Usa `h-2.5`, `rounded-base`, borde `gray-base`, fondo `surface-soft`, sombra `shadow-inset-s` y recorte del contenido. |
 | Indicator | Barra redondeada con `primary-base` durante el avance y `success-base` al completar. Base UI aplica el ancho determinado mediante estilo inline. En estado indeterminado, el ancho es un tercio del carril y el segmento parte centrado. En colores forzados, el indicador usa el color de sistema `Highlight`. |
 
 Los tokens siguen los temas de [globals.css](../../globals.md). En modo determinado, el ancho y el color transicionan durante 150 ms con `motion-safe`. En modo indeterminado, `own-ui-progress-sweep` desplaza el segmento de un extremo al otro durante ciclos de 1,4 s. El módulo CSS activa el barrido cuando se permite el movimiento. Con movimiento reducido queda un segmento centrado y estático. Si cambias el ancho del segmento, ajusta también el recorrido de la animación.
 
-`className` admite una cadena o una función del estado. Los wrappers combinan las clases con `clsx` sin resolver conflictos entre utilidades. `style` admite un objeto o una función y actúa en el nodo correspondiente. Por ejemplo, `<ProgressTrack style={{ height: "0.875rem" }}>` cambia la altura del carril. Conserva el ancho inline del indicador determinado para mantener la proporción. Usa `render` para sustituir un nodo conservando props, refs, eventos y semántica.
+`className` admite una cadena o una función del estado. Los wrappers combinan las clases con `clsx` con la excepción de colores descrita en [globals](../../globals.md#composición-y-precedencia-de-clases). `style` admite un objeto o una función y actúa en el nodo correspondiente. Por ejemplo, `<ProgressTrack style={{ height: "0.875rem" }}>` cambia la altura del carril. Conserva el ancho inline del indicador determinado para mantener la proporción. Usa `render` para sustituir un nodo conservando props, refs, eventos y semántica.
 
 ## 8. Ejemplos de composición
 

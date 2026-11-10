@@ -1,7 +1,7 @@
 "use client";
 
 import { Avatar as Primitive } from "@base-ui/react/avatar";
-import clsx from "clsx";
+import clsx from "@/components/own/classes";
 
 export type AvatarSize = "sm" | "md" | "lg";
 
@@ -31,7 +31,7 @@ export function Avatar({ className, size = "md", ...props }: AvatarProps) {
       data-size={size}
       className={classes(
         clsx(
-          "relative isolate inline-flex shrink-0 overflow-hidden rounded-base border border-gray-base bg-surface-bold align-middle text-gray-bold",
+          "relative isolate inline-flex shrink-0 overflow-hidden rounded-base border border-gray-base bg-surface-bold align-middle text-content-bold",
           sizeStyles[size],
         ),
         className,

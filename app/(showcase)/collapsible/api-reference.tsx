@@ -52,7 +52,7 @@ export function ApiReference() {
           rows: rows.map(([prop, type, defaultValue, description]) => ({ prop, type, defaultValue, description })),
         }))}
       />
-      <ul className="list-disc space-y-2 pl-5 body-sm text-gray-bold/75">
+      <ul className="list-disc space-y-2 pl-5 body-sm text-content-base">
         <li><code>details.reason</code> es <code>trigger-press</code> para el activador y <code>none</code> para la búsqueda de página. Cambiar <code>open</code> desde fuera no ejecuta el callback.</li>
         <li>Tab enfoca el activador habilitado. Enter y Espacio alternan la apertura.</li>
         <li>El panel usa <code>--collapsible-panel-height</code> para la transición. El panel y el chevron respetan la preferencia de movimiento reducido.</li>

@@ -82,10 +82,10 @@ export function SiteNavigationExample() {
                     closeOnClick
                     onClick={handleSelect(item.href)}
                   >
-                    <span className="font-medium text-gray-bold">
+                    <span className="font-medium text-content-bold">
                       {item.title}
                     </span>
-                    <span className="caption text-gray-bold/75">
+                    <span className="caption text-content-base">
                       {item.description}
                     </span>
                   </NavigationMenuLink>
@@ -109,10 +109,10 @@ export function SiteNavigationExample() {
                     closeOnClick
                     onClick={handleSelect(item.href)}
                   >
-                    <span className="font-medium text-gray-bold">
+                    <span className="font-medium text-content-bold">
                       {item.title}
                     </span>
-                    <span className="caption text-gray-bold/75">
+                    <span className="caption text-content-base">
                       {item.description}
                     </span>
                   </NavigationMenuLink>
@@ -141,7 +141,7 @@ export function SiteNavigationExample() {
         </NavigationMenuPortal>
       </NavigationMenu>
 
-      <p className="caption text-gray-bold/75">
+      <p className="caption text-content-base">
         Destino activo: <code>{currentSection}</code>
       </p>
     </div>
@@ -168,10 +168,10 @@ export function VerticalNavigationExample() {
                   closeOnClick
                   onClick={(e) => e.preventDefault()}
                 >
-                  <span className="font-medium text-gray-bold">
+                  <span className="font-medium text-content-bold">
                     Clúster de nodos
                   </span>
-                  <span className="caption text-gray-bold/75">
+                  <span className="caption text-content-base">
                     Distribución regional y réplicas activas.
                   </span>
                 </NavigationMenuLink>
@@ -180,10 +180,10 @@ export function VerticalNavigationExample() {
                   closeOnClick
                   onClick={(e) => e.preventDefault()}
                 >
-                  <span className="font-medium text-gray-bold">
+                  <span className="font-medium text-content-bold">
                     Redes privadas
                   </span>
-                  <span className="caption text-gray-bold/75">
+                  <span className="caption text-content-base">
                     Túneles internos y reglas de cortafuegos.
                   </span>
                 </NavigationMenuLink>
@@ -203,10 +203,10 @@ export function VerticalNavigationExample() {
                   closeOnClick
                   onClick={(e) => e.preventDefault()}
                 >
-                  <span className="font-medium text-gray-bold">
+                  <span className="font-medium text-content-bold">
                     Rotación de claves
                   </span>
-                  <span className="caption text-gray-bold/75">
+                  <span className="caption text-content-base">
                     Certificados TLS y secretos de servicio.
                   </span>
                 </NavigationMenuLink>
@@ -284,10 +284,10 @@ export function ControlledNavigationExample() {
                   closeOnClick
                   onClick={(e) => e.preventDefault()}
                 >
-                  <span className="font-medium text-gray-bold">
+                  <span className="font-medium text-content-bold">
                     Inicio rápido
                   </span>
-                  <span className="caption text-gray-bold/75">
+                  <span className="caption text-content-base">
                     Primeros pasos con own-ui en 5 minutos.
                   </span>
                 </NavigationMenuLink>
@@ -296,10 +296,10 @@ export function ControlledNavigationExample() {
                   closeOnClick
                   onClick={(e) => e.preventDefault()}
                 >
-                  <span className="font-medium text-gray-bold">
+                  <span className="font-medium text-content-bold">
                     Configuración de temas
                   </span>
-                  <span className="caption text-gray-bold/75">
+                  <span className="caption text-content-base">
                     Sincronización entre modo claro y oscuro.
                   </span>
                 </NavigationMenuLink>
@@ -319,10 +319,10 @@ export function ControlledNavigationExample() {
                   closeOnClick
                   onClick={(e) => e.preventDefault()}
                 >
-                  <span className="font-medium text-gray-bold">
+                  <span className="font-medium text-content-bold">
                     Contratos de primitivas
                   </span>
-                  <span className="caption text-gray-bold/75">
+                  <span className="caption text-content-base">
                     Tipos, callbacks y composición con render.
                   </span>
                 </NavigationMenuLink>
@@ -371,10 +371,10 @@ export function NestedNavigationExample() {
                           closeOnClick
                           onClick={(e) => e.preventDefault()}
                         >
-                          <span className="font-medium text-gray-bold">
+                          <span className="font-medium text-content-bold">
                             Controles interactivos
                           </span>
-                          <span className="caption text-gray-bold/75">
+                          <span className="caption text-content-base">
                             Botones, menús y barras de herramientas.
                           </span>
                         </NavigationMenuLink>
@@ -383,10 +383,10 @@ export function NestedNavigationExample() {
                           closeOnClick
                           onClick={(e) => e.preventDefault()}
                         >
-                          <span className="font-medium text-gray-bold">
+                          <span className="font-medium text-content-bold">
                             Entrada de datos
                           </span>
-                          <span className="caption text-gray-bold/75">
+                          <span className="caption text-content-base">
                             Campos validados, selectores y casillas.
                           </span>
                         </NavigationMenuLink>
@@ -405,10 +405,10 @@ export function NestedNavigationExample() {
                           closeOnClick
                           onClick={(e) => e.preventDefault()}
                         >
-                          <span className="font-medium text-gray-bold">
+                          <span className="font-medium text-content-bold">
                             Capas superpuestas
                           </span>
-                          <span className="caption text-gray-bold/75">
+                          <span className="caption text-content-base">
                             Diálogos modales, paneles de borde y portales.
                           </span>
                         </NavigationMenuLink>
@@ -417,10 +417,10 @@ export function NestedNavigationExample() {
                           closeOnClick
                           onClick={(e) => e.preventDefault()}
                         >
-                          <span className="font-medium text-gray-bold">
+                          <span className="font-medium text-content-bold">
                             Planos y sombras
                           </span>
-                          <span className="caption text-gray-bold/75">
+                          <span className="caption text-content-base">
                             Superficies semánticas y relieves hundidos.
                           </span>
                         </NavigationMenuLink>
@@ -471,10 +471,10 @@ export function KeepMountedNavigationExample() {
                   closeOnClick
                   onClick={(e) => e.preventDefault()}
                 >
-                  <span className="font-medium text-gray-bold">
+                  <span className="font-medium text-content-bold">
                     Estructura del sistema
                   </span>
-                  <span className="caption text-gray-bold/75">
+                  <span className="caption text-content-base">
                     Permanece montado en el HTML inicial con keepMounted.
                   </span>
                 </NavigationMenuLink>
@@ -483,10 +483,10 @@ export function KeepMountedNavigationExample() {
                   closeOnClick
                   onClick={(e) => e.preventDefault()}
                 >
-                  <span className="font-medium text-gray-bold">
+                  <span className="font-medium text-content-bold">
                     Contrato de exportación
                   </span>
-                  <span className="caption text-gray-bold/75">
+                  <span className="caption text-content-base">
                     Integración directa en proyectos consumidores.
                   </span>
                 </NavigationMenuLink>

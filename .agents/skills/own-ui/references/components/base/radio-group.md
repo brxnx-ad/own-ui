@@ -97,7 +97,7 @@ Las props de comportamiento provienen de Base UI. En modo controlado, actualiza 
 
 Los tokens se adaptan a los temas de [globals.css](../../globals.md). El punto desvanece su entrada y salida durante 150 ms con movimiento permitido. Con movimiento reducido, la opacidad cambia de inmediato.
 
-`className` admite una cadena o función del estado y se combina con las clases base mediante `clsx`. Las utilidades en conflicto se resuelven por la cascada. `style` admite un objeto o función y actúa en el nodo visible de cada pieza. Por ejemplo, `<RadioGroup style={{ gridTemplateColumns: "repeat(2, minmax(0, 1fr))" }}>` distribuye las opciones en dos columnas y `<RadioIndicator style={{ width: "0.375rem", height: "0.375rem" }} />` reduce el punto. Al usar `render`, conserva los atributos, eventos y refs que entrega Base UI.
+`className` admite una cadena o función del estado y se combina con las clases base mediante `clsx`. Salvo la [excepción de colores `content`](../../globals.md#composición-y-precedencia-de-clases), las utilidades en conflicto se resuelven por la cascada. `style` admite un objeto o función y actúa en el nodo visible de cada pieza. Por ejemplo, `<RadioGroup style={{ gridTemplateColumns: "repeat(2, minmax(0, 1fr))" }}>` distribuye las opciones en dos columnas y `<RadioIndicator style={{ width: "0.375rem", height: "0.375rem" }} />` reduce el punto. Al usar `render`, conserva los atributos, eventos y refs que entrega Base UI.
 
 ## 8. Ejemplos de composición
 

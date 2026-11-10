@@ -59,7 +59,7 @@ export function ChartReference() {
       </ShowcaseAnatomy>
       <ShowcaseApiReference>
         <ShowcaseApiTable name="Chart" groups={groups} />
-        <p className="body-sm text-gray-bold/75">
+        <p className="body-sm text-content-base">
           Crea la definición en un Client Component. Puedes pasar los datos serializables desde una página de servidor.
         </p>
       </ShowcaseApiReference>

@@ -46,7 +46,7 @@ El marco recalcula el estilo inline cuando se vuelve a renderizar con otra propo
 
 El `div` solo aporta `relative` y `min-w-0` además de la proporción inline. Define el ancho disponible desde el contenedor o el propio `className`. Una altura fija junto con un ancho fijo deja ambas dimensiones determinadas. Los hijos en flujo pueden exigir más altura. Para un recorte explícito, aplica `overflow-hidden` y `rounded-base` al marco, y `object-cover` al medio. La familia carece de color, tipografía, borde, sombra, animaciones y prop `render`.
 
-Cada pieza pública admite `className` de tipo `string` y `style` como objeto CSS en su nodo. `clsx` concatena las clases y la cascada determina el resultado cuando se contradicen. Las props HTML y `ref` llegan al nodo correspondiente. Consulta [los estilos compartidos](../../globals.md) para los tokens por tema. El consumidor decide la separación exterior.
+Cada pieza pública admite `className` de tipo `string` y `style` como objeto CSS en su nodo. `clsx` concatena las clases y, salvo la [excepción de colores `content`](../../globals.md#composición-y-precedencia-de-clases), la cascada determina el resultado cuando se contradicen. Las props HTML y `ref` llegan al nodo correspondiente. Consulta [los estilos compartidos](../../globals.md) para los tokens por tema. El consumidor decide la separación exterior.
 
 ## 8. Ejemplos de composición
 

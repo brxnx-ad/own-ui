@@ -58,7 +58,7 @@ export function ApiReference() {
           rows: rows.map(([prop, type, defaultValue, description]) => ({ prop, type, defaultValue, description })),
         }))}
       />
-      <ul className="list-disc space-y-2 pl-5 body-sm text-gray-bold/75">
+      <ul className="list-disc space-y-2 pl-5 body-sm text-content-base">
         <li><code>onCheckedChange</code> recibe el evento nativo y el motivo <code>none</code>. Cambiar <code>checked</code> desde fuera no dispara el callback.</li>
         <li>Tab lleva el foco a la casilla habilitada y Espacio alterna su valor. Dentro de un formulario, Enter puede activar su botón de envío.</li>
         <li>La transición de opacidad del indicador respeta la preferencia de movimiento reducido.</li>

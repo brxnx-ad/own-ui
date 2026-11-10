@@ -137,7 +137,7 @@ export function ApiReference() {
           rows: rows.map(([prop, type, initial, description, required]) => ({ prop, type, defaultValue: initial, description, optional: required ? "No" : "Sí" })),
         }))}
       />
-      <ul className="body-sm list-disc space-y-2 ps-5 text-gray-bold/75">
+      <ul className="body-sm list-disc space-y-2 ps-5 text-content-base">
         <li><code>Side</code> admite lados físicos y lógicos. <code>Align</code> admite <code>start</code>, <code>center</code> y <code>end</code>.</li>
         <li>Los detalles de cambio incluyen el evento y su motivo. Entre los motivos de apertura y cierre están <code>trigger-press</code>, <code>outside-press</code>, <code>item-press</code> y <code>escape-key</code>.</li>
         <li>El teclado permite abrir desde el botón, recorrer las opciones con flechas y cerrar con Escape. El panel respeta el movimiento reducido.</li>

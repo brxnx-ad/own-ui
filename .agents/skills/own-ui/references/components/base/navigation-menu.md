@@ -175,7 +175,7 @@ Las props de comportamiento e interacción provienen de `@base-ui/react/navigati
 | Aspecto | Cobertura por pieza y alcance de personalización |
 | :--- | :--- |
 | **Dimensiones y distribución** | `NavigationMenu` usa `relative w-(--navigation-menu-width,fit-content) max-w-full min-w-0` sin forzar `display` y en instancias anidadas (`data-nested`) fija `--navigation-menu-width: 100%`, permitiendo aplicar `grid` o `flex` directamente en submenús anidados. `NavigationMenuList` usa `flex flex-wrap items-center gap-1 p-1` en horizontal y cambia a `flex-col flex-nowrap items-stretch` cuando su raíz directa tiene `data-orientation="vertical"`. `NavigationMenuTrigger` y los `NavigationMenuLink` de primer nivel comparten `min-h-10 px-3 py-1.5 gap-1.5`. Dentro de `NavigationMenuContent`, `NavigationMenuLink` se dispone como bloque vertical (`flex flex-col gap-0.5 px-3 py-2`) para alojar título y descripción. `NavigationMenuContent` define su ancho y padding base mediante `w-(--navigation-menu-content-width,min(28rem,calc(var(--available-width,100vw)-2rem)))` y `p-(--navigation-menu-content-padding,--spacing(3))`, que en un `NavigationMenu` anidado (`data-nested`) se redefinen a `100%` y `0px`. No fuerces `width` o `height` fijos en `NavigationMenuPopup` ni en `NavigationMenuPositioner`, ya que dependen de `--popup-width`, `--popup-height`, `--positioner-width` y `--positioner-height`. |
-| **Colores y temas** | `NavigationMenuList` se asienta sobre `bg-surface-soft` con `border-gray-base`. `NavigationMenuTrigger` y `NavigationMenuLink` usan texto `text-gray-bold` y se elevan a `bg-surface-bold` en `hover` o `data-popup-open`. Un `NavigationMenuLink` con `active` aplica `bg-primary-soft text-primary-bold`. `NavigationMenuPopup` emplea `bg-surface-base` y `border-gray-base`. `NavigationMenuBackdrop` usa `bg-gray-bold/40 dark:bg-surface-soft/70`. Todos los colores se adaptan al tema mediante los tokens de [globals.md](../../globals.md). |
+| **Colores y temas** | `NavigationMenuList` se asienta sobre `bg-surface-soft` con `border-gray-base`. `NavigationMenuTrigger` y `NavigationMenuLink` usan texto `text-content-bold` y se elevan a `bg-surface-bold` en `hover` o `data-popup-open`. Un `NavigationMenuLink` con `active` aplica `bg-primary-soft text-primary-bold`. `NavigationMenuPopup` emplea `bg-surface-base` y `border-gray-base`. `NavigationMenuBackdrop` usa `bg-gray-bold/40 dark:bg-surface-soft/70`. Todos los colores se adaptan al tema mediante los tokens de [globals.md](../../globals.md). |
 | **Tipografía y geometría** | Los activadores y enlaces usan `.body-sm` (`0.875rem`). En la barra superior aplican `font-medium`. La lista, los activadores, los enlaces y el popup comparten `rounded-base`. `NavigationMenuList` usa `shadow-s` y `NavigationMenuPopup` usa `shadow-m`. `NavigationMenuIcon` renderiza `Chevron` a `size-3.5` (`0.875rem`). |
 | **Estados y selectores** | El foco visible en `NavigationMenuTrigger` y `NavigationMenuLink` muestra `focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-base`. `data-disabled` en el activador aplica `opacity-50 cursor-not-allowed`. `NavigationMenuViewport` recorta el contenido con `relative size-full min-w-0 overflow-hidden rounded-[inherit]` y asegura contexto de posicionamiento relativo en su contenedor interno (`[&>div]:relative`) sin sobreescribir el ancho de `NavigationMenuContent`. |
 | **Animaciones** | `NavigationMenuPositioner` interpola su posición (`top,left,right,bottom,transform`) en `200ms ease-out`; `NavigationMenuPopup` interpola `width,height,opacity,scale` en `200ms ease-out` desde `--transform-origin`; `NavigationMenuContent` interpola `opacity,transform,translate` en `200ms ease-out` desplazándose `0.5rem` según `data-activation-direction` (`left`, `right`, `up`, `down`); `NavigationMenuIcon` gira `180deg` en `150ms`. Todas las animaciones están protegidas con `motion-safe:` o `motion-reduce:transition-none` y se desactivan cuando Base UI marca `data-instant`. |
@@ -224,8 +224,8 @@ export function HeaderNavigation() {
                 active={pathname === "/docs/instalacion"}
                 closeOnClick
               >
-                <span className="font-medium text-gray-bold">Instalación</span>
-                <span className="caption text-gray-bold/75">
+                <span className="font-medium text-content-bold">Instalación</span>
+                <span className="caption text-content-base">
                   Configuración inicial de estilos y dependencias.
                 </span>
               </NavigationMenuLink>
@@ -234,8 +234,8 @@ export function HeaderNavigation() {
                 active={pathname === "/docs/componentes"}
                 closeOnClick
               >
-                <span className="font-medium text-gray-bold">Componentes</span>
-                <span className="caption text-gray-bold/75">
+                <span className="font-medium text-content-bold">Componentes</span>
+                <span className="caption text-content-base">
                   Referencia de las familias exportadas.
                 </span>
               </NavigationMenuLink>

@@ -23,7 +23,7 @@ export default function RootLayout({
       className={plusJakartaSans.variable}
       suppressHydrationWarning
     >
-      <body className="relative font-sans antialiased">
+      <body className="relative font-sans text-content-bold antialiased">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

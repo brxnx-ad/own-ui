@@ -67,7 +67,7 @@ Form carece de props `variant` y `size`. La raíz dispone sus hijos en una colum
 
 ## 7. Estilos admitidos por pieza
 
-Form aporta `flex min-w-0 flex-col gap-4`. Añade `className` o `style` a la raíz para cambiar el ancho y la separación. Para un ajuste local de espaciado, usa `style={{ gap: "0.75rem" }}`. `clsx` conserva las clases base y las del consumidor, y la cascada decide qué utilidad prevalece si entran en conflicto.
+Form aporta `flex min-w-0 flex-col gap-4`. Añade `className` o `style` a la raíz para cambiar el ancho y la separación. Para un ajuste local de espaciado, usa `style={{ gap: "0.75rem" }}`. `clsx` conserva las clases base y las del consumidor, y, salvo la [excepción de colores `content`](../../globals.md#composición-y-precedencia-de-clases), la cascada decide qué utilidad prevalece si entran en conflicto.
 
 Los estilos, mensajes y animaciones de los campos se gestionan en sus piezas respectivas. Para los errores de Field, incluye su bloque de estilos al exportar la composición. [Referencia de Field](field.md)
 

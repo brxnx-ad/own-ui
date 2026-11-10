@@ -95,7 +95,7 @@ Los slots son `item-group`, `item`, `item-media`, `item-content`, `item-title`, 
 | ItemActions, ItemHeader, ItemFooter | Flex con wrapping y gap `2`; header y footer ocupan el ancho entero mediante `basis-full`. |
 | ItemSeparator | Usa `gray-base`; el consumidor puede ajustar orientación y espacio con las props de Separator. |
 
-Todos los ajustes locales actúan con `className` o `style` sobre la pieza concreta. Usa tokens de own-ui para mantener ambos temas. `render` acepta elementos o funciones de Base UI; `clsx` concatena clases sin fusionar utilidades en conflicto.
+Todos los ajustes locales actúan con `className` o `style` sobre la pieza concreta. Usa tokens de own-ui para mantener ambos temas. `render` acepta elementos o funciones de Base UI; `clsx` concatena clases con la excepción de colores descrita en [globals](../../globals.md#composición-y-precedencia-de-clases).
 
 ## 8. Ejemplos de composición
 

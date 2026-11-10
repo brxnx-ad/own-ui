@@ -93,7 +93,7 @@ export function ApiReference() {
           rows: rows.map(([prop, type, defaultValue, description]) => ({ prop, type, defaultValue, description })),
         }))}
       />
-      <ul className="body-sm space-y-2 text-gray-bold/75">
+      <ul className="body-sm space-y-2 text-content-base">
         <li><code>details.reason</code> distingue escritura, borrado, pegado, desenfoque, teclado, botones, rueda, arrastre y cambios sin motivo específico. El evento de confirmación carece de cancelación.</li>
         <li>Las flechas ajustan el valor desde la entrada. Home y End permiten ir al límite correspondiente cuando está definido. Los botones quedan fuera del orden de Tab.</li>
         <li>El cursor personalizado depende de Pointer Lock y se omite en WebKit, con entrada táctil o si se deniega el bloqueo. Los botones solo transicionan con movimiento permitido.</li>

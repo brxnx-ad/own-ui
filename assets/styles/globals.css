@@ -21,6 +21,11 @@
   --color-gray-base: var(--gray-base);
   --color-gray-bold: var(--gray-bold);
 
+  /* Jerarquía de contenido */
+  --color-content-soft: var(--content-soft);
+  --color-content-base: var(--content-base);
+  --color-content-bold: var(--content-bold);
+
   --color-success-soft: var(--success-soft);
   --color-success-base: var(--success-base);
   --color-success-bold: var(--success-bold);
@@ -188,6 +193,10 @@
     --gray-base: var(--gray-200);
     --gray-bold: var(--gray-700);
 
+    --content-soft: var(--gray-400);
+    --content-base: var(--gray-600);
+    --content-bold: var(--gray-800);
+
     --success-soft: var(--success-200);
     --success-base: var(--success-500);
     --success-bold: var(--success-600);
@@ -222,6 +231,10 @@
     --gray-soft: var(--gray-850);
     --gray-base: var(--gray-700);
     --gray-bold: var(--gray-100);
+
+    --content-soft: var(--gray-450);
+    --content-base: var(--gray-300);
+    --content-bold: var(--gray-100);
 
     --success-soft: var(--success-900);
     --success-base: var(--success-600);

@@ -59,7 +59,7 @@ export function ActionsExample() {
       <ContextMenu>
         <ContextArea>
           <span className="block font-semibold">Revisar inventario</span>
-          <span className="text-gray-bold/75">{pinned ? "Tarea fijada" : "Tarea pendiente"}</span>
+          <span className="text-content-base">{pinned ? "Tarea fijada" : "Tarea pendiente"}</span>
         </ContextArea>
         <Popup label="Acciones de la tarea">
           <ContextMenuGroup>
@@ -84,7 +84,7 @@ export function CheckboxExample() {
         <ContextArea>
           <span className="block font-semibold">Lista de tareas</span>
           <span className="block">Revisar pedidos</span>
-          {showCompleted && <span className="block text-gray-bold/75 line-through">Actualizar tarifas</span>}
+          {showCompleted && <span className="block text-content-base line-through">Actualizar tarifas</span>}
         </ContextArea>
         <Popup label="Visibilidad de tareas">
           <ContextMenuCheckboxItem checked={showCompleted} onCheckedChange={setShowCompleted}>
@@ -152,7 +152,7 @@ export function SubmenuExample() {
       <ContextMenu>
         <ContextArea>
           <span className="block font-semibold">Informe de ventas</span>
-          <span className="text-gray-bold/75">Carpeta «{folder}»</span>
+          <span className="text-content-base">Carpeta «{folder}»</span>
         </ContextArea>
         <Popup label="Acciones del informe">
           <ContextMenuSubmenu>
@@ -167,7 +167,7 @@ export function SubmenuExample() {
       <label className="flex flex-wrap items-center gap-2 body-sm">
         Mover a carpeta
         <select
-          className="rounded-base border border-gray-base bg-surface-bold px-2 py-1 text-gray-bold"
+          className="rounded-base border border-gray-base bg-surface-bold px-2 py-1 text-content-bold"
           value={folder}
           onChange={(event) => setFolder(event.target.value)}
         >

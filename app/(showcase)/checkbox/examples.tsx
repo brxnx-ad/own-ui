@@ -71,7 +71,7 @@ export function FormExample() {
         </label>
       </div>
       <Button type="submit" size="sm">Confirmar registro</Button>
-      <output className="text-center body-sm text-gray-bold/75 empty:hidden">{result}</output>
+      <output className="text-center body-sm text-content-base empty:hidden">{result}</output>
     </form>
   );
 }

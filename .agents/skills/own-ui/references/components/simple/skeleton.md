@@ -47,7 +47,7 @@ El `span` expone `data-slot="skeleton"` y, con `inline`, el atributo `data-inlin
 - `skeleton.module.css` registra `--own-ui-skeleton-wave-x` como longitud heredada. En `prefers-reduced-motion: no-preference`, la animación lineal de 2.4 s mueve una franja vertical de `clamp(5rem, 24vw, 18rem)` de izquierda a derecha. Completa el recorrido al 80% del ciclo y permanece fuera del viewport el resto. `background-attachment: fixed` alinea la franja con el viewport. Con movimiento reducido se conserva el color base sin gradiente.
 - Para ajustar una instancia, usa `className`, `style` o un selector para `data-slot="skeleton"`. El módulo declara `--own-ui-skeleton-base` y `--own-ui-skeleton-light` en cada marcador y pueden sobreescribirse de forma local. Conserva la posición heredada y la preferencia de movimiento si personalizas el efecto. La familia carece de prop `render`.
 
-Cada pieza pública admite `className` de tipo `string` y `style` como objeto CSS en su nodo. `clsx` concatena las clases y la cascada determina el resultado cuando se contradicen. Las props HTML y `ref` llegan al nodo correspondiente. Consulta [los estilos compartidos](../../globals.md) para los tokens por tema. El consumidor decide la separación exterior.
+Cada pieza pública admite `className` de tipo `string` y `style` como objeto CSS en su nodo. `clsx` concatena las clases y, salvo la [excepción de colores `content`](../../globals.md#composición-y-precedencia-de-clases), la cascada determina el resultado cuando se contradicen. Las props HTML y `ref` llegan al nodo correspondiente. Consulta [los estilos compartidos](../../globals.md) para los tokens por tema. El consumidor decide la separación exterior.
 
 ## 8. Ejemplos de composición
 

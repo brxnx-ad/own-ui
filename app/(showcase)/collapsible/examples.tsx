@@ -35,7 +35,7 @@ export function PersistenceExample() {
           <span className="font-medium">Nota de entrega</span>
           <input
             type="text"
-            className="w-full rounded-base border border-gray-base bg-surface-bold px-3 py-2 text-gray-bold outline-offset-2 focus-visible:outline-2 focus-visible:outline-gray-bold"
+            className="w-full rounded-base border border-gray-base bg-surface-bold px-3 py-2 text-content-bold outline-offset-2 focus-visible:outline-2 focus-visible:outline-gray-bold"
           />
         </label>
       </CollapsiblePanel>

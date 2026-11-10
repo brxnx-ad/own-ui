@@ -285,7 +285,7 @@ export function ApiReference() {
           rows: rows.map(([prop, type, defaultValue, description]) => ({ prop, type, defaultValue, description })),
         }))}
       />
-      <ul className="body-sm list-disc space-y-2 ps-5 text-gray-bold/75">
+      <ul className="body-sm list-disc space-y-2 ps-5 text-content-base">
         <li>
           <code>NavigationMenuChangeEventReason</code> incluye{" "}
           <code>trigger-press</code>, <code>trigger-hover</code>,{" "}

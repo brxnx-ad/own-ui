@@ -1,7 +1,7 @@
 "use client";
 
 import { Toggle as Primitive } from "@base-ui/react/toggle";
-import clsx from "clsx";
+import clsx from "@/components/own/classes";
 
 export type ToggleVariant = "outline" | "ghost";
 export type ToggleSize = "sm" | "md" | "lg";
@@ -26,7 +26,7 @@ const sizeStyles: Record<ToggleSize, { label: string; icon: string }> = {
 };
 
 const toggleStyles = clsx(
-  "inline-flex min-w-0 max-w-full shrink-0 cursor-pointer items-center justify-center rounded-base border bg-transparent text-center font-medium wrap-anywhere text-gray-bold select-none",
+  "inline-flex min-w-0 max-w-full shrink-0 cursor-pointer items-center justify-center rounded-base border bg-transparent text-center font-medium wrap-anywhere text-content-bold select-none",
   "[&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-[1.15em]",
   "hover:not-data-disabled:not-data-pressed:bg-surface-bold data-pressed:border-primary-base data-pressed:bg-primary-soft data-pressed:shadow-inset-s",
   "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-bold data-disabled:cursor-not-allowed data-disabled:opacity-50",

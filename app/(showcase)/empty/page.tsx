@@ -37,7 +37,7 @@ export default function Page() {
     <Example title="Recurso visual libre" description={<>Usa <code>EmptyMedia</code> con su variante predeterminada para conservar la geometría del contenido.</>}>
       <Empty background="soft">
         <EmptyHeader>
-          <EmptyMedia aria-hidden="true"><Search className="size-8 text-gray-bold/70" /></EmptyMedia>
+          <EmptyMedia aria-hidden="true"><Search className="size-8 text-content-base" /></EmptyMedia>
           <EmptyTitle as="h3">Aún no hay búsquedas guardadas</EmptyTitle>
           <EmptyDescription>Las búsquedas guardadas aparecerán aquí.</EmptyDescription>
         </EmptyHeader>

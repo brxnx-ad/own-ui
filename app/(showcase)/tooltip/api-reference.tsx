@@ -104,7 +104,7 @@ export function ApiReference() {
           rows: rows.map(([prop, type, defaultValue, description]) => ({ prop, type, defaultValue, description })),
         }))}
       />
-      <ul className="body-sm space-y-2 text-gray-bold/75">
+      <ul className="body-sm space-y-2 text-content-base">
         <li>El foco de teclado abre el tooltip sin espera y Escape lo descarta. Reserva su contenido para textos breves de apoyo y usa <code>Popover</code> si el panel contiene controles interactivos.</li>
         <li><code>details.reason</code> distingue <code>trigger-hover</code>, <code>trigger-focus</code>, <code>trigger-press</code>, <code>outside-press</code>, <code>escape-key</code>, <code>disabled</code>, <code>imperative-action</code> y <code>none</code>.</li>
         <li><code>createTooltipHandle()</code> vincula activadores externos con una raíz montada y expone <code>open(id)</code>, <code>close()</code> e <code>isOpen</code>.</li>

@@ -76,14 +76,14 @@ Las piezas de contenedor y texto extienden `ComponentPropsWithRef` de sus nodos 
 
 | Pieza | Estilos y selectores |
 | :--- | :--- |
-| Attachment | Usa `surface-base`, `gray-base` y `gray-bold`. `idle` usa borde discontinuo y `error` `error-base`. `w-fit`, `max-w-full` y `min-w-0` contienen contenido largo. |
+| Attachment | Usa `surface-base`, `gray-base` y `content-bold`. `idle` usa borde discontinuo y `error` `error-base`. `w-fit`, `max-w-full` y `min-w-0` contienen contenido largo. |
 | AttachmentMedia | `surface-bold`, `rounded-base`; en error usa `error-soft` y `error-bold`. Los SVG sin tamaño explícito tienen `size-4`, o `size-6` en vertical. `variant="image"` ajusta `img` a su marco. |
-| AttachmentContent / Title / Description | Contenido flexible y texto truncado. La descripción usa `gray-bold/75`, que pasa a `error-bold` en error. |
+| AttachmentContent / Title / Description | Contenido flexible y texto truncado. La descripción usa `content-base`, que pasa a `error-bold` en error. |
 | AttachmentActions | Elementos flexibles sobre el contenido vertical; usan fondo `surface-base` en la posición superpuesta. |
 | AttachmentGroup | Desplazamiento horizontal, snap y `p-1`; su foco visible utiliza `primary-base`. El ancho corresponde al contenedor. |
 | AttachmentTrigger | Posición absoluta sobre la tarjeta. Foco visible `primary-base`, con offset de dos píxeles. |
 
-`className` permite ajustar los slots. Los botones usan las variantes semánticas de Button. Los colores se adaptan a ambos temas. No hay módulo CSS propio. `clsx` concatena clases sin resolver conflictos con Tailwind Merge.
+`className` permite ajustar los slots. Los botones usan las variantes semánticas de Button. Los colores se adaptan a ambos temas. No hay módulo CSS propio. `clsx` combina clases con la excepción de colores descrita en [globals](../../globals.md#composición-y-precedencia-de-clases); no usa Tailwind Merge.
 
 ## 8. Ejemplos de composición
 

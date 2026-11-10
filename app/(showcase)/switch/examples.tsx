@@ -17,7 +17,7 @@ export function ControlledExample() {
       </label>
       <div className="body-sm space-y-1 rounded-base border border-gray-base bg-surface-bold p-3">
         <p className="font-medium">Manual de instalación</p>
-        {showDetails && <p className="caption text-gray-bold/75">PDF · 1,2 MB · Actualizado hoy</p>}
+        {showDetails && <p className="caption text-content-base">PDF · 1,2 MB · Actualizado hoy</p>}
       </div>
     </div>
   );
@@ -61,7 +61,7 @@ export function FormExample() {
       </form>
       <ul aria-label="Cursos encontrados" className="body-sm space-y-1 border-t border-gray-base pt-3">
         <li>Diseño de interfaces</li>
-        {!applied && <li>Tipografía digital <span className="caption text-gray-bold/75">Sin cupos</span></li>}
+        {!applied && <li>Tipografía digital <span className="caption text-content-base">Sin cupos</span></li>}
       </ul>
     </div>
   );

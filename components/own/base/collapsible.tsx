@@ -1,7 +1,7 @@
 "use client";
 
 import { Collapsible as Primitive } from "@base-ui/react/collapsible";
-import clsx from "clsx";
+import clsx from "@/components/own/classes";
 import { Chevron } from "@/components/own/icons";
 import styles from "./collapsible.module.css";
 
@@ -24,7 +24,7 @@ export function CollapsibleTrigger({ className, children, ...props }: Primitive.
       data-slot="collapsible-trigger"
       className={classes(
         clsx(
-          "group/collapsible-trigger flex w-full items-center justify-between gap-4 rounded-base px-4 py-4 text-left text-sm font-semibold text-gray-bold",
+          "group/collapsible-trigger flex w-full items-center justify-between gap-4 rounded-base px-4 py-4 text-left text-sm font-semibold text-content-bold",
           "hover:not-disabled:not-aria-disabled:bg-surface-bold",
           "focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-gray-bold",
           "disabled:cursor-not-allowed disabled:opacity-50 aria-disabled:cursor-not-allowed aria-disabled:opacity-50",
@@ -46,7 +46,7 @@ export function CollapsiblePanel({ className, children, ...props }: Primitive.Pa
       className={classes(
         clsx(
           styles.panel,
-          "overflow-hidden text-sm text-gray-bold/75",
+          "overflow-hidden text-sm text-content-base",
         ),
         className,
       )}

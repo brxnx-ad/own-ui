@@ -75,7 +75,7 @@ La API se hereda de Base UI y admite los atributos HTML y ARIA del contenedor. `
 
 La raíz carece de borde, superficie, sombra y animación propios. Puedes darle una superficie con los tokens de [globals.md](../../globals.md) o seleccionar su estado mediante `data-disabled`. Los estilos de la raíz se aplican al contenedor y se heredan según las reglas normales de CSS. El consumidor controla la separación respecto del resto de la interfaz.
 
-`className` y `style` admiten una función de estado. El wrapper conserva las clases base con `clsx` y la cascada resuelve utilidades en conflicto. Si usas `render` con una función, propaga las props recibidas, incluidos los estilos, los eventos y `ref`.
+`className` y `style` admiten una función de estado. El wrapper conserva las clases base con `clsx` y, salvo la [excepción de colores `content`](../../globals.md#composición-y-precedencia-de-clases), la cascada resuelve utilidades en conflicto. Si usas `render` con una función, propaga las props recibidas, incluidos los estilos, los eventos y `ref`.
 
 ## 8. Ejemplos de composición
 

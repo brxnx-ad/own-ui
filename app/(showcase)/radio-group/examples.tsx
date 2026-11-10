@@ -14,7 +14,7 @@ export function RadioOption<Value>({ value, label, disabled }: {
   const labelId = useId();
 
   return (
-    <label className="body-sm flex min-h-8 cursor-pointer items-center gap-2.5 has-data-readonly:cursor-default has-data-disabled:cursor-not-allowed has-data-disabled:text-gray-bold/60">
+    <label className="body-sm flex min-h-8 cursor-pointer items-center gap-2.5 has-data-readonly:cursor-default has-data-disabled:cursor-not-allowed has-data-disabled:text-content-soft">
       <Radio value={value} disabled={disabled} aria-labelledby={labelId}>
         <RadioIndicator />
       </Radio>
@@ -70,7 +70,7 @@ export function FormExample() {
         <FieldError match="valueMissing">Elige un método de entrega.</FieldError>
       </Field>
       <Button type="submit" size="sm">Confirmar entrega</Button>
-      <output className="body-sm text-gray-bold/75 empty:hidden">
+      <output className="body-sm text-content-base empty:hidden">
         {submittedLabel && <>Confirmaste «{submittedLabel}» en esta demostración.</>}
       </output>
     </Form>

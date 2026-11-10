@@ -75,7 +75,7 @@ export function ApiReference() {
           rows: rows.map(([prop, type, defaultValue, optional, description]) => ({ prop, type, defaultValue, description, optional })),
         }))}
       />
-      <ul className="body-sm space-y-2 text-gray-bold/75">
+      <ul className="body-sm space-y-2 text-content-base">
         <li><code>onValueChange</code> distingue <code>input-change</code>, <code>input-clear</code>, <code>input-paste</code> y <code>keyboard</code>. Los callbacks de texto rechazado y de código completo distinguen escritura y pegado y carecen de cancelación.</li>
         <li>Tab entra al grupo por la casilla activa. Usa las flechas para moverte dentro del grupo y Retroceso para borrar. En un código parcial, el foco puede avanzar hasta la primera casilla vacía.</li>
         <li>El campo envía el código completo como una cadena. Los separadores visuales quedan fuera del valor enviado.</li>

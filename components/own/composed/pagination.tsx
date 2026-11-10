@@ -2,7 +2,7 @@
 
 import type { ComponentPropsWithRef, KeyboardEvent } from "react";
 import Link from "next/link";
-import clsx from "clsx";
+import clsx from "@/components/own/classes";
 import { Button, type ButtonSize } from "@/components/own/base/button";
 import { Chevron } from "@/components/own/icons";
 
@@ -116,7 +116,7 @@ export function PaginationEllipsis({ className, children, ...props }: ComponentP
   return (
     <span
       data-slot="pagination-ellipsis"
-      className={clsx("inline-flex size-8 items-center justify-center text-gray-bold/75", className)}
+      className={clsx("inline-flex size-8 items-center justify-center text-content-base", className)}
       {...props}
     >
       {children ?? (

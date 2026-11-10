@@ -53,7 +53,7 @@ export function ApiReference() {
           rows: rows.map(([prop, type, defaultValue, description]) => ({ prop, type, defaultValue, description })),
         }]}
       />
-      <ul className="list-disc space-y-2 pl-5 body-sm text-gray-bold/75">
+      <ul className="list-disc space-y-2 pl-5 body-sm text-content-base">
         <li>Asigna un <code>value</code> único a cada opción. <code>parent</code> y <code>name</code> pertenecen a <code>Checkbox</code>.</li>
         <li><code>onValueChange</code> recibe el evento nativo y el motivo <code>none</code>. Actualizar <code>value</code> desde fuera no dispara el callback.</li>
         <li>Tab recorre las casillas habilitadas y Espacio cambia la selección. Cada casilla conserva su etiqueta y su foco.</li>

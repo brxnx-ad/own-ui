@@ -1,7 +1,7 @@
 "use client";
 
 import { CheckboxGroup as Primitive } from "@base-ui/react/checkbox-group";
-import clsx from "clsx";
+import clsx from "@/components/own/classes";
 
 const baseClasses = "grid gap-2.5";
 

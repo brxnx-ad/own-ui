@@ -1,7 +1,7 @@
 "use client";
 
 import { Menubar as Primitive } from "@base-ui/react/menubar";
-import clsx from "clsx";
+import clsx from "@/components/own/classes";
 
 export type MenubarProps = Primitive.Props;
 export type MenubarState = Primitive.State;

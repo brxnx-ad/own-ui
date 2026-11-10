@@ -1,7 +1,7 @@
 "use client";
 
 import { Progress as Primitive } from "@base-ui/react/progress";
-import clsx from "clsx";
+import clsx from "@/components/own/classes";
 import styles from "./progress.module.css";
 
 export type ProgressProps = Primitive.Root.Props;
@@ -51,7 +51,7 @@ export function ProgressLabel({ className, ...props }: ProgressLabelProps) {
   return (
     <Primitive.Label
       data-slot="progress-label"
-      className={classes("body-sm min-w-0 wrap-anywhere font-medium text-gray-bold", className)}
+      className={classes("body-sm min-w-0 wrap-anywhere font-medium text-content-bold", className)}
       {...props}
     />
   );
@@ -62,7 +62,7 @@ export function ProgressValue({ className, ...props }: ProgressValueProps) {
     <Primitive.Value
       data-slot="progress-value"
       className={classes(
-        "body-sm col-start-2 min-w-0 justify-self-end wrap-anywhere text-end font-medium text-gray-bold/75 tabular-nums",
+        "body-sm col-start-2 min-w-0 justify-self-end wrap-anywhere text-end font-medium text-content-base tabular-nums",
         className,
       )}
       {...props}

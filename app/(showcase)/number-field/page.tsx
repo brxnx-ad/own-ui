@@ -57,9 +57,9 @@ export default function NumberFieldShowcasePage() {
           <NumberField id="rotation" defaultValue={45} min={0} max={180}>
             <NumberFieldScrubArea className="cursor-ew-resize">
               <label htmlFor="rotation" className="body-sm cursor-inherit font-medium">Rotación (°)</label>
-              <MoveHorizontal aria-hidden className="size-4 text-gray-bold/70" />
+              <MoveHorizontal aria-hidden className="size-4 text-content-base" />
               <NumberFieldScrubAreaCursor>
-                <MoveHorizontal aria-hidden className="size-5 -translate-x-1/2 -translate-y-1/2 rounded-base bg-surface-bold text-gray-bold shadow-s" />
+                <MoveHorizontal aria-hidden className="size-5 -translate-x-1/2 -translate-y-1/2 rounded-base bg-surface-bold text-content-bold shadow-s" />
               </NumberFieldScrubAreaCursor>
             </NumberFieldScrubArea>
             <NumberControl />

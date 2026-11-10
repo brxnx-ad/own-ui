@@ -10,12 +10,12 @@ export default function SeparatorShowcasePage() {
           <div className="grid gap-4">
             <div className="space-y-1">
               <h3 className="h5">Resumen del pedido</h3>
-              <p className="body-sm text-gray-bold/75">Tres productos confirmados.</p>
+              <p className="body-sm text-content-base">Tres productos confirmados.</p>
             </div>
             <Separator />
             <div className="space-y-1">
               <h3 className="h5">Entrega</h3>
-              <p className="body-sm text-gray-bold/75">Retiro en tienda desde el jueves.</p>
+              <p className="body-sm text-content-base">Retiro en tienda desde el jueves.</p>
             </div>
           </div>
         </ShowcaseExample>
@@ -23,17 +23,17 @@ export default function SeparatorShowcasePage() {
           <div className="flex gap-3 sm:gap-5">
             <div className="min-w-0 flex-1 space-y-1">
               <h3 className="h5">En curso</h3>
-              <p className="body-sm text-gray-bold/75">3 tareas</p>
+              <p className="body-sm text-content-base">3 tareas</p>
             </div>
             <Separator orientation="vertical" />
             <div className="min-w-0 flex-1 space-y-1">
               <h3 className="h5">Terminadas</h3>
-              <p className="body-sm text-gray-bold/75">8 tareas</p>
+              <p className="body-sm text-content-base">8 tareas</p>
             </div>
           </div>
         </ShowcaseExample>
         <ShowcaseExample contentClassName="mx-auto w-full max-w-sm" title="División decorativa" description={<>Añade <code>aria-hidden</code> si la línea solo separa elementos visualmente.</>}>
-          <div className="body-sm flex justify-center gap-3 text-gray-bold/75">
+          <div className="body-sm flex justify-center gap-3 text-content-base">
             <span>Guía de diseño</span>
             <Separator orientation="vertical" aria-hidden />
             <span>4 min de lectura</span>

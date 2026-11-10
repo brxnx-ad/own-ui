@@ -105,16 +105,16 @@ El valor predeterminado de `sideOffset` es propio de own-ui. El resto de las pro
 | Pieza | Estilo base y ajustes |
 | :--- | :--- |
 | PreviewCard | Comparte estado sin generar un nodo visual. El consumidor controla la separación exterior de los enlaces. |
-| Trigger | Mantiene el flujo del texto, con subrayado, peso medio y radio pequeño. Usa `primary-bold` en claro y `gray-bold` en oscuro. El subrayado gana grosor al pasar el puntero o abrir. El foco visible dibuja un contorno `primary-base` separado 2 px. |
+| Trigger | Mantiene el flujo del texto, con subrayado, peso medio y radio pequeño. Usa `primary-bold` en claro y `content-bold` en oscuro. El subrayado gana grosor al pasar el puntero o abrir. El foco visible dibuja un contorno `primary-base` separado 2 px. |
 | Portal | Hereda el tema y el apilamiento de su destino. Se puede personalizar su contenedor. |
 | Backdrop | Usa `fixed inset-0 z-40` con `gray-bold/40` en claro y `surface-soft/70` en oscuro. La primitiva deja pasar el puntero. |
 | Positioner | Usa `z-50` y el ancho máximo `--available-width`. Oculta la tarjeta si aparece `data-anchor-hidden`. Si se usa `sticky` y el diseño necesita visibilidad con el ancla oculta, ajusta `visibility` en el posicionador. |
-| Popup | Caja de `w-72 p-4 rounded-base`, borde `gray-base`, fondo `surface-base`, texto `gray-bold` y `shadow-m`. Limita ancho y alto a `--available-width` y `--available-height`. Recorta el desborde, por lo que el resumen debe ser breve. El consumidor aporta su distribución y tipografía interior. |
+| Popup | Caja de `w-72 p-4 rounded-base`, borde `gray-base`, fondo `surface-base`, texto `content-bold` y `shadow-m`. Limita ancho y alto a `--available-width` y `--available-height`. Recorta el desborde, por lo que el resumen debe ser breve. El consumidor aporta su distribución y tipografía interior. |
 | Viewport | Recorta el contenido durante el cambio y oculta de inmediato `data-previous`. Como hijo directo del popup, activa el alto medido `--popup-height` y fija temporalmente las dimensiones del posicionador mediante `--positioner-width` y `--positioner-height`. |
 
 Las transiciones de apertura y cierre combinan opacidad y escala durante 150 ms con origen `--transform-origin`. El fondo usa opacidad. Al cambiar entre activadores, el contenido actual aparece con opacidad progresiva y el alto del popup puede transicionar. Los estados instantáneos y la preferencia de movimiento reducido omiten las transiciones correspondientes.
 
-Los colores heredan [los tokens compartidos](../../globals.md). `className` puede ser una cadena o función de estado. Los wrappers estilizados combinan clases con `clsx` sin resolver utilidades en conflicto. `style` admite un objeto o función del estado y actúa sobre la pieza. Por ejemplo, `<PreviewCardPopup style={{ width: "16rem" }}>` ajusta la tarjeta dentro del ancho disponible. Al usar `render`, conserva atributos, eventos, refs y estilos de posición.
+Los colores heredan [los tokens compartidos](../../globals.md). `className` puede ser una cadena o función de estado. Los wrappers estilizados combinan clases con `clsx` con la excepción de colores descrita en [globals](../../globals.md#composición-y-precedencia-de-clases). `style` admite un objeto o función del estado y actúa sobre la pieza. Por ejemplo, `<PreviewCardPopup style={{ width: "16rem" }}>` ajusta la tarjeta dentro del ancho disponible. Al usar `render`, conserva atributos, eventos, refs y estilos de posición.
 
 ## 8. Ejemplos de composición
 

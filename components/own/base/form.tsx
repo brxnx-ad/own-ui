@@ -1,7 +1,7 @@
 "use client";
 
 import { Form as Primitive } from "@base-ui/react/form";
-import clsx from "clsx";
+import clsx from "@/components/own/classes";
 
 export type FormProps<Values extends Primitive.Values = Primitive.Values> = Primitive.Props<Values>;
 export type FormActions = Primitive.Actions;

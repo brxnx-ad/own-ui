@@ -24,12 +24,12 @@ type Preview = {
 export function PreviewSummary({ category, title, summary, detail }: Preview) {
   return (
     <div className="space-y-2">
-      <span className="caption inline-flex rounded-base bg-primary-soft px-2 py-0.5 font-semibold text-gray-bold">
+      <span className="caption inline-flex rounded-base bg-primary-soft px-2 py-0.5 font-semibold text-content-bold">
         {category}
       </span>
       <h3 className="h4 wrap-anywhere">{title}</h3>
-      <p className="body-sm wrap-anywhere text-gray-bold/75">{summary}</p>
-      {detail && <p className="body-sm wrap-anywhere text-gray-bold/75">{detail}</p>}
+      <p className="body-sm wrap-anywhere text-content-base">{summary}</p>
+      {detail && <p className="body-sm wrap-anywhere text-content-base">{detail}</p>}
     </div>
   );
 }

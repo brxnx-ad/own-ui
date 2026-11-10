@@ -49,7 +49,7 @@ const groups = [
 export function Anatomy() {
   return (
     <ShowcaseAnatomy>
-      <p className="body-sm text-gray-bold/75">Cinco piezas que se componen así:</p>
+      <p className="body-sm text-content-base">Cinco piezas que se componen así:</p>
       <ShowcaseAnatomyContent name="Accordion" code={anatomy} parts={parts} />
     </ShowcaseAnatomy>
   );
@@ -58,7 +58,7 @@ export function Anatomy() {
 export function ApiReference() {
   return (
     <ShowcaseApiReference>
-      <p className="body-sm text-gray-bold/75">Opciones agrupadas por pieza. Todas son opcionales.</p>
+      <p className="body-sm text-content-base">Opciones agrupadas por pieza. Todas son opcionales.</p>
       <ShowcaseApiTable
         name="Accordion"
         groups={groups.map((group) => ({
@@ -66,11 +66,11 @@ export function ApiReference() {
           rows: group.rows.map(([name, type, defaultValue, description]) => ({ prop: name, type, defaultValue, description })),
         }))}
       />
-      <dl className="space-y-2 body-sm text-gray-bold/75">
-        <div><dt className="inline font-medium text-gray-bold">Tipos: </dt><dd className="inline"><code>Value</code> es el tipo de identificador; <code>eventDetails</code> incluye el evento y el motivo del cambio.</dd></div>
-        <div><dt className="inline font-medium text-gray-bold">Accesibilidad: </dt><dd className="inline">Tab recorre los activadores; Enter y Espacio abren y cierran. Se respeta el movimiento reducido.</dd></div>
-        <div><dt className="inline font-medium text-gray-bold">Atributos: </dt><dd className="inline">Cada pieza acepta sus atributos HTML nativos.</dd></div>
-        <div><dt className="inline font-medium text-gray-bold">Compatibilidad: </dt><dd className="inline"><code>orientation</code> y <code>loopFocus</code> están obsoletos y ya no modifican el foco.</dd></div>
+      <dl className="space-y-2 body-sm text-content-base">
+        <div><dt className="inline font-medium text-content-bold">Tipos: </dt><dd className="inline"><code>Value</code> es el tipo de identificador; <code>eventDetails</code> incluye el evento y el motivo del cambio.</dd></div>
+        <div><dt className="inline font-medium text-content-bold">Accesibilidad: </dt><dd className="inline">Tab recorre los activadores; Enter y Espacio abren y cierran. Se respeta el movimiento reducido.</dd></div>
+        <div><dt className="inline font-medium text-content-bold">Atributos: </dt><dd className="inline">Cada pieza acepta sus atributos HTML nativos.</dd></div>
+        <div><dt className="inline font-medium text-content-bold">Compatibilidad: </dt><dd className="inline"><code>orientation</code> y <code>loopFocus</code> están obsoletos y ya no modifican el foco.</dd></div>
       </dl>
     </ShowcaseApiReference>
   );

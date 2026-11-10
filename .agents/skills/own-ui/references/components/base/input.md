@@ -79,12 +79,12 @@ Base UI proporciona estas opciones y los atributos nativos compatibles. Own-ui a
 | Aspecto | Estilo base y personalización de `Input` |
 | :--- | :--- |
 | Dimensiones | `w-full min-w-0 min-h-10` con `px-3 py-2`. Define el ancho disponible y la separación exterior en el contenedor. Usa `style={{ minHeight: "3rem" }}` para aumentar la altura de una instancia. |
-| Colores y temas | `surface-bold` para el fondo, `gray-base` para el borde y `gray-bold` para el texto. El placeholder usa `gray-bold/60`. Los tokens se adaptan a claro y oscuro. |
+| Colores y temas | `surface-bold` para el fondo, `gray-base` para el borde y `content-bold` para el texto. El placeholder usa `content-soft`. Los tokens se adaptan a claro y oscuro. |
 | Tipografía y geometría | `text-base` en móvil y `sm:text-sm` desde el breakpoint `sm`. El borde usa `rounded-base`. El control carece de iconos y sombras decorativas. |
 | Estados | `:focus-visible` muestra un anillo de dos píxeles en `primary-base`. `aria-invalid="true"` cambia borde y anillo a `error-base`. `data-disabled` reduce la opacidad y usa el cursor `not-allowed`. `readOnly` conserva la superficie y el indicador de foco. |
 | Animación | Los cambios de foco, invalidez y deshabilitación son inmediatos. Si añades transiciones, conserva la adaptación a movimiento reducido. |
 
-`className` evalúa la función si se proporciona y combina su resultado con `clsx`. La cascada de Tailwind determina qué utilidad prevalece si hay clases en conflicto. Base UI aplica `style` estático o funcional y combina clases, estilos, eventos y refs con el elemento que recibe por `render`. Cuando `render` es una función, propaga las props recibidas al control real. Modifica los tokens compartidos solo cuando el ajuste deba afectar a todos sus consumidores. Consulta [globals](../../globals.md).
+`className` evalúa la función si se proporciona y combina su resultado con `clsx`. Salvo la [excepción de colores `content`](../../globals.md#composición-y-precedencia-de-clases), la cascada determina qué utilidad prevalece. Base UI aplica `style` estático o funcional y combina clases, estilos, eventos y refs con el elemento que recibe por `render`. Cuando `render` es una función, propaga las props recibidas al control real. Modifica los tokens compartidos solo cuando el ajuste deba afectar a todos sus consumidores. Consulta [globals](../../globals.md).
 
 ## 8. Ejemplos de composición
 

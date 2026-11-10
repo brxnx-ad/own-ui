@@ -121,7 +121,7 @@ El valor `sideOffset = 8` es un ajuste de own-ui; el resto de opciones y callbac
 | Trigger | Renderiza `button` sin clases visuales impuestas por el wrapper para evitar colisiones al componer con `render={<Button />}`. Aporta clases propias o compón con `Button`. |
 | Portal | Monta el contenedor portaleado en `body` por defecto; hereda tokens y tema del destino. |
 | Positioner | Usa `z-50`, `max-w-(--available-width)` y `data-anchor-hidden:invisible`. Si su popup contiene `TooltipViewport`, fija su ancho y alto a `--positioner-width` y `--positioner-height`. |
-| Popup | Usa `body-sm`, `w-fit`, `min-w-0`, `max-w-[min(20rem,var(--available-width))]`, `max-h-(--available-height)`, `px-3 py-1.5`, `rounded-base`, `border border-gray-base`, `bg-surface-base`, `text-gray-bold` y `shadow-m`. Recorta el desborde con `overflow-hidden`, cambia a `overflow-visible` cuando contiene `TooltipArrow` y adopta `--popup-width` y `--popup-height` cuando contiene `TooltipViewport`. |
+| Popup | Usa `body-sm`, `w-fit`, `min-w-0`, `max-w-[min(20rem,var(--available-width))]`, `max-h-(--available-height)`, `px-3 py-1.5`, `rounded-base`, `border border-gray-base`, `bg-surface-base`, `text-content-bold` y `shadow-m`. Recorta el desborde con `overflow-hidden`, cambia a `overflow-visible` cuando contiene `TooltipArrow` y adopta `--popup-width` y `--popup-height` cuando contiene `TooltipViewport`. |
 | Arrow | Cuadrado de `size-2` (`0.5rem`) con `pointer-events-none`, `border-t border-l border-gray-base bg-surface-base` y `data-uncentered:invisible`. Se desplaza `-0.25rem` y rota según `data-side`. |
 | Viewport | Contenedor relativo con `min-w-0 overflow-hidden` que oculta `[data-previous]` y aplica una transición de opacidad de 150 ms sobre `[data-current]`. |
 

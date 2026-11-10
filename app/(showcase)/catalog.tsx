@@ -49,7 +49,7 @@ export function Catalog({ components }: { components: ComponentItem[] }) {
     <div className="space-y-10">
       <div className="mx-auto flex w-full max-w-2xl items-center gap-3">
         <div className="relative min-w-0 flex-1">
-          <Search aria-hidden="true" className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-gray-bold/60" />
+          <Search aria-hidden="true" className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-content-soft" />
           <Input ref={inputRef} type="search" aria-label="Buscar componentes" placeholder="Buscar componentes..." value={query} onChange={(event) => setQuery(event.target.value)} className="pl-9!" />
         </div>
         <Menu>
@@ -92,7 +92,7 @@ export function Catalog({ components }: { components: ComponentItem[] }) {
       <section aria-labelledby="components-heading" className="space-y-4">
         <div className="flex items-center justify-between gap-4 border-b border-gray-base pb-3">
           <h2 id="components-heading" className="h3">Componentes</h2>
-          <p role="status" className="caption text-gray-bold/70">{results.length} {results.length === 1 ? "resultado" : "resultados"}</p>
+          <p role="status" className="caption text-content-base">{results.length} {results.length === 1 ? "resultado" : "resultados"}</p>
         </div>
         {results.length > 0 ? (
           <nav aria-label="Listado de componentes" className="grid gap-3 sm:grid-cols-2">

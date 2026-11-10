@@ -1,7 +1,7 @@
 "use client";
 
 import { AlertDialog as Primitive } from "@base-ui/react/alert-dialog";
-import clsx from "clsx";
+import clsx from "@/components/own/classes";
 
 export const createAlertDialogHandle = Primitive.createHandle;
 export type AlertDialogHandle<Payload = unknown> = Primitive.Handle<Payload>;
@@ -58,7 +58,7 @@ export function AlertDialogPopup({ className, ...props }: Primitive.Popup.Props)
     <Primitive.Popup
       data-slot="alert-dialog-popup"
       className={classes(
-        "flex max-h-full w-full min-w-0 max-w-lg flex-col gap-6 overflow-y-auto overscroll-contain rounded-base border border-gray-base bg-surface-base p-6 text-gray-bold shadow-l outline-none transition-[opacity,transform] duration-150 ease-out data-starting-style:opacity-0 data-ending-style:opacity-0 motion-safe:data-starting-style:scale-95 motion-safe:data-ending-style:scale-95 motion-reduce:transition-none",
+        "flex max-h-full w-full min-w-0 max-w-lg flex-col gap-6 overflow-y-auto overscroll-contain rounded-base border border-gray-base bg-surface-base p-6 text-content-bold shadow-l outline-none transition-[opacity,transform] duration-150 ease-out data-starting-style:opacity-0 data-ending-style:opacity-0 motion-safe:data-starting-style:scale-95 motion-safe:data-ending-style:scale-95 motion-reduce:transition-none",
         className,
       )}
       {...props}
@@ -70,7 +70,7 @@ export function AlertDialogTitle({ className, ...props }: Primitive.Title.Props)
   return (
     <Primitive.Title
       data-slot="alert-dialog-title"
-      className={classes("h4 text-gray-bold", className)}
+      className={classes("h4 text-content-bold", className)}
       {...props}
     />
   );
@@ -80,7 +80,7 @@ export function AlertDialogDescription({ className, ...props }: Primitive.Descri
   return (
     <Primitive.Description
       data-slot="alert-dialog-description"
-      className={classes("body-sm text-gray-bold/75", className)}
+      className={classes("body-sm text-content-base", className)}
       {...props}
     />
   );

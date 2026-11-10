@@ -51,7 +51,7 @@ export function ApiReference() {
           rows: rows.map(([prop, type, defaultValue, description]) => ({ prop, type, defaultValue, description })),
         }]}
       />
-      <ul className="body-sm space-y-2 text-gray-bold/75">
+      <ul className="body-sm space-y-2 text-content-base">
         <li>Al enviar, Base UI valida los campos registrados y enfoca el primer control inválido disponible. Una validación asíncrona pendiente por sí sola no bloquea el envío.</li>
         <li><code>FormSubmitEventDetails</code> incluye el evento nativo y el motivo <code>none</code>. El tipo <code>Values</code> describe el objeto recibido por TypeScript.</li>
         <li>Para consultar controles nativos, archivos o nombres repetidos, usa <code>FormData</code> en el evento o en la acción.</li>

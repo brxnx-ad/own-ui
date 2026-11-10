@@ -1,7 +1,7 @@
 "use client";
 
 import { ContextMenu as Primitive } from "@base-ui/react/context-menu";
-import clsx from "clsx";
+import clsx from "@/components/own/classes";
 import { Check, Chevron } from "@/components/own/icons";
 
 export const ContextMenu = Primitive.Root;
@@ -16,8 +16,8 @@ function classes<State>(
     : clsx(base, className);
 }
 
-const itemClasses = "body-sm flex min-h-9 min-w-0 cursor-default items-center gap-2 wrap-break-word rounded-base px-2 py-1.5 text-gray-bold outline-none select-none data-highlighted:bg-primary-soft data-disabled:opacity-50";
-const indicatorClasses = "inline-flex size-4 shrink-0 items-center justify-center text-gray-bold invisible data-checked:visible";
+const itemClasses = "body-sm flex min-h-9 min-w-0 cursor-default items-center gap-2 wrap-break-word rounded-base px-2 py-1.5 text-content-bold outline-none select-none data-highlighted:bg-primary-soft data-disabled:opacity-50";
+const indicatorClasses = "inline-flex size-4 shrink-0 items-center justify-center text-content-bold invisible data-checked:visible";
 
 export function ContextMenuTrigger({ className, tabIndex = 0, ...props }: Primitive.Trigger.Props) {
   return (
@@ -54,7 +54,7 @@ export function ContextMenuPopup({ className, ...props }: Primitive.Popup.Props)
   return (
     <Primitive.Popup
       data-slot="context-menu-popup"
-      className={classes("min-w-[min(12rem,var(--available-width))] max-w-[min(20rem,var(--available-width))] max-h-(--available-height) origin-(--transform-origin) overflow-y-auto overscroll-contain rounded-base border border-gray-base bg-surface-base p-1 text-gray-bold shadow-m outline-none motion-safe:transition-[opacity,scale] motion-safe:duration-150 motion-safe:ease-out data-starting-style:opacity-0 data-ending-style:opacity-0 motion-safe:data-starting-style:scale-95 motion-safe:data-ending-style:scale-95 data-instant:transition-none has-[>[data-slot=context-menu-arrow]]:overflow-visible", className)}
+      className={classes("min-w-[min(12rem,var(--available-width))] max-w-[min(20rem,var(--available-width))] max-h-(--available-height) origin-(--transform-origin) overflow-y-auto overscroll-contain rounded-base border border-gray-base bg-surface-base p-1 text-content-bold shadow-m outline-none motion-safe:transition-[opacity,scale] motion-safe:duration-150 motion-safe:ease-out data-starting-style:opacity-0 data-ending-style:opacity-0 motion-safe:data-starting-style:scale-95 motion-safe:data-ending-style:scale-95 data-instant:transition-none has-[>[data-slot=context-menu-arrow]]:overflow-visible", className)}
       {...props}
     />
   );
@@ -138,7 +138,7 @@ export function ContextMenuGroupLabel({ className, ...props }: Primitive.GroupLa
   return (
     <Primitive.GroupLabel
       data-slot="context-menu-group-label"
-      className={classes("caption px-2 py-1 font-semibold text-gray-bold/75", className)}
+      className={classes("caption px-2 py-1 font-semibold text-content-base", className)}
       {...props}
     />
   );

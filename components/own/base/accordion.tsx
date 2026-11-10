@@ -2,7 +2,7 @@
 
 import { Accordion as Primitive } from "@base-ui/react/accordion";
 import { Chevron } from "@/components/own/icons";
-import clsx from "clsx";
+import clsx from "@/components/own/classes";
 import styles from "./accordion.module.css";
 
 function classes<State>(
@@ -53,7 +53,7 @@ export function AccordionTrigger({
     <Primitive.Trigger
       data-slot="accordion-trigger"
       className={classes(
-        "group relative isolate flex w-full items-center justify-between gap-4 rounded-base px-4 py-4 text-left text-sm font-semibold text-gray-bold outline-none focus-visible:ring-2 focus-visible:ring-primary-base disabled:cursor-not-allowed disabled:opacity-50 " +
+        "group relative isolate flex w-full items-center justify-between gap-4 rounded-base px-4 py-4 text-left text-sm font-semibold text-content-bold outline-none focus-visible:ring-2 focus-visible:ring-primary-base disabled:cursor-not-allowed disabled:opacity-50 " +
         "before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:bg-surface-soft before:opacity-0 before:transition-opacity before:duration-150 before:content-[''] hover:not-data-disabled:before:opacity-100 motion-reduce:before:transition-none dark:before:bg-surface-bold",
         className,
       )}
@@ -77,7 +77,7 @@ export function AccordionPanel({
     <Primitive.Panel
       data-slot="accordion-panel"
       className={classes(
-        clsx(styles.panel, "overflow-hidden text-sm text-gray-bold/75"),
+        clsx(styles.panel, "overflow-hidden text-sm text-content-base"),
         className,
       )}
       {...props}

@@ -37,7 +37,7 @@ export function ApiReference() {
           rows: props.map(([name, type, defaultValue, description]) => ({ prop: name, type, defaultValue, description, optional: name === "value" ? "Sí, fuera de un grupo" : "Sí" })),
         }]}
       />
-      <ul className="body-sm list-disc space-y-2 ps-5 text-gray-bold/75">
+      <ul className="body-sm list-disc space-y-2 ps-5 text-content-base">
         <li><code>ToggleState</code> expone <code>pressed</code> y <code>disabled</code>. El nodo refleja esos estados mediante <code>data-pressed</code> y <code>data-disabled</code>.</li>
         <li><code>onPressedChange</code> recibe el evento original en <code>details.event</code> y el motivo <code>none</code>. Dentro de un grupo, la selección del grupo tiene prioridad.</li>
         <li>El elemento nativo usa <code>{'type="button"'}</code>. Conserva la misma etiqueta al alternar el estado.</li>

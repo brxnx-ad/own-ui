@@ -71,7 +71,7 @@ El grupo carece de props propias de variante o tamaño. La raíz usa `orientatio
 | Dimensiones | Ajusta el ancho del grupo o su separación mediante `className`, `style` o el contenedor. Por ejemplo, `style={{ width: "100%", gap: "0.75rem" }}` amplía el grupo y separa las opciones. El margen exterior pertenece al consumidor. |
 | Colores, tipografía y foco | La raíz aporta la distribución. El color, la tipografía, el borde, el radio, el foco y los estados de cada botón provienen de Toggle y sus tokens adaptados al tema. [Referencia de Toggle](toggle.md#7-estilos-admitidos-por-pieza) |
 | Estados y movimiento | Aplica selectores de `data-slot="toggle-group"`, `data-orientation`, `data-multiple` o `data-disabled` sobre la raíz. Los cambios de disposición son inmediatos y los botones conservan sus propias transiciones y adaptación a movimiento reducido. |
-| Canales de ajuste | `className` admite cadena o función y se combina con `clsx`. La cascada resuelve las utilidades en conflicto. `style` estático o funcional actúa en el nodo del grupo. `render` permite cambiar ese nodo conservando sus props. |
+| Canales de ajuste | `className` admite cadena o función y se combina con `clsx`. Salvo la [excepción de colores `content`](../../globals.md#composición-y-precedencia-de-clases), la cascada resuelve las utilidades en conflicto. `style` estático o funcional actúa en el nodo del grupo. `render` permite cambiar ese nodo conservando sus props. |
 
 ## 8. Ejemplos de composición
 

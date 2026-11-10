@@ -87,7 +87,7 @@ Cada referencia explica la anatomía, las props, los estados, la accesibilidad y
 - Elige primero las variantes y tamaños existentes; ajusta la composición y el espaciado del entorno desde el consumidor. Los componentes reutilizables mantienen su neutralidad de maquetación.
 - Emplea los tokens semánticos del proyecto. Para estilos locales, usa `className`, `style`, `render` y los atributos de estado que admita la pieza, según su referencia.
 - Conserva las animaciones propias y las transiciones coordinadas de cada familia en su módulo `<componente>.module.css`. Exporta el módulo junto con el componente y respeta la preferencia de movimiento reducido. Usa las utilidades existentes de Tailwind para transiciones simples y reserva `globals.css` para estilos compartidos.
-- La implementación actual combina clases con `clsx`. No garantiza resolver conflictos entre utilidades de Tailwind; revisa la cascada y las limitaciones específicas antes de sobrescribir estilos. No presupongas que existen `cn`, `tailwind-merge` o `cva`.
+- Los componentes que importan `components/own/classes.ts` usan `clsx` y una resolución limitada para `text-content-*`. Incluye ese helper al exportarlos y consulta sus límites en [globals.md](references/globals.md). Los demás conflictos dependen de la cascada; no presupongas que existen `cn`, `tailwind-merge` o `cva`.
 - Cuando una familia recibe acciones del consumidor, deja que el uso determine su cantidad, sus tipos y sus variantes. Alert Dialog sigue ese patrón.
 - Verifica cambios visuales e interactivos en una vista o ejemplo del proyecto consumidor: estados afectados, ambos temas y adaptación al ancho disponible. Ejecuta sus comprobaciones con el gestor y los scripts que el proyecto utilice.
 

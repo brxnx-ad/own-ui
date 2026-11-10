@@ -1,4 +1,4 @@
-import clsx from "clsx";
+import clsx from "@/components/own/classes";
 import type { ComponentPropsWithRef } from "react";
 
 export type CardSize = "sm" | "md";
@@ -22,7 +22,7 @@ export function Card({ className, size = "md", ...props }: CardProps) {
       data-slot="card"
       data-size={size}
       className={clsx(
-        "flex min-w-0 flex-col rounded-base border border-gray-base bg-surface-base text-gray-bold shadow-s",
+        "flex min-w-0 flex-col rounded-base border border-gray-base bg-surface-base text-content-bold shadow-s",
         sizeStyles[size],
         className,
       )}
@@ -59,7 +59,7 @@ export function CardDescription({ className, ...props }: ComponentPropsWithRef<"
   return (
     <p
       data-slot="card-description"
-      className={clsx("body-sm wrap-anywhere text-gray-bold/80", className)}
+      className={clsx("body-sm wrap-anywhere text-content-base", className)}
       {...props}
     />
   );

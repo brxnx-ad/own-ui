@@ -85,7 +85,7 @@ export function ApiReference() {
           rows: rows.map(([prop, type, defaultValue, description]) => ({ prop, type, defaultValue, description, optional: name === "ContextMenuRadioGroup / RadioItem" && prop === "value" ? "Sí en el grupo" : "Sí" })),
         }))}
       />
-      <ul className="list-disc space-y-2 pl-5 body-sm text-gray-bold/75">
+      <ul className="list-disc space-y-2 pl-5 body-sm text-content-base">
         <li>Las piezas con nodo visible admiten <code>className</code>, <code>style</code> y <code>render</code>.</li>
         <li>Las flechas recorren las opciones. Enter o Espacio ejecutan la opción enfocada. Escape cierra el menú.</li>
         <li><code>Item</code>, <code>CheckboxItem</code>, <code>RadioItem</code> y <code>SubmenuTrigger</code> admiten <code>disabled</code>. Al personalizar el nodo, propaga sus eventos y referencia.</li>

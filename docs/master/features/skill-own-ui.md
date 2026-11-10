@@ -2,7 +2,7 @@
 
 > **Objetivo y alcance del documento:** Definir el propósito de la skill own-ui, su distribución junto con los componentes y la configuración de estilos exportados, y la estructura que deben seguir sus nuevas referencias de componente. Se considera desactualizado si la organización de la skill, los requisitos de integración de los archivos exportados o la estructura exigida a las nuevas referencias difieren de lo aquí descrito.
 
-[Estructura del proyecto](../01-estructura-del-proyecto.md) · [Sistema de estilos](../02-estilos.md) · [Objetivos](../03-objetivos.md) · [Mantenimiento](../04-mantenimiento.md) · [Pendientes](../05-pendientes.md) · [Creación de componentes](creacion-de-componentes.md) · [Showcase](showcase.md)
+
 
 ---
 
@@ -18,7 +18,7 @@ La documentación de `docs/master/` establece las directrices para desarrollar y
 
 ## 2. Organización y responsabilidades
 
-El material distribuible tiene esta estructura. [SKILL.md](../../../.agents/skills/own-ui/SKILL.md)
+El material distribuible tiene esta estructura. SKILL.md
 
 ```text
 .agents/skills/own-ui/
@@ -153,7 +153,7 @@ La sección de estilos debe explicar las formas aceptables de personalización d
 | **Animaciones** | Propiedades y duración base, estados de entrada y salida, variables CSS de medición, sincronización con montaje/desmontaje y tratamiento de `motion-safe` y `motion-reduce`. Explicar las consecuencias de una sobrescritura. |
 | **Canales de personalización** | Props de variantes y tamaños, `className`, `style`, sus formas funcionales admitidas, selectores dirigidos y composición mediante `render`. Precisar cómo se combinan clases, estilos, eventos y refs. |
 
-La descripción debe distinguir lo que acepta TypeScript de lo que el wrapper hace en ejecución. Actualmente Button hereda un tipo de `className` funcional que su uso de `clsx` no evalúa, mientras que los wrappers estilizados de Accordion y Alert Dialog sí combinan esa función con sus clases. Tampoco existe resolución de conflictos mediante `tailwind-merge`: el orden textual de dos utilidades no garantiza la sobrescritura.
+La descripción debe distinguir lo que acepta TypeScript de lo que el wrapper hace en ejecución. Button y los wrappers estilizados de Accordion y Alert Dialog evalúan `className` funcional. El helper `components/own/classes.ts` usa `clsx` y elimina colores de texto reconocidos anteriores cuando recibe un `text-content-*` posterior con el mismo prefijo de variantes. No es `tailwind-merge`: los demás conflictos siguen la cascada. Incluye el helper al exportar sus consumidores.
 
 Documentar estas condiciones permite elegir un ajuste válido, como un estilo inline para una dimensión concreta o un selector con precedencia comprobada para un estado. Un ajuste de animación debe seguir respetando el movimiento reducido; un estilo inline incondicional puede anular esa adaptación.
 
@@ -170,15 +170,15 @@ Las referencias evolucionan junto con el código que acompañan. Al documentar u
 
 ## 7. Estado de la skill en este repositorio
 
-El índice de la skill enlaza 54 referencias del catálogo, que cubren 37 familias en `base/`, ocho en `simple/`, siete en `composed/` y dos en `dependant/`. Una referencia compartida cubre los seis iconos de soporte. [Índice](../../../.agents/skills/own-ui/SKILL.md) · [Estructura](../../../.agents/skills/own-ui/references/structure.md) · [Globals](../../../.agents/skills/own-ui/references/globals.md) · [Iconos](../../../.agents/skills/own-ui/references/icons.md)
+El índice de la skill enlaza 54 referencias del catálogo, que cubren 37 familias en `base/`, ocho en `simple/`, siete en `composed/` y dos en `dependant/`. Una referencia compartida cubre los seis iconos de soporte. Índice · Estructura · Globals · Iconos
 
-Las nuevas referencias compuestas cubren anatomía, props, estilos y accesibilidad. Para exportarlas, reúne sus dependencias transitivas según la guía de estructura e incluye los módulos CSS de Button Group e Input Group. [Attachment](../../../.agents/skills/own-ui/references/components/composed/attachment.md) · [Button Group](../../../.agents/skills/own-ui/references/components/composed/button-group.md) · [Input Group](../../../.agents/skills/own-ui/references/components/composed/input-group.md) · [Item](../../../.agents/skills/own-ui/references/components/composed/item.md) · [Pagination](../../../.agents/skills/own-ui/references/components/composed/pagination.md)
+Las nuevas referencias compuestas cubren anatomía, props, estilos y accesibilidad. Para exportarlas, reúne sus dependencias transitivas según la guía de estructura e incluye los módulos CSS de Button Group e Input Group. Attachment · Button Group · Input Group · Item · Pagination
 
-La referencia de Command documenta la búsqueda por alias, los grupos, la apertura controlada y el retorno de foco. Para exportarlo, reúne Command, Autocomplete, Dialog y los módulos de iconos indicados en la guía de estructura. [Command](../../../.agents/skills/own-ui/references/components/composed/command.md)
+La referencia de Command documenta la búsqueda por alias, los grupos, la apertura controlada y el retorno de foco. Para exportarlo, reúne Command, Autocomplete, Dialog y los módulos de iconos indicados en la guía de estructura. Command
 
-La referencia de Carousel cubre la orientación, las posiciones agrupadas, los controles y el movimiento reducido. Su exportación incluye Carousel, Button, los módulos de iconos y `embla-carousel-react` 8.6.0. [Carousel](../../../.agents/skills/own-ui/references/components/dependant/carousel.md)
+La referencia de Carousel cubre la orientación, las posiciones agrupadas, los controles y el movimiento reducido. Su exportación incluye Carousel, Button, los módulos de iconos y `embla-carousel-react` 8.6.0. Carousel
 
-La referencia de Chart cubre las definiciones tipadas, el SVG adaptable, el tooltip y la paleta por tema. Su exportación incluye `chart.tsx`, `chart.module.css` y `@tanstack/charts` 1.5.0. [Chart](../../../.agents/skills/own-ui/references/components/dependant/chart.md)
+La referencia de Chart cubre las definiciones tipadas, el SVG adaptable, el tooltip y la paleta por tema. Su exportación incluye `chart.tsx`, `chart.module.css` y `@tanstack/charts` 1.5.0. Chart
 
 La entrada y las referencias están orientadas a proyectos Next.js consumidores y sus enlaces se resuelven dentro de la carpeta de la skill. Las rutas de componentes y de la hoja global se presentan como convenciones adaptables dentro de App Router; se explican las dependencias de soporte, la integración con Link, fuentes, temas y portales sin requerir el showcase ni `docs/master/`.
 

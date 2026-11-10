@@ -170,7 +170,7 @@ export function ApiReference() {
           rows: rows.map(([prop, type, defaultValue, optional, description]) => ({ prop, type, defaultValue, description, optional })),
         }))}
       />
-      <ul className="body-sm list-disc space-y-2 ps-5 text-gray-bold/75">
+      <ul className="body-sm list-disc space-y-2 ps-5 text-content-base">
         <li>
           Si <code>value</code> queda fuera de <code>[min, max]</code> o es{" "}
           <code>NaN</code>, Base UI acota el porcentaje entre <code>0</code> y{" "}

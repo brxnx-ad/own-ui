@@ -3,7 +3,7 @@
 import type { ComponentProps, ReactNode } from "react";
 import type { ChartValue } from "@tanstack/charts/types";
 import { Chart as TanStackChart, type ChartProps as TanStackChartProps } from "@tanstack/charts/react";
-import clsx from "clsx";
+import clsx from "@/components/own/classes";
 import styles from "./chart.module.css";
 
 export type ChartProps<
@@ -30,7 +30,7 @@ export function Chart<TDatum, TXValue extends ChartValue = ChartValue, TYValue e
     >
       <TanStackChart {...props} />
       {caption != null && (
-        <figcaption data-slot="chart-caption" className="body-sm text-gray-bold/75">
+        <figcaption data-slot="chart-caption" className="body-sm text-content-base">
           {caption}
         </figcaption>
       )}

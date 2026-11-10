@@ -37,7 +37,7 @@ function Actions({ children }: { children: ReactNode }) {
 function Preview({ label, children }: { label: string; children: ReactNode }) {
   return (
     <div role="status" className="w-full max-w-sm space-y-3 rounded-base border border-gray-base bg-surface-bold p-4">
-      <p className="caption font-medium text-gray-bold/65">{label}</p>
+      <p className="caption font-medium text-content-soft">{label}</p>
       <div className="body-sm">{children}</div>
     </div>
   );
@@ -50,9 +50,9 @@ export function ConfirmationExample() {
     <div className="flex w-full flex-col items-center gap-4 text-center">
       <Preview label="Preferencias actuales">
         <dl className="grid grid-cols-2 gap-x-4 gap-y-2 text-left">
-          <dt className="text-gray-bold/75">Idioma</dt>
+          <dt className="text-content-base">Idioma</dt>
           <dd className="font-medium">{defaults ? "Español" : "English"}</dd>
-          <dt className="text-gray-bold/75">Densidad</dt>
+          <dt className="text-content-base">Densidad</dt>
           <dd className="font-medium">{defaults ? "Cómoda" : "Compacta"}</dd>
         </dl>
       </Preview>
@@ -91,11 +91,11 @@ export function DestructiveExample() {
     <div className="flex w-full flex-col items-center gap-4 text-center">
       <Preview label="Borrador local">
         {discarded ? (
-          <p className="text-gray-bold/75">Sin borrador. Se ha descartado el contenido de la vista previa.</p>
+          <p className="text-content-base">Sin borrador. Se ha descartado el contenido de la vista previa.</p>
         ) : (
           <div className="space-y-2">
             <p className="font-semibold">Propuesta de proyecto</p>
-            <p className="text-gray-bold/75">Objetivo: reducir el tiempo de preparación del informe semanal.</p>
+            <p className="text-content-base">Objetivo: reducir el tiempo de preparación del informe semanal.</p>
           </div>
         )}
       </Preview>
@@ -264,7 +264,7 @@ export function DetachedTriggersExample() {
       <Preview label="Plantilla del documento">
         <div className="space-y-2">
           <p className="font-semibold">{selected?.name ?? "Ninguna plantilla seleccionada"}</p>
-          <p className="text-gray-bold/75">{selected?.description ?? "Elige una opción y confirma para aplicarla aquí."}</p>
+          <p className="text-content-base">{selected?.description ?? "Elige una opción y confirma para aplicarla aquí."}</p>
         </div>
       </Preview>
       <div className="flex flex-wrap justify-center gap-2">
@@ -336,7 +336,7 @@ export function LongContentExample() {
               {reviewItems.map(([title, description]) => (
                 <div key={title} className="space-y-1">
                   <dt className="font-semibold">{title}</dt>
-                  <dd className="text-gray-bold/75">{description}</dd>
+                  <dd className="text-content-base">{description}</dd>
                 </div>
               ))}
             </dl>

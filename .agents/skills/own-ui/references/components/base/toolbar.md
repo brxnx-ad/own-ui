@@ -98,7 +98,7 @@ Toolbar gestiona el foco internamente. Las acciones y los cambios de valor usan 
 
 Button, Input y Link tienen un contorno exterior de foco de 2 px. Button e Input reducen la opacidad al deshabilitarse. En colores forzados usan `GrayText` y opacidad completa. Button y Link transicionan colores durante 150 ms solo con movimiento permitido. Los tokens normales siguen [globals.css](../../globals.md).
 
-Las clases estáticas y funcionales se combinan con `clsx` y la cascada resuelve conflictos. `style` actúa sobre el nodo de la pieza. Usa los `data-slot` y atributos de estado para ajustes localizados. Conserva el espacio del contorno de foco al ajustar la separación o el overflow de la barra.
+Las clases estáticas y funcionales se combinan con `clsx` y, salvo la [excepción de colores `content`](../../globals.md#composición-y-precedencia-de-clases), la cascada resuelve conflictos. `style` actúa sobre el nodo de la pieza. Usa los `data-slot` y atributos de estado para ajustes localizados. Conserva el espacio del contorno de foco al ajustar la separación o el overflow de la barra.
 
 ## 8. Ejemplos de composición
 

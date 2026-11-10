@@ -61,7 +61,7 @@ La integración base usa `next-themes` 0.4.6 con `attribute="class"`, `defaultTh
 | `surface-base` | `gray-100` | `gray-900` | Tarjetas, popup y contenedores. |
 | `surface-bold` | `gray-50` | `gray-800` | Controles elevados e interacción. |
 
-Usa superficies para los planos neutros y las tríadas para acciones, texto, bordes y acentos de estado. Los fondos de estado pueden usar un tono semántico suave, por ejemplo `bg-error-soft`; no sustituyas el sistema de planos por colores numéricos.
+Usa superficies para los planos neutros, `content` para la jerarquía del texto neutro y las tríadas cromáticas para acciones, bordes y acentos de estado. Los fondos de estado pueden usar un tono semántico suave, por ejemplo `bg-error-soft`; no sustituyas el sistema de planos por colores numéricos.
 
 | Familia | Claro: soft / base / bold | Oscuro: soft / base / bold |
 | :--- | :--- | :--- |
@@ -74,11 +74,21 @@ Usa superficies para los planos neutros y las tríadas para acciones, texto, bor
 
 Gray y Error tienen asignaciones particulares; no les apliques automáticamente la fórmula de Primary. En especial, `error-bold` cambia a `error-300` en oscuro para sus usos de texto e iconos.
 
+La tríada `content` procede de la escala `gray`, con roles independientes de `surface` y `gray`:
+
+| Texto | Claro | Oscuro | Uso habitual |
+| :--- | :--- | :--- | :--- |
+| `content-soft` | `gray-400` | `gray-450` | Pistas y contenido de menor énfasis. |
+| `content-base` | `gray-600` | `gray-300` | Descripciones y texto secundario. |
+| `content-bold` | `gray-800` | `gray-100` | Títulos, valores y texto principal. |
+
+`--color-content-*` expone las clases `text-content-soft`, `text-content-base` y `text-content-bold`. El layout del origen asigna `text-content-bold` al `body`. Comprueba el contraste sobre el fondo efectivo, en particular para `content-soft` y texto pequeño. Conserva los colores de estado y los textos de contraste en variantes sólidas.
+
 La asignación semántica evita duplicar los colores con `dark:*` en cada componente. Reserva una variante `dark:*` para un ajuste específico que el componente realmente necesite, como la opacidad o superficie del backdrop.
 
 ## 4. Exposición a Tailwind
 
-`@theme inline` vincula `--color-surface-*` y `--color-{familia}-{magnitud}` a sus variables semánticas. Esto permite usarlas con `bg-*`, `text-*`, `border-*`, `ring-*`, `fill-*` y `stroke-*`.
+`@theme inline` vincula `--color-surface-*`, `--color-content-*` y `--color-{familia}-{magnitud}` a sus variables semánticas. Esto permite usarlas con `bg-*`, `text-*`, `border-*`, `ring-*`, `fill-*` y `stroke-*`.
 
 Combina una superficie neutra y un aviso de error con utilidades semánticas.
 
@@ -86,8 +96,8 @@ Combina una superficie neutra y un aviso de error con utilidades semánticas.
 export function SemanticSurfaces() {
   return (
     <>
-      <div className="rounded-base border border-gray-base bg-surface-base p-4 text-gray-bold shadow-s">
-        <p className="body-sm text-gray-bold/75">Contenido secundario</p>
+      <div className="rounded-base border border-gray-base bg-surface-base p-4 text-content-bold shadow-s">
+        <p className="body-sm text-content-base">Contenido secundario</p>
       </div>
       <p className="rounded-base border border-error-base bg-error-soft p-3 text-error-bold">
         No se pudo completar la operación.
@@ -98,6 +108,14 @@ export function SemanticSurfaces() {
 ```
 
 `ring-primary-base` es una utilidad de color válida; no existe un token semántico adicional llamado `ring` en este archivo. Tampoco hay tokens de sidebar o una geometría por componente.
+
+### Composición y precedencia de clases
+
+Los módulos que importan `components/own/classes.ts` combinan sus entradas con `clsx`. Después, una utilidad `text-content-soft`, `text-content-base` o `text-content-bold` posterior elimina colores de texto anteriores reconocidos **con el mismo prefijo literal de variantes**. Por ejemplo, `text-content-soft` sustituye `text-content-bold` o `text-white` anteriores; `hover:text-content-soft` sustituye `hover:text-content-bold`, pero no cambia `text-content-bold` ni `focus:text-content-bold`. En los wrappers que evalúan `className` funcional, la misma regla se aplica al resultado de la función.
+
+Reconoce tonos `content`, `gray`, `primary`, `success`, `warning`, `error`, `info` y `surface` con magnitudes `soft`, `base` o `bold`, además de `white`, `black`, `transparent`, `current` e `inherit`; también admite sus sufijos de opacidad e `!` final. La regla es direccional: un color distinto añadido después de `text-content-*`, colores arbitrarios o numéricos y otras propiedades no se fusionan. No sustituye a `tailwind-merge`; los conflictos restantes dependen de la cascada. Las piezas que pasan `className` directamente a Base UI no ejecutan esta composición por sí mismas, y los estados o descendientes pueden tener colores propios. Revisa cada pieza, sus estados y el contraste al sobrescribir el color.
+
+Ejemplo: `<CardDescription className="text-content-soft">Nota</CardDescription>` sustituye el `text-content-base` predeterminado de esa pieza. Incluye `components/own/classes.ts` y `clsx` al exportar los componentes que lo importan; ajusta su alias en el destino.
 
 ### Radio y geometría
 
@@ -139,7 +157,7 @@ Los encabezados usan `text-wrap: balance`; subtítulos y cuerpo usan `text-wrap:
 
 ## 6. Layout, tema, portales y movimiento
 
-La configuración base no define un reset propio para `body`, un fondo general ni estilos de interacción universales. El consumidor asigna las superficies y los colores de sus pantallas; Tailwind aporta sus estilos base mediante el import.
+La configuración base no define un reset propio para `body`, un fondo general ni estilos de interacción universales. El layout de referencia aplica `text-content-bold` como color heredado. El consumidor asigna las superficies y los colores de sus pantallas; Tailwind aporta sus estilos base mediante el import.
 
 Este fragmento corresponde al layout raíz de App Router. El import de CSS usa un alias `@/` que debe resolver a su ubicación real; ajusta ese import al proyecto de destino. `ThemeProvider` se importa directamente desde `next-themes`, que lo exporta como componente cliente de la biblioteca: puede componerse desde este layout servidor sin añadirle `"use client"`.
 
@@ -157,7 +175,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="es" className={plusJakartaSans.variable} suppressHydrationWarning>
-      <body className="relative font-sans antialiased">
+      <body className="relative font-sans text-content-bold antialiased">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

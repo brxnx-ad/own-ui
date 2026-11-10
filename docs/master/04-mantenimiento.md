@@ -2,7 +2,7 @@
 
 > **Objetivo y alcance del documento:** Establecer el estándar de estructura, redacción y criterios de vigencia que rigen a toda la documentación técnica dentro de `docs/master/`. Se considera desactualizado si existen documentos en `docs/master/` que no respeten este formato o si los lineamientos aquí descritos contradicen las prácticas aplicadas en el repositorio.
 
-[Estructura del proyecto](01-estructura-del-proyecto.md) · [Sistema de estilos](02-estilos.md) · [Objetivos](03-objetivos.md) · [Pendientes](05-pendientes.md)
+
 
 ---
 
@@ -14,11 +14,9 @@ Todo archivo en `docs/master/` debe respetar la siguiente estructura secuencial:
    Formato: `# own-ui · <Nombre del documento>`.
 2. **Bloque de objetivo y alcance:**  
    Un *blockquote* (`>`) ubicado inmediatamente debajo del título principal que define el propósito del archivo y su condición de obsolescencia.
-3. **Barra de navegación cruzada:**  
-   Enlaces relativos en una sola línea a los demás documentos maestros del proyecto, separados por puntos medios (` · `).
-4. **Separador temático:**  
+3. **Separador temático:**
    Una regla horizontal (`---`) antes de comenzar el desarrollo del contenido.
-5. **Secciones numeradas (`H2` y subniveles):**  
+4. **Secciones numeradas (`H2` y subniveles):**
    Títulos numerados (`## 1. ...`, `## 2. ...`), tablas comparativas y listas directas con lenguaje denso en valor y sin relleno conversacional.
 
 ---
@@ -49,7 +47,7 @@ La cláusula posterior a la frase obligatoria **`Se considera desactualizado si.
 
 > **Objetivo y alcance del documento:** <Descripción concisa del propósito técnico>. Se considera desactualizado si <condición de estado estático y verificable contra el código>.
 
-[Estructura del proyecto](01-estructura-del-proyecto.md) · [Sistema de estilos](02-estilos.md) · [Objetivos](03-objetivos.md) · [Mantenimiento](04-mantenimiento.md)
+
 
 ---
 

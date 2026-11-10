@@ -86,7 +86,7 @@ export function ApiReference() {
           rows: rows.map(([name, type, defaultValue, description]) => ({ prop: name, type, defaultValue, description })),
         }))}
       />
-      <ul className="body-sm list-disc space-y-2 ps-5 text-gray-bold/75">
+      <ul className="body-sm list-disc space-y-2 ps-5 text-content-base">
         <li><code>Value</code> es <code>number</code> o un arreglo de números según el modo. Los callbacks indican el motivo en <code>details.reason</code> y el cambio incluye <code>activeThumbIndex</code>.</li>
         <li>Las flechas ajustan el valor. <kbd>Home</kbd> y <kbd>End</kbd> van a los límites disponibles sin invadir el espacio de un control vecino.</li>
         <li>Usa un nombre accesible distinto para cada control de rango. Los inputs deshabilitados se omiten al enviar el formulario.</li>

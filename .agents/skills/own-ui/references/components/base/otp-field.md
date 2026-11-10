@@ -100,12 +100,12 @@ Los slots y los estilos son de own-ui. Las props de comportamiento se heredan de
 | Pieza | Estilo base y ajustes |
 | :--- | :--- |
 | OTPField | Fila flexible ajustada al contenido y limitada al ancho del contenedor. Permite saltos de línea y usa `gap-1`, con `gap-2` desde `sm`. Ajusta el ancho y la distribución en la raíz o en contenedores propios. La separación respecto del entorno pertenece al consumidor. |
-| OTPFieldInput | Casilla de ancho fijo con radio `rounded-base`, fondo `surface-bold` y borde `gray-base`. El carácter centrado usa `text-base font-medium tabular-nums` y `gray-bold`. `data-filled` refuerza el borde si la casilla está llena y sin error. `:focus-visible` dibuja un anillo `primary-base`. `data-invalid` o `aria-invalid="true"` cambian el borde y el anillo a `error-base`. `:disabled` reduce la opacidad al 50 %. `:focus::placeholder` oculta la pista. |
+| OTPFieldInput | Casilla de ancho fijo con radio `rounded-base`, fondo `surface-bold` y borde `gray-base`. El carácter centrado usa `text-base font-medium tabular-nums` y `content-bold`. `data-filled` refuerza el borde si la casilla está llena y sin error. `:focus-visible` dibuja un anillo `primary-base`. `data-invalid` o `aria-invalid="true"` cambian el borde y el anillo a `error-base`. `:disabled` reduce la opacidad al 50 %. `:focus::placeholder` oculta la pista. |
 | OTPFieldSeparator | Línea redondeada con `gray-bold/45`. En horizontal mide 1.5 unidades de espaciado de ancho por 0.5 de alto y pasa a 2 de ancho desde `sm`. En vertical mide 0.5 de ancho por 4 de alto. Ajusta la línea mediante su slot o sus clases de orientación. |
 
 Las piezas usan los tokens claro y oscuro de [globals.css](../../globals.md). Los cambios visuales de estado son inmediatos. Si añades transiciones, limítalas al movimiento permitido y conserva los indicadores de foco y error.
 
-`className` admite una cadena o una función del estado. La implementación combina su resultado con las clases base mediante `clsx`, sin resolver utilidades en conflicto. `style` admite un objeto o una función del estado y actúa en el nodo correspondiente. Por ejemplo, `<OTPFieldInput style={{ width: "2.5rem" }} />` modifica una casilla. El callback de clases de una casilla también recibe `index`, `value` y `filled`. Con `render` puedes componer el nodo siguiendo el contrato de Base UI.
+`className` admite una cadena o una función del estado. La implementación combina su resultado con las clases base mediante `clsx`, con la excepción de colores descrita en [globals](../../globals.md#composición-y-precedencia-de-clases). `style` admite un objeto o una función del estado y actúa en el nodo correspondiente. Por ejemplo, `<OTPFieldInput style={{ width: "2.5rem" }} />` modifica una casilla. El callback de clases de una casilla también recibe `index`, `value` y `filled`. Con `render` puedes componer el nodo siguiendo el contrato de Base UI.
 
 ## 8. Ejemplos de composición
 

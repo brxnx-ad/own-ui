@@ -1,7 +1,7 @@
 "use client";
 
 import { Tabs as Primitive } from "@base-ui/react/tabs";
-import clsx from "clsx";
+import clsx from "@/components/own/classes";
 
 export type TabsProps = Primitive.Root.Props;
 export type TabsState = Primitive.Root.State;
@@ -32,10 +32,10 @@ const listStyles = clsx(
 );
 
 const tabStyles = clsx(
-  "inline-flex min-h-10 min-w-0 shrink-0 cursor-pointer items-center justify-center px-3 py-2 text-center text-sm font-medium text-gray-bold/75",
+  "inline-flex min-h-10 min-w-0 shrink-0 cursor-pointer items-center justify-center px-3 py-2 text-center text-sm font-medium text-content-base",
   "data-[orientation=horizontal]:rounded-t-base data-[orientation=horizontal]:whitespace-nowrap",
   "data-[orientation=vertical]:justify-start data-[orientation=vertical]:rounded-s-base data-[orientation=vertical]:text-start data-[orientation=vertical]:wrap-anywhere",
-  "hover:not-data-disabled:not-data-active:bg-surface-bold data-active:bg-primary-soft data-active:text-gray-bold",
+  "hover:not-data-disabled:not-data-active:bg-surface-bold data-active:bg-primary-soft data-active:text-content-bold",
   "focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-gray-bold",
   "data-disabled:cursor-not-allowed data-disabled:opacity-50",
   "motion-safe:transition-colors motion-safe:duration-150",
@@ -78,7 +78,7 @@ export function TabsPanel({ className, ...props }: TabsPanelProps) {
   return (
     <Primitive.Panel
       data-slot="tabs-panel"
-      className={classes("body-sm min-w-0 wrap-anywhere rounded-base p-3 text-gray-bold/85 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-gray-bold sm:p-4 data-[orientation=vertical]:col-start-2 data-[orientation=vertical]:row-start-1", className)}
+      className={classes("body-sm min-w-0 wrap-anywhere rounded-base p-3 text-content-base focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-gray-bold sm:p-4 data-[orientation=vertical]:col-start-2 data-[orientation=vertical]:row-start-1", className)}
       {...props}
     />
   );

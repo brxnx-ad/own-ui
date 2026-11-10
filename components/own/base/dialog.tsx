@@ -1,7 +1,7 @@
 "use client";
 
 import { Dialog as Primitive } from "@base-ui/react/dialog";
-import clsx from "clsx";
+import clsx from "@/components/own/classes";
 
 export const createDialogHandle = Primitive.createHandle;
 export type DialogHandle<Payload = unknown> = Primitive.Handle<Payload>;
@@ -58,7 +58,7 @@ export function DialogPopup({ className, ...props }: Primitive.Popup.Props) {
     <Primitive.Popup
       data-slot="dialog-popup"
       className={classes(
-        "pointer-events-auto flex max-h-full w-full min-h-0 min-w-0 max-w-lg flex-col gap-4 overflow-y-auto overscroll-contain rounded-base border border-gray-base bg-surface-base p-6 text-gray-bold shadow-l outline-none transition-[opacity,scale] duration-150 ease-out data-closed:pointer-events-none data-starting-style:opacity-0 data-ending-style:opacity-0 motion-safe:data-starting-style:scale-95 motion-safe:data-ending-style:scale-95 motion-reduce:transition-none",
+        "pointer-events-auto flex max-h-full w-full min-h-0 min-w-0 max-w-lg flex-col gap-4 overflow-y-auto overscroll-contain rounded-base border border-gray-base bg-surface-base p-6 text-content-bold shadow-l outline-none transition-[opacity,scale] duration-150 ease-out data-closed:pointer-events-none data-starting-style:opacity-0 data-ending-style:opacity-0 motion-safe:data-starting-style:scale-95 motion-safe:data-ending-style:scale-95 motion-reduce:transition-none",
         className,
       )}
       {...props}
@@ -70,7 +70,7 @@ export function DialogTitle({ className, ...props }: Primitive.Title.Props) {
   return (
     <Primitive.Title
       data-slot="dialog-title"
-      className={classes("h4 text-gray-bold", className)}
+      className={classes("h4 text-content-bold", className)}
       {...props}
     />
   );
@@ -80,7 +80,7 @@ export function DialogDescription({ className, ...props }: Primitive.Description
   return (
     <Primitive.Description
       data-slot="dialog-description"
-      className={classes("body-sm text-gray-bold/75", className)}
+      className={classes("body-sm text-content-base", className)}
       {...props}
     />
   );

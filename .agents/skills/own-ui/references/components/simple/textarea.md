@@ -60,9 +60,9 @@ La altura se ajusta automáticamente al escribir o borrar. Un campo vacío parte
 
 ## 7. Estilos admitidos por pieza
 
-- **Control.** `block w-full min-w-0`, `px-3 py-2`, `rounded-base`, texto `gray-bold`, placeholder `gray-bold/80` y tipografía `text-base` con `sm:text-sm`. El ajuste usa `field-sizing: content`. Los límites de altura multiplican las líneas por `1lh` y suman el padding vertical y, cuando pertenece al control, el borde. `overflow-y-auto` permite desplazarse dentro del campo.
+- **Control.** `block w-full min-w-0`, `px-3 py-2`, `rounded-base`, texto `content-bold`, placeholder `content-base` y tipografía `text-base` con `sm:text-sm`. El ajuste usa `field-sizing: content`. Los límites de altura multiplican las líneas por `1lh` y suman el padding vertical y, cuando pertenece al control, el borde. `overflow-y-auto` permite desplazarse dentro del campo.
 - **Superficie y foco.** Sin contador, el control usa `surface-bold`, borde `gray-bold/70` y contorno exterior `gray-bold` en `:focus-visible`. Con contador, el marco aporta la superficie, el borde y el contorno mediante `:has()` sobre el control directo. El campo queda transparente. Los estados `aria-invalid="true"`, `:user-invalid` y `data-length-overflow` aplican el borde y contorno de error con `error-bold`. El estado deshabilitado aplica `opacity-50` al control o al marco y cursor `not-allowed` al campo.
-- **Contador.** Es una fila aparte, alineada a la derecha, con `caption`, `tabular-nums`, `px-3`, `pb-2` y `gray-bold/80`. Ajusta los nodos internos por sus slots desde un contenedor. La familia carece de sombras, transiciones y prop `render`.
+- **Contador.** Es una fila aparte, alineada a la derecha, con `caption`, `tabular-nums`, `px-3`, `pb-2` y `content-base`. Ajusta los nodos internos por sus slots desde un contenedor. La familia carece de sombras, transiciones y prop `render`.
 
 `clsx` concatena `className` de tipo `string` con las clases del control. El componente aplica `resize: none` y la altura mínima después de `style`. Un `maxRows` válido también prevalece sobre `style.maxHeight`. Con `maxRows` omitido, `style.maxHeight` permite definir un tope en unidades CSS. Los eventos y `ref` conservan el nodo `textarea`. Consulta [los estilos compartidos](../../globals.md) para los tokens por tema. El consumidor decide la separación exterior.
 

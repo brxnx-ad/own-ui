@@ -38,7 +38,7 @@ export function ApiReference() {
           rows: rows.map(([prop, type, defaultValue, description]) => ({ prop, type, defaultValue, description })),
         }]}
       />
-      <ul className="body-sm space-y-2 text-gray-bold/75">
+      <ul className="body-sm space-y-2 text-content-base">
         <li><code>onValueChange</code> recibe <code>{'details.reason === "none"'}</code>. En modo no controlado, <code>details.cancel()</code> omite la validación del cambio en Field y conserva la edición nativa.</li>
         <li><code>size</code> es un atributo HTML. Define el ancho visual desde el contenedor o mediante CSS.</li>
         <li>Usa <code>Input</code> directamente dentro de <code>Field</code> para asociarlo a <code>FieldLabel</code>, <code>FieldDescription</code> y <code>FieldError</code>.</li>

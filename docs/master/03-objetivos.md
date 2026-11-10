@@ -2,7 +2,7 @@
 
 > **Objetivo y alcance del documento:** Definir el propósito rector del repositorio, los estándares técnicos de construcción de sus componentes y el catálogo de herramientas de UI proyectadas. Se considera desactualizado si la anatomía de los componentes del proyecto o las funcionalidades de la aplicación no corresponden con la arquitectura y los objetivos aquí declarados.
 
-[Estructura del proyecto](01-estructura-del-proyecto.md) · [Sistema de estilos](02-estilos.md) · [Mantenimiento](04-mantenimiento.md) · [Pendientes](05-pendientes.md)
+
 
 ---
 
@@ -12,10 +12,10 @@
 Construir un catálogo de componentes reutilizables. Las familias de `base/` delegan la accesibilidad, la gestión del foco y el comportamiento interactivo a `@base-ui/react`. El catálogo admite también componentes nativos, compuestos y basados en librerías especializadas.
 
 * **Props y semántica.** El tipado parte de la primitiva o del elemento HTML correspondiente. Las piezas exponen `data-slot` y propagan los eventos y atributos que admite su API.
-* **Composición de clases.** `clsx` combina las clases propias con `className`. Si dos utilidades entran en conflicto, el resultado depende de la cascada de CSS.
+* **Composición de clases.** `components/own/classes.ts` usa `clsx` y permite que un `text-content-*` posterior sustituya colores de texto reconocidos con el mismo prefijo de variantes. Los demás conflictos dependen de la cascada; consulta los límites en la referencia de estilos de la skill.
 * **Variantes tipadas.** Las familias que exponen variantes o tamaños definen sus valores con tipos de TypeScript y usan diccionarios de clases cuando corresponde.
 * **Neutralidad de maquetación.** Los componentes usan las superficies y tríadas semánticas del proyecto. El consumidor controla la separación exterior.
-* **Organización por dependencias.** La definición determina la categoría `simple/`, `base/`, `composed/` o `dependant/`. El criterio completo se detalla en [Estructura del proyecto](01-estructura-del-proyecto.md#3-clasificación-de-componentes).
+* **Organización por dependencias.** La definición determina la categoría `simple/`, `base/`, `composed/` o `dependant/`. El criterio completo se detalla en Estructura del proyecto.
 
 ---
 

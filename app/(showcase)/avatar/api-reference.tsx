@@ -42,7 +42,7 @@ export function Anatomy() {
 export function ApiReference() {
   return (
     <ShowcaseApiReference>
-      <p className="body-sm text-gray-bold/75">
+      <p className="body-sm text-content-base">
         <code>size</code> es propia de own-ui. Las demás opciones se heredan de Base UI o del elemento HTML de la pieza.
       </p>
       <ShowcaseApiTable
@@ -52,7 +52,7 @@ export function ApiReference() {
           rows: rows.map(([prop, type, defaultValue, description]) => ({ prop, type, defaultValue, description })),
         }))}
       />
-      <ul className="list-disc space-y-2 pl-5 body-sm text-gray-bold/75">
+      <ul className="list-disc space-y-2 pl-5 body-sm text-content-base">
         <li><code>ImageLoadingStatus</code> admite <code>idle</code>, <code>loading</code>, <code>loaded</code> y <code>error</code>. El estado inicial es <code>idle</code>.</li>
         <li>Con <code>keepMounted</code>, el nodo de imagen queda invisible durante la carga o el error y conserva su caja para la carga diferida.</li>
         <li>Avatar no recibe foco por defecto. Si abre un perfil, compón el avatar dentro de un enlace con nombre accesible.</li>

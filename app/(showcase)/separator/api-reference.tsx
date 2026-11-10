@@ -31,7 +31,7 @@ export function ApiReference() {
           rows: props.map(([name, type, defaultValue, description]) => ({ prop: name, type, defaultValue, description })),
         }]}
       />
-      <ul className="body-sm list-disc space-y-2 ps-5 text-gray-bold/75">
+      <ul className="body-sm list-disc space-y-2 ps-5 text-content-base">
         <li><code>SeparatorState</code> expone <code>orientation</code>. El nodo incluye <code>{'data-slot="separator"'}</code> y <code>data-orientation</code>.</li>
         <li>La línea mide 1 px de grosor. En vertical, necesita una fila que le dé altura mediante estiramiento o una altura definida por el consumidor.</li>
         <li>El separador es estático y queda fuera del orden de tabulación por defecto.</li>

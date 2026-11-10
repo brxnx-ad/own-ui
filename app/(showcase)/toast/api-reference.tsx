@@ -83,7 +83,7 @@ const groups = [
 export function Anatomy() {
   return (
     <ShowcaseAnatomy>
-      <p className="body-sm text-gray-bold/75">Un descendiente del proveedor obtiene <code>toasts</code> con <code>useToastManager</code> y renderiza la lista. Los avisos anclados usan <code>ToastPositioner</code> fuera de <code>ToastStack</code>.</p>
+      <p className="body-sm text-content-base">Un descendiente del proveedor obtiene <code>toasts</code> con <code>useToastManager</code> y renderiza la lista. Los avisos anclados usan <code>ToastPositioner</code> fuera de <code>ToastStack</code>.</p>
       <ShowcaseAnatomyContent name="Toast" code={anatomy} parts={parts} />
     </ShowcaseAnatomy>
   );
@@ -99,7 +99,7 @@ export function ApiReference() {
           rows: rows.map(([name, type, defaultValue, description, optional = "Sí"]) => ({ prop: name, type, defaultValue, description, optional })),
         }))}
       />
-      <ul className="body-sm list-disc space-y-2 ps-5 text-gray-bold/75">
+      <ul className="body-sm list-disc space-y-2 ps-5 text-content-base">
         <li>Usa <kbd>F6</kbd> para enfocar la región, <kbd>Tab</kbd> para recorrer los avisos y <kbd>Escape</kbd> para cerrar el que tiene el foco.</li>
         <li>Para anuncios urgentes, incluye el mensaje en <code>title</code> o <code>description</code> del objeto que recibe el gestor.</li>
         <li><code>data-limited</code> oculta los avisos sobre el límite. Base UI conserva esos avisos en la cola hasta que se cierren o vuelvan a estar disponibles.</li>

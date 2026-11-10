@@ -1,6 +1,6 @@
 @layer components {
   .chart {
-    color: var(--gray-bold);
+    color: var(--content-bold);
     --ts-chart-1: var(--primary-base);
     --ts-chart-2: var(--info-base);
     --ts-chart-3: var(--success-base);
@@ -9,7 +9,7 @@
     --ts-chart-6: var(--gray-bold);
     --ts-chart-focus-fill: var(--surface-bold);
     --ts-chart-tooltip-background: var(--surface-bold);
-    --ts-chart-tooltip-color: var(--gray-bold);
+    --ts-chart-tooltip-color: var(--content-bold);
     --ts-chart-tooltip-border: 1px solid var(--gray-base);
     --ts-chart-tooltip-border-radius: var(--radius);
     --ts-chart-tooltip-shadow: var(--shadow-m);

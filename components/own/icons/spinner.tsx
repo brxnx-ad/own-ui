@@ -1,5 +1,5 @@
 import * as React from "react";
-import clsx from "clsx";
+import clsx from "@/components/own/classes";
 
 export type SpinnerProps = React.ComponentProps<"svg">;
 

@@ -111,8 +111,8 @@ Los callbacks heredados informan `input-change`, `track-press`, `drag`, `keyboar
 | Pieza | Dimensiones, apariencia y personalización |
 | :--- | :--- |
 | Slider | Rejilla de dos columnas con etiqueta y valor en la primera fila cuando se componen juntos. Limita el ancho o decide el margen exterior desde el consumidor. Conserva espacio para que los controles centrados en los extremos puedan sobresalir. |
-| Label | Usa `body-sm`, peso medio y `gray-bold`. Ajusta el texto o su alineación en el nodo de la etiqueta. |
-| Value | Usa `body-sm`, peso medio, `gray-bold/75` y cifras tabulares. Ocupa la segunda columna y se alinea al final. Puedes sustituir el formato mediante `children`. |
+| Label | Usa `body-sm`, peso medio y `content-bold`. Ajusta el texto o su alineación en el nodo de la etiqueta. |
+| Value | Usa `body-sm`, peso medio, `content-base` y cifras tabulares. Ocupa la segunda columna y se alinea al final. Puedes sustituir el formato mediante `children`. |
 | Control | Ocupa ambas columnas. Sus dimensiones definen el área interactiva y el recorrido. Para un control vertical más alto, usa por ejemplo `style={{ height: "16rem" }}`. Conserva el gesto táctil en su eje. Cuando se deshabilita, reduce la opacidad del área interactiva. |
 | Track | Usa `gray-base`, radio completo y `shadow-inset-s`. Mantén su posición relativa y evita recortar los controles y sus contornos de foco. Si ajustas el grosor, conserva el ancho o alto completo en el eje de recorrido. |
 | Indicator | Usa `primary-base` o `error-base` con `data-invalid`. Base UI calcula su largo y posición en función del valor y del eje. Conserva la geometría inline y cambia el color o radio en el nodo del indicador. |
@@ -120,7 +120,7 @@ Los callbacks heredados informan `input-change`, `track-press`, `drag`, `keyboar
 
 Los tokens se adaptan al tema. Con colores forzados, Track usa `CanvasText`, Indicator usa `Highlight`, Thumb combina `Canvas` y `CanvasText` y el contorno de foco usa `Highlight`. Las piezas deshabilitadas usan `GrayText` en la pista, el segmento y el borde. Cambiar [los tokens globales](../../globals.md) afecta a las demás piezas que los consumen.
 
-Las clases estáticas y funcionales se combinan con `clsx`. Las utilidades en conflicto se resuelven por cascada. Usa los selectores `data-slot` y `data-orientation` para ajustes localizados. Evita sobrescribir las variables de posición de Base UI, incluida `--position` en Thumb y `--start-position` y `--relative-size` en Indicator cuando se usa alineación al borde. El valor se refleja de inmediato. Si añades transiciones propias, conserva la respuesta directa durante el arrastre y respeta `prefers-reduced-motion`.
+Las clases estáticas y funcionales se combinan con `clsx`. Salvo la [excepción de colores `content`](../../globals.md#composición-y-precedencia-de-clases), las utilidades en conflicto se resuelven por cascada. Usa los selectores `data-slot` y `data-orientation` para ajustes localizados. Evita sobrescribir las variables de posición de Base UI, incluida `--position` en Thumb y `--start-position` y `--relative-size` en Indicator cuando se usa alineación al borde. El valor se refleja de inmediato. Si añades transiciones propias, conserva la respuesta directa durante el arrastre y respeta `prefers-reduced-motion`.
 
 ## 8. Ejemplos de composición
 

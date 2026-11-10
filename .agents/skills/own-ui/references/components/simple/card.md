@@ -60,11 +60,11 @@ Los slots son `card`, `card-header`, `card-title`, `card-description`, `card-act
 
 ## 7. Estilos admitidos por pieza
 
-- **Card** usa flex vertical, `min-w-0`, `surface-base`, texto `gray-bold`, borde `gray-base`, `rounded-base` y `shadow-s`.
-- **CardHeader** usa `gap-1` y agrega `gap-x-3` con acción directa. **CardAction** se coloca arriba, a la derecha, ocupando dos filas. **CardTitle** usa `h4` y **CardDescription** `body-sm` con `gray-bold/80`. Los dos textos pueden partir palabras largas.
+- **Card** usa flex vertical, `min-w-0`, `surface-base`, texto `content-bold`, borde `gray-base`, `rounded-base` y `shadow-s`.
+- **CardHeader** usa `gap-1` y agrega `gap-x-3` con acción directa. **CardAction** se coloca arriba, a la derecha, ocupando dos filas. **CardTitle** usa `h4` y **CardDescription** `body-sm` con `content-base`. Los dos textos pueden partir palabras largas.
 - **CardContent** conserva `min-w-0`. **CardFooter** usa flex con envoltura, `gap-2`, borde superior `gray-base` y `pt-3`. La familia carece de animaciones y prop `render`.
 
-Cada pieza pública admite `className` de tipo `string` y `style` como objeto CSS en su nodo. `clsx` concatena las clases y la cascada determina el resultado cuando se contradicen. Las props HTML y `ref` llegan al nodo correspondiente. Consulta [los estilos compartidos](../../globals.md) para los tokens por tema. El consumidor decide la separación exterior.
+Cada pieza pública admite `className` de tipo `string` y `style` como objeto CSS en su nodo. `clsx` concatena las clases y, salvo la [excepción de colores `content`](../../globals.md#composición-y-precedencia-de-clases), la cascada determina el resultado cuando se contradicen. Las props HTML y `ref` llegan al nodo correspondiente. Consulta [los estilos compartidos](../../globals.md) para los tokens por tema. El consumidor decide la separación exterior.
 
 ## 8. Ejemplos de composición
 

@@ -2,7 +2,7 @@
 
 > **Objetivo y alcance del documento:** Explicar la generación de paletas, los tokens de Tailwind, las utilidades tipográficas y de sombras, y la ubicación de los estilos de componente. Se considera desactualizado si la configuración global, las utilidades o las reglas locales difieren de lo descrito aquí.
 
-[Estructura del proyecto](01-estructura-del-proyecto.md) · [Objetivos](03-objetivos.md) · [Mantenimiento](04-mantenimiento.md) · [Pendientes](05-pendientes.md)
+
 
 ---
 
@@ -37,9 +37,21 @@ Sustituyen el modelo tradicional de `background` / `card` / `popover` por tres n
 
 | Magnitud | Modo Claro | Modo Oscuro | Rol en la interfaz |
 | :--- | :--- | :--- | :--- |
-| `surface-soft` | `--gray-150` | `--gray-950` | Lienzo general de la aplicación (`body`). |
+| `surface-soft` | `--gray-150` | `--gray-950` | Lienzo general usado por los contenedores del showcase. |
 | `surface-base` | `--gray-100` | `--gray-900` | Nivel intermedio: tarjetas, modales, drawers y contenedores. |
 | `surface-bold` | `--gray-50` | `--gray-800` | Controles interactivos elevados: inputs, selectores y elevación en hover/active de botones. |
+
+### Jerarquía de texto (`content-*`)
+
+La tríada `content` se deriva de la misma escala neutra que `gray` y `surface`, pero permite ajustar el texto independientemente de bordes, interacción y superficies. El `body` del proyecto usa `text-content-bold` como color heredado.
+
+| Token | Claro | Oscuro | Uso habitual |
+| :--- | :--- | :--- | :--- |
+| `content-soft` | `gray-400` | `gray-450` | Pistas y contenido de menor énfasis. |
+| `content-base` | `gray-600` | `gray-300` | Descripciones y texto secundario. |
+| `content-bold` | `gray-800` | `gray-100` | Títulos, valores y texto principal. |
+
+Usa `text-content-*` para la jerarquía neutra; conserva los colores semánticos de estado y los colores de contraste de las variantes. Comprueba el contraste del texto sobre la superficie real, especialmente para `content-soft` y texto pequeño.
 
 ### Tríadas de paletas (`primary`, `gray`, `success`, `warning`, `error`, `info`)
 
@@ -57,6 +69,7 @@ Al registrar los tokens en `@theme inline`, Tailwind CSS v4 habilita automática
 
 * **Superficies:** `*-surface-soft`, `*-surface-base`, `*-surface-bold`.
 * **Primario:** `*-primary-soft`, `*-primary-base`, `*-primary-bold`.
+* **Contenido:** `text-content-soft`, `text-content-base`, `text-content-bold`.
 * **Neutro (`gray`):** `*-gray-soft`, `*-gray-base`, `*-gray-bold`.
 * **Éxito (`success`):** `*-success-soft`, `*-success-base`, `*-success-bold`.
 * **Advertencia (`warning`):** `*-warning-soft`, `*-warning-base`, `*-warning-bold`.

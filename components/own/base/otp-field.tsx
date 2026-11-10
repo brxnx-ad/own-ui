@@ -1,7 +1,7 @@
 "use client";
 
 import { OTPField as Primitive } from "@base-ui/react/otp-field";
-import clsx from "clsx";
+import clsx from "@/components/own/classes";
 
 export type OTPFieldProps = Primitive.Root.Props;
 export type OTPFieldState = Primitive.Root.State;
@@ -25,8 +25,8 @@ function classes<State>(
 
 const inputStyles = clsx(
   "h-10 w-7 shrink-0 rounded-base border border-gray-base bg-surface-bold sm:size-11",
-  "text-center text-base font-medium text-gray-bold tabular-nums",
-  "placeholder:text-gray-bold/60 focus:placeholder:opacity-0",
+  "text-center text-base font-medium text-content-bold tabular-nums",
+  "placeholder:text-content-soft focus:placeholder:opacity-0",
   "outline-hidden focus-visible:ring-2 focus-visible:ring-primary-base",
   "data-filled:not-data-invalid:not-aria-invalid:border-gray-bold/30",
   "data-invalid:border-error-base data-invalid:focus-visible:ring-error-base",

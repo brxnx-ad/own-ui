@@ -77,7 +77,7 @@ La definición determina el tipo de gráfico. El ancho es adaptable por defecto.
 
 - `figureProps.className` y `figureProps.style` afectan a la figura. Añade una superficie, borde o padding según el contexto. La figura ocupa el ancho disponible y mantiene el pie debajo con una separación interna.
 - El módulo asigna `--ts-chart-1` a `--ts-chart-6` a las familias primaria, información, éxito, advertencia, error y neutra. En oscuro aclara las cinco primeras mezclándolas con `gray-bold`. Para una instancia, define las variables en la figura. Para un significado fijo por serie, usa una escala ordinal con dominio explícito y valores `var(--ts-chart-N)`.
-- El texto y los ejes por defecto heredan `gray-bold`. El tooltip usa `surface-bold`, borde `gray-base`, radio base y `shadow-m`. Si un portal mueve el tooltip fuera de la figura, aplica los tokens necesarios en un ancestro compartido.
+- El texto y los ejes por defecto heredan `content-bold`. El tooltip usa `surface-bold`, borde `gray-base`, radio base y `shadow-m`. Si un portal mueve el tooltip fuera de la figura, aplica los tokens necesarios en un ancestro compartido.
 - `className` y `style` afectan al host interior. Usa las props de dimensiones para que el tamaño de la escena coincida con el tamaño del host. El módulo dibuja un contorno en el SVG cuando recibe foco visible.
 - El movimiento pertenece a la definición. Si habilitas `svgAnimation`, conserva la adaptación a `prefers-reduced-motion` del motor. [Temas y estilos de TanStack Charts](https://tanstack.com/charts/latest/docs/guides/themes-and-styling)
 

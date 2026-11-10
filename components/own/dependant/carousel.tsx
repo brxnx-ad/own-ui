@@ -2,7 +2,7 @@
 
 import { createContext, useCallback, useContext, useEffect, useId, useSyncExternalStore, type ComponentProps } from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import clsx from "clsx";
+import clsx from "@/components/own/classes";
 import { Button, type ButtonProps } from "@/components/own/base/button";
 import { Chevron } from "@/components/own/icons";
 

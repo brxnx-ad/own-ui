@@ -1,4 +1,4 @@
-import clsx from "clsx";
+import clsx from "@/components/own/classes";
 import type { ComponentPropsWithRef } from "react";
 
 export type BadgeVariant =
@@ -30,7 +30,7 @@ export function Badge({ className, variant = "default", ...props }: BadgeProps) 
       data-slot="badge"
       data-variant={variant}
       className={clsx(
-        "caption inline-flex max-w-full items-center gap-1 rounded-base border px-2 py-0.5 wrap-anywhere text-gray-bold",
+        "caption inline-flex max-w-full items-center gap-1 rounded-base border px-2 py-0.5 wrap-anywhere text-content-bold",
         "[&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-[1.15em]",
         variantStyles[variant],
         className,

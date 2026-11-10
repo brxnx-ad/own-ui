@@ -31,7 +31,7 @@ El módulo también exporta `AlertProps` y `AlertVariant`. Las tres piezas de co
 
 ## 4. Variantes y tamaños
 
-`variant` usa `default` de forma predeterminada. Combina `surface-base` con borde `gray-base`. `info`, `success`, `warning` y `destructive` usan el fondo `*-soft` y el borde `*-base` de `info`, `success`, `warning` y `error`, respectivamente. Todas mantienen el texto en `gray-bold` y la misma geometría. La familia carece de prop de tamaño.
+`variant` usa `default` de forma predeterminada. Combina `surface-base` con borde `gray-base`. `info`, `success`, `warning` y `destructive` usan el fondo `*-soft` y el borde `*-base` de `info`, `success`, `warning` y `error`, respectivamente. Todas mantienen el texto en `content-bold` y la misma geometría. La familia carece de prop de tamaño.
 
 ## 5. Props y callbacks
 
@@ -55,7 +55,7 @@ La variante se resuelve en cada render y se refleja en `data-variant` de `data-s
 - **AlertTitle** usa `h5` y permite partir palabras largas. **AlertDescription** usa `body-sm`, admite saltos de palabra y subraya enlaces descendientes. **AlertAction** permite envolver acciones con `gap-2` y agrega `pt-2`.
 - Las piezas internas se ajustan con selectores dirigidos a sus slots. La familia carece de sombras, animaciones y prop `render`.
 
-Cada pieza pública admite `className` de tipo `string` y `style` como objeto CSS en su nodo. `clsx` concatena las clases y la cascada determina el resultado cuando se contradicen. Las props HTML y `ref` llegan al nodo correspondiente. Consulta [los estilos compartidos](../../globals.md) para los tokens por tema. El consumidor decide la separación exterior.
+Cada pieza pública admite `className` de tipo `string` y `style` como objeto CSS en su nodo. `clsx` concatena las clases y, salvo la [excepción de colores `content`](../../globals.md#composición-y-precedencia-de-clases), la cascada determina el resultado cuando se contradicen. Las props HTML y `ref` llegan al nodo correspondiente. Consulta [los estilos compartidos](../../globals.md) para los tokens por tema. El consumidor decide la separación exterior.
 
 ## 8. Ejemplos de composición
 

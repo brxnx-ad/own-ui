@@ -2,7 +2,7 @@
 
 import { Radio as RadioPrimitive } from "@base-ui/react/radio";
 import { RadioGroup as GroupPrimitive } from "@base-ui/react/radio-group";
-import clsx from "clsx";
+import clsx from "@/components/own/classes";
 
 export type RadioGroupProps<Value = unknown> = GroupPrimitive.Props<Value>;
 export type RadioGroupState = GroupPrimitive.State;

@@ -62,12 +62,12 @@ Los slots son `empty`, `empty-header`, `empty-media`, `empty-title`, `empty-desc
 
 ## 7. Estilos admitidos por pieza
 
-- **Empty** usa flex vertical centrado, `min-w-0`, `gap-4`, `p-6`, `rounded-base` y `gray-bold`. Para un borde o fondo propio, elige `none` en la opción correspondiente y agrega las clases a la raíz.
+- **Empty** usa flex vertical centrado, `min-w-0`, `gap-4`, `p-6`, `rounded-base` y `content-bold`. Para un borde o fondo propio, elige `none` en la opción correspondiente y agrega las clases a la raíz.
 - **EmptyHeader** limita el ancho con `max-w-sm` y separa el contenido con `gap-2`. **EmptyMedia** centra su contenido con `max-w-full`. En `icon` usa `rounded-base`, borde `gray-base`, `surface-bold` y ajusta SVG sin clase que contenga `size-` a `1.15em`.
-- **EmptyTitle** usa `h5`. **EmptyDescription** usa `body-sm`, `gray-bold/80` y subraya los enlaces descendientes. Ambos pueden partir palabras largas. **EmptyContent** centra sus hijos, permite envoltura y usa `max-w-sm` y `gap-2`.
+- **EmptyTitle** usa `h5`. **EmptyDescription** usa `body-sm`, `content-base` y subraya los enlaces descendientes. Ambos pueden partir palabras largas. **EmptyContent** centra sus hijos, permite envoltura y usa `max-w-sm` y `gap-2`.
 - La familia carece de sombra, animaciones y prop `render`.
 
-Cada pieza pública admite `className` de tipo `string` y `style` como objeto CSS en su nodo. `clsx` concatena las clases y la cascada determina el resultado cuando se contradicen. Las props HTML y `ref` llegan al nodo correspondiente. Consulta [los estilos compartidos](../../globals.md) para los tokens por tema. El consumidor decide la separación exterior.
+Cada pieza pública admite `className` de tipo `string` y `style` como objeto CSS en su nodo. `clsx` concatena las clases y, salvo la [excepción de colores `content`](../../globals.md#composición-y-precedencia-de-clases), la cascada determina el resultado cuando se contradicen. Las props HTML y `ref` llegan al nodo correspondiente. Consulta [los estilos compartidos](../../globals.md) para los tokens por tema. El consumidor decide la separación exterior.
 
 ## 8. Ejemplos de composición
 

@@ -95,7 +95,7 @@ export function CheckboxExample() {
       </Menu>
       <Preview>
         <p className="font-semibold">Informe mensual</p>
-        {showDetails && <p className="caption text-gray-bold/75">PDF · 12 páginas</p>}
+        {showDetails && <p className="caption text-content-base">PDF · 12 páginas</p>}
       </Preview>
     </>
   );
@@ -144,7 +144,7 @@ export function SubmenuExample() {
       </Menu>
       <Preview>
         <p className="font-semibold">Informe mensual</p>
-        <p className="caption text-gray-bold/75">{folder}</p>
+        <p className="caption text-content-base">{folder}</p>
       </Preview>
     </>
   );

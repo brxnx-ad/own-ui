@@ -67,7 +67,7 @@ La orientación del separador se determina por el contexto de ButtonGroup. Fuera
 | ButtonGroupText | Superficie `surface-base`, borde `gray-base`, radio `rounded-base` y padding horizontal. SVG sin tamaño explícito se ajusta a `size-4`. |
 | ButtonGroupSeparator | Usa el color `gray-base` y la geometría horizontal o vertical de Separator. El contexto define qué eje divide. |
 
-Los estilos se adaptan con `className`, `style` y los selectores `data-slot` o `data-orientation`. El CSS Module gestiona radios y bordes conjuntos con selectores `:has`; incluye `button-group.module.css` al exportar la familia. `clsx` concatena clases, pero no resuelve conflictos de Tailwind. Los botones conservan sus propios estados y tokens por tema.
+Los estilos se adaptan con `className`, `style` y los selectores `data-slot` o `data-orientation`. El CSS Module gestiona radios y bordes conjuntos con selectores `:has`; incluye `button-group.module.css` al exportar la familia. `clsx` concatena clases, y aplica la excepción de colores descrita en [globals](../../globals.md#composición-y-precedencia-de-clases). Los botones conservan sus propios estados y tokens por tema.
 
 ## 8. Ejemplos de composición
 

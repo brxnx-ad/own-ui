@@ -167,7 +167,7 @@ export function ComparisonExample() {
         caption="Real usa una línea continua. Plan usa una línea discontinua."
         onSelect={(point) => setSelected(point?.datum ?? null)}
       />
-      <p role="status" className="body-sm min-h-5 text-gray-bold/75">
+      <p role="status" className="body-sm min-h-5 text-content-base">
         {selected ? `${selected.month} · ${selected.series} · ${selected.units} unidades` : "Selecciona un punto para consultar su valor."}
       </p>
     </div>

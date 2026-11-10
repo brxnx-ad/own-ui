@@ -292,7 +292,7 @@ const components: ComponentItem[] = [
 
 export default function ShowcaseHomePage() {
   return (
-    <main className="min-h-screen bg-surface-soft px-6 py-12 text-gray-bold sm:px-12">
+    <main className="min-h-screen bg-surface-soft px-6 py-12 text-content-bold sm:px-12">
       <div className="mx-auto max-w-4xl space-y-10">
         <header className="space-y-3 text-center">
           <h1 className="h1">own-ui</h1>

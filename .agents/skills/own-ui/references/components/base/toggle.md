@@ -72,9 +72,9 @@ Las medidas en píxeles corresponden a la escala predeterminada de Tailwind. Con
 | :--- | :--- |
 | Dimensiones y distribución | Usa `size` e `iconOnly` como primera opción. El nodo se adapta hasta el ancho disponible y permite partir etiquetas largas. El consumidor controla margen y separación exterior. `style={{ width: "100%" }}` permite extender una instancia con texto. |
 | Tipografía, geometría e iconos | Usa `font-medium`, `rounded-base` y un borde de 1 px. Los SVG descendientes sin clase `size-*` se ajustan a `1.15em` y conservan su tamaño frente al texto. Aporta un SVG decorativo o el contenido que necesites como hijo. |
-| Colores y estados | Usa los tokens de la tabla de variantes y `gray-bold` para texto y contorno exterior de foco de 2 px. `data-disabled` reduce la opacidad. En colores forzados, el estado liberado usa `Canvas` y `CanvasText`, el presionado `Highlight` y `HighlightText`, y el deshabilitado liberado `GrayText` en texto y borde. |
+| Colores y estados | Usa los tokens de la tabla de variantes y `content-bold` para texto y `gray-bold` para el contorno exterior de foco de 2 px. `data-disabled` reduce la opacidad. En colores forzados, el estado liberado usa `Canvas` y `CanvasText`, el presionado `Highlight` y `HighlightText`, y el deshabilitado liberado `GrayText` en texto y borde. |
 | Movimiento | Con movimiento permitido, colores, borde, sombra y escala transicionan durante 150 ms con `ease-out`. `:active` comprime a `0.98`. Con movimiento reducido, el cambio de estado es inmediato. |
-| Canales de ajuste | Usa las props propias, `className`, `style` o selectores de `data-slot`, `data-pressed` y `data-disabled`. `className` estático o funcional se combina con `clsx`. La cascada resuelve utilidades en conflicto. `style` actúa sobre el mismo nodo. |
+| Canales de ajuste | Usa las props propias, `className`, `style` o selectores de `data-slot`, `data-pressed` y `data-disabled`. `className` estático o funcional se combina con `clsx`. Salvo la [excepción de colores `content`](../../globals.md#composición-y-precedencia-de-clases), la cascada resuelve utilidades en conflicto. `style` actúa sobre el mismo nodo. |
 
 Los tokens se adaptan al tema. La personalización de tokens compartidos se aplica a todas las piezas que los consumen. [globals.css](../../globals.md)
 

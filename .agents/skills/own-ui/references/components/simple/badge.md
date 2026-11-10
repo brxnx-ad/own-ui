@@ -51,9 +51,9 @@ Los eventos son los del elemento HTML correspondiente. La familia carece de call
 
 ## 7. Estilos admitidos por pieza
 
-`inline-flex` centra los hijos en el eje vertical con `gap-1`. Usa `max-w-full`, `wrap-anywhere`, `px-2`, `py-0.5`, borde, `rounded-base`, `caption` y texto `gray-bold` en todas las variantes. Los SVG descendientes conservan su ancho y reciben `size-[1.15em]` si su clase no contiene `size-`. Carece de sombra, animaciones y prop `render`.
+`inline-flex` centra los hijos en el eje vertical con `gap-1`. Usa `max-w-full`, `wrap-anywhere`, `px-2`, `py-0.5`, borde, `rounded-base`, `caption` y texto `content-bold` en todas las variantes. Los SVG descendientes conservan su ancho y reciben `size-[1.15em]` si su clase no contiene `size-`. Carece de sombra, animaciones y prop `render`.
 
-Cada pieza pública admite `className` de tipo `string` y `style` como objeto CSS en su nodo. `clsx` concatena las clases y la cascada determina el resultado cuando se contradicen. Las props HTML y `ref` llegan al nodo correspondiente. Consulta [los estilos compartidos](../../globals.md) para los tokens por tema. El consumidor decide la separación exterior.
+Cada pieza pública admite `className` de tipo `string` y `style` como objeto CSS en su nodo. `clsx` concatena las clases y, salvo la [excepción de colores `content`](../../globals.md#composición-y-precedencia-de-clases), la cascada determina el resultado cuando se contradicen. Las props HTML y `ref` llegan al nodo correspondiente. Consulta [los estilos compartidos](../../globals.md) para los tokens por tema. El consumidor decide la separación exterior.
 
 ## 8. Ejemplos de composición
 

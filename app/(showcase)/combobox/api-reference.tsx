@@ -94,7 +94,7 @@ export function ApiReference() {
           rows: rows.map(([prop, type, defaultValue, description]) => ({ prop, type, defaultValue, description, optional: name === "ComboboxList / Collection" ? "Sí en List" : "Sí" })),
         }))}
       />
-      <ul className="list-disc space-y-2 pl-5 body-sm text-gray-bold/75">
+      <ul className="list-disc space-y-2 pl-5 body-sm text-content-base">
         <li>Las piezas con nodo visible admiten <code>className</code>, <code>style</code> y <code>render</code> según los tipos de Base UI.</li>
         <li><code>createComboboxItems</code> separa los datos que renderiza la lista del valor que guarda el formulario. Los hooks de filtrado mantienen los tipos de Base UI.</li>
         <li>Las flechas recorren la lista, Enter selecciona la opción resaltada y Escape cierra el panel.</li>

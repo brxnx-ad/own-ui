@@ -66,7 +66,7 @@ export function CarouselReference() {
       </ShowcaseAnatomy>
       <ShowcaseApiReference>
         <ShowcaseApiTable name="Carousel" groups={groups} />
-        <p className="body-sm text-gray-bold/75">La paginación se oculta si hay menos de dos posiciones. Los botones de navegación conservan el foco al llegar a un extremo.</p>
+        <p className="body-sm text-content-base">La paginación se oculta si hay menos de dos posiciones. Los botones de navegación conservan el foco al llegar a un extremo.</p>
       </ShowcaseApiReference>
     </>
   );
